@@ -8,7 +8,7 @@ import styles from './index.module.scss';
 // Handler that maps to a route in /utils/routes
 const LandingPage = (props) => (
   <div className={styles.container}>
-    // Code me
+    {...props}
   </div>
 );
 
