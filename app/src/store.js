@@ -7,11 +7,12 @@ import promiseMiddleware from 'redux-promise-middleware';
 import rootReducer from './reducers';
 
 const initialState = {
-  featureComponent: {
-    isLoading: false,
-    data: {},
-    error: {},
-  },
+  // Fill in initial state here
+  // featureComponent: {
+  //   isLoading: false,
+  //   data: {},
+  //   error: {},
+  // },
 };
 
 /* Commonly used middlewares and enhancers */
