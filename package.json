@@ -18,7 +18,7 @@
     "test:ie": "npm run test -- --browsers IE",
     "coveralls": "cat ./coverage/lcov/lcov.info | coveralls",
     "build": "`npm bin`/webpack",
-    "dev": "`npm bin`/webpack-dev-server",
+    "dev": "C:/Users/Treefish/alumni-client/node_modules/.bin/webpack-dev-server",
     "generate": "plop --plopfile config/generators/index.js",
     "generator": "npm run generate",
     "generate:component": "plop --plopfile config/generators/index.js component",
