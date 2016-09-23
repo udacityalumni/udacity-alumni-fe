@@ -1,6 +1,6 @@
 /* eslint-disable */
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 1337 : process.env.PORT;
+const port = isDeveloping ? 1338 : process.env.PORT;
 const path = require('path');
 const express = require('express');
 const app = express();
