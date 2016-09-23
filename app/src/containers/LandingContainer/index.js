@@ -6,6 +6,9 @@ import * as LandingActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Heading from 'grommet/components/Heading';
+import Section from 'grommet/components/Section';
+import Button from 'grommet/components/Button';
+import Footer from 'grommet/components/Footer';
 
 class Landing extends Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
@@ -26,9 +29,26 @@ class Landing extends Component { // eslint-disable-line react/prefer-stateless-
         {isLoading ?
           <LoadingIndicator isLoading={isLoading} />
         :
-          <Heading tag="h3" align="center">
-            So glad you made it!
-          </Heading>
+          <Section>
+            <Heading tag="h3" align="center">
+              So glad you could make it!
+            </Heading>
+            <Heading tag="h4" align="center">
+              🎉🎉🎉
+            </Heading>
+            <Footer
+              align="center"
+              justify="center"
+              pad={{ vertical: 'medium' }}
+            >
+              <Button
+                onClick={(e) => e}
+                href="https://github.com/udacityalumni/resources"
+                label="Read the Docs"
+                primary
+              />
+            </Footer>
+          </Section>
         }
       </div>
     );

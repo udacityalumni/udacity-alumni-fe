@@ -14,7 +14,12 @@ const Navbar = () => (
       <Title>
         <img className={styles.logo} src={LogoImage} alt="logo"/>
       </Title>
-      <Menu direction="row" align="center" responsive={false}>
+      <Menu
+        direction="row"
+        align="center"
+        responsive={false}
+        style={{ marginRight: 20 }}
+      >
         <IndexLink to="/" activeClassName="active">
           Home
         </IndexLink>
