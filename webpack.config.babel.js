@@ -139,7 +139,7 @@ module.exports = {
       new webpack.HotModuleReplacementPlugin(),
       new NpmInstallPlugin(),
       new HtmlwebpackPlugin({
-        title: 'Scalable React Boilerplate',
+        title: 'Udacity Alumni Client',
         template: 'index.html'
       }),
       new Visualizer()
