@@ -1,12 +1,14 @@
-import {{ properCase name }} from '../index';
+import Header from '../index';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import React from 'react';
 
-describe('<{{ properCase name }} />', () => {
+describe('<Header />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <{{ properCase name }} />
+      <Header
+        content="Hello World"
+      />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

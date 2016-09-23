@@ -1,12 +1,12 @@
-import {{ properCase name }} from '../index';
 import { shallow } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
 import React from 'react';
+import { shallowToJson } from 'enzyme-to-json';
+import Navbar from '../index';
 
-describe('<{{ properCase name }} />', () => {
+describe('<Navbar />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <{{ properCase name }} />
+      <Navbar />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

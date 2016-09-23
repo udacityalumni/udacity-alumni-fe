@@ -1,19 +1,19 @@
-import {{ properCase name }} from '../index';
+import FeatureFirstContainer from '../index';
+import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { initialState } from '../reducer';
+import { initialState as featureComponent } from '../reducer';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('<{{ properCase name }} />', () => {
-  it('should render with default props', () => {
-    const store = mockStore(initialState);
+describe('<FeatureFirstContainer />', () => {
+  it('renders with default props', () => {
+    const store = mockStore({ featureComponent });
     const wrapper = shallow(
-      <{{ properCase name }} store={store} />
+      <FeatureFirstContainer store={store} />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
