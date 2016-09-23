@@ -31,32 +31,11 @@ exports[`<Navbar /> should render with default props 1`] = `
       }
       pad="none"
       responsive={false}>
-      <Anchor
-        className="active"
-        href="#"
-        tag="a">
-        First
-      </Anchor>
-      <Anchor
-        href="#"
-        tag="a">
-        Second
-      </Anchor>
-      <Anchor
-        href="#"
-        tag="a">
-        Third
-      </Anchor>
-      <Search
-        align="left"
-        dropAlign={
-          Object {
-            "right": "right"
-          }
-        }
-        iconAlign="end"
-        inline={false}
-        responsive={true} />
+      <IndexLink
+        activeClassName="active"
+        to="/">
+        Home
+      </IndexLink>
     </Menu>
   </Header>
 </div>

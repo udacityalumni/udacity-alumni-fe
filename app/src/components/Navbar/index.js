@@ -2,9 +2,8 @@ import React from 'react';
 import Header from 'grommet/components/Header';
 import Title from 'grommet/components/Title';
 import Menu from 'grommet/components/Menu';
-import Anchor from 'grommet/components/Anchor';
-import Search from 'grommet/components/Search';
 import LogoImage from './logo.png';
+import { IndexLink } from 'react-router';
 
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
@@ -16,16 +15,9 @@ const Navbar = () => (
         <img className={styles.logo} src={LogoImage} alt="logo"/>
       </Title>
       <Menu direction="row" align="center" responsive={false}>
-        <Anchor href="#" className="active">
-          First
-        </Anchor>
-        <Anchor href="#">
-          Second
-        </Anchor>
-        <Anchor href="#">
-          Third
-        </Anchor>
-        <Search dropAlign={{ right: 'right'}} />
+        <IndexLink to="/" activeClassName="active">
+          Home
+        </IndexLink>
       </Menu>
     </Header>
   </div>

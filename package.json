@@ -14,7 +14,8 @@
     "test": {
       "plugins": [
         [
-          "babel-plugin-webpack-loaders", {
+          "babel-plugin-webpack-loaders",
+          {
             "config": "./config/testing/webpack.test.config.js",
             "verbose": false
           }
@@ -106,6 +107,7 @@
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.2.1",
     "react-addons-test-utils": "^15.3.2",
+    "react-addons-update": "^15.3.2",
     "react-dom": "^15.0.1",
     "react-foundation": "^0.6.8",
     "react-intl": "^2.1.3",

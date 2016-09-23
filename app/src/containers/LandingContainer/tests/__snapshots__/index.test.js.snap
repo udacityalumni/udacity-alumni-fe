@@ -1,13 +1,13 @@
-exports[`<FeatureFirstContainer /> renders with default props 1`] = `
-<FeatureFirstContainer
+exports[`<Landing /> should render with default props 1`] = `
+<Landing
   actions={
     Object {
-      "clearDataError": [Function anonymous],
-      "loadDataFailure": [Function anonymous],
-      "loadDataInitiation": [Function anonymous],
-      "loadDataSuccess": [Function anonymous]
+      "fakeLoading": [Function anonymous],
+      "startLoading": [Function anonymous],
+      "stopLoading": [Function anonymous]
     }
   }
+  isLoading={false}
   store={
     Object {
       "clearActions": [Function clearActions],

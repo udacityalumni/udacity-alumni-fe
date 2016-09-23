@@ -1,14 +1,12 @@
-import Header from '../index';
+import LoadingIndicator from '../index';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import React from 'react';
 
-describe('<Header />', () => {
+describe('<LoadingIndicator />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <Header
-        content="Hello World"
-      />
+      <LoadingIndicator />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
