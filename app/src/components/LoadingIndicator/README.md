@@ -11,4 +11,4 @@ A component that shows as a loading indicator while loading.
 
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
-| **isLoading**    | Boolean   |             | True or false.
+| **isLoading**    | Boolean   | True            | True or false.
