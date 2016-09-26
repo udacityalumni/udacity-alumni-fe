@@ -36,11 +36,63 @@ exports[`<Navbar /> should render with default props 1`] = `
           "marginRight": 20
         }
       }>
-      <IndexLink
-        activeClassName="active"
-        to="/">
-        Home
-      </IndexLink>
+      <Anchor
+        tag="a">
+        My Classroom
+      </Anchor>
+      <Anchor
+        tag="a">
+        Careers
+      </Anchor>
+      <Anchor
+        tag="a">
+        Mentorship
+      </Anchor>
+      <Anchor
+        tag="a">
+        Meetups
+      </Anchor>
+      <Search
+        align="left"
+        dropAlign={
+          Object {
+            "right": "right"
+          }
+        }
+        iconAlign="end"
+        inline={false}
+        onDOMChange={[Function onSearch]}
+        responsive={true} />
+    </Menu>
+    <Menu
+      align="center"
+      closeOnClick={true}
+      direction="row"
+      dropAlign={
+        Object {
+          "left": "left",
+          "top": "top"
+        }
+      }
+      pad="none"
+      responsive={false}
+      style={
+        Object {
+          "marginRight": 20
+        }
+      }>
+      <Anchor
+        tag="a">
+        Logout
+      </Anchor>
+      <Anchor
+        tag="a">
+        Account
+      </Anchor>
+      <Anchor
+        tag="a">
+        My Classroom
+      </Anchor>
     </Menu>
   </Header>
 </div>
