@@ -20,7 +20,7 @@ const Navbar = ({
         direction="row"
         align="center"
         responsive
-        style={{ flex: 1, marginLeft: 10 }}
+        className={styles.leftMenu}
       >
         <Anchor>
           My Classroom
