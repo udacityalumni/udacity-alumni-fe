@@ -19,8 +19,8 @@ const Navbar = ({
       <Menu
         direction="row"
         align="center"
-        responsive={false}
-        style={{ marginRight: 20 }}
+        responsive
+        className={styles.leftMenu}
       >
         <Anchor>
           My Classroom
@@ -39,7 +39,7 @@ const Navbar = ({
       <Menu
         direction="row"
         align="center"
-        responsive={false}
+        responsive
         style={{ marginRight: 20 }}
       >
         <Anchor>
