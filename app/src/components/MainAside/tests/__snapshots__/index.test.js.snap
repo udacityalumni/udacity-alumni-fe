@@ -1,0 +1,38 @@
+exports[`<MainAside /> should render with default props 1`] = `
+<Box
+  align="center"
+  announce={false}
+  basis="1/3"
+  direction="column"
+  focusable={true}
+  pad="medium"
+  responsive={true}
+  tag="div">
+  <Image
+    size="medium"
+    src="http://helloworld.com" />
+  <Box
+    align="center"
+    announce={false}
+    basis="2/3"
+    direction="column"
+    focusable={true}
+    pad={
+      Object {
+        "horizontal": "small",
+        "vertical": "large"
+      }
+    }
+    responsive={true}
+    tag="div">
+    <Heading
+      align="start"
+      tag="h3">
+      Career Resources
+    </Heading>
+    <Paragraph>
+      lorem ipsum
+    </Paragraph>
+  </Box>
+</Box>
+`;

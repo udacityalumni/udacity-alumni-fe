@@ -7,7 +7,7 @@ import App from 'grommet/components/App';
 
 const Main = (props) => (
   <App>
-    <Navbar />
+    <Navbar onSearch={(e) => e} />
     {React.cloneElement(props.children, props)}
   </App>
 );

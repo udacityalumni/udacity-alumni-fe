@@ -9,11 +9,14 @@ describe('landingReducer', () => {
     ).toEqual(initialState);
   });
   it('should handle START_LANDING_LOADING', () => {
+    const stateBefore = {
+      isLoading: false,
+    };
     const stateAfter = {
       isLoading: true,
     };
     expect(
-      landingReducer(initialState, {
+      landingReducer(stateBefore, {
         type: types.START_LANDING_LOADING,
       })
     ).toEqual(stateAfter);

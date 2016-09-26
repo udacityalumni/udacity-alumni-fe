@@ -1,12 +1,15 @@
+import MainAside from '../index';
 import { shallow } from 'enzyme';
-import React from 'react';
 import { shallowToJson } from 'enzyme-to-json';
-import Navbar from '../index';
+import React from 'react';
 
-describe('<Navbar />', () => {
+describe('<MainAside />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <Navbar onSearch={(e) => e} />
+      <MainAside
+        avatarImage="http://helloworld.com"
+        careerResourcesParagraph="lorem ipsum"
+      />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
