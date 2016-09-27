@@ -15,7 +15,8 @@ const routes = (
     >
       <Route path="/" component={App}>
         <IndexRoute component={Pages.LandingPage} />
-        <Route path="*" component={Pages.NotFoundPage} />
+        <Route path="/admin/content-dashboard" component={Pages.ContentDashboardPage} />
+          <Route path="*" component={Pages.NotFoundPage} />
       </Route>
     </Router>
   </Provider>
