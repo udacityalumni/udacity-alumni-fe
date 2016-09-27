@@ -1,0 +1,45 @@
+exports[`<SpotlightArticles /> should render with default props 1`] = `
+<Box
+  announce={false}
+  direction="column"
+  focusable={true}
+  pad="small"
+  responsive={true}
+  tag="div">
+  <Heading
+    align="center"
+    tag="h3">
+    Spotlight Articles
+  </Heading>
+  <Box
+    announce={false}
+    direction="row"
+    focusable={true}
+    pad={
+      Object {
+        "vertical": "small"
+      }
+    }
+    responsive={true}
+    tag="div">
+    <Box
+      announce={false}
+      basis="1/3"
+      direction="column"
+      focusable={true}
+      pad={
+        Object {
+          "horizontal": "small"
+        }
+      }
+      responsive={true}
+      tag="div">
+      <img
+        src="http://helloworld.com" />
+      <Paragraph>
+        Hello World
+      </Paragraph>
+    </Box>
+  </Box>
+</Box>
+`;

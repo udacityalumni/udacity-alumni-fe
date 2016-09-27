@@ -16,7 +16,7 @@ To get the development server running, please run
 npm run start
 ```
 
-and navigate to http://0.0.0.0:8080
+and navigate to http://0.0.0.0:1337
 
 Again, please reference the [Scalable React Boilerplate](https://github.com/RyanCCollins/scalable-react-boilerplate) project for details regarding the scripts.
 
