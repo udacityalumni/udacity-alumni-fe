@@ -47,12 +47,10 @@ class Landing extends Component { // eslint-disable-line react/prefer-stateless-
                 <SpotlightArticles articles={mainArticles} />
               </Box>
               <MainAside
-                avatarImage="http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png"
-                careerResourcesParagraph={
-                  `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam vel blandit ligula, in auctor risus. Fusce venenatis
-                  tristique lorem, molestie posuere augue placerat eu.`
-                }
+                user={{
+                  avatar: "http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png",
+                  name: 'David'
+                }}
               />
             </Box>
           </Section>

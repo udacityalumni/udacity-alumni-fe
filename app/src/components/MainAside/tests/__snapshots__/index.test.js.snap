@@ -10,7 +10,7 @@ exports[`<MainAside /> should render with default props 1`] = `
   tag="div">
   <Image
     size="medium"
-    src="http://helloworld.com" />
+    src="http://github.com/image.png" />
   <Box
     align="center"
     announce={false}
@@ -26,13 +26,10 @@ exports[`<MainAside /> should render with default props 1`] = `
     responsive={true}
     tag="div">
     <Heading
-      align="start"
+      align="center"
       tag="h3">
-      Career Resources
+      Hello, David Harris!
     </Heading>
-    <Paragraph>
-      lorem ipsum
-    </Paragraph>
   </Box>
 </Box>
 `;
