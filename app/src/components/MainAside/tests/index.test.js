@@ -7,8 +7,10 @@ describe('<MainAside />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
       <MainAside
-        avatarImage="http://helloworld.com"
-        careerResourcesParagraph="lorem ipsum"
+        user={{
+          name: 'David Harris',
+          avatar: 'http://github.com/image.png',
+        }}
       />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();

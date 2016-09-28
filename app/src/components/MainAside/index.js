@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import Heading from 'grommet/components/Heading';
-import Paragraph from 'grommet/components/Paragraph';
 import Image from 'grommet/components/Image';
 import Box from 'grommet/components/Box';
 

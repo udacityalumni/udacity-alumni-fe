@@ -13,7 +13,13 @@ describe('<ContentDashboard />', () => {
   it('should render with default props', () => {
     const store = mockStore(initialState);
     const wrapper = shallow(
-      <ContentDashboard store={store} />
+      <ContentDashboard
+        user={{
+          name: 'David Harris',
+          avatar: 'http://github.com/image.png',
+        }}
+        store={store}
+      />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
