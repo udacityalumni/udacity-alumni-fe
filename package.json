@@ -53,7 +53,9 @@
     "start": "npm run dev",
     "clean": "rm -rf app/dist app/build",
     "setup": "npm install",
-    "serve:bundle": "cross-env NODE_ENV=production PORT=1337 node server.js"
+    "serve:bundle": "cross-env NODE_ENV=production PORT=1337 node server.js",
+    "add": "all-contributors add",
+    "generate": "all-contributors generate"
   },
   "repository": {
     "type": "git",
@@ -125,6 +127,7 @@
     "webpack": "^1.12.9"
   },
   "devDependencies": {
+    "all-contributors-cli": "^3.0.6",
     "babel-eslint": "^5.0.0-beta4",
     "babel-jest": "^15.0.0",
     "babel-plugin-webpack-loaders": "^0.7.1",
