@@ -46,6 +46,7 @@ exports[`<Landing /> should render with default props 1`] = `
       "dispatch": [Function anonymous],
       "getActions": [Function getActions],
       "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
       "subscribe": [Function subscribe]
     }
   } />
