@@ -15,9 +15,13 @@ exports[`<Navbar /> should render with default props 1`] = `
     tag="header">
     <Title
       responsive={true}>
-      <img
-        alt="logo"
-        src={Object {}} />
+      <Anchor
+        href="/"
+        tag="a">
+        <img
+          alt="logo"
+          src={Object {}} />
+      </Anchor>
     </Title>
     <Menu
       align="center"

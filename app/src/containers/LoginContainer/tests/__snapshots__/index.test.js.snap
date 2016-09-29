@@ -2,7 +2,7 @@ exports[`<LoginContainer /> should render with default props 1`] = `
 <Login
   actions={
     Object {
-      "clearLoginErrors": [Function anonymous],
+      "clearLoginError": [Function anonymous],
       "loginRequestFailure": [Function anonymous],
       "loginRequestSuccess": [Function anonymous],
       "logoutUser": [Function anonymous],
@@ -19,6 +19,7 @@ exports[`<LoginContainer /> should render with default props 1`] = `
       "dispatch": [Function anonymous],
       "getActions": [Function getActions],
       "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
       "subscribe": [Function subscribe]
     }
   } />

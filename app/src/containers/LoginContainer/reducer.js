@@ -37,10 +37,13 @@ const loginReducer =
             ],
           },
         });
-      case types.CLEAR_LOGIN_ERRORS:
+      case types.CLEAR_LOGIN_ERROR:
         return update(state, {
           errors: {
-            $set: [],
+            $set: [
+              ...state.errors.slice(0, action.index),
+              ...state.errors.slice(action.index + 1),
+            ],
           },
         });
       case types.LOGOUT_USER:

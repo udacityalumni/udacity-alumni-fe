@@ -38,11 +38,13 @@ describe('Login actions', () => {
       };
       expect(actions.logoutUser()).toEqual(expected);
     });
-    it('has a type of CLEAR_LOGIN_ERRORS', () => {
+    it('has a type of CLEAR_LOGIN_ERROR', () => {
+      const index = 1;
       const expected = {
-        type: types.CLEAR_LOGIN_ERRORS,
+        type: types.CLEAR_LOGIN_ERROR,
+        index,
       };
-      expect(actions.clearLoginErrors()).toEqual(expected);
+      expect(actions.clearLoginError(index)).toEqual(expected);
     });
   });
 });

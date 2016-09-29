@@ -7,12 +7,13 @@ import styles from './index.module.scss';
 import Section from 'grommet/components/Section';
 import LoginForm from 'grommet/components/LoginForm';
 import Box from 'grommet/components/Box';
-import { LoadingIndicator } from 'components';
+import { LoadingIndicator, ErrorAlert } from 'components';
 
 class Login extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleErrorClose = this.handleErrorClose.bind(this);
   }
   componentDidMount() {
     const {
@@ -22,6 +23,12 @@ class Login extends Component {
       // Todo: reroute to a logged in route, i.e.
       // this.context.router.push('/logged-in-route');
     }
+  }
+  handleErrorClose(index) {
+    const {
+      clearLoginError,
+    } = this.props.actions;
+    clearLoginError(index);
   }
   handleSubmit() {
     const {
@@ -69,10 +76,7 @@ class Login extends Component {
           />
         }
         {errors && errors.length > 0 &&
-          <ul>
-            {/* TODO: Integrate a real error component */}
-            {errors.map((error, i) => <li key={i}>{error.message}</li>)}
-          </ul>
+          <ErrorAlert errors={errors} onClose={this.handleErrorClose} />
         }
       </Section>
     );

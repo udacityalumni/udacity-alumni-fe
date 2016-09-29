@@ -79,16 +79,20 @@ describe('loginReducer', () => {
         })
       ).toEqual(stateAfter);
     });
-    it('should handle CLEAR_LOGIN_ERRORS', () => {
+    it('should handle CLEAR_LOGIN_ERROR', () => {
+      const index = 0;
       const stateBefore = {
         errors,
       };
       const stateAfter = {
-        errors: [],
+        errors: [
+          { message: 'Another error has occured' },
+        ],
       };
       expect(
         loginReducer(stateBefore, {
-          type: types.CLEAR_LOGIN_ERRORS,
+          type: types.CLEAR_LOGIN_ERROR,
+          index,
         })
       ).toEqual(stateAfter);
     });

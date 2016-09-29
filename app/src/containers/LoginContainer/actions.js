@@ -37,7 +37,11 @@ export const submitLoginRequest = () =>
     // Hit the api here .then((res) => {...})
     fakeLatency().then(() => {
       dispatch(
-        loginRequestSuccess(fakeUser)
+        loginRequestFailure([
+          {
+            message: 'The app is not hooked up to the api yet, sadly 😕',
+          },
+        ])
       );
     });
   };
@@ -48,6 +52,7 @@ export const logoutUser = () => ({
 });
 
 // clearLoginErrors :: None -> Action
-export const clearLoginErrors = () => ({
-  type: types.CLEAR_LOGIN_ERRORS,
+export const clearLoginError = (index) => ({
+  type: types.CLEAR_LOGIN_ERROR,
+  index,
 });
