@@ -31,7 +31,10 @@ const loginReducer =
             $set: false,
           },
           errors: {
-            $unshift: action.errors,
+            $set: [
+              ...state.errors,
+              ...action.errors,
+            ],
           },
         });
       case types.CLEAR_LOGIN_ERRORS:

@@ -10,10 +10,12 @@ const isDeveloping = process.env.NODE_ENV !== 'production';
 
 import { initialState as landing } from './containers/LandingContainer/reducer';
 import { initialState as loginContainer } from './containers/LoginContainer/reducer';
+import { initialState as signupContainer } from './containers/SignupContainer/reducer';
 
 const initialState = {
   landing,
   loginContainer,
+  signupContainer,
 };
 
 /* Commonly used middlewares and enhancers */

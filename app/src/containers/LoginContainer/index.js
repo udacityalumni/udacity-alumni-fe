@@ -16,14 +16,14 @@ class Login extends Component {
   }
   handleSubmit() {
     const {
-      onSubmitLogin,
+      submitLoginRequest,
     } = this.props.actions;
-    onSubmitLogin();
+    submitLoginRequest();
   }
   render() {
     const {
       isLoading,
-      loggedInUser,
+      loggedInUser, // TODO: Handle logged in users
       errors,
     } = this.props;
     return (
@@ -49,7 +49,10 @@ class Login extends Component {
           />
         </Box>
         {isLoading &&
-          <LoadingIndicator isLoading={isLoading} />
+          <LoadingIndicator
+            message="Submitting"
+            isLoading={isLoading}
+          />
         }
         {errors && errors.length > 0 &&
           <ul>

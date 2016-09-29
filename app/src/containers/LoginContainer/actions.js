@@ -25,7 +25,7 @@ const fakeLatency = () =>
     }, 4000);
   });
 
-export const submitLogin = () =>
+export const submitLoginRequest = () =>
   (dispatch) => {
     const fakeUser = {
       name: 'David Harris',
