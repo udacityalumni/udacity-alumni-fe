@@ -18,6 +18,8 @@ npm run start
 
 and navigate to http://0.0.0.0:1337
 
+To run the test suite, please run `npm run test`, which will pick up any file with the word 'test' in its name.
+
 Again, please reference the [Scalable React Boilerplate](https://github.com/RyanCCollins/scalable-react-boilerplate) project for details regarding the scripts.
 
 ## Deployment
