@@ -5,6 +5,9 @@ email, or any other method with the owners of this repository before making a ch
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
+## Udacity Alumni
+To be eligible to work on this project, you need to be a verified Udacity Alumni, having completed a Nanodegree program with Udacity.
+
 ## Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
