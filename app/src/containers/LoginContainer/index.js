@@ -14,6 +14,15 @@ class Login extends Component {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  componentDidMount() {
+    const {
+      loggedInUser,
+    } = this.props;
+    if (loggedInUser) {
+      // Todo: reroute to a logged in route, i.e.
+      // this.context.router.push('/logged-in-route');
+    }
+  }
   handleSubmit() {
     const {
       submitLoginRequest,
@@ -23,7 +32,6 @@ class Login extends Component {
   render() {
     const {
       isLoading,
-      loggedInUser, // TODO: Handle logged in users
       errors,
     } = this.props;
     return (
