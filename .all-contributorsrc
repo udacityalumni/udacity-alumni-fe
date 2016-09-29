@@ -1,0 +1,32 @@
+{
+  "projectName": "alumni-client",
+  "projectOwner": "udacityalumni",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "RyanCCollins",
+      "name": "Ryan Collins",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13810084?v=3",
+      "profile": "http://www.ryancollins.io",
+      "contributions": [
+        "question",
+        "blog",
+        "bug",
+        "code",
+        "design",
+        "doc",
+        "example",
+        "infra",
+        "review",
+        "test",
+        "tool",
+        "tutorial",
+        "video"
+      ]
+    }
+  ]
+}
