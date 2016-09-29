@@ -53,6 +53,12 @@ class Login extends Component {
             title="Udacity Alumni"
             secondaryText="Enter your credentials to Login"
             rememberMe
+            logo={
+              <img
+                style={{ maxWidth: 150, height: 'auto' }}
+                src="https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/udacity-alumni-png.png?raw=true"
+              />
+            }
             onSubmit={this.handleSubmit}
           />
         </Box>
