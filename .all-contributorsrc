@@ -27,6 +27,17 @@
         "tutorial",
         "video"
       ]
+    },
+    {
+      "login": "adai183",
+      "name": "Andreas Daiminger",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13679375?v=3",
+      "profile": "https://github.com/adai183",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ]
 }
