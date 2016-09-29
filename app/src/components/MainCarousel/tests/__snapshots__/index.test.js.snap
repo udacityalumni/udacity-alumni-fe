@@ -5,6 +5,7 @@ exports[`<Navbar /> should render with default props 1`] = `
   focusable={true}
   pad="none"
   responsive={true}
+  size="large"
   tag="div">
   <Carousel
     autoplay={true}

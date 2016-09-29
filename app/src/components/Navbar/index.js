@@ -4,19 +4,19 @@ import Title from 'grommet/components/Title';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Search from 'grommet/components/Search';
-import LogoImage from './logo.png';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
+import { LogoImage } from 'components';
 
 const Navbar = ({
   onSearch,
   isLoggedIn,
 }) => (
   <div className={styles.navbar}>
-    <Header justify="between">
+    <Header justify="between" colorIndex="light-1">
       <Title>
         <Anchor href="/">
-          <img className={styles.logo} src={LogoImage} alt="logo"/>
+          <LogoImage />
         </Anchor>
       </Title>
       <Menu
