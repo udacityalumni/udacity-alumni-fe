@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/udacityalumni/alumni-client.png?label=ready&title=Ready)](https://waffle.io/udacityalumni/alumni-client)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 # Udacity Alumni Client App
 
 ## Getting Started
@@ -32,9 +33,12 @@ The project will be deployed via Docker to an ExpressJS server.  Configuration w
 - Redux
 - Scalable React Boilerplate
 
-## Authors
+## Contributors
 
-* **Ryan Collins**
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars.githubusercontent.com/u/13810084?v=3" width="100px;"/><br /><sub>Ryan Collins</sub>](http://www.ryancollins.io)<br />💁 📝 [🐛](https://github.com/udacityalumni/alumni-client/issues?q=author%3ARyanCCollins) [💻](https://github.com/udacityalumni/alumni-client/commits?author=RyanCCollins) 🎨 [📖](https://github.com/udacityalumni/alumni-client/commits?author=RyanCCollins) 💡 🚇 👀 [⚠️](https://github.com/udacityalumni/alumni-client/commits?author=RyanCCollins) 🔧 ✅ 📹 | [<img src="https://avatars.githubusercontent.com/u/13679375?v=3" width="100px;"/><br /><sub>Andreas Daiminger</sub>](https://github.com/adai183)<br />[💻](https://github.com/udacityalumni/alumni-client/commits?author=adai183) [📖](https://github.com/udacityalumni/alumni-client/commits?author=adai183) [⚠️](https://github.com/udacityalumni/alumni-client/commits?author=adai183) |
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## License
 
