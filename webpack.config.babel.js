@@ -69,6 +69,11 @@ module.exports = {
     }
   ]
   },
+  sassLoader: {
+    includePaths: [
+      './node_modules',
+    ]
+  },
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {

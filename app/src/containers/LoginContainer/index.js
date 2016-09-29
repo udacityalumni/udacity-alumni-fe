@@ -36,14 +36,14 @@ class Login extends Component {
     } = this.props;
     return (
       <Section
-        size="medium"
+        size="large"
         pad={{ horizontal: 'large' }}
         align="center"
         justify="center"
         className={styles.login}
       >
         <Box
-          size="medium"
+          size="large"
           className={styles.loginFormWrapper}
           colorIndex="light-1"
           align="center"
@@ -53,6 +53,12 @@ class Login extends Component {
             title="Udacity Alumni"
             secondaryText="Enter your credentials to Login"
             rememberMe
+            logo={
+              <img
+                style={{ maxWidth: 150, height: 'auto' }}
+                src="https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/udacity-alumni-png.png?raw=true"
+              />
+            }
             onSubmit={this.handleSubmit}
           />
         </Box>

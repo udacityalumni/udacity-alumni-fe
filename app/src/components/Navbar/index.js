@@ -15,7 +15,9 @@ const Navbar = ({
   <div className={styles.navbar}>
     <Header justify="between">
       <Title>
-        <img className={styles.logo} src={LogoImage} alt="logo"/>
+        <Anchor href="/">
+          <img className={styles.logo} src={LogoImage} alt="logo"/>
+        </Anchor>
       </Title>
       <Menu
         direction="row"
