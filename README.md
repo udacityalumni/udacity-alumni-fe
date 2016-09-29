@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/udacityalumni/alumni-client.png?label=ready&title=Ready)](https://waffle.io/udacityalumni/alumni-client)
 # Udacity Alumni Client App
 
 ## Getting Started
