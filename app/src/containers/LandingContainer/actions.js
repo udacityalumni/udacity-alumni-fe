@@ -15,7 +15,7 @@ const fakeLatency = () =>
   new Promise((resolve) => {
     setTimeout(() => {
       resolve();
-    }, 4000);
+    }, 2000);
   });
 
 // fakeLoading :: None -> Thunk

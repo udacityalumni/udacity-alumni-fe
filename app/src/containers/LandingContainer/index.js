@@ -29,7 +29,13 @@ class Landing extends Component { // eslint-disable-line react/prefer-stateless-
     return (
       <div className={styles.landing}>
         {isLoading ?
-          <LoadingIndicator isLoading={isLoading} />
+          <Section
+            align="center"
+            justify="center"
+            className={styles.loadingBox}
+          >
+            <LoadingIndicator isLoading={isLoading} />
+          </Section>
         :
           <Section
             alignContent="center"

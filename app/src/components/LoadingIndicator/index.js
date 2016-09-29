@@ -19,8 +19,8 @@ const LoadingIndicator = ({
         align="center"
         justify="center"
       >
-        <Heading tag="h2" align="center">{message}</Heading>
         <Spinning />
+        <Heading tag="h3" align="center">{message}</Heading>
       </Box>
     }
   </Box>
