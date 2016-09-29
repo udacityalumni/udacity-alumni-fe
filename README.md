@@ -13,6 +13,11 @@ Installation can be achieved by running
 npm run setup
 ```
 
+Also install webpack and webpack dev server globally.
+```
+npm install -g webpack-dev-server webpack
+```
+
 To get the development server running, please run
 ```
 npm run start
