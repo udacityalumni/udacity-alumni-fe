@@ -36,14 +36,14 @@ class Login extends Component {
     } = this.props;
     return (
       <Section
-        size="medium"
+        size="large"
         pad={{ horizontal: 'large' }}
         align="center"
         justify="center"
         className={styles.login}
       >
         <Box
-          size="medium"
+          size="large"
           className={styles.loginFormWrapper}
           colorIndex="light-1"
           align="center"
