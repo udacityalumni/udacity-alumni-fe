@@ -4,7 +4,10 @@ A simple Navbar component
 ### Example
 
 ```js
-<Navbar onSearch={this.handleSearch} />
+<Navbar
+  isLoggedIn={false}
+  onSearch={this.handleSearch}
+/>
 ```
 
 ### Props
@@ -12,6 +15,7 @@ A simple Navbar component
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
 | **onSearch**    | Function   |             | A callback function that is called when text is entered in the search bar
+| **isLoggedIn**    | Bool   |  false        | Boolean determining if the user is logged in or not
 
 
 ### Other Information

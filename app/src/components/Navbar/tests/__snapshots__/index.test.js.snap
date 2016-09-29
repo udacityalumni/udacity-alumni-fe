@@ -33,10 +33,6 @@ exports[`<Navbar /> should render with default props 1`] = `
       responsive={true}>
       <Anchor
         tag="a">
-        My Classroom
-      </Anchor>
-      <Anchor
-        tag="a">
         Careers
       </Anchor>
       <Anchor
@@ -51,7 +47,7 @@ exports[`<Navbar /> should render with default props 1`] = `
         align="left"
         dropAlign={
           Object {
-            "right": "right"
+            "left": "left"
           }
         }
         iconAlign="end"
@@ -69,24 +65,16 @@ exports[`<Navbar /> should render with default props 1`] = `
           "top": "top"
         }
       }
-      pad="none"
-      responsive={true}
-      style={
-        Object {
-          "marginRight": 20
-        }
-      }>
+      pad="none">
       <Anchor
+        href="/login"
         tag="a">
-        Logout
+        Log In
       </Anchor>
       <Anchor
+        href="/signup"
         tag="a">
-        Account
-      </Anchor>
-      <Anchor
-        tag="a">
-        My Classroom
+        Sign Up
       </Anchor>
     </Menu>
   </Header>
