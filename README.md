@@ -40,6 +40,9 @@ The project will be deployed via Docker to an ExpressJS server.  Configuration w
 | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
+## Contributing
+Please see the [Contributing.md](https://github.com/udacityalumni/alumni-client/blob/master/CONTRIBUTING.md) file for details of the Code of Conduct and contributing guide.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
