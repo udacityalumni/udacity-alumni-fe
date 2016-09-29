@@ -13,6 +13,11 @@ Installation can be achieved by running
 npm run setup
 ```
 
+Also install webpack and webpack dev server globally.
+```
+npm install -g webpack-dev-server webpack
+```
+
 To get the development server running, please run
 ```
 npm run start
@@ -46,6 +51,12 @@ Please see the [Contributing.md](https://github.com/udacityalumni/alumni-client/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Troubleshooting
+When working with a team on a project that uses Node, it is important that everyone use the same version of node and npm.
+In the case of this project, we are using Node version 5.2.0.
+
+Instructions for installing NVM and setting your node version for the project can be [found here](https://gist.github.com/RyanCCollins/1a5686ff9dd51b72eb2d4dc70aa6c1f4).
 
 ## Acknowledgments
 Thank you to all of the contributors.  We will put your name here after you have made a significant contribution to the project.
