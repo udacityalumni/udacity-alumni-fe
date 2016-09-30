@@ -14,7 +14,8 @@
     "test": {
       "plugins": [
         [
-          "babel-plugin-webpack-loaders", {
+          "babel-plugin-webpack-loaders",
+          {
             "config": "./config/testing/webpack.test.config.js",
             "verbose": false
           }
@@ -44,7 +45,7 @@
     "test": "BABEL_DISABLE_CACHE=1 NODE_ENV=test node --harmony_proxies node_modules/.bin/jest",
     "build": "npm run webpack",
     "dev": "webpack-dev-server",
-    "generate": "plop --plopfile config/generators/index.js",
+    "generate": "all-contributors generate",
     "generate:component": "plop --plopfile config/generators/index.js component",
     "generate:container": "plop --plopfile config/generators/index.js container",
     "generate:page": "plop --plopfile config/generators/index.js page",
@@ -54,8 +55,7 @@
     "clean": "rm -rf app/dist app/build",
     "setup": "npm install",
     "serve:bundle": "cross-env NODE_ENV=production PORT=1337 node server.js",
-    "add": "all-contributors add",
-    "generate": "all-contributors generate"
+    "add": "all-contributors add"
   },
   "repository": {
     "type": "git",
@@ -139,6 +139,7 @@
     "eslint-config-airbnb": "^4.0.0",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^3.11.3",
+    "nock": "^8.0.0",
     "npm-install-webpack-plugin": "^4.0.3",
     "null-loader": "0.1.1",
     "plop": "1.5.0",
