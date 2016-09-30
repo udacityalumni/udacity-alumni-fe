@@ -2,6 +2,7 @@ exports[`<Navbar /> should render with default props 1`] = `
 <div>
   <Header
     align="center"
+    colorIndex="light-1"
     direction="row"
     justify="between"
     pad={
@@ -15,9 +16,11 @@ exports[`<Navbar /> should render with default props 1`] = `
     tag="header">
     <Title
       responsive={true}>
-      <img
-        alt="logo"
-        src={Object {}} />
+      <Anchor
+        href="/"
+        tag="a">
+        <undefined />
+      </Anchor>
     </Title>
     <Menu
       align="center"
@@ -30,16 +33,7 @@ exports[`<Navbar /> should render with default props 1`] = `
         }
       }
       pad="none"
-      responsive={false}
-      style={
-        Object {
-          "marginRight": 20
-        }
-      }>
-      <Anchor
-        tag="a">
-        My Classroom
-      </Anchor>
+      responsive={true}>
       <Anchor
         tag="a">
         Careers
@@ -56,7 +50,7 @@ exports[`<Navbar /> should render with default props 1`] = `
         align="left"
         dropAlign={
           Object {
-            "right": "right"
+            "left": "left"
           }
         }
         iconAlign="end"
@@ -74,24 +68,16 @@ exports[`<Navbar /> should render with default props 1`] = `
           "top": "top"
         }
       }
-      pad="none"
-      responsive={false}
-      style={
-        Object {
-          "marginRight": 20
-        }
-      }>
+      pad="none">
       <Anchor
+        href="/login"
         tag="a">
-        Logout
+        Log In
       </Anchor>
       <Anchor
+        href="/signup"
         tag="a">
-        Account
-      </Anchor>
-      <Anchor
-        tag="a">
-        My Classroom
+        Sign Up
       </Anchor>
     </Menu>
   </Header>

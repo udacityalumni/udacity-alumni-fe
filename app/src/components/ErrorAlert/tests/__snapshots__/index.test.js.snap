@@ -1,0 +1,65 @@
+exports[`<ErrorAlert /> should render with default props 1`] = `
+<Section
+  pad={
+    Object {
+      "vertical": "medium"
+    }
+  }>
+  <div>
+    <div
+      className="error-alert__closer">
+      <Button
+        a11yTitle="Close Alert"
+        onClick={[Function onClick]}
+        plain={true}
+        type="button">
+        <Close
+          a11yTitle="Close Alert"
+          a11yTitleId="close-title" />
+      </Button>
+    </div>
+    <Notification
+      a11yTitle="Submission Failed"
+      closer={false}
+      flush={true}
+      message="A bad, bad error has occured :("
+      pad="medium"
+      role="alert"
+      size="small"
+      status="critical"
+      style={
+        Object {
+          "paddingTop": 10
+        }
+      } />
+  </div>
+  <div>
+    <div
+      className="error-alert__closer">
+      <Button
+        a11yTitle="Close Alert"
+        onClick={[Function onClick]}
+        plain={true}
+        type="button">
+        <Close
+          a11yTitle="Close Alert"
+          a11yTitleId="close-title" />
+      </Button>
+    </div>
+    <Notification
+      a11yTitle="Submission Failed"
+      closer={false}
+      flush={true}
+      message="An even worse error has occured"
+      pad="medium"
+      role="alert"
+      size="small"
+      status="critical"
+      style={
+        Object {
+          "paddingTop": 10
+        }
+      } />
+  </div>
+</Section>
+`;

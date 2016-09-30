@@ -11,6 +11,11 @@ describe('<SpotlightArticles />', () => {
           {
             image: 'http://helloworld.com',
             content: 'Hello World',
+            updated_at: '12',
+            user: {
+              name: 'Ryan Collins',
+            },
+            slug: 'hello-world',
           },
         ]}
       />

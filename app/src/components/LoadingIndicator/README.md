@@ -4,7 +4,7 @@ A component that shows as a loading indicator while loading.
 ### Example
 
 ```js
-<LoadingIndicator isLoading />
+<LoadingIndicator isLoading message="Submitting" />
 ```
 
 ### Props
@@ -12,3 +12,4 @@ A component that shows as a loading indicator while loading.
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
 | **isLoading**    | Boolean   | True            | True or false.
+| **message**    | String   | "Loading"            | Any string value.

@@ -1,0 +1,24 @@
+exports[`<ContentDashboard /> should render with default props 1`] = `
+<ContentDashboard
+  actions={
+    Object {
+      "contentDashboardDefaultAction": [Function anonymous]
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  }
+  user={
+    Object {
+      "avatar": "http://github.com/image.png",
+      "name": "David Harris"
+    }
+  } />
+`;

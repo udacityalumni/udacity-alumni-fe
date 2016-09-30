@@ -1,8 +1,8 @@
-import webpack from 'webpack';
-import path from 'path';
-import HtmlwebpackPlugin from 'html-webpack-plugin';
-import NpmInstallPlugin from 'npm-install-webpack-plugin';
-import Visualizer from 'webpack-visualizer-plugin';
+const webpack = require('webpack');
+const path = require('path');
+const HtmlwebpackPlugin = require('html-webpack-plugin');
+const NpmInstallPlugin = require('npm-install-webpack-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
@@ -68,6 +68,11 @@ module.exports = {
       loader: 'file?name=[path][name].[hash].[ext]'
     }
   ]
+  },
+  sassLoader: {
+    includePaths: [
+      './node_modules',
+    ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],

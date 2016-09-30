@@ -17,12 +17,12 @@ exports[`<LoadingIndicator /> should render with default props 1`] = `
     pad="none"
     responsive={true}
     tag="div">
+    <Spinning />
     <Heading
       align="center"
-      tag="h2">
+      tag="h3">
       Loading
     </Heading>
-    <Spinning />
   </Box>
 </Box>
 `;

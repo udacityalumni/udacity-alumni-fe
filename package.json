@@ -44,10 +44,9 @@
     "t": "npm run test",
     "test:watch": "npm test -- --watch",
     "test": "BABEL_DISABLE_CACHE=1 NODE_ENV=test node --harmony_proxies node_modules/.bin/jest",
-    "build": "webpack",
+    "build": "npm run webpack",
     "dev": "webpack-dev-server",
-
-    "generate": "plop --plopfile config/generators/index.js",
+    "generate": "all-contributors generate",
     "generate:component": "plop --plopfile config/generators/index.js component",
     "generate:container": "plop --plopfile config/generators/index.js container",
     "generate:page": "plop --plopfile config/generators/index.js page",
@@ -56,7 +55,8 @@
     "start": "npm run dev",
     "clean": "rm -rf app/dist app/build",
     "setup": "npm install",
-    "serve:bundle": "cross-env NODE_ENV=production PORT=1337 node server.js"
+    "serve:bundle": "cross-env NODE_ENV=production PORT=1337 node server.js",
+    "add": "all-contributors add"
   },
   "repository": {
     "type": "git",
@@ -96,7 +96,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "foundation-sites": "^6.2.3",
-    "grommet": "https://github.com/ryanccollins/grommet/tarball/stable",
+    "grommet": "https://github.com/udacityalumni/grommet/tarball/stable",
     "history": "^1.14.0",
     "html-webpack-plugin": "^2.7.1",
     "immutable": "^3.7.5",
@@ -128,6 +128,7 @@
     "webpack": "^1.12.9"
   },
   "devDependencies": {
+    "all-contributors-cli": "^3.0.6",
     "babel-eslint": "^5.0.0-beta4",
     "babel-jest": "^15.0.0",
     "babel-plugin-webpack-loaders": "^0.7.1",
@@ -139,6 +140,7 @@
     "eslint-config-airbnb": "^4.0.0",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^3.11.3",
+    "nock": "^8.0.0",
     "npm-install-webpack-plugin": "^4.0.3",
     "null-loader": "0.1.1",
     "plop": "1.5.0",

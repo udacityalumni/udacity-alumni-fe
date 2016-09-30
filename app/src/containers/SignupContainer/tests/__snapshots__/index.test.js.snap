@@ -1,0 +1,18 @@
+exports[`<Signup /> should render with default props 1`] = `
+<Signup
+  actions={
+    Object {
+      "signupDefaultAction": [Function anonymous]
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  } />
+`;

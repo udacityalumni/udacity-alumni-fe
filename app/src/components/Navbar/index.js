@@ -4,17 +4,20 @@ import Title from 'grommet/components/Title';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Search from 'grommet/components/Search';
-import LogoImage from './logo.png';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
+import { LogoImage } from 'components';
 
 const Navbar = ({
   onSearch,
+  isLoggedIn,
 }) => (
   <div className={styles.navbar}>
-    <Header justify="between">
+    <Header justify="between" colorIndex="light-1">
       <Title>
-        <img className={styles.logo} src={LogoImage} alt="logo"/>
+        <Anchor href="/">
+          <LogoImage />
+        </Anchor>
       </Title>
       <Menu
         direction="row"
@@ -22,9 +25,11 @@ const Navbar = ({
         responsive
         className={styles.leftMenu}
       >
-        <Anchor>
-          My Classroom
-        </Anchor>
+        {isLoggedIn &&
+          <Anchor>
+            My Classroom
+          </Anchor>
+        }
         <Anchor>
           Careers
         </Anchor>
@@ -34,30 +39,48 @@ const Navbar = ({
         <Anchor>
           Meetups
         </Anchor>
-        <Search onDOMChange={onSearch} dropAlign={{ right: 'right' }} />
+        <Search onDOMChange={onSearch} dropAlign={{ left: 'left' }} />
       </Menu>
-      <Menu
-        direction="row"
-        align="center"
-        responsive
-        style={{ marginRight: 20 }}
-      >
-        <Anchor>
-          Logout
-        </Anchor>
-        <Anchor>
-          Account
-        </Anchor>
-        <Anchor>
-          My Classroom
-        </Anchor>
-      </Menu>
+      {isLoggedIn ?
+        <Menu
+          direction="row"
+          align="center"
+          responsive
+        >
+          <Anchor>
+            Logout
+          </Anchor>
+          <Anchor>
+            Account
+          </Anchor>
+          <Anchor>
+            My Classroom
+          </Anchor>
+        </Menu>
+      :
+        <Menu
+          direction="row"
+          align="center"
+        >
+          <Anchor href="/login">
+            Log In
+          </Anchor>
+          <Anchor href="/signup">
+            Sign Up
+          </Anchor>
+        </Menu>
+      }
     </Header>
   </div>
 );
 
 Navbar.propTypes = {
   onSearch: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+};
+
+Navbar.defaultProps = {
+  isLoggedIn: false,
 };
 
 export default cssModules(Navbar, styles);

@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export ErrorAlert from './ErrorAlert';
 export MainAside from './MainAside';
 export SpotlightArticles from './SpotlightArticles';
 export MainCarousel from './MainCarousel';

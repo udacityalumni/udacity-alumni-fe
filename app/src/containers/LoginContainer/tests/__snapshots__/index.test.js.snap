@@ -1,0 +1,26 @@
+exports[`<LoginContainer /> should render with default props 1`] = `
+<Login
+  actions={
+    Object {
+      "clearLoginError": [Function anonymous],
+      "loginRequestFailure": [Function anonymous],
+      "loginRequestSuccess": [Function anonymous],
+      "logoutUser": [Function anonymous],
+      "startLoginRequest": [Function anonymous],
+      "submitLoginRequest": [Function anonymous]
+    }
+  }
+  errors={Array []}
+  isLoading={false}
+  loggedInUser={null}
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  } />
+`;

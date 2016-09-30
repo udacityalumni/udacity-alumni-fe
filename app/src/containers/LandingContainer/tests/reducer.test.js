@@ -8,7 +8,7 @@ describe('landingReducer', () => {
       landingReducer(undefined, {})
     ).toEqual(initialState);
   });
-  it('should handle START_LANDING_LOADING', () => {
+  it('should handle FEATURED_ARTICLES_INITIATION', () => {
     const stateBefore = {
       isLoading: false,
     };
@@ -17,20 +17,49 @@ describe('landingReducer', () => {
     };
     expect(
       landingReducer(stateBefore, {
-        type: types.START_LANDING_LOADING,
+        type: types.FEATURED_ARTICLES_INITIATION,
       })
     ).toEqual(stateAfter);
   });
-  it('should handle STOP_LANDING_LOADING', () => {
+  it('should handle FEATURED_ARTICLES_SUCCESS', () => {
+    const featuredArticles = [
+      {
+        id: 1,
+        title: 'Hello World',
+      },
+    ];
     const stateBefore = {
       isLoading: true,
+      featuredArticles: null,
     };
     const stateAfter = {
       isLoading: false,
+      featuredArticles,
     };
     expect(
       landingReducer(stateBefore, {
-        type: types.STOP_LANDING_LOADING,
+        type: types.FEATURED_ARTICLES_SUCCESS,
+        articles: featuredArticles,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle FEATURE_ARTICLES_FAILURE', () => {
+    const errors = [
+      { message: 'An error has occured' },
+      { message: 'Another error has occured' },
+    ];
+    const stateBefore = {
+      isLoading: true,
+      errors: null,
+    };
+    const stateAfter = {
+      isLoading: false,
+      errors,
+    };
+    expect(
+      landingReducer(stateBefore, {
+        type: types.FEATURE_ARTICLES_FAILURE,
+        errors,
       })
     ).toEqual(stateAfter);
   });

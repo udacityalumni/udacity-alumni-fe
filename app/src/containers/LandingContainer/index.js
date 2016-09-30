@@ -12,24 +12,45 @@ import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet/components/Section';
 import Box from 'grommet/components/Box';
+import { ErrorAlert } from 'components';
 
-class Landing extends Component { // eslint-disable-line react/prefer-stateless-function
+class Landing extends Component {
+  constructor() {
+    super();
+    this.handleCloseErrorAlert = this.handleCloseErrorAlert.bind(this);
+  }
   componentDidMount() {
     const {
-      fakeLoading,
+      loadFeaturedArticles,
     } = this.props.actions;
-    fakeLoading();
+    loadFeaturedArticles();
+  }
+  handleCloseErrorAlert() {
+    const {
+      clearLandingErrors,
+    } = this.props.actions;
+    clearLandingErrors();
   }
   render() {
     const {
       isLoading,
       carouselImages,
-      mainArticles,
+      featuredArticles,
+      errors,
     } = this.props;
     return (
       <div className={styles.landing}>
+        {errors && errors.length > 0 &&
+          <ErrorAlert errors={errors} onClose={this.handleCloseErrorAlert} />
+        }
         {isLoading ?
-          <LoadingIndicator isLoading={isLoading} />
+          <Section
+            align="center"
+            justify="center"
+            className={styles.loadingBox}
+          >
+            <LoadingIndicator isLoading={isLoading} />
+          </Section>
         :
           <Section
             alignContent="center"
@@ -44,15 +65,15 @@ class Landing extends Component { // eslint-disable-line react/prefer-stateless-
                 className={styles.mainContent}
               >
                 <MainCarousel images={carouselImages} />
-                <SpotlightArticles articles={mainArticles} />
+                {featuredArticles && featuredArticles.length > 0 &&
+                  <SpotlightArticles articles={featuredArticles} />
+                }
               </Box>
               <MainAside
-                avatarImage="http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png"
-                careerResourcesParagraph={
-                  `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam vel blandit ligula, in auctor risus. Fusce venenatis
-                  tristique lorem, molestie posuere augue placerat eu.`
-                }
+                user={{
+                  avatar: "http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png",
+                  name: 'David',
+                }}
               />
             </Box>
           </Section>
@@ -66,14 +87,16 @@ Landing.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   actions: PropTypes.object.isRequired,
   carouselImages: PropTypes.array.isRequired,
-  mainArticles: PropTypes.array.isRequired,
+  featuredArticles: PropTypes.array,
+  errors: PropTypes.array,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   isLoading: state.landing.isLoading,
   carouselImages: state.landing.carouselImages,
-  mainArticles: state.landing.mainArticles,
+  featuredArticles: state.landing.featuredArticles,
+  errors: state.landing.errors,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

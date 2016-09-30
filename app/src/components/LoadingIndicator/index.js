@@ -7,6 +7,7 @@ import Heading from 'grommet/components/Heading';
 
 const LoadingIndicator = ({
   isLoading,
+  message,
 }) => (
   <Box
     align="center"
@@ -18,8 +19,8 @@ const LoadingIndicator = ({
         align="center"
         justify="center"
       >
-        <Heading tag="h2" align="center">Loading</Heading>
         <Spinning />
+        <Heading tag="h3" align="center">{message}</Heading>
       </Box>
     }
   </Box>
@@ -27,10 +28,12 @@ const LoadingIndicator = ({
 
 LoadingIndicator.propTypes = {
   isLoading: PropTypes.bool.isRequired,
+  message: PropTypes.string,
 };
 
 LoadingIndicator.defaultProps = {
   isLoading: true,
+  message: 'Loading',
 };
 
 export default cssModules(LoadingIndicator, styles);
