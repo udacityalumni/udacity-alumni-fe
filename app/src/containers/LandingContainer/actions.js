@@ -42,7 +42,8 @@ export const loadFeaturedArticles = () =>
         articles.sort((a, b) =>
           new Date(a.updated_at) - new Date(b.updated_at)
         )
-      ).then(articles => articles.slice(0, 3))
+      )
+      .then(articles => articles.slice(0, 3))
       .then(articles => {
         dispatch(
           loadFeaturedArticlesSuccess(articles)
