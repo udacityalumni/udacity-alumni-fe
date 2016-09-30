@@ -34,11 +34,17 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
       }
       responsive={true}
       tag="div">
-      <img
-        src="http://helloworld.com" />
+      <img />
       <Paragraph>
-        Hello World
+        Hello World...
       </Paragraph>
+      <span>
+        Posted by Ryan Collins
+      </span>
+      <Button
+        href="/articles/hello-world"
+        label="Read More"
+        type="button" />
     </Box>
   </Box>
 </Box>
