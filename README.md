@@ -58,5 +58,7 @@ In the case of this project, we are using Node version 5.2.0.
 
 Instructions for installing NVM and setting your node version for the project can be [found here](https://gist.github.com/RyanCCollins/1a5686ff9dd51b72eb2d4dc70aa6c1f4).
 
+More troubleshooting steps are found here: https://github.com/udacityalumni/alumni-client/wiki/Troubleshooting
+
 ## Acknowledgments
 Thank you to all of the contributors.  We will put your name here after you have made a significant contribution to the project.
