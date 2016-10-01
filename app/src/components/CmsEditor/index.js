@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import { MegadraftEditor, editorStateFromRaw } from 'megadraft';
 import { stateToMarkdown } from 'megadraft-js-export-markdown';
+import Button from 'grommet/components/Button';
 
 class CmsEditor extends React.Component {
 
@@ -65,12 +66,11 @@ class CmsEditor extends React.Component {
           onChange={this.onChange}
           placeholder="Tell a story ..."
         />
-        <button
+        <Button
           className={`button ${styles.button}`}
           onClick={this.publish}
-        >
-          {'Publish'}
-        </button>
+          label="Publish"
+        />
       </div>
     );
   }
