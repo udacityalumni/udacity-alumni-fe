@@ -38,6 +38,16 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "martin-martin",
+      "name": "Martin Breuss",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12371494?v=3",
+      "profile": "https://github.com/martin-martin",
+      "contributions": [
+        "bug",
+        "doc"
+      ]
     }
   ]
 }
