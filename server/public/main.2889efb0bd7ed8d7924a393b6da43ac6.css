@@ -1621,34 +1621,6 @@ img[height] {
       .grommetux-brick--2-2 {
         width: calc(100% - 12px); } }
 
-.grommet input[type="button"],
-.grommet input[type="submit"],
-.grommet button:not(.grommetux-button) {
-  padding: 6px 22px;
-  background-color: transparent;
-  border: 2px solid #20BCE5;
-  border-radius: 4px;
-  color: #333;
-  font-size: 19px;
-  font-size: 1.1875rem;
-  line-height: 24px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  outline: none;
-  min-width: 120px;
-  max-width: 384px; }
-  .grommet input[type="button"]:focus:not(.grommetux-button--disabled),
-  .grommet input[type="submit"]:focus:not(.grommetux-button--disabled),
-  .grommet button:not(.grommetux-button):focus:not(.grommetux-button--disabled) {
-    border-color: #89A2B5;
-    box-shadow: 0 0 1px 1px #89A2B5; }
-  @media screen and (min-width: 45em) {
-    .grommet input[type="button"],
-    .grommet input[type="submit"],
-    .grommet button:not(.grommetux-button) {
-      transition: 0.1s ease-in-out; } }
-
 .grommet a.grommetux-button {
   text-decoration: none; }
   .grommet a.grommetux-button:hover {
