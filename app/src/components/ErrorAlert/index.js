@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import Notification from 'grommet/components/notification';
+import Notification from 'grommet/components/Notification';
 import CloseIcon from 'grommet/components/icons/base/Close';
-import Button from 'grommet/components/button';
+import Button from 'grommet/components/Button';
 import Section from 'grommet/components/Section';
 
 const ErrorAlert = ({
