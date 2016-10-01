@@ -68,6 +68,17 @@
         "question",
         "doc"
       ]
+    },
+    {
+      "login": "bryanj4",
+      "name": "Jacob Bryan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5884696?v=3",
+      "profile": "http://jakebryan.me",
+      "contributions": [
+        "question",
+        "bug",
+        "doc"
+      ]
     }
   ]
 }
