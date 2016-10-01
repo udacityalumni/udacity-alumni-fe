@@ -1,0 +1,95 @@
+exports[`<CmsEditor /> should render with default props 1`] = `
+<div>
+  <div>
+    <input
+      onChange={[Function bound handleInputChange]}
+      placeholder="Title"
+      type="titleInput"
+      value="" />
+  </div>
+  <MegadraftEditor
+    editorState={
+      EditorState {
+        "_immutable": Object {
+          "allowUndo": true,
+          "currentContent": Object {
+            "blockMap": Object {
+              "e66uo": Object {
+                "characterList": Array [],
+                "data": Object {},
+                "depth": 0,
+                "key": "e66uo",
+                "text": "",
+                "type": "unstyled"
+              }
+            },
+            "selectionAfter": Object {
+              "anchorKey": "e66uo",
+              "anchorOffset": 0,
+              "focusKey": "e66uo",
+              "focusOffset": 0,
+              "hasFocus": false,
+              "isBackward": false
+            },
+            "selectionBefore": Object {
+              "anchorKey": "e66uo",
+              "anchorOffset": 0,
+              "focusKey": "e66uo",
+              "focusOffset": 0,
+              "hasFocus": false,
+              "isBackward": false
+            }
+          },
+          "decorator": CompositeDraftDecorator {
+            "_decorators": Array [
+              Object {
+                "component": [Function Link],
+                "strategy": [Function findLinkEntities]
+              }
+            ]
+          },
+          "directionMap": Object {
+            "e66uo": "LTR"
+          },
+          "forceSelection": false,
+          "inCompositionMode": false,
+          "inlineStyleOverride": null,
+          "lastChangeType": null,
+          "nativelyRenderedContent": null,
+          "redoStack": Array [],
+          "selection": Object {
+            "anchorKey": "e66uo",
+            "anchorOffset": 0,
+            "focusKey": "e66uo",
+            "focusOffset": 0,
+            "hasFocus": false,
+            "isBackward": false
+          },
+          "treeMap": Object {
+            "e66uo": Array [
+              Object {
+                "decoratorKey": null,
+                "end": 0,
+                "leaves": Array [
+                  Object {
+                    "end": 0,
+                    "start": 0
+                  }
+                ],
+                "start": 0
+              }
+            ]
+          },
+          "undoStack": Array []
+        }
+      }
+    }
+    onChange={[Function bound onChange]}
+    placeholder="Tell a story ..." />
+  <Button
+    className="button undefined"
+    label="Publish"
+    onClick={[Function bound publish]}
+    type="button" />
+</div>
+`;

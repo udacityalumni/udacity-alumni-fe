@@ -20,7 +20,7 @@ exports[`<MainAside /> should render with default props 1`] = `
     pad={
       Object {
         "horizontal": "small",
-        "vertical": "large"
+        "vertical": "small"
       }
     }
     responsive={true}
@@ -30,6 +30,33 @@ exports[`<MainAside /> should render with default props 1`] = `
       tag="h3">
       Hello, David Harris!
     </Heading>
+  </Box>
+  <Box
+    align="center"
+    announce={false}
+    basis="2/3"
+    direction="column"
+    focusable={true}
+    pad={
+      Object {
+        "horizontal": "small",
+        "vertical": "small"
+      }
+    }
+    responsive={true}
+    tag="div">
+    <Button
+      href="/admin/new-story"
+      icon={
+        <function Icon() {
+            (0, _classCallCheck3.default)(this, Icon);
+            return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+          }
+          a11yTitleId="edit-title" />
+      }
+      label="Post an Article"
+      onClick={[Function onClick]}
+      type="button" />
   </Box>
 </Box>
 `;
