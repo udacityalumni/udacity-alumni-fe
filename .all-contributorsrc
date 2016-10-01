@@ -38,6 +38,56 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "martin-martin",
+      "name": "Martin Breuss",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12371494?v=3",
+      "profile": "https://github.com/martin-martin",
+      "contributions": [
+        "bug",
+        "doc"
+      ]
+    },
+    {
+      "login": "JamesIves",
+      "name": "James Ives",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10888441?v=3",
+      "profile": "http://jamesiv.es",
+      "contributions": [
+        "bug",
+        "doc"
+      ]
+    },
+    {
+      "login": "zhangtreefish",
+      "name": "zhangs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10746052?v=3",
+      "profile": "https://github.com/zhangtreefish",
+      "contributions": [
+        "question",
+        "doc"
+      ]
+    },
+    {
+      "login": "bryanj4",
+      "name": "Jacob Bryan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5884696?v=3",
+      "profile": "http://jakebryan.me",
+      "contributions": [
+        "question",
+        "bug",
+        "doc"
+      ]
+    },
+    {
+      "login": "xadahiya",
+      "name": "Akshay Dahiya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9114274?v=3",
+      "profile": "http://typingeek.com",
+      "contributions": [
+        "question"
+      ]
     }
   ]
 }
