@@ -48,6 +48,16 @@
         "bug",
         "doc"
       ]
+    },
+    {
+      "login": "JamesIves",
+      "name": "James Ives",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10888441?v=3",
+      "profile": "http://jamesiv.es",
+      "contributions": [
+        "bug",
+        "doc"
+      ]
     }
   ]
 }
