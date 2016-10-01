@@ -4,6 +4,8 @@ import cssModules from 'react-css-modules';
 import Heading from 'grommet/components/Heading';
 import Image from 'grommet/components/Image';
 import Box from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
+import EditIcon from 'grommet/components/icons/base/Edit';
 
 const MainAside = ({
   user,
@@ -23,11 +25,24 @@ const MainAside = ({
       className={styles.careerResourcesBlurb}
       basis="2/3"
       align="center"
-      pad={{ horizontal: 'small', vertical: 'large' }}
+      pad={{ horizontal: 'small', vertical: 'small' }}
     >
       <Heading tag="h3" align="center">
         {`Hello, ${user.name}!`}
       </Heading>
+    </Box>
+    <Box
+      className={styles.careerResourcesBlurb}
+      basis="2/3"
+      align="center"
+      pad={{ horizontal: 'small', vertical: 'small' }}
+    >
+      <Button
+        label="Post an Article"
+        onClick={e => e}
+        href="/admin/new-story"
+        icon={<EditIcon />}
+      />
     </Box>
   </Box>
 );
