@@ -1,4 +1,5 @@
 /* Assemble all containers for export */
+export CmsEditorContainer from './CmsEditorContainer';
 export SignupContainer from './SignupContainer';
 export LoginContainer from './LoginContainer';
 export ContentDashboardContainer from './ContentDashboardContainer';

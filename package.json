@@ -14,8 +14,7 @@
     "test": {
       "plugins": [
         [
-          "babel-plugin-webpack-loaders",
-          {
+          "babel-plugin-webpack-loaders", {
             "config": "./config/testing/webpack.test.config.js",
             "verbose": false
           }
@@ -44,14 +43,14 @@
     "t": "npm run test",
     "test:watch": "npm test -- --watch",
     "test": "BABEL_DISABLE_CACHE=1 NODE_ENV=test node --harmony_proxies node_modules/.bin/jest",
-    "build": "npm run webpack",
-    "dev": "webpack-dev-server",
+    "build": "npm run ./node_modules/.bin/webpack",
+    "dev": "./node_modules/.bin/webpack-dev-server",
     "generate": "all-contributors generate",
     "generate:component": "plop --plopfile config/generators/index.js component",
     "generate:container": "plop --plopfile config/generators/index.js container",
     "generate:page": "plop --plopfile config/generators/index.js page",
     "lint": "eslint . --ext .js --ext .jsx; exit 0",
-    "deploy": "cross-env NODE_ENV=production webpack",
+    "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
     "start": "npm run dev",
     "clean": "rm -rf app/dist app/build",
     "setup": "npm install",
@@ -90,10 +89,11 @@
     "babel-preset-stage-0": "^6.3.13",
     "components": "^0.1.0",
     "css-loader": "^0.23.0",
+    "draft-js-export-html": "^0.4.0",
     "expect": "^1.20.2",
     "expect-jsx": "^2.6.0",
     "express": "^4.14.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^v2.0.0-beta.3",
     "file-loader": "^0.9.0",
     "foundation-sites": "^6.2.3",
     "grommet": "https://github.com/udacityalumni/grommet/tarball/stable",
@@ -104,6 +104,8 @@
     "jest": "^15.1.1",
     "jest-cli": "^15.1.1",
     "json-loader": "^0.5.4",
+    "megadraft": "^0.3.1",
+    "megadraft-js-export-markdown": "^0.2.2",
     "minimist": "^1.2.0",
     "node-sass": "^3.4.2",
     "react": "^15.1.0",
@@ -125,7 +127,7 @@
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "svg-react-loader": "^0.3.6",
-    "webpack": "^1.12.9"
+    "webpack": "v2.1.0-beta.19"
   },
   "devDependencies": {
     "all-contributors-cli": "^3.0.6",
@@ -149,7 +151,7 @@
     "redux-devtools": "^3.0.1",
     "redux-mock-store": "^1.1.4",
     "sinon": "2.0.0-pre",
-    "webpack-dev-server": "^1.14.0",
+    "webpack-dev-server": "2.1.0-beta.3",
     "webpack-visualizer-plugin": "^0.1.5"
   }
 }
