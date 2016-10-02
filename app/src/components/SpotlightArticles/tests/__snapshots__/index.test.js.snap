@@ -23,6 +23,7 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
     responsive={true}
     tag="div">
     <Box
+      align="center"
       announce={false}
       basis="1/3"
       direction="column"

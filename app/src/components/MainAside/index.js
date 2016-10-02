@@ -16,14 +16,15 @@ const MainAside = ({
     align="center"
     className={styles.aside}
   >
-    <Image
-      className={styles.avatarImage}
-      size="medium"
-      src={user.avatar}
-    />
+    <div className={styles.avatarWrapper}>
+      <Image
+        className={styles.avatarImage}
+        size="medium"
+        src={user.avatar}
+      />
+    </div>
     <Box
       className={styles.careerResourcesBlurb}
-      basis="2/3"
       align="center"
       pad={{ horizontal: 'small', vertical: 'small' }}
     >

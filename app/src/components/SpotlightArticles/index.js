@@ -15,7 +15,12 @@ const SpotlightArticles = ({
     </Heading>
     <Box pad={{ vertical: 'small' }} direction="row">
       {articles.map((article, i) =>
-        <Box key={i} basis="1/3" pad={{ horizontal: 'small' }}>
+        <Box
+          key={i}
+          align="center"
+          basis="1/3"
+          pad={{ horizontal: 'small' }}
+        >
           <img src={article.feature_image} />
           <Paragraph>
             {`${article.content.slice(0, 200)}...`}
