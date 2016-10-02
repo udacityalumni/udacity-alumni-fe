@@ -28,19 +28,21 @@ class Article {
     this.spotlighted = args.spotlighted || false;
     this.featured = args.featured || false;
     this.userId = args.user || 1;
-    this.featuredImage = args.featuredImage;
+    this.featuredImage = args.featuredImage || '';
     this.status = args.status || 0;
     this.toJson = this.toJson.bind(this);
   }
   toJson() {
     return {
-      content: this.content,
-      title: this.title,
-      spotlighted: this.spotlighted,
-      featured: this.featured,
-      user_id: this.userId,
-      status: this.status,
-      featured_image: this.featuredImage,
+      article: {
+        content: this.content,
+        title: this.title,
+        spotlighted: this.spotlighted,
+        featured: this.featured,
+        user_id: this.userId,
+        status: this.status,
+        featured_image: this.featuredImage,
+      },
     };
   }
 }
@@ -67,7 +69,7 @@ export const submitArticleRequest = (articleProps) =>
       :
         new Error('An unknown error has occured.');
       dispatch(
-        submitArticleFailure([error])
+        submitArticleFailure(error)
       );
     });
   };
@@ -77,7 +79,18 @@ export const clearCmsMessage = () => ({
   type: types.CLEAR_CMS_MESSAGE,
 });
 
-// clearCmsErrors :: None -> {Action}
-export const clearCmsErrors = () => ({
-  type: types.CLEAR_CMS_ERRORS,
+// clearCmsError :: None -> {Action}
+export const clearCmsError = () => ({
+  type: types.CLEAR_CMS_ERROR,
 });
+
+export const handleClearingToast = (type) =>
+  (dispatch) => {
+    switch (type) {
+      case 'error':
+        return dispatch(clearCmsError());
+      case 'message':
+        return dispatch(clearCmsError());
+      default: break;
+    }
+  };

@@ -1,4 +1,6 @@
 /* Assemble all components for export */
+export ToastMessage from './ToastMessage';
+export CmsToolbar from './CmsToolbar';
 export CmsEditor from './CmsEditor';
 export ErrorAlert from './ErrorAlert';
 export MainAside from './MainAside';

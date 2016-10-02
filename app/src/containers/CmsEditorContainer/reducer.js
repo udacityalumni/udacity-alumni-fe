@@ -3,7 +3,7 @@ import update from 'react-addons-update';
 
 export const initialState = {
   isSubmitting: false,
-  errors: null,
+  error: null,
   message: null,
 };
 
@@ -21,8 +21,8 @@ const cmsEditorReducer =
           isSubmitting: {
             $set: false,
           },
-          errors: {
-            $set: [...state.errors, ...action.error],
+          error: {
+            $set: action.error,
           },
         });
       case types.SUBMIT_ARTICLE_SUCCESS:
@@ -34,9 +34,9 @@ const cmsEditorReducer =
             $set: action.message,
           },
         });
-      case types.CLEAR_CMS_ERRORS:
+      case types.CLEAR_CMS_ERROR:
         return update(state, {
-          errors: {
+          error: {
             $set: null,
           },
         });

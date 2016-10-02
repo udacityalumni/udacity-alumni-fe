@@ -15,7 +15,8 @@ exports[`<ErrorAlert /> should render with default props 1`] = `
         type="button">
         <Close
           a11yTitle="Close Alert"
-          a11yTitleId="close-title" />
+          a11yTitleId="close-title"
+          responsive={true} />
       </Button>
     </div>
     <Notification
@@ -43,7 +44,8 @@ exports[`<ErrorAlert /> should render with default props 1`] = `
         type="button">
         <Close
           a11yTitle="Close Alert"
-          a11yTitleId="close-title" />
+          a11yTitleId="close-title"
+          responsive={true} />
       </Button>
     </div>
     <Notification

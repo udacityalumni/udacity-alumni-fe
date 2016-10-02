@@ -1,0 +1,63 @@
+exports[`<CmsToolbar /> should render with default props 1`] = `
+<Box
+  align="center"
+  announce={false}
+  direction="column"
+  focusable={true}
+  full="horizontal"
+  justify="center"
+  pad={
+    Object {
+      "horizontal": "medium",
+      "vertical": "medium"
+    }
+  }
+  responsive={true}
+  tag="div">
+  <Columns
+    justify="center"
+    maxCount={1}
+    responsive={true}>
+    <Box
+      align="center"
+      announce={false}
+      colorIndex="light-2"
+      direction="row"
+      focusable={true}
+      justify="between"
+      margin="small"
+      pad="medium"
+      responsive={true}
+      size="large"
+      tag="div">
+      <CheckBox
+        checked={false}
+        id="spotlight-toggle"
+        label="Spotlight"
+        name="spotlight"
+        onChange={[Function onToggleSpotlight]}
+        toggle={true} />
+      <Select
+        label="Status"
+        onChange={[Function onChange]}
+        options={
+          Array [
+            Object {
+              "label": "Draft",
+              "value": 0
+            },
+            Object {
+              "label": "Published",
+              "value": 1
+            },
+            Object {
+              "label": "Archived",
+              "value": 2
+            }
+          ]
+        }
+        value="Draft" />
+    </Box>
+  </Columns>
+</Box>
+`;

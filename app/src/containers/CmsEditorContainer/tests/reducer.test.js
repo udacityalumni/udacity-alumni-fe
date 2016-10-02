@@ -25,11 +25,11 @@ describe('cmsEditorReducer', () => {
     const error = new Error('Ooops');
     const stateBefore = {
       isSubmitting: true,
-      errors: null,
+      error: null,
     };
     const stateAfter = {
       isSubmitting: false,
-      errors: [error],
+      error,
     };
     expect(
       cmsEditorReducer(stateBefore, {
@@ -55,16 +55,16 @@ describe('cmsEditorReducer', () => {
       })
     ).toEqual(stateAfter);
   });
-  it('should handle CLEAR_CMS_ERRORS', () => {
+  it('should handle CLEAR_CMS_ERROR', () => {
     const stateBefore = {
-      errors: [new Error('oops')],
+      error: new Error('oops'),
     };
     const stateAfter = {
-      errors: null,
+      error: null,
     };
     expect(
       cmsEditorReducer(stateBefore, {
-        type: types.CLEAR_CMS_ERRORS,
+        type: types.CLEAR_CMS_ERROR,
       })
     ).toEqual(stateAfter);
   });

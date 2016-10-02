@@ -31,10 +31,10 @@ describe('CmsEditor actions', () => {
     };
     expect(actions.clearCmsMessage()).toEqual(expected);
   });
-  it('has a type of CLEAR_CMS_ERRORS', () => {
+  it('has a type of CLEAR_CMS_ERROR', () => {
     const expected = {
-      type: types.CLEAR_CMS_ERRORS,
+      type: types.CLEAR_CMS_ERROR,
     };
-    expect(actions.clearCmsErrors()).toEqual(expected);
+    expect(actions.clearCmsError()).toEqual(expected);
   });
 });

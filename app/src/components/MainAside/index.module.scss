@@ -1,6 +1,20 @@
+.avatarWrapper {
+  height: 300px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.avatarImage {
+  width: 200px;
+  height: auto;
+  max-height: 300px;
+}
+
 .aside {
-  max-width: 300px;
   @media screen and (max-width: 768px) {
-    display: none;
+    display: none !important;
   }
 }

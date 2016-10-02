@@ -1,42 +1,45 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import { MegadraftEditor, editorStateFromRaw } from 'megadraft';
 import { stateToMarkdown } from 'megadraft-js-export-markdown';
 import Button from 'grommet/components/Button';
+import Section from 'grommet/components/Section';
+import { CmsToolbar } from 'components';
 
 class CmsEditor extends React.Component {
 
   constructor(props) {
     super(props);
+    // Would be great to move this into redux up to the container.
     this.state = {
       editorState: editorStateFromRaw(null),
       articleTitle: '',
+      status: 0,
+      spotlighted: false,
     };
 
     // bindings
     this.onChange = ::this.onChange;
     this.handleInputChange = ::this.handleInputChange;
     this.publish = ::this.publish;
+    this.setSpotlightToggle = ::this.setSpotlightToggle;
+    this.setStatus = ::this.setStatus;
   }
 
   onChange(editorState) {
     this.setState({ editorState });
   }
 
-  // for now we only console log the article
-  publish() {
-    const { editorState, articleTitle } = this.state;
-    const markdown = stateToMarkdown(editorState.getCurrentContent());
-
-    // save the article
-    console.log(`${articleTitle} pubished`);
-    console.log(`Content transformed to markdown: ${markdown}`);
-
-    // clear the editor state
+  setSpotlightToggle() {
     this.setState({
-      editorState: editorStateFromRaw(null),
-      articleTitle: '',
+      spotlighted: !this.state.spotlighted,
+    });
+  }
+
+  setStatus(option) {
+    this.setState({
+      status: option.value,
     });
   }
 
@@ -44,11 +47,28 @@ class CmsEditor extends React.Component {
     this.setState({ articleTitle: event.target.value });
   }
 
-  render() {
-    const { editorState } = this.state;
+  publish() {
+    const {
+      editorState,
+      articleTitle,
+      spotlighted,
+      status,
+    } = this.state;
     const markdown = stateToMarkdown(editorState.getCurrentContent());
-    console.log('Markdown \n', markdown);
+    const { onSubmit } = this.props;
+    // save the article
+    onSubmit({ title: articleTitle, content: markdown, spotlighted, status });
+    // clear the editor state
+    this.setState({
+      editorState: editorStateFromRaw(null),
+      articleTitle: '',
+      spotlighted: false,
+    });
+  }
 
+  render() {
+    const { editorState, spotlighted, status } = this.state;
+    const markdown = stateToMarkdown(editorState.getCurrentContent());
     return (
       <div className={styles.container}>
         <div className={styles.inputContainer}>
@@ -66,14 +86,26 @@ class CmsEditor extends React.Component {
           onChange={this.onChange}
           placeholder="Tell a story ..."
         />
-        <Button
-          className={`button ${styles.button}`}
-          onClick={this.publish}
-          label="Publish"
-        />
+        <Section style={{ marginTop: 100 }}>
+          <CmsToolbar
+            spotlighted={spotlighted}
+            onToggleSpotlight={this.setSpotlightToggle}
+            onSetStatus={this.setStatus}
+            status={status}
+          />
+          <Button
+            className={`button ${styles.button}`}
+            onClick={this.publish}
+            label="Save"
+          />
+        </Section>
       </div>
     );
   }
 }
+
+CmsEditor.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default cssModules(CmsEditor, styles);
