@@ -34,14 +34,14 @@ class CmsEditorContainer extends Component {
         {error &&
           <ToastMessage
             message={error.message}
-            onClose={this.handleCloseToast({ type: 'error' })}
+            onClose={() => this.handleCloseToast({ type: 'error' })}
             status="critical"
           />
         }
         {message &&
           <ToastMessage
             message={message}
-            onClose={this.handleCloseToast({ type: 'message' })}
+            onClose={() => this.handleCloseToast({ type: 'message' })}
           />
         }
         <CmsEditor
