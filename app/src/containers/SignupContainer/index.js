@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import * as SignupActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import Heading from 'grommet/components/Heading';
-import Anchor from 'grommet/components/Anchor';
+import Heading from 'grommet-udacity/components/Heading';
+import Anchor from 'grommet-udacity/components/Anchor';
 
 class Signup extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {

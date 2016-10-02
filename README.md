@@ -1,5 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/udacityalumni/alumni-client.png?label=ready&title=Ready)](https://waffle.io/udacityalumni/alumni-client)
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
+![Codeship](https://codeship.com/projects/8f070050-6a46-0134-81cc-160a138cf024/status?branch=master)
+
 # Udacity Alumni Client App
 
 ## Getting Started
@@ -23,6 +25,9 @@ and navigate to http://0.0.0.0:1337
 To run the test suite, please run `npm run test`, which will pick up any file with the word 'test' in its name.
 
 Again, please reference the [Scalable React Boilerplate](https://github.com/RyanCCollins/scalable-react-boilerplate) project for details regarding the scripts.
+
+## Grommet Udacity
+We are using an amazing React component library that will accelerate our development in this and any future projects.  The [Grommet](http://grommet.io) library has been forked and published to the grommet-udacity npm package.  We will be using this package in our projects and also will be adding stylesheets and components so that we have a maintainable component library for all future projects.  Please refer to the [Grommet Udacity](https://github.com/udacityalumni/alumni-client/wiki/Grommet-Udacity) wiki for more information.
 
 ## Deployment
 The project will be deployed via Docker to an ExpressJS server.  Configuration will be included with the starter project.

@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import Heading from 'grommet/components/Heading';
-import Image from 'grommet/components/Image';
-import Box from 'grommet/components/Box';
-import Button from 'grommet/components/Button';
-import EditIcon from 'grommet/components/icons/base/Edit';
+import Heading from 'grommet-udacity/components/Heading';
+import Image from 'grommet-udacity/components/Image';
+import Box from 'grommet-udacity/components/Box';
+import Button from 'grommet-udacity/components/Button';
+import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 
 const MainAside = ({
   user,
@@ -16,14 +16,15 @@ const MainAside = ({
     align="center"
     className={styles.aside}
   >
-    <Image
-      className={styles.avatarImage}
-      size="medium"
-      src={user.avatar}
-    />
+    <div className={styles.avatarWrapper}>
+      <Image
+        className={styles.avatarImage}
+        size="medium"
+        src={user.avatar}
+      />
+    </div>
     <Box
       className={styles.careerResourcesBlurb}
-      basis="2/3"
       align="center"
       pad={{ horizontal: 'small', vertical: 'small' }}
     >

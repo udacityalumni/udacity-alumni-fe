@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import Notification from 'grommet/components/Notification';
-import CloseIcon from 'grommet/components/icons/base/Close';
-import Button from 'grommet/components/Button';
-import Section from 'grommet/components/Section';
+import Notification from 'grommet-udacity/components/Notification';
+import CloseIcon from 'grommet-udacity/components/icons/base/Close';
+import Button from 'grommet-udacity/components/Button';
+import Section from 'grommet-udacity/components/Section';
 
 const ErrorAlert = ({
   errors,

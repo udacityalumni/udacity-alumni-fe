@@ -10,8 +10,8 @@ import {
 import * as LandingActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import Section from 'grommet/components/Section';
-import Box from 'grommet/components/Box';
+import Section from 'grommet-udacity/components/Section';
+import Box from 'grommet-udacity/components/Box';
 import { ErrorAlert } from 'components';
 
 class Landing extends Component {
