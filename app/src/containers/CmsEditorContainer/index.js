@@ -33,7 +33,7 @@ class CmsEditorContainer extends Component {
       <div className={styles.cmsEditor}>
         {error &&
           <ToastMessage
-            message={error.message}
+            message={error.message ? error.message : error}
             onClose={() => this.handleCloseToast({ type: 'error' })}
             status="critical"
           />

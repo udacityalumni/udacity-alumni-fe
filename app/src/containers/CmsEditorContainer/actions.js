@@ -58,15 +58,18 @@ export const submitArticleRequest = (articleProps) =>
       method: 'POST',
       body: article.toJson(),
     })
-    .then(() => {
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(
+          `The following error has occured: ${res.statusText}. Code ${res.status}`
+        );
+      }
       dispatch(
         submitArticleSucces('The article has successfully been submitted!')
       );
     })
     .catch(err => {
-      const error = err.message ?
-        `An error has occured ${JSON.stringify(err.message)}`
-      :
+      const error = err ||
         new Error('An unknown error has occured.');
       dispatch(
         submitArticleFailure(error)
@@ -88,9 +91,11 @@ export const handleClearingToast = (type) =>
   (dispatch) => {
     switch (type) {
       case 'error':
-        return dispatch(clearCmsError());
+        dispatch(clearCmsError());
+        break;
       case 'message':
-        return dispatch(clearCmsError());
+        dispatch(clearCmsMessage());
+        break;
       default: break;
     }
   };
