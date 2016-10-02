@@ -7,7 +7,7 @@ import Box from 'grommet/components/Box';
 const MainCarousel = ({
   images,
 }) => (
-  <Box size="large" className={styles.carouselBox}>
+  <Box className={styles.carouselBox}>
     <Carousel>
       {images.map((item, i) =>
         <img key={i} src={item.src} />
