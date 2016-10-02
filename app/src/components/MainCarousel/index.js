@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import Carousel from 'grommet/components/Carousel';
-import Box from 'grommet/components/Box';
+import Carousel from 'grommet-udacity/components/Carousel';
+import Box from 'grommet-udacity/components/Box';
 
 class MainCarousel extends Component {
   componentDidMount() {

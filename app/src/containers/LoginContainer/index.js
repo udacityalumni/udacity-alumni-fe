@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 import * as LoginActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import Section from 'grommet/components/Section';
-import LoginForm from 'grommet/components/LoginForm';
-import Box from 'grommet/components/Box';
+import Section from 'grommet-udacity/components/Section';
+import LoginForm from 'grommet-udacity/components/LoginForm';
+import Box from 'grommet-udacity/components/Box';
 import { LoadingIndicator, ErrorAlert } from 'components';
 
 class Login extends Component {

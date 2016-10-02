@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
-import Columns from 'grommet/components/Columns';
-import Box from 'grommet/components/Box';
-import CheckBox from 'grommet/components/CheckBox';
-import Select from 'grommet/components/Select';
+import Columns from 'grommet-udacity/components/Columns';
+import Box from 'grommet-udacity/components/Box';
+import CheckBox from 'grommet-udacity/components/CheckBox';
+import Select from 'grommet-udacity/components/Select';
 
 const selectOptions = [
   { label: 'Draft', value: 0 },

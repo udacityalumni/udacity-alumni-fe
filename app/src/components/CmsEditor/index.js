@@ -3,8 +3,8 @@ import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import { MegadraftEditor, editorStateFromRaw } from 'megadraft';
 import { stateToMarkdown } from 'megadraft-js-export-markdown';
-import Button from 'grommet/components/Button';
-import Section from 'grommet/components/Section';
+import Button from 'grommet-udacity/components/Button';
+import Section from 'grommet-udacity/components/Section';
 import { CmsToolbar } from 'components';
 
 class CmsEditor extends React.Component {
