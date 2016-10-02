@@ -1,5 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/udacityalumni/alumni-client.png?label=ready&title=Ready)](https://waffle.io/udacityalumni/alumni-client)
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
+![Codeship](https://codeship.com/projects/8f070050-6a46-0134-81cc-160a138cf024/status?branch=master)
+
 # Udacity Alumni Client App
 
 ## Getting Started
