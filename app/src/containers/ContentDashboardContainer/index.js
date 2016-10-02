@@ -4,12 +4,12 @@ import { bindActionCreators } from 'redux';
 import * as ContentDashboardActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import Heading from 'grommet/components/Heading';
-import Box from 'grommet/components/Box';
-import Section from 'grommet/components/Section';
+import Heading from 'grommet-udacity/components/Heading';
+import Box from 'grommet-udacity/components/Box';
+import Section from 'grommet-udacity/components/Section';
+import Table from 'grommet-udacity/components/Table';
+import TableRow from 'grommet-udacity/components/TableRow';
 import { MainAside } from 'components';
-import Table from 'grommet/components/Table';
-import TableRow from 'grommet/components/TableRow';
 
 class ContentDashboard extends Component {
   render() {

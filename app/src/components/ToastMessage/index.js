@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Toast from 'grommet/components/Toast';
+import Toast from 'grommet-udacity/components/Toast';
 
 const ToastMessage = ({
   message,

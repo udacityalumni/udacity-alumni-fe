@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 import { Navbar } from 'components';
-import App from 'grommet/components/App';
+import App from 'grommet-udacity/components/App';
 
 const Main = (props) => (
   <App centered={false}>

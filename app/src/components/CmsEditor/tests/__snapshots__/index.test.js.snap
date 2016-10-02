@@ -14,27 +14,27 @@ exports[`<CmsEditor /> should render with default props 1`] = `
           "allowUndo": true,
           "currentContent": Object {
             "blockMap": Object {
-              "ftvjm": Object {
+              "8pssv": Object {
                 "characterList": Array [],
                 "data": Object {},
                 "depth": 0,
-                "key": "ftvjm",
+                "key": "8pssv",
                 "text": "",
                 "type": "unstyled"
               }
             },
             "selectionAfter": Object {
-              "anchorKey": "ftvjm",
+              "anchorKey": "8pssv",
               "anchorOffset": 0,
-              "focusKey": "ftvjm",
+              "focusKey": "8pssv",
               "focusOffset": 0,
               "hasFocus": false,
               "isBackward": false
             },
             "selectionBefore": Object {
-              "anchorKey": "ftvjm",
+              "anchorKey": "8pssv",
               "anchorOffset": 0,
-              "focusKey": "ftvjm",
+              "focusKey": "8pssv",
               "focusOffset": 0,
               "hasFocus": false,
               "isBackward": false
@@ -49,7 +49,7 @@ exports[`<CmsEditor /> should render with default props 1`] = `
             ]
           },
           "directionMap": Object {
-            "ftvjm": "LTR"
+            "8pssv": "LTR"
           },
           "forceSelection": false,
           "inCompositionMode": false,
@@ -58,15 +58,15 @@ exports[`<CmsEditor /> should render with default props 1`] = `
           "nativelyRenderedContent": null,
           "redoStack": Array [],
           "selection": Object {
-            "anchorKey": "ftvjm",
+            "anchorKey": "8pssv",
             "anchorOffset": 0,
-            "focusKey": "ftvjm",
+            "focusKey": "8pssv",
             "focusOffset": 0,
             "hasFocus": false,
             "isBackward": false
           },
           "treeMap": Object {
-            "ftvjm": Array [
+            "8pssv": Array [
               Object {
                 "decoratorKey": null,
                 "end": 0,

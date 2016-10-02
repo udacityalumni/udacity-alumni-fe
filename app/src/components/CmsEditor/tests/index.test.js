@@ -6,7 +6,9 @@ import React from 'react';
 describe('<CmsEditor />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <CmsEditor />
+      <CmsEditor
+        onSubmit={e => e}
+      />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
