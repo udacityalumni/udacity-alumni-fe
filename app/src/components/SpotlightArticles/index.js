@@ -5,6 +5,7 @@ import Heading from 'grommet-udacity/components/Heading';
 import Paragraph from 'grommet-udacity/components/Paragraph';
 import Box from 'grommet-udacity/components/Box';
 import Button from 'grommet-udacity/components/Button';
+import { Link } from 'react-router';
 
 const SpotlightArticles = ({
   articles,
@@ -28,7 +29,7 @@ const SpotlightArticles = ({
           <span>
             {`Posted by ${article.user.name}`}
           </span>
-          <Button label="Read More" href={`/articles/${article.slug}`} />
+          <Link to={`/articles/${article.slug}`} >More</Link>
         </Box>
       )}
     </Box>
