@@ -5,6 +5,7 @@ import cssModules from 'react-css-modules';
 
 const SinglePost = (props) => (
   <div className={styles.singlePost}>
+     Hi!
   </div>
 );
 
