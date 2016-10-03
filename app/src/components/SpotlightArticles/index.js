@@ -5,6 +5,7 @@ import Heading from 'grommet-udacity/components/Heading';
 import Paragraph from 'grommet-udacity/components/Paragraph';
 import Box from 'grommet-udacity/components/Box';
 import Button from 'grommet-udacity/components/Button';
+import DateTime from 'grommet/components/DateTime';
 import { Link } from 'react-router';
 
 const SpotlightArticles = ({
@@ -28,6 +29,7 @@ const SpotlightArticles = ({
           </Paragraph>
           <span>
             {`Posted by ${article.user.name}`}
+            <DateTime value={`at ${article.created_at}`} />
           </span>
           <Link to={`/articles/${article.slug}`} >More</Link>
         </Box>
