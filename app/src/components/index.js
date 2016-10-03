@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export SinglePost from './SinglePost';
 export ToastMessage from './ToastMessage';
 export CmsToolbar from './CmsToolbar';
 export CmsEditor from './CmsEditor';
