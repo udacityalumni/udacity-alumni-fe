@@ -7,6 +7,7 @@ import landing from 'containers/LandingContainer/reducer';
 import loginContainer from 'containers/LoginContainer/reducer';
 import signupContainer from 'containers/SignupContainer/reducer';
 import cmsEditorContainer from 'containers/CmsEditorContainer/reducer';
+import SinglePostReducer from 'containers/SinglePostContainer/reducer';
 
 const rootReducer = combineReducers({
   // Apply all of the reducers here.
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   signupContainer,
   landing,
   cmsEditorContainer,
+  SinglePostReducer,
   routing: routerReducer,
   form: formReducer,
 });
