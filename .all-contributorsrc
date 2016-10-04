@@ -109,6 +109,16 @@
         "doc",
         "talk"
       ]
+    },
+    {
+      "login": "kellim",
+      "name": "Kelli Blalock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2024584?v=3",
+      "profile": "https://www.linkedin.com/in/kelliblalock",
+      "contributions": [
+        "question",
+        "doc"
+      ]
     }
   ]
 }
