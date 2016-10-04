@@ -3,8 +3,6 @@ import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import { MegadraftEditor, editorStateFromRaw } from 'megadraft';
 import { stateToMarkdown } from 'megadraft-js-export-markdown';
-import Button from 'grommet-udacity/components/Button';
-import Section from 'grommet-udacity/components/Section';
 import { CmsToolbar } from 'components';
 
 class CmsEditor extends React.Component {
@@ -86,19 +84,13 @@ class CmsEditor extends React.Component {
           onChange={this.onChange}
           placeholder="Tell a story ..."
         />
-        <Section style={{ marginTop: 100 }}>
-          <CmsToolbar
-            spotlighted={spotlighted}
-            onToggleSpotlight={this.setSpotlightToggle}
-            onSetStatus={this.setStatus}
-            status={status}
-          />
-          <Button
-            className={`button ${styles.button}`}
-            onClick={this.publish}
-            label="Save"
-          />
-        </Section>
+        <CmsToolbar
+          spotlighted={spotlighted}
+          onToggleSpotlight={this.setSpotlightToggle}
+          onSetStatus={this.setStatus}
+          status={status}
+          onSave={this.publish}
+        />
       </div>
     );
   }
