@@ -88,6 +88,17 @@
       "contributions": [
         "question"
       ]
+    },
+    {
+      "login": "baker-natalie",
+      "name": "Natalie Baker",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18745343?v=3",
+      "profile": "http://baker-natalie.github.io",
+      "contributions": [
+        "question",
+        "design",
+        "doc"
+      ]
     }
   ]
 }
