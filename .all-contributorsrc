@@ -99,6 +99,16 @@
         "design",
         "doc"
       ]
+    },
+    {
+      "login": "ghoshabhi",
+      "name": "Abhishek Ghosh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19292575?v=3",
+      "profile": "https://in.linkedin.com/in/abhishek-ghosh-31280617",
+      "contributions": [
+        "doc",
+        "talk"
+      ]
     }
   ]
 }
