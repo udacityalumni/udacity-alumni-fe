@@ -88,6 +88,37 @@
       "contributions": [
         "question"
       ]
+    },
+    {
+      "login": "baker-natalie",
+      "name": "Natalie Baker",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18745343?v=3",
+      "profile": "http://baker-natalie.github.io",
+      "contributions": [
+        "question",
+        "design",
+        "doc"
+      ]
+    },
+    {
+      "login": "ghoshabhi",
+      "name": "Abhishek Ghosh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19292575?v=3",
+      "profile": "https://in.linkedin.com/in/abhishek-ghosh-31280617",
+      "contributions": [
+        "doc",
+        "talk"
+      ]
+    },
+    {
+      "login": "kellim",
+      "name": "Kelli Blalock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2024584?v=3",
+      "profile": "https://www.linkedin.com/in/kelliblalock",
+      "contributions": [
+        "question",
+        "doc"
+      ]
     }
   ]
 }

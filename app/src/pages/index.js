@@ -1,5 +1,10 @@
 /* Assemble all pages for export */
+
 export PostPage from './PostPage/index';
+
+export MartinPage from './MartinPage/index';
+export SingleArticlePage from './SingleArticlePage/index';
+
 export CmsEditorPage from './CmsEditorPage/index';
 export SignupPage from './SignupPage/index';
 export LoginPage from './LoginPage/index';
