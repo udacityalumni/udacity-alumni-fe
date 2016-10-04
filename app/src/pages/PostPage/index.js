@@ -9,7 +9,7 @@ import { SinglePostContainer } from 'containers';
 const PostPage = (props) => (
   <div className={styles.container}>
     Hello from PostPage !
-    <SinglePostContainer {...this.prop} />
+    <SinglePostContainer {...this.props} />
   </div>
 );
 

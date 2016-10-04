@@ -5,12 +5,12 @@ import cssModules from 'react-css-modules';
 
 const SinglePost = (props) => (
   <div className={styles.singlePost}>
-     Hi!
+     Hi! Here is {props.article.id}
   </div>
 );
 
 SinglePost.propTypes = {
-
+  article: PropTypes.object.isRequired,
 };
 
 export default cssModules(SinglePost, styles);

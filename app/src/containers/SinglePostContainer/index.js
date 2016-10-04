@@ -9,7 +9,6 @@ import { SinglePost } from 'components';
 class SinglePostContainer extends Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-    this.handleLoadingOfPost = this.handleLoadingOfPost.bind(this);
   }
   componentDidMount() {
     this.handleLoadingOfPost();
@@ -21,21 +20,18 @@ class SinglePostContainer extends Component { // eslint-disable-line react/prefe
     } = this.props;
     const itemId = parseInt(params.id, 10);
     const selectedPost = posts.filter(item => item.id === itemId)[0];
-    if (!selectedPost) {
-      const {
-        router,
-      } = this.context;
-      router.push('/');
-    }
-    const {
-      loadCachedReviews,
-    } = this.props.actions;
-    loadCachedReviews(selectedPost);
+    // if (!selectedPost) {
+    //   const {
+    //     router,
+    //   } = this.context;
+    //   router.push('/');
+    // }
+    return selectedPost;
   }
   render() {
     return (
       <div className={styles.singlePost}>
-        <SinglePost {...this.props} />
+        <SinglePost article={this.selectedPost} />
       </div>
     );
   }
