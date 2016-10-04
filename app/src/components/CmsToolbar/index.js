@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
+import styles from './index.module.scss';
+import cssModules from 'react-css-modules';
 import Columns from 'grommet-udacity/components/Columns';
 import Box from 'grommet-udacity/components/Box';
 import CheckBox from 'grommet-udacity/components/CheckBox';
 import Select from 'grommet-udacity/components/Select';
+import Button from 'grommet-udacity/components/Button';
 
 const selectOptions = [
   { label: 'Draft', value: 0 },
@@ -15,17 +18,18 @@ const CmsToolbar = ({
   onToggleSpotlight,
   onSetStatus,
   status,
+  onSave,
 }) => (
   <Box
     align="center"
     justify="center"
     full="horizontal"
-    pad={{ horizontal: 'medium', vertical: 'medium' }}
+    className={styles.toolbar}
   >
-    <Columns justify="center">
+    <Columns justify="center" full="horizontal">
       <Box
         direction="row"
-        size="large"
+        full="horizontal"
         justify="between"
         align="center"
         pad="medium"
@@ -40,6 +44,9 @@ const CmsToolbar = ({
           onChange={onToggleSpotlight}
           checked={spotlighted}
         />
+        <Box flex="1">
+          <Button label="Save" onClick={() => onSave()} />
+        </Box>
         <Select
           label="Status"
           value={selectOptions[status] ?
@@ -65,4 +72,4 @@ CmsToolbar.defaultProps = {
   spotlighted: false,
 };
 
-export default CmsToolbar;
+export default cssModules(CmsToolbar, styles);
