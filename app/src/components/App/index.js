@@ -1,19 +1,67 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 import { Navbar } from 'components';
 import App from 'grommet-udacity/components/App';
+import { MobileNav } from 'components';
+import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
+import Header from 'grommet-udacity/components/Header';
+import Title from 'grommet-udacity/components/Title';
+import MenuIcon from 'grommet-udacity/components/icons/base/Menu';
 
-const Main = (props) => (
-  <App centered={false}>
-    <Navbar onSearch={(e) => e} />
-    {React.cloneElement(props.children, props)}
-  </App>
-);
+class Main extends Component {
+  constructor() {
+    super();
+    this.handleToggleNav = this.handleToggleNav.bind(this);
+    this.state = {
+      navIsActive: false,
+    };
+  }
+  componentDidMount() {
+    const {
+      pathname,
+    } = this.props.location;
+    updatePageTitle(getTitleFromRoute(pathname));
+  }
+  componentWillReceiveProps(newProps) {
+    const {
+      pathname,
+    } = this.props.location;
+    const newPathname = newProps.location.pathname;
+    if (newPathname !== pathname) {
+      updatePageTitle(getTitleFromRoute(newPathname));
+    }
+  }
+  handleToggleNav() {
+    const {
+      navIsActive,
+    } = this.state;
+    this.setState({
+      navIsActive: !navIsActive,
+    });
+  }
+  render() {
+    const {
+      navIsActive,
+    } = this.state;
+    return (
+      <App centered={false}>
+        <Navbar onSearch={(e) => e} />
+        <MobileNav
+          navActive={navIsActive}
+          onToggleNav={this.handleToggleNav}
+        >
+          {React.cloneElement(this.props.children, this.props)}
+        </MobileNav>
+      </App>
+    );
+  }
+}
 
 Main.propTypes = {
   children: React.children,
+  location: PropTypes.object.isRequired,
 };
 
 // Map the global state to global props here.
