@@ -41,18 +41,44 @@ class SinglePostContainer extends Component { // eslint-disable-line react/prefe
       errors,
     } = this.props;
     return (
-      <div className={styles.singlePost}>
-        <SinglePost article={article} />
+      <div>
+        {article ?
+          <div>
+            <div className={styles.singlePost}>
+              <SinglePost article={article} />
+            </div>
+            {errors.length > 0 &&
+              <ErrorAlert errors={errors} />
+            }
+            {isLoading ?
+              <div>is loading</div>
+            :
+              <div>is not loading</div>
+            }
+          </div>
+        :
+          <div className={styles.containerCenter}>
+            <h1 className={styles.noneFound}>No Restaurant Found</h1>
+            <h4>{'Going back home where it\'s safe!'}</h4>
+          </div>
+        }
       </div>
     );
   }
 }
+
 SinglePostContainer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   actions: PropTypes.object.isRequired,
   article: PropTypes.object,
   errors: PropTypes.array,
+  params: PropTypes.object.isRequired,
 };
+
+SinglePostContainer.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
+
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   // myProp: state.myProp,
