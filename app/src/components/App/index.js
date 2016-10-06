@@ -7,6 +7,7 @@ import { MobileNav, LogoImage, Navbar } from 'components';
 import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
 import Header from 'grommet-udacity/components/Header';
 import Title from 'grommet-udacity/components/Title';
+import Anchor from 'grommet-udacity/components/Anchor';
 import MenuIcon from 'grommet-udacity/components/icons/base/Menu';
 
 class Main extends Component {
@@ -80,8 +81,10 @@ class Main extends Component {
               pad={{ horizontal: 'medium', between: 'small' }}
             >
               {!navIsActive &&
-                <Title onClick={this.handleToggleNav} a11yTitle="Open Menu Left">
-                  <LogoImage />
+                <Title a11yTitle="Go Home">
+                  <Anchor href="/">
+                    <LogoImage />
+                  </Anchor>
                 </Title>
               }
               <Title onClick={this.handleToggleNav} a11yTitle="Open Menu Right">
