@@ -1,10 +1,11 @@
 import React, { PropTypes, Component } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import { AppHeader } from 'components';
+import { AppHeader, SessionMenu } from 'components';
 import Split from 'grommet-udacity/components/Split';
 import Sidebar from 'grommet-udacity/components/Sidebar';
 import Menu from 'grommet-udacity/components/Menu';
+import Footer from 'grommet-udacity/components/Footer';
 import { Link, IndexLink } from 'react-router';
 
 class MobileNav extends Component {
@@ -16,6 +17,7 @@ class MobileNav extends Component {
     const {
       onToggleNav,
       navLinks,
+      user,
     } = this.props;
     return (
       <Sidebar size="medium" colorIndex="neutral-1" fixed seperator="right">
@@ -39,6 +41,30 @@ class MobileNav extends Component {
             </Link>
           )}
         </Menu>
+        <Footer pad="medium">
+          {user ?
+            <SessionMenu
+              user={user}
+            />
+          :
+            <Menu primary>
+              <Link
+                to="/login"
+                activeClassName="active"
+                onClick={() => onToggleNav()}
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                activeClassName="active"
+                onClick={() => onToggleNav()}
+              >
+                Signup
+              </Link>
+            </Menu>
+          }
+        </Footer>
       </Sidebar>
     );
   }
@@ -50,9 +76,9 @@ class MobileNav extends Component {
     return (
       <Split flex={navActive ? '' : 'right'} priority={navActive ? 'left' : 'right'}>
         {navActive && this.renderMenu()}
-        <main>
+        <div>
           {children}
-        </main>
+        </div>
       </Split>
     );
   }
@@ -63,6 +89,7 @@ MobileNav.propTypes = {
   navActive: PropTypes.bool.isRequired,
   onToggleNav: PropTypes.func.isRequired,
   navLinks: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default cssModules(MobileNav, styles);
