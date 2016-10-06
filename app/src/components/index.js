@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export AppHeader from './AppHeader';
 export MobileNav from './MobileNav';
 export ToastMessage from './ToastMessage';
 export CmsToolbar from './CmsToolbar';

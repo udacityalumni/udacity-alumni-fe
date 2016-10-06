@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
+import { AppHeader } from 'components';
 import Split from 'grommet-udacity/components/Split';
 import Sidebar from 'grommet-udacity/components/Sidebar';
 import Menu from 'grommet-udacity/components/Menu';
@@ -18,10 +19,10 @@ class MobileNav extends Component {
     } = this.props;
     return (
       <Sidebar size="medium" colorIndex="neutral-1" fixed seperator="right">
-        {/* <AppHeader {...this.props} /> */}
+        <AppHeader onToggleNav={onToggleNav} />
         <Menu primary>
           <IndexLink
-            to="/home"
+            to="/"
             activeClassName="active"
             onClick={() => onToggleNav()}
           >

@@ -2,9 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
-import { Navbar } from 'components';
 import App from 'grommet-udacity/components/App';
-import { MobileNav } from 'components';
+import { MobileNav, LogoImage, Navbar } from 'components';
 import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
 import Header from 'grommet-udacity/components/Header';
 import Title from 'grommet-udacity/components/Title';
@@ -65,14 +64,48 @@ class Main extends Component {
     } = this.state;
     return (
       <App centered={false}>
-        <Navbar onSearch={(e) => e} />
-        <MobileNav
-          isMobile={isMobile}
-          navActive={navIsActive}
-          onToggleNav={this.handleToggleNav}
-        >
-          {React.cloneElement(this.props.children, this.props)}
-        </MobileNav>
+        {!isMobile ?
+          <main>
+            <Navbar onSearch={(e) => e} />
+            {React.cloneElement(this.props.children, this.props)}
+          </main>
+        :
+          <MobileNav
+            navActive={navIsActive}
+            onToggleNav={this.handleToggleNav}
+            navLinks={[
+              {
+                url: '/careers',
+                text: 'Careers',
+              },
+              {
+                url: '/mentorship',
+                text: 'Mentorship',
+              },
+              {
+                url: '/meetups',
+                text: 'Meetups',
+              },
+            ]}
+          >
+            <Header
+              direction="row"
+              justify="between"
+              large
+              pad={{ horizontal: 'medium', between: 'small' }}
+            >
+              {!navIsActive &&
+                <Title onClick={this.handleToggleNav} a11yTitle="Open Menu Left">
+                  <LogoImage />
+                </Title>
+              }
+              <Title onClick={this.handleToggleNav} a11yTitle="Open Menu Right">
+                <MenuIcon colorIndex="brand" size="medium" type="control" />
+              </Title>
+            </Header>
+            {React.cloneElement(this.props.children, this.props)}
+          </MobileNav>
+        }
       </App>
     );
   }
