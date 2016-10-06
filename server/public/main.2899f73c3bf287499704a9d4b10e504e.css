@@ -6,8 +6,16 @@
   overflow: hidden;
   cursor: pointer;
   transition: all .3s ease-in-out;
+}
+
+.app-src-components-SessionMenu-___index-module__profileName___fZ0n8 {
+  margin-top: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
 }.app-src-components-AppHeader-___index-module__navCloser___1nPXu {
   padding-right: 20px;
+}.app-src-components-MobileNav-___index-module__navFooter___3viLP {
+  margin-bottom: 20px;
 }.app-src-components-CmsToolbar-___index-module__toolbar___xtr-w {
   position: fixed;
   margin-bottom: 0px !important;
@@ -112,8 +120,20 @@
   max-width: 800px;
 }
 
+@media screen and (max-width: 768px) {
+  .app-src-containers-LandingContainer-___index-module__mainContent___1UMld {
+    padding-top: 0 !important;
+  }
+}
+
 .app-src-containers-LandingContainer-___index-module__loadingBox___1FYTh {
   min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .app-src-containers-LandingContainer-___index-module__mainSection___1bw3k {
+    padding: 0 !important;
+  }
 }.app-src-pages-SignupPage-___index-module__container___2A2GR {
   height: 100vh;
   width: 100%;

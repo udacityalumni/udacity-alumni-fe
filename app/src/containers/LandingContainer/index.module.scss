@@ -3,9 +3,18 @@
 }
 
 .mainContent {
+  @media screen and (max-width: 768px) {
+    padding-top: 0 !important;
+  }
   max-width: 800px;
 }
 
 .loadingBox {
   min-height: 100vh;
+}
+
+.mainSection {
+  @media screen and (max-width: 768px) {
+    padding: 0 !important;
+  }
 }

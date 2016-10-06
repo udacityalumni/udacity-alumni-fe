@@ -41,7 +41,11 @@ class MobileNav extends Component {
             </Link>
           )}
         </Menu>
-        <Footer pad="medium">
+        <Footer
+          justify="start"
+          pad="medium"
+          className={styles.navFooter}
+        >
           {user ?
             <SessionMenu
               user={user}
