@@ -36,7 +36,7 @@ exports[`<CmsToolbar /> should render with default props 1`] = `
       <Box
         announce={false}
         direction="column"
-        flex="1"
+        flex="grow"
         focusable={true}
         pad="none"
         responsive={true}
