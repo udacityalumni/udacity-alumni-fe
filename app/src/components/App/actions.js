@@ -1,6 +1,10 @@
-const GLOBAL_ACTION = 'GLOBAL_ACTION';
+import * as types from './constants';
 
-// globalAction :: None -> {Action}
-export const globalAction = () => ({
-  type: GLOBAL_ACTION,
+export const appToggleNav = () => ({
+  type: types.APP_ON_TOGGLE_NAV,
+});
+
+export const appSetMobile = (isMobile) => ({
+  type: types.APP_SET_MOBILE,
+  isMobile,
 });

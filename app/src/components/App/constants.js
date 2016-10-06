@@ -1,0 +1,2 @@
+export const APP_SET_MOBILE = 'APP_SET_MOBILE';
+export const APP_ON_TOGGLE_NAV = 'APP_ON_TOGGLE_NAV';
