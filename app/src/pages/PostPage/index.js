@@ -6,10 +6,10 @@ import { SinglePostContainer } from 'containers';
 
 // Pages map directly to Routes, i.e. one page equals on Route
 
-const PostPage = () => (
+const PostPage = (props) => (
   <div className={styles.container}>
     Hello from PostPage !
-    <SinglePostContainer {...this.props} />
+    <SinglePostContainer {...props} />
   </div>
 );
 

@@ -47,7 +47,7 @@ class SinglePostContainer extends Component { // eslint-disable-line react/prefe
             <div className={styles.singlePost}>
               <SinglePost article={article} />
             </div>
-            {errors.length > 0 &&
+            {errors && errors.length > 0 &&
               <ErrorAlert errors={errors} />
             }
             {isLoading ?
