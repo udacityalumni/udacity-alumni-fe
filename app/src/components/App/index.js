@@ -14,8 +14,10 @@ class Main extends Component {
   constructor() {
     super();
     this.handleToggleNav = this.handleToggleNav.bind(this);
+    this.handleSetMobile = this.handleSetMobile.bind(this);
     this.state = {
       navIsActive: false,
+      isMobile: false,
     };
   }
   componentDidMount() {
@@ -23,6 +25,10 @@ class Main extends Component {
       pathname,
     } = this.props.location;
     updatePageTitle(getTitleFromRoute(pathname));
+    this.handleSetMobile();
+    if (window) {
+      window.addEventListener('resize', this.handleSetMobile);
+    }
   }
   componentWillReceiveProps(newProps) {
     const {
@@ -32,6 +38,17 @@ class Main extends Component {
     if (newPathname !== pathname) {
       updatePageTitle(getTitleFromRoute(newPathname));
     }
+  }
+  componentWillUnmount() {
+    if (window) {
+      window.removeEventListener('resize', this.handleSetMobile);
+    }
+  }
+  handleSetMobile() {
+    const isMobile = window.innerWidth <= 768;
+    this.setState({
+      isMobile,
+    });
   }
   handleToggleNav() {
     const {
@@ -44,11 +61,13 @@ class Main extends Component {
   render() {
     const {
       navIsActive,
+      isMobile,
     } = this.state;
     return (
       <App centered={false}>
         <Navbar onSearch={(e) => e} />
         <MobileNav
+          isMobile={isMobile}
           navActive={navIsActive}
           onToggleNav={this.handleToggleNav}
         >
