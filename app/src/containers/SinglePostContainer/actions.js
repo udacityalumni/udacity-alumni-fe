@@ -1,8 +1,8 @@
 import * as types from './constants';
-// import 'whatwg-fetch';
-import fetch from 'isomorphic-fetch';
+import 'whatwg-fetch';
+// import fetch from 'isomorphic-fetch';
 const baseUrl = 'https://udacity-alumni-api.herokuapp.com/';
-const articleUrl = `${baseUrl}api/v1/articles/id`;
+const articleUrl = (id) => `${baseUrl}api/v1/articles/${id}`;
 
 // singlePostdefaultAction :: None -> {Action}
 export const singlePostDefaultAction = () => ({
@@ -25,12 +25,12 @@ export const loadArticleFailure = (errors) => ({
   errors,
 });
 
-export const loadArticle = () =>
+export const loadArticle = (id) =>
   (dispatch) => {
     dispatch(
       loadArticleInitiation()
     );
-    fetch(articleUrl)
+    fetch(articleUrl(id))
       .then(res => res.json())
       .then(res => res.article)
       .then(article => {
