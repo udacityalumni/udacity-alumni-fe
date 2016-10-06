@@ -1,4 +1,21 @@
-.app-src-components-CmsEditor-___index-module__container___1WJNz {
+.app-src-components-SessionMenu-___index-module__userAvatar___1QFQh {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  border: 2px solid transparent;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}.app-src-components-AppHeader-___index-module__navCloser___1nPXu {
+  padding-right: 20px;
+}.app-src-components-CmsToolbar-___index-module__toolbar___xtr-w {
+  position: fixed;
+  margin-bottom: 0px !important;
+  padding: 0px !important;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+}.app-src-components-CmsEditor-___index-module__container___1WJNz {
   padding: 3% 10%;
 }
 
@@ -9368,3 +9385,5 @@ section:not(.grommetux-section) {
 }
 <div className="my-style" />
 */
+html {
+  overflow-x: hidden; }
