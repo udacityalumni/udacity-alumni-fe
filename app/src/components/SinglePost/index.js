@@ -3,9 +3,11 @@ import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 
-const SinglePost = (props) => (
+const SinglePost = ({
+  article,
+}) => (
   <div className={styles.singlePost}>
-     Hi! Here is {props.article.id}
+    <h2>Hi! Here is {article.id}</h2>
   </div>
 );
 
