@@ -7,31 +7,33 @@ import styles from './index.module.scss';
 import { SinglePost } from 'components';
 
 class SinglePostContainer extends Component { // eslint-disable-line react/prefer-stateless-function
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.handleLoadingOfArticle = this.handleLoadingOfArticle.bind(this);
   }
+
   componentDidMount() {
+    this.handleLoadingOfArticle();
+  }
+
+  handleLoadingOfArticle() {
+    const {
+      params,
+    } = this.props;
+    const itemId = parseInt(params.id, 10);
+    // const article = posts.filter(item => item.id === itemId)[0];
+    if (!itemId) {
+      const {
+        router,
+      } = this.context;
+      router.push('/');
+    }
     const {
       loadArticle,
     } = this.props.actions;
-    loadArticle();
+    loadArticle(itemId);
   }
-  // If not using redux:
-  // handleLoadingOfPost() {
-  //   const {
-  //     posts,
-  //     params,
-  //   } = this.props;
-  //   const itemId = parseInt(params.id, 10);
-  //   const selectedPost = posts.filter(item => item.id === itemId)[0];
-  //   // if (!selectedPost) {
-  //   //   const {
-  //   //     router,
-  //   //   } = this.context;
-  //   //   router.push('/');
-  //   // }
-  //   return selectedPost;
-  // }
+
   render() {
     const {
       isLoading,
@@ -40,7 +42,7 @@ class SinglePostContainer extends Component { // eslint-disable-line react/prefe
     } = this.props;
     return (
       <div className={styles.singlePost}>
-        <SinglePost article={this.article} />
+        <SinglePost article={article} />
       </div>
     );
   }

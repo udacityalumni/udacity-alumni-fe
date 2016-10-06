@@ -9,8 +9,9 @@ export const singlePostDefaultAction = () => ({
   type: types.SINGLEPOST_DEFAULT_ACTION,
 });
 // loadArticleInitiation :: None -> {Action}
-export const loadArticleInitiation = () => ({
+export const loadArticleInitiation = (articleId) => ({
   type: types.ARTICLE_INITIATION,
+  articleId,
 });
 
 // loadArticleSuccess :: JSON -> {Action}
@@ -25,12 +26,13 @@ export const loadArticleFailure = (errors) => ({
   errors,
 });
 
-export const loadArticle = (id) =>
+export const loadArticle = (articleId) =>
   (dispatch) => {
     dispatch(
-      loadArticleInitiation()
+      loadArticleInitiation(articleId)
     );
-    fetch(articleUrl(id))
+
+    fetch(articleUrl(articleId))
       .then(res => res.json())
       .then(res => res.article)
       .then(article => {
