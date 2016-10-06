@@ -6,15 +6,11 @@ exports[`<CmsToolbar /> should render with default props 1`] = `
   focusable={true}
   full="horizontal"
   justify="center"
-  pad={
-    Object {
-      "horizontal": "medium",
-      "vertical": "medium"
-    }
-  }
+  pad="none"
   responsive={true}
   tag="div">
   <Columns
+    full="horizontal"
     justify="center"
     maxCount={1}
     responsive={true}>
@@ -24,11 +20,11 @@ exports[`<CmsToolbar /> should render with default props 1`] = `
       colorIndex="light-2"
       direction="row"
       focusable={true}
+      full="horizontal"
       justify="between"
       margin="small"
       pad="medium"
       responsive={true}
-      size="large"
       tag="div">
       <CheckBox
         checked={false}
@@ -37,6 +33,19 @@ exports[`<CmsToolbar /> should render with default props 1`] = `
         name="spotlight"
         onChange={[Function onToggleSpotlight]}
         toggle={true} />
+      <Box
+        announce={false}
+        direction="column"
+        flex="1"
+        focusable={true}
+        pad="none"
+        responsive={true}
+        tag="div">
+        <Button
+          label="Save"
+          onClick={[Function onClick]}
+          type="button" />
+      </Box>
       <Select
         label="Status"
         onChange={[Function onChange]}

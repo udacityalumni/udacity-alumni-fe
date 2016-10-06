@@ -10,7 +10,10 @@ const SessionMenu = ({
 }) => (
   <Menu
     icon={
-      <img src={user.avatar} className={styles.userAvatar} />
+      <img
+        src={user.avatar}
+        className={styles.userAvatar}
+      />
     }
     dropAlign={{ bottom: 'bottom' }}
     a11yTitle="Session"

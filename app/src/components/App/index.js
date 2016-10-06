@@ -14,10 +14,6 @@ class Main extends Component {
     super();
     this.handleToggleNav = this.handleToggleNav.bind(this);
     this.handleSetMobile = this.handleSetMobile.bind(this);
-    this.state = {
-      navIsActive: false,
-      isMobile: false,
-    };
   }
   componentDidMount() {
     const {
@@ -45,23 +41,24 @@ class Main extends Component {
   }
   handleSetMobile() {
     const isMobile = window.innerWidth <= 768;
-    this.setState({
-      isMobile,
-    });
+    const {
+      appSetMobile,
+    } = this.props.actions;
+    appSetMobile(isMobile);
   }
   handleToggleNav() {
     const {
-      navIsActive,
-    } = this.state;
-    this.setState({
-      navIsActive: !navIsActive,
-    });
+      appToggleNav,
+    } = this.props.actions;
+    appToggleNav();
   }
   render() {
     const {
-      navIsActive,
+      user,
       isMobile,
-    } = this.state;
+      navIsActive,
+      navLinks,
+    } = this.props;
     return (
       <App centered={false}>
         {!isMobile ?
@@ -71,25 +68,10 @@ class Main extends Component {
           </main>
         :
           <MobileNav
-            user={{
-              avatar: "http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png",
-            }}
+            user={user}
             navActive={navIsActive}
             onToggleNav={this.handleToggleNav}
-            navLinks={[
-              {
-                url: '/careers',
-                text: 'Careers',
-              },
-              {
-                url: '/mentorship',
-                text: 'Mentorship',
-              },
-              {
-                url: '/meetups',
-                text: 'Meetups',
-              },
-            ]}
+            navLinks={navLinks}
           >
             <Header
               direction="row"
@@ -117,14 +99,21 @@ class Main extends Component {
 Main.propTypes = {
   children: React.children,
   location: PropTypes.object.isRequired,
+  user: PropTypes.object,
+  isMobile: PropTypes.bool.isRequired,
+  navIsActive: PropTypes.bool.isRequired,
+  navLinks: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired,
 };
 
 // Map the global state to global props here.
 // See: https://egghead.io/lessons/javascript-redux-generating-containers-with-connect-from-react-redux-visibletodolist
 // mapStateToProps :: {State} -> {Action}
 const mapStateToProps = (state) => ({
-  messages: state.messages,
-  errors: state.errors,
+  user: state.app.user,
+  navIsActive: state.app.navIsActive,
+  isMobile: state.app.isMobile,
+  navLinks: state.app.navLinks,
 });
 
 // Map the dispatch and bind the action creators.

@@ -1,0 +1,9 @@
+exports[`<MobileNav /> should render with default props 1`] = `
+<Split
+  fixed={true}
+  flex="right"
+  priority="right"
+  showOnResponsive="priority">
+  <div />
+</Split>
+`;
