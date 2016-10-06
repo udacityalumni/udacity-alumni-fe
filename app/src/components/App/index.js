@@ -71,6 +71,9 @@ class Main extends Component {
           </main>
         :
           <MobileNav
+            user={{
+              avatar: "http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png",
+            }}
             navActive={navIsActive}
             onToggleNav={this.handleToggleNav}
             navLinks={[

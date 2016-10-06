@@ -15,7 +15,7 @@ const SessionMenu = ({
     dropAlign={{ bottom: 'bottom' }}
     a11yTitle="Session"
   >
-    <Anchor href="#" onClick={onLogout}>Logout</Anchor>
+    <Anchor href="/logout" onClick={onLogout}>Logout</Anchor>
   </Menu>
 );
 
