@@ -1,0 +1,24 @@
+exports[`<MobileNav /> should render with default props 1`] = `
+<Split
+  fixed={true}
+  flex="right"
+  priority="right"
+  showOnResponsive="priority">
+  <div>
+    <Header
+      align="center"
+      direction="row"
+      justify="between"
+      large={true}
+      pad={
+        Object {
+          "between": "small",
+          "horizontal": "medium"
+        }
+      }
+      responsive={false}>
+      Test
+    </Header>
+  </div>
+</Split>
+`;

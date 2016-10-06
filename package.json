@@ -129,7 +129,8 @@
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "svg-react-loader": "^0.3.6",
-    "webpack": "v2.1.0-beta.19"
+    "utils": "^0.3.1",
+    "webpack": "^2.1.0-beta.19"
   },
   "devDependencies": {
     "all-contributors-cli": "^3.0.6",

@@ -44,7 +44,7 @@ const CmsToolbar = ({
           onChange={onToggleSpotlight}
           checked={spotlighted}
         />
-        <Box flex="1">
+        <Box flex="grow">
           <Button label="Save" onClick={() => onSave()} />
         </Box>
         <Select
