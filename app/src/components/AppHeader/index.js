@@ -17,7 +17,7 @@ const AppHeader = ({
     large
   >
     <Title onClick={onToggleNav}>
-      <LogoImage />
+      <LogoImage inverted />
     </Title>
     <Menu responsive={false} className={styles.navCloser}>
       <Button
