@@ -7,7 +7,7 @@ const SinglePost = ({
   article,
 }) => (
   <div className={styles.singlePost}>
-    <h2>Hi! Here is {article.id}</h2>
+    <h2>Hi! Here is {article.user.name}</h2>
   </div>
 );
 
