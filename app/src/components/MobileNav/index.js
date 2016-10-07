@@ -78,7 +78,10 @@ class MobileNav extends Component {
       children,
     } = this.props;
     return (
-      <Split flex={navActive ? '' : 'right'} priority={navActive ? 'left' : 'right'}>
+      <Split
+        flex={navActive ? '' : 'right'}
+        priority={navActive ? 'left' : 'right'}
+      >
         {navActive && this.renderMenu()}
         <div>
           {children}
