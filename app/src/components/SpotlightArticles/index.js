@@ -2,37 +2,51 @@ import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import Heading from 'grommet-udacity/components/Heading';
-import Paragraph from 'grommet-udacity/components/Paragraph';
+import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
-import { Link } from 'react-router';
+import Section from 'grommet-udacity/components/Section';
+import Card from 'grommet-udacity/components/Card';
+import Tiles from 'grommet-udacity/components/Tiles';
+import Tile from 'grommet-udacity/components/Tile';
 
 const SpotlightArticles = ({
   articles,
 }) => (
-  <Box pad="small" direction="column">
-    <Heading tag="h3" align="center">
+  <Section pad="small" direction="column" pad={{ vertical: 'medium' }}>
+    <Heading tag="h2" align="center">
       Spotlight Articles
     </Heading>
     <Box pad={{ vertical: 'small' }} direction="row">
-      {articles.map((article, i) =>
-        <Box
-          key={i}
-          align="center"
-          basis="1/3"
-          pad={{ horizontal: 'small' }}
-        >
-          <img src={article.feature_image} />
-          <Paragraph>
-            {`${article.content.slice(0, 200)}...`}
-          </Paragraph>
-          <span>
-            {`Posted by ${article.user.name}`}
-          </span>
-          <Link to={`/articles/${article.id}`} >Read More</Link>
-        </Box>
-      )}
+      <Tiles flush fill className={styles.featuredArticlesContainer}>
+        {articles.map((article, i) =>
+          <Tile
+            key={i}
+            align="start"
+            basis="small"
+            direction="row"
+            separator="bottom"
+            className={styles.featuredArticle}
+          >
+            <Box size="medium" pad={{ vertical: 'medium' }}>
+              <Card
+                label={`By ${article.user.name}`}
+                thumbnail={article.feature_image}
+                heading={article.title.slice(0, 15)}
+                description={`${article.content.slice(0, 200)}...`}
+                link={
+                  <Anchor
+                    href={`/articles/${article.id}`}
+                    primary
+                    label="Read More"
+                  />
+                }
+              />
+            </Box>
+          </Tile>
+        )}
+      </Tiles>
     </Box>
-  </Box>
+  </Section>
 );
 
 SpotlightArticles.propTypes = {

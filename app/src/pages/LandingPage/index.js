@@ -1,12 +1,12 @@
 import React from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import { LandingContainer, ArticleFeed } from 'containers';
+import { LandingContainer, ArticleFeedContainer } from 'containers';
 
 const LandingPage = () => (
   <div className={styles.container}>
     <LandingContainer />
-    <ArticleFeed />
+    <ArticleFeedContainer />
   </div>
 );
 
