@@ -71,6 +71,7 @@
 .app-src-components-CmsEditor-___index-module__inputContainer___1tW1Q input,
 .app-src-components-CmsEditor-___index-module__inputContainer___1tW1Q input::-webkit-input-placeholder {
   font-size: 2.5rem !important;
+  width: 100%;
 }
 
 .app-src-components-CmsEditor-___index-module__input___1aA2Z {
@@ -144,9 +145,8 @@
   }
 }.app-src-components-LoadingIndicator-___index-module__loadingIndicator___1z-Fs {
   margin-top: 20px;
-}.app-src-components-Navbar-___index-module__logo___1rSh0 {
-  max-height: 45px;
-  margin-left: 6%;
+}.app-src-components-Navbar-___index-module__titleImage___F70z1 {
+  margin-left: 20px;
 }
 
 .app-src-components-Navbar-___index-module__navbar___2OD84 {
@@ -155,7 +155,11 @@
 
 .app-src-components-Navbar-___index-module__leftMenu___1_--A {
   flex: 1;
-  margin-left: 10px;
+  margin-left: 20px;
+}
+
+.app-src-components-Navbar-___index-module__rightMenu___2ljaI {
+  margin-right: 20px !important;
 }.app-src-components-LogoImage-___index-module__logoImageContainer___2clBy {
   width: 11.0625rem;
   height: 1.9375rem;
