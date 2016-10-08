@@ -10,8 +10,13 @@
 
 
 .featuredArticle {
-  flex-basis: 330px !important;
+  @media screen and (min-width: 768px) {
+    flex-basis: 330px !important;
+  }
   @media screen and (max-width: 44.9375em) {
-    flex-direction: row;
+    flex-direction: row !important;
+    flex-basis: 192 !important;
+    max-width: 85vw;
+    box-sizing: border-box;
   }
 }
