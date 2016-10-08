@@ -1,4 +1,6 @@
 /* Assemble all components for export */
+export Author from './Author';
+export SingleArticle from './SingleArticle';
 export SessionMenu from './SessionMenu';
 export AppHeader from './AppHeader';
 export MobileNav from './MobileNav';

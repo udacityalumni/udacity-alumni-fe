@@ -40,6 +40,7 @@
     "configFile": "./config/webpack/webpack.test.config.js"
   },
   "scripts": {
+
     "t": "npm run test",
     "test:watch": "npm test -- --watch",
     "test": "BABEL_DISABLE_CACHE=1 NODE_ENV=test node --harmony_proxies node_modules/.bin/jest",

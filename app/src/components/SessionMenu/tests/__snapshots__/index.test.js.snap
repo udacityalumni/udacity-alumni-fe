@@ -9,11 +9,32 @@ exports[`<SessionMenu /> should render with default props 1`] = `
     }
   }
   icon={
-    <img
-      className={undefined}
-      src="http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png" />
+    <function SessionIcon( /* istanbul ignore next */_ref) /* istanbul ignore next */{var
+      user = _ref.user;return (
+    
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Box2.default, /* istanbul ignore next */{
+            responsive: false,
+            direction: 'row',
+            justify: 'center' },
+    
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'img', /* istanbul ignore next */{
+            src: user.avatar,
+            className: styles.userAvatar }),
+    
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Heading2.default, /* istanbul ignore next */{ tag: 'h4', className: styles.profileName },
+            user.name)));}
+      user={
+        Object {
+          "avatar": "http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png"
+        }
+      } />
   }
   pad="none">
+  <Anchor
+    href="/profile"
+    tag="a">
+    Profile
+  </Anchor>
   <Anchor
     href="/logout"
     tag="a">

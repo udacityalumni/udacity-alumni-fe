@@ -1,0 +1,17 @@
+.singleArticle {
+  position: relative;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 750px;
+}
+.mainSection {
+  @media screen and (max-width: 768px) {
+    padding: 0 !important;
+  }
+}
+.center {
+    margin: auto;
+    width: 10em;
+    border: 3px solid #89A2B5;
+    padding: 10px;
+}

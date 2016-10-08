@@ -42,10 +42,12 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
       <span>
         Posted by Ryan Collins
       </span>
-      <Button
-        href="/articles/hello-world"
-        label="Read More"
-        type="button" />
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/articles/undefined">
+        Read More
+      </Link>
     </Box>
   </Box>
 </Box>

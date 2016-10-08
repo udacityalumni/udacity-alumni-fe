@@ -1,0 +1,38 @@
+exports[`<SingleArticle /> should render with default props 1`] = `
+<div>
+  <Article
+    align="center"
+    direction="column"
+    pad="none">
+    <Heading
+      align="center"
+      tag="h2">
+      Creditable coverage Hcfa common procedure coding system Group health plan
+    </Heading>
+    <Image
+      full="horizontal"
+      size="medium"
+      src="https://robohash.org/magnietnon.png?size=300x300" />
+    <Box
+      align="center"
+      announce={false}
+      direction="column"
+      focusable={true}
+      justify="center"
+      pad={
+        Object {
+          "horizontal": "small"
+        }
+      }
+      responsive={true}
+      size="large"
+      tag="div">
+      <Paragraph>
+        Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage.
+      </Paragraph>
+    </Box>
+  </Article>
+  <undefined
+    author={undefined} />
+</div>
+`;

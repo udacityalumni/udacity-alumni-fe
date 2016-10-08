@@ -7,6 +7,7 @@ import landing from 'containers/LandingContainer/reducer';
 import loginContainer from 'containers/LoginContainer/reducer';
 import signupContainer from 'containers/SignupContainer/reducer';
 import cmsEditorContainer from 'containers/CmsEditorContainer/reducer';
+import singleArticleContainer from 'containers/SingleArticleContainer/reducer';
 import app from 'components/App/reducer';
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   landing,
   app,
   cmsEditorContainer,
+  singleArticleContainer,
   routing: routerReducer,
   form: formReducer,
 });
