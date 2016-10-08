@@ -6,7 +6,9 @@ import React from 'react';
 describe('<Author />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <Author />
+      <Author
+        author={{ name: 'Ryan Collins', avatar: 'ryancollins.io/avarat' }}
+      />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

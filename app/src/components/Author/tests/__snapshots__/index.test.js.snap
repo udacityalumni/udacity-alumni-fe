@@ -1,1 +1,43 @@
-exports[`<Author /> should render with default props 1`] = `<div />`;
+exports[`<Author /> should render with default props 1`] = `
+<Article
+  direction="column"
+  pad="none">
+  <Heading
+    align="center"
+    tag="h2">
+    About the Author
+  </Heading>
+  <Box
+    align="center"
+    announce={false}
+    direction="column"
+    focusable={true}
+    pad="none"
+    responsive={true}
+    tag="div">
+    <img
+      src="ryancollins.io/avarat" />
+  </Box>
+  <Heading
+    align="center"
+    tag="h3">
+    Ryan Collins
+  </Heading>
+  <Quote
+    borderColorIndex="light-2"
+    emphasizeCredit={true}
+    pad={
+      Object {
+        "horizontal": "large",
+        "vertical": "small"
+      }
+    }
+    size="large">
+    <Heading
+      align="center"
+      tag="h5">
+      Preventive care centers of excellence misrepresentation waiting period EOB. Second surgical opinion network home health care co-insurance NAIC out-of-network.
+    </Heading>
+  </Quote>
+</Article>
+`;

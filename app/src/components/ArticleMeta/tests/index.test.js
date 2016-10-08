@@ -8,11 +8,8 @@ describe('<ArticleMeta />', () => {
     const wrapper = shallow(
       <ArticleMeta
         article={{
+          title: 'Awesome post',
           tags: ['awesomeness'],
-          author: {
-            name: 'Ryan Collins',
-            avatar: 'https://github.com/avatar.png',
-          },
         }}
       />
     );
