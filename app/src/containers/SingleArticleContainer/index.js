@@ -4,7 +4,10 @@ import { bindActionCreators } from 'redux';
 import * as SingleArticleActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import { SingleArticle, ErrorAlert } from 'components';
+import { SingleArticle, ErrorAlert, LoadingIndicator } from 'components';
+import Section from 'grommet-udacity/components/Section';
+import Box from 'grommet-udacity/components/Box';
+import Status from 'grommet/components/icons/Status';
 
 class SingleArticleContainer extends Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
@@ -42,23 +45,28 @@ class SingleArticleContainer extends Component { // eslint-disable-line react/pr
     return (
       <div>
         {article ?
-          <div>
+          <div className={styles.mainSection}>
             <div className={styles.singleArticle}>
               <SingleArticle article={article} />
             </div>
             {errors && errors.length > 0 &&
               <ErrorAlert errors={errors} />
             }
-            {isLoading ?
-              <div>is loading</div>
-            :
-              <div>is not loading</div>
+            {isLoading &&
+              <LoadingIndicator
+                message="Submitting"
+                isLoading={isLoading}
+              />
+            }
+            {errors && errors.length > 0 &&
+              <ErrorAlert errors={errors} onClose={this.handleErrorClose} />
             }
           </div>
         :
-          <div className={styles.containerCenter}>
-            <h1 className={styles.noneFound}>No Restaurant Found</h1>
-           </div>
+          <div className={styles.center}>
+            <Status value="unknown" />
+            <figcaption> No Article Found </figcaption>
+          </div>
         }
       </div>
     );
