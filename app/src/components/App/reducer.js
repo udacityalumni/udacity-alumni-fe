@@ -3,6 +3,7 @@ import update from 'react-addons-update';
 
 export const initialState = {
   user: {
+    name: 'David Harris',
     avatar: 'http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png',
   },
   navLinks: [

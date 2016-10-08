@@ -41,7 +41,11 @@ class MobileNav extends Component {
             </Link>
           )}
         </Menu>
-        <Footer pad="medium">
+        <Footer
+          justify="start"
+          pad="medium"
+          className={styles.navFooter}
+        >
           {user ?
             <SessionMenu
               user={user}
@@ -74,7 +78,10 @@ class MobileNav extends Component {
       children,
     } = this.props;
     return (
-      <Split flex={navActive ? '' : 'right'} priority={navActive ? 'left' : 'right'}>
+      <Split
+        flex={navActive ? '' : 'right'}
+        priority={navActive ? 'left' : 'right'}
+      >
         {navActive && this.renderMenu()}
         <div>
           {children}
