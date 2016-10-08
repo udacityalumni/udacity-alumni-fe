@@ -8,6 +8,7 @@ import { SingleArticle, ErrorAlert, LoadingIndicator } from 'components';
 import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
 import Status from 'grommet/components/icons/Status';
+import { updatePageTitle } from 'utils/a11y';
 
 class SingleArticleContainer extends Component {
   constructor(props) {
@@ -16,6 +17,16 @@ class SingleArticleContainer extends Component {
   }
   componentDidMount() {
     this.handleLoadingOfArticle();
+  }
+  componentWillReceiveProps(newProps) {
+    const {
+      article,
+    } = newProps;
+    if (article) {
+      if (window) {
+        updatePageTitle(`${article.title.slice(10)} | Udacity Alumni Blog`);
+      }
+    }
   }
   handleLoadingOfArticle() {
     const {
