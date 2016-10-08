@@ -55,6 +55,7 @@ class Landing extends Component {
           <Section
             alignContent="center"
             align="center"
+            className={styles.mainSection}
           >
             <Box direction="row">
               <Box

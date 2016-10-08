@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 
-const LogoImage = () => (
+const LogoImage = ({
+  inverted,
+}) => (
   <div className={styles.logoImageContainer}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177 31" alt="Udacity">
       <g fill="none" fill-rule="evenodd">
-        <g id="wordmark" fill="#2E3D49" transform="translate(46 8)">
+        <g id="wordmark" fill={inverted ? '#fff' : '#2E3D49'} transform="translate(46 8)">
           <path d="M12 9.6C12 12.2 9.9 14.1 7 14.1 4.1 14.1 2 12.2 2 9.6L2 0 0 0 0 9.7C0 13.1 2.9 16 7 16 11.1 16 14 13 14 9.7L14 0 12 0 12 9.6 12 9.6zM28.4 0L23 0 23 16 28.4 16C32.9 16 36 12.9 36 8 36 3.2 32.9 0 28.4 0L28.4 0zM28.2 14L25 14 25 2 28.2 2C31.6 2 34 4.3 34 8 34 12 31.5 13.9 28.2 14L28.2 14zM72 14.3C68.4 14.3 66 11.6 66 8 66 4.4 68.5 1.8 72 1.8 74.8 1.8 76.5 3.4 76.5 3.4L77.3 2C77.3 2 75.5.1 71.8.1 67 .1 64 3.7 64 8 64 12.4 67.1 16.1 72 16.1 75.8 16.1 77.7 13.5 77.7 13.5L76.6 12.3C76.5 12.2 75 14.3 72 14.3L72 14.3z"></path>
           <rect width="2" height="16" x="87"></rect>
           <polygon points="98 2 103 2 103 16 105 16 105 2 110 2 110 0 98 0"></polygon>
@@ -18,5 +20,13 @@ const LogoImage = () => (
     </svg>
   </div>
 );
+
+LogoImage.propTypes = {
+  inverted: PropTypes.bool.isRequired,
+};
+
+LogoImage.defaultProps = {
+  inverted: false,
+};
 
 export default cssModules(LogoImage, styles);

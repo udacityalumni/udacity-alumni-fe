@@ -13,8 +13,10 @@ import { initialState as loginContainer } from './containers/LoginContainer/redu
 import { initialState as signupContainer } from './containers/SignupContainer/reducer';
 import { initialState as cmsEditorContainer } from './containers/CmsEditorContainer/reducer';
 import { initialState as singleArticleContainer } from './containers/SingleArticleContainer/reducer';
+import { initialState as app } from './components/App/reducer';
 
 const initialState = {
+  app,
   landing,
   loginContainer,
   signupContainer,

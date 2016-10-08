@@ -1,0 +1,23 @@
+exports[`<SessionMenu /> should render with default props 1`] = `
+<Menu
+  a11yTitle="Session"
+  closeOnClick={true}
+  direction="column"
+  dropAlign={
+    Object {
+      "bottom": "bottom"
+    }
+  }
+  icon={
+    <img
+      className={undefined}
+      src="http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png" />
+  }
+  pad="none">
+  <Anchor
+    href="/logout"
+    tag="a">
+    Logout
+  </Anchor>
+</Menu>
+`;

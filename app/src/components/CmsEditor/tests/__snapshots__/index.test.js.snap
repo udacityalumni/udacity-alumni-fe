@@ -1,0 +1,96 @@
+exports[`<CmsEditor /> should render with default props 1`] = `
+<div>
+  <div>
+    <input
+      onChange={[Function bound handleInputChange]}
+      placeholder="Title"
+      type="titleInput"
+      value="" />
+  </div>
+  <MegadraftEditor
+    editorState={
+      EditorState {
+        "_immutable": Object {
+          "allowUndo": true,
+          "currentContent": Object {
+            "blockMap": Object {
+              "6jll": Object {
+                "characterList": Array [],
+                "data": Object {},
+                "depth": 0,
+                "key": "6jll",
+                "text": "",
+                "type": "unstyled"
+              }
+            },
+            "selectionAfter": Object {
+              "anchorKey": "6jll",
+              "anchorOffset": 0,
+              "focusKey": "6jll",
+              "focusOffset": 0,
+              "hasFocus": false,
+              "isBackward": false
+            },
+            "selectionBefore": Object {
+              "anchorKey": "6jll",
+              "anchorOffset": 0,
+              "focusKey": "6jll",
+              "focusOffset": 0,
+              "hasFocus": false,
+              "isBackward": false
+            }
+          },
+          "decorator": CompositeDraftDecorator {
+            "_decorators": Array [
+              Object {
+                "component": [Function Link],
+                "strategy": [Function findLinkEntities]
+              }
+            ]
+          },
+          "directionMap": Object {
+            "6jll": "LTR"
+          },
+          "forceSelection": false,
+          "inCompositionMode": false,
+          "inlineStyleOverride": null,
+          "lastChangeType": null,
+          "nativelyRenderedContent": null,
+          "redoStack": Array [],
+          "selection": Object {
+            "anchorKey": "6jll",
+            "anchorOffset": 0,
+            "focusKey": "6jll",
+            "focusOffset": 0,
+            "hasFocus": false,
+            "isBackward": false
+          },
+          "treeMap": Object {
+            "6jll": Array [
+              Object {
+                "decoratorKey": null,
+                "end": 0,
+                "leaves": Array [
+                  Object {
+                    "end": 0,
+                    "start": 0
+                  }
+                ],
+                "start": 0
+              }
+            ]
+          },
+          "undoStack": Array []
+        }
+      }
+    }
+    onChange={[Function bound onChange]}
+    placeholder="Tell a story ..." />
+  <undefined
+    onSave={[Function bound publish]}
+    onSetStatus={[Function bound setStatus]}
+    onToggleSpotlight={[Function bound setSpotlightToggle]}
+    spotlighted={false}
+    status={0} />
+</div>
+`;
