@@ -19,6 +19,7 @@ const CmsToolbar = ({
   onSetStatus,
   status,
   onSave,
+  canSubmit,
 }) => (
   <Box
     align="center"
@@ -44,9 +45,7 @@ const CmsToolbar = ({
           onChange={onToggleSpotlight}
           checked={spotlighted}
         />
-        <Box flex="grow">
-          <Button label="Save" onClick={() => onSave()} />
-        </Box>
+        <Button label="Save" onClick={canSubmit ? onSave : null} />
         <Select
           label="Status"
           value={selectOptions[status] ?
@@ -65,6 +64,7 @@ CmsToolbar.propTypes = {
   onToggleSpotlight: PropTypes.func.isRequired,
   onSetStatus: PropTypes.func.isRequired,
   status: PropTypes.oneOf([0, 1, 2]),
+  canSubmit: PropTypes.bool.isRequired,
 };
 
 CmsToolbar.defaultProps = {

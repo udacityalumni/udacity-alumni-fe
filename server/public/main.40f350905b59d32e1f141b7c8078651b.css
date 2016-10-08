@@ -117,6 +117,16 @@
 
 .app-src-components-SpotlightArticles-___index-module__careerResourcesBlurb___3fJj0 {
   max-width: 250px;
+}
+
+.app-src-components-SpotlightArticles-___index-module__featuredArticle___3xqv6 {
+  flex-basis: 330px !important;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .app-src-components-SpotlightArticles-___index-module__featuredArticle___3xqv6 {
+    flex-direction: row;
+  }
 }.app-src-components-MainCarousel-___index-module__carouselBox___2B-rH {
   max-width: 700px;
   height: 300px;
