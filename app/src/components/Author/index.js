@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import Article from 'grommet-udacity/components/Article';
-import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
 import Heading from 'grommet-udacity/components/Heading';
 import Quote from 'grommet-udacity/components/Quote';
