@@ -1,6 +1,5 @@
-.logo {
-  max-height: 45px;
-  margin-left: 6%;
+.titleImage {
+  margin-left: 20px
 }
 
 .navbar {
@@ -9,5 +8,9 @@
 
 .leftMenu {
   flex: 1;
-  margin-left: 10px;
+  margin-left: 20px;
+}
+
+.rightMenu {
+  margin-right: 20px !important;
 }

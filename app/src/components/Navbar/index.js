@@ -14,7 +14,7 @@ const Navbar = ({
 }) => (
   <div className={styles.navbar}>
     <Header justify="between" colorIndex="light-1">
-      <Title>
+      <Title className={styles.titleImage}>
         <Anchor href="/">
           <LogoImage />
         </Anchor>
@@ -45,6 +45,7 @@ const Navbar = ({
         <Menu
           direction="row"
           align="center"
+          className={styles.rightMenu}
           responsive
         >
           <Anchor>
@@ -61,6 +62,7 @@ const Navbar = ({
         <Menu
           direction="row"
           align="center"
+          className={styles.rightMenu}
         >
           <Anchor href="/login">
             Log In
