@@ -1,0 +1,24 @@
+exports[`<SingleArticle /> should render with default props 1`] = `
+<SingleArticleContainer
+  actions={
+    Object {
+      "loadArticle": [Function anonymous],
+      "loadArticleFailure": [Function anonymous],
+      "loadArticleInitiation": [Function anonymous],
+      "loadArticleSuccess": [Function anonymous]
+    }
+  }
+  article={null}
+  errors={null}
+  isLoading={false}
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  } />
+`;

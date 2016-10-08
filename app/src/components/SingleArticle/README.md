@@ -1,17 +1,18 @@
 ## SingleArticle Component
-A component that ...
+A component that renders a single article for the site's blog.
 
 ### Example
 
 ```js
-<SingleArticle />
+<SingleArticle article={article} />
 ```
 
 ### Props
 
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
-| **myProp**    | String   |             | Any string value
+| **article**    | Object   |             | A single article conforming to the schema defined on the API.
 
 
 ### Other Information
+Presentational component only

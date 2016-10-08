@@ -29,10 +29,10 @@ describe('SingleArticle actions', () => {
     const error = 'An error has occured';
     const expected = {
       type: types.ARTICLE_FAILURE,
-      error,
+      errors: [error],
     };
     expect(
-      actions.loadArticleFailure(error)
+      actions.loadArticleFailure([error])
     ).toEqual(expected);
   });
 });

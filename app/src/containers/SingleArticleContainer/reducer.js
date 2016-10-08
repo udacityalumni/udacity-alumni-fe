@@ -35,8 +35,6 @@ const singleArticleReducer =
             $set: action.errors,
           },
         });
-      case types.SINGLEARTICLE_DEFAULT_ACTION:
-        return state;
       default:
         return state;
     }
