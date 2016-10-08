@@ -21,7 +21,6 @@ class SinglePostContainer extends Component { // eslint-disable-line react/prefe
       params,
     } = this.props;
     const itemId = parseInt(params.id, 10);
-    // const article = posts.filter(item => item.id === itemId)[0];
     if (!itemId) {
       const {
         router,

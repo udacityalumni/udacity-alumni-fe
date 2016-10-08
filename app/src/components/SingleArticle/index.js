@@ -8,20 +8,8 @@ import Image from 'grommet-udacity/components/Image';
 import Paragraph from 'grommet-udacity/components/Paragraph';
 import Button from 'grommet-udacity/components/Button';
 
-const Tag = ({
-  label,
-}) => (
-  <span>
-    <Button>
-      {label}
-    </Button>
-  </span>
-);
-
 const SingleArticle = ({
   article,
-  onClickButton,
-  name,
 }) => (
   <div className={styles.singleArticle}>
     <Heading className={styles.heading} align="center" tag="h1">
@@ -35,21 +23,11 @@ const SingleArticle = ({
         </Paragraph>
       </Article>
     </Box>
-    <Box
-      align="center"
-      justify="center"
-    >
-      {article.tags.map((tag, i) =>
-        <Tag key={i} label={tag} />
-      )}
-    </Box>
-    <Button onClick={() => onClickButton(name)} label="Button" />
   </div>
 );
 
 SingleArticle.propTypes = {
   article: PropTypes.object.isRequired,
-  onClickButton: PropTypes.func.isRequired,
 };
 
 export default cssModules(SingleArticle, styles);

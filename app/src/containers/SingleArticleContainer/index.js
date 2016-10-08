@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as SingleArticleActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import Heading from 'grommet-udacity/components/Heading';
-import { SingleArticle as SingleArticleComponent } from 'components';
+import { SingleArticle, ErrorAlert } from 'components';
 
 class SingleArticleContainer extends Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
@@ -22,7 +21,6 @@ class SingleArticleContainer extends Component { // eslint-disable-line react/pr
       params,
     } = this.props;
     const itemId = parseInt(params.id, 10);
-    // const article = posts.filter(item => item.id === itemId)[0];
     if (!itemId) {
       const {
         router,
@@ -45,8 +43,8 @@ class SingleArticleContainer extends Component { // eslint-disable-line react/pr
       <div>
         {article ?
           <div>
-            <div className={styles.singlePost}>
-              <SinglePost article={article} />
+            <div className={styles.singleArticle}>
+              <SingleArticle article={article} />
             </div>
             {errors && errors.length > 0 &&
               <ErrorAlert errors={errors} />
@@ -60,15 +58,14 @@ class SingleArticleContainer extends Component { // eslint-disable-line react/pr
         :
           <div className={styles.containerCenter}>
             <h1 className={styles.noneFound}>No Restaurant Found</h1>
-            <h4>{'Going back home where it\'s safe!'}</h4>
-          </div>
+           </div>
         }
       </div>
     );
   }
 }
 
-SinglePostContainer.propTypes = {
+SingleArticleContainer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   actions: PropTypes.object.isRequired,
   article: PropTypes.object,
@@ -76,27 +73,27 @@ SinglePostContainer.propTypes = {
   params: PropTypes.object.isRequired,
 };
 
-SinglePostContainer.contextTypes = {
+SingleArticleContainer.contextTypes = {
   router: PropTypes.object.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   // myProp: state.myProp,
-  isLoading: state.singlePostReducer.isLoading,
-  article: state.singlePostReducer.article,
-  errors: state.singlePostReducer.errors,
+  isLoading: state.singleArticleContainer.isLoading,
+  article: state.singleArticleContainer.article,
+  errors: state.singleArticleContainer.errors,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(
-    SinglePostActionCreators,
+    SingleArticleActionCreators,
     dispatch
   ),
 });
 
-const Container = cssModules(SinglePostContainer, styles);
+const Container = cssModules(SingleArticleContainer, styles);
 
 export default connect(
   mapStateToProps,

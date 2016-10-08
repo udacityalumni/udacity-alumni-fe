@@ -29,9 +29,8 @@ const SpotlightArticles = ({
           </Paragraph>
           <span>
             {`Posted by ${article.user.name}`}
-            <DateTime value={`at ${article.created_at}`} />
           </span>
-          <Link to={`/articles/${article.id}`} >More</Link>
+          <Link to={`/articles/${article.id}`} >Read More</Link>
         </Box>
       )}
     </Box>
