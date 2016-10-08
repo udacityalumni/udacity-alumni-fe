@@ -19,7 +19,12 @@ const SingleArticle = ({
           {article.title}
         </Heading>
         <Image src={article.feature_image} full="horizontal" />
-        <Box align="center" justify="center" size="large" pad={{ horizontal: 'small' }}>
+        <Box
+          align="center"
+          justify="center"
+          size="large"
+          pad={{ horizontal: 'small' }}
+        >
           <Paragraph>
             {article.content}
           </Paragraph>
