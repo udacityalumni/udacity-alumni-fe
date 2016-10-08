@@ -1,38 +1,99 @@
 exports[`<SingleArticle /> should render with default props 1`] = `
-<div>
-  <Article
-    align="center"
-    direction="column"
-    pad="none">
-    <Heading
-      align="center"
-      tag="h2">
-      Creditable coverage Hcfa common procedure coding system Group health plan
-    </Heading>
-    <Image
-      full="horizontal"
-      size="medium"
-      src="https://robohash.org/magnietnon.png?size=300x300" />
-    <Box
-      align="center"
-      announce={false}
-      direction="column"
-      focusable={true}
-      justify="center"
-      pad={
-        Object {
-          "horizontal": "small"
-        }
+<Box
+  announce={false}
+  direction="column"
+  focusable={true}
+  pad="none"
+  responsive={true}
+  tag="div">
+  <Section
+    pad={
+      Object {
+        "vertical": "medium"
       }
-      responsive={true}
-      size="large"
-      tag="div">
-      <Paragraph>
-        Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage.
-      </Paragraph>
-    </Box>
-  </Article>
-  <undefined
-    author={undefined} />
-</div>
+    }>
+    <Article
+      align="center"
+      direction="column"
+      pad="none">
+      <Heading
+        align="center"
+        tag="h2">
+        Creditable coverage Hcfa common procedure coding system Group health plan
+      </Heading>
+      <Image
+        full="horizontal"
+        size="medium"
+        src="https://robohash.org/magnietnon.png?size=300x300" />
+      <Box
+        align="center"
+        announce={false}
+        direction="column"
+        focusable={true}
+        justify="center"
+        pad={
+          Object {
+            "horizontal": "small"
+          }
+        }
+        responsive={true}
+        size="large"
+        tag="div">
+        <Paragraph>
+          Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage.
+        </Paragraph>
+      </Box>
+    </Article>
+  </Section>
+  <Section
+    pad={
+      Object {
+        "vertical": "medium"
+      }
+    }>
+    <undefined
+      author={
+        Object {
+          "avatar": "https://avatars3.githubusercontent.com/u/13679375?v=3&s=466",
+          "created_at": "2016-09-30T02:39:57.297Z",
+          "email": "andreas@gmail.com",
+          "id": 3,
+          "name": "Andreas Daimainger",
+          "role": "user",
+          "updated_at": "2016-10-03T18:49:42.965Z"
+        }
+      } />
+  </Section>
+  <Section
+    pad={
+      Object {
+        "vertical": "medium"
+      }
+    }>
+    <undefined
+      article={
+        Object {
+          "content": "Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage.",
+          "created_at": "2016-09-30T02:39:57.333Z",
+          "feature_image": "https://robohash.org/magnietnon.png?size=300x300",
+          "featured": false,
+          "id": 1,
+          "slug": "creditable-coverage-hcfa-common-procedure-coding-system-group-health-plan",
+          "spotlighted": true,
+          "status": "published",
+          "title": "Creditable coverage Hcfa common procedure coding system Group health plan",
+          "updated_at": "2016-09-30T02:42:00.487Z",
+          "user": Object {
+            "avatar": "https://avatars3.githubusercontent.com/u/13679375?v=3&s=466",
+            "created_at": "2016-09-30T02:39:57.297Z",
+            "email": "andreas@gmail.com",
+            "id": 3,
+            "name": "Andreas Daimainger",
+            "role": "user",
+            "updated_at": "2016-10-03T18:49:42.965Z"
+          }
+        }
+      } />
+  </Section>
+</Box>
 `;

@@ -1,13 +1,16 @@
-import Author from '../index';
+import ArticleMeta from '../index';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import React from 'react';
 
-describe('<Author />', () => {
+describe('<ArticleMeta />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <Author
-        author={{ name: 'Ryan Collins', avatar: 'ryancollins.io/avarat' }}
+      <ArticleMeta
+        article={{
+          title: 'Awesome post',
+          tags: ['awesomeness'],
+        }}
       />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();

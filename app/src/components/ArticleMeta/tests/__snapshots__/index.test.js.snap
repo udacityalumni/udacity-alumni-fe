@@ -1,0 +1,99 @@
+exports[`<ArticleMeta /> should render with default props 1`] = `
+<Article
+  direction="column"
+  pad="none">
+  <Section
+    pad={
+      Object {
+        "vertical": "medium"
+      }
+    }>
+    <Heading
+      align="center"
+      tag="h2">
+      Article Tags
+    </Heading>
+    <Box
+      align="center"
+      announce={false}
+      direction="column"
+      focusable={true}
+      pad={
+        Object {
+          "vertical": "medium"
+        }
+      }
+      responsive={true}
+      tag="div">
+      <Tags
+        align="start"
+        direction="row">
+         
+        <Tag
+          label="Blog Post" />
+        <Tag
+          label="Career Resources" />
+        <Tag
+          label="Announcements" />
+      </Tags>
+    </Box>
+  </Section>
+  <Section
+    pad={
+      Object {
+        "vertical": "medium"
+      }
+    }>
+    <Heading
+      align="center"
+      tag="h2">
+      Share This Article
+    </Heading>
+    <Box
+      align="center"
+      announce={false}
+      direction="column"
+      focusable={true}
+      pad="none"
+      responsive={true}
+      tag="div">
+      <Menu
+        closeOnClick={true}
+        direction="row"
+        dropAlign={
+          Object {
+            "left": "left",
+            "top": "top"
+          }
+        }
+        inline={true}
+        pad="none">
+        <SocialShare
+          a11yTitle="Go to Twitter to Share this article"
+          link="http://udacity-alumni.com/articles/undefined"
+          text="Awesome post"
+          title=""
+          type="twitter" />
+        <SocialShare
+          a11yTitle="Go to Facebook to Share this article"
+          link="http://udacity-alumni.com/articles/undefined"
+          text="Awesome post"
+          title=""
+          type="facebook" />
+        <SocialShare
+          a11yTitle="Go to linkedin to Share this article"
+          link="http://udacity-alumni.com/articles/undefined"
+          text="Awesome post"
+          title=""
+          type="linkedin" />
+        <SocialShare
+          a11yTitle="Go to google to Share this article"
+          link="http://udacity-alumni.com/articles/undefined"
+          text="Awesome post"
+          title=""
+          type="google" />
+      </Menu>
+    </Box>
+  </Section>
+</Article>
+`;

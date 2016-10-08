@@ -9,16 +9,14 @@ import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
 import Status from 'grommet/components/icons/Status';
 
-class SingleArticleContainer extends Component { // eslint-disable-line react/prefer-stateless-function
+class SingleArticleContainer extends Component {
   constructor(props) {
     super(props);
     this.handleLoadingOfArticle = this.handleLoadingOfArticle.bind(this);
   }
-
   componentDidMount() {
     this.handleLoadingOfArticle();
   }
-
   handleLoadingOfArticle() {
     const {
       params,
@@ -35,7 +33,6 @@ class SingleArticleContainer extends Component { // eslint-disable-line react/pr
     } = this.props.actions;
     loadArticle(itemId);
   }
-
   render() {
     const {
       isLoading,
@@ -43,32 +40,30 @@ class SingleArticleContainer extends Component { // eslint-disable-line react/pr
       errors,
     } = this.props;
     return (
-      <div>
-        {article ?
-          <div className={styles.mainSection}>
+      <Section>
+        {isLoading ?
+          <LoadingIndicator
+            message="Loading"
+            isLoading={isLoading}
+          />
+        :
+        <Box className={styles.mainSection}>
+          {article ?
             <div className={styles.singleArticle}>
               <SingleArticle article={article} />
             </div>
-            {errors && errors.length > 0 &&
-              <ErrorAlert errors={errors} />
-            }
-            {isLoading &&
-              <LoadingIndicator
-                message="Submitting"
-                isLoading={isLoading}
-              />
-            }
-            {errors && errors.length > 0 &&
-              <ErrorAlert errors={errors} onClose={this.handleErrorClose} />
-            }
-          </div>
-        :
-          <div className={styles.center}>
-            <Status value="unknown" />
-            <figcaption> No Article Found </figcaption>
-          </div>
-        }
-      </div>
+          :
+            <div className={styles.center}>
+              <Status value="unknown" />
+              <figcaption> No Article Found </figcaption>
+            </div>
+          }
+          {errors && errors.length > 0 &&
+            <ErrorAlert errors={errors} onClose={this.handleErrorClose} />
+          }
+        </Box>
+      }
+      </Section>
     );
   }
 }

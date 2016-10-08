@@ -5,13 +5,15 @@
   max-width: 750px;
 }
 .mainSection {
+  margin: 40px 0;
   @media screen and (max-width: 768px) {
     padding: 0 !important;
+    margin: 20px 0;
   }
 }
 .center {
-    margin: auto;
-    width: 10em;
-    border: 3px solid #89A2B5;
-    padding: 10px;
+  margin: auto;
+  width: 10em;
+  border: 3px solid #89A2B5;
+  padding: 10px;
 }
