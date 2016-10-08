@@ -6,7 +6,6 @@ import Box from 'grommet-udacity/components/Box';
 import Article from 'grommet-udacity/components/Article';
 import Image from 'grommet-udacity/components/Image';
 import Paragraph from 'grommet-udacity/components/Paragraph';
-import Button from 'grommet-udacity/components/Button';
 
 const SingleArticle = ({
   article,
