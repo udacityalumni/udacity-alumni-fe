@@ -4,9 +4,9 @@ import styles from './index.module.scss';
 import { SingleArticleContainer } from 'containers';
 
 // Pages map directly to Routes, i.e. one page equals on Route
-const SingleArticlePage = () => (
+const SingleArticlePage = (props) => (
   <div className={styles.container}>
-    <SingleArticleContainer />
+    <SingleArticleContainer {...props} />
   </div>
 );
 

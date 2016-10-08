@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as SinglePostActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import { SinglePost } from 'components';
+import { SinglePost, ErrorAlert } from 'components';
 
 class SinglePostContainer extends Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
