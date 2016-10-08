@@ -1,18 +1,12 @@
-import CmsToolbar from '../index';
+import ArticleFeedItem from '../index';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import React from 'react';
 
-describe('<CmsToolbar />', () => {
+describe('<ArticleFeedItem />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <CmsToolbar
-        spotlighted={false}
-        onToggleSpotlight={e => e}
-        onSetStatus={e => e}
-        status={0}
-        canSubmit
-      />
+      <ArticleFeedItem />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

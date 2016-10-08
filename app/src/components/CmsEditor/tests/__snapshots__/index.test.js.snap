@@ -14,27 +14,27 @@ exports[`<CmsEditor /> should render with default props 1`] = `
           "allowUndo": true,
           "currentContent": Object {
             "blockMap": Object {
-              "6mkd6": Object {
+              "8dhkk": Object {
                 "characterList": Array [],
                 "data": Object {},
                 "depth": 0,
-                "key": "6mkd6",
+                "key": "8dhkk",
                 "text": "",
                 "type": "unstyled"
               }
             },
             "selectionAfter": Object {
-              "anchorKey": "6mkd6",
+              "anchorKey": "8dhkk",
               "anchorOffset": 0,
-              "focusKey": "6mkd6",
+              "focusKey": "8dhkk",
               "focusOffset": 0,
               "hasFocus": false,
               "isBackward": false
             },
             "selectionBefore": Object {
-              "anchorKey": "6mkd6",
+              "anchorKey": "8dhkk",
               "anchorOffset": 0,
-              "focusKey": "6mkd6",
+              "focusKey": "8dhkk",
               "focusOffset": 0,
               "hasFocus": false,
               "isBackward": false
@@ -49,7 +49,7 @@ exports[`<CmsEditor /> should render with default props 1`] = `
             ]
           },
           "directionMap": Object {
-            "6mkd6": "LTR"
+            "8dhkk": "LTR"
           },
           "forceSelection": false,
           "inCompositionMode": false,
@@ -58,15 +58,15 @@ exports[`<CmsEditor /> should render with default props 1`] = `
           "nativelyRenderedContent": null,
           "redoStack": Array [],
           "selection": Object {
-            "anchorKey": "6mkd6",
+            "anchorKey": "8dhkk",
             "anchorOffset": 0,
-            "focusKey": "6mkd6",
+            "focusKey": "8dhkk",
             "focusOffset": 0,
             "hasFocus": false,
             "isBackward": false
           },
           "treeMap": Object {
-            "6mkd6": Array [
+            "8dhkk": Array [
               Object {
                 "decoratorKey": null,
                 "end": 0,
@@ -87,6 +87,7 @@ exports[`<CmsEditor /> should render with default props 1`] = `
     onChange={[Function bound onChange]}
     placeholder="Tell a story ..." />
   <undefined
+    canSubmit={false}
     onSave={[Function bound publish]}
     onSetStatus={[Function bound setStatus]}
     onToggleSpotlight={[Function bound setSpotlightToggle]}

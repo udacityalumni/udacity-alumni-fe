@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export ArticleFeedItem from './ArticleFeedItem';
 export ArticleMeta from './ArticleMeta';
 export Author from './Author';
 export SingleArticle from './SingleArticle';

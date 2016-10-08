@@ -1,4 +1,5 @@
 /* Assemble all containers for export */
+export ArticleFeedContainer from './ArticleFeedContainer';
 export SingleArticleContainer from './SingleArticleContainer';
 export CmsEditorContainer from './CmsEditorContainer';
 export SignupContainer from './SignupContainer';

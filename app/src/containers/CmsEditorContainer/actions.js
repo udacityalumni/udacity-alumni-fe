@@ -22,18 +22,18 @@ export const submitArticleSucces = (message) => ({
 
 class Article {
   constructor() {
-    const args = [...arguments];
+    const args = arguments[0];
     this.content = args.content;
     this.title = args.title;
-    this.spotlighted = args.spotlighted || false;
-    this.featured = args.featured || false;
-    this.userId = args.user || 1;
+    this.status = args.status;
+    this.userId = args.userId || 1;
+    this.featured = false;
+    this.spotlighted = args.spotlighted;
     this.featuredImage = args.featuredImage || '';
-    this.status = args.status || 0;
     this.toJson = this.toJson.bind(this);
   }
   toJson() {
-    return {
+    const body = {
       article: {
         content: this.content,
         title: this.title,
@@ -44,21 +44,28 @@ class Article {
         featured_image: this.featuredImage,
       },
     };
+    return JSON.stringify(body);
   }
 }
 
 export const submitArticleRequest = (articleProps) =>
   (dispatch) => {
     const article = new Article(articleProps);
-    if (!article) { throw new Error('Unable to encode the article data.'); }
-    dispatch(
-      submitArticleInitiation()
-    );
+    if (!article && !article.toJson()) {
+      throw new Error('Unable to encode the article data.');
+    }
+    dispatch(submitArticleInitiation());
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const body = article.toJson();
+    console.log(`Body is ${body}`);
     fetch(articlesUrl, {
       method: 'POST',
-      body: article.toJson(),
+      headers,
+      body,
     })
     .then((res) => {
+      console.log(res);
       if (!res.ok) {
         throw new Error(
           `The following error has occured: ${res.statusText}. Code ${res.status}`

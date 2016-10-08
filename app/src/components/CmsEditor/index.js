@@ -61,12 +61,15 @@ class CmsEditor extends React.Component {
       editorState: editorStateFromRaw(null),
       articleTitle: '',
       spotlighted: false,
+      status: 0,
     });
   }
 
   render() {
-    const { editorState, spotlighted, status } = this.state;
+    const { editorState, articleTitle, spotlighted, status } = this.state;
     const markdown = stateToMarkdown(editorState.getCurrentContent());
+    const isValid = articleTitle !== null && articleTitle.length > 0 &&
+                      markdown !== null && markdown.length > 0;
     return (
       <div className={styles.container}>
         <div className={styles.inputContainer}>
@@ -85,6 +88,7 @@ class CmsEditor extends React.Component {
           placeholder="Tell a story ..."
         />
         <CmsToolbar
+          canSubmit={isValid}
           spotlighted={spotlighted}
           onToggleSpotlight={this.setSpotlightToggle}
           onSetStatus={this.setStatus}
