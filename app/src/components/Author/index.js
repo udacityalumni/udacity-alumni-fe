@@ -12,7 +12,7 @@ const defaultAvatarUrl = 'https://github.com/RyanCCollins/cdn/blob/master/alumni
 const Author = ({
   author,
 }) => (
-  <Article className={styles.panel}>
+  <Article className={styles.panel} align="center">
     <Heading tag="h2" align="center">
       About the Author
     </Heading>

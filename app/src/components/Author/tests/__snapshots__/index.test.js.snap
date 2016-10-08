@@ -1,5 +1,6 @@
 exports[`<Author /> should render with default props 1`] = `
 <Article
+  align="center"
   direction="column"
   pad="none">
   <Heading
