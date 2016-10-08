@@ -1,5 +1,5 @@
 /* Assemble all components for export */
-export PostTags from './PostTags';
+export ArticleMeta from './ArticleMeta';
 export Author from './Author';
 export SingleArticle from './SingleArticle';
 export SessionMenu from './SessionMenu';

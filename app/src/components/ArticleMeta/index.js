@@ -11,22 +11,24 @@ import Menu from 'grommet-udacity/components/Menu';
 import SocialShare from 'grommet-udacity/components/SocialShare';
 import fakeData from './postTags';
 
-const PostTags = ({
+const ArticleMeta = ({
   article,
 }) => (
-  <Section>
-    <Article className={styles.panel}>
-      <Heading tag="h3" align="center">
-        Tagged Under
+  <Article className={styles.panel}>
+    <Section>
+      <Heading tag="h2" align="center">
+        Article Tags
       </Heading>
-      <Box align="center">
+      <Box align="center" pad={{ vertical: 'medium' }}>
         <Tags> {/* NOTE: need to parse the real tags */}
           {fakeData.map((tag, i) =>
             <Tag key={i} label={tag} />
           )}
         </Tags>
       </Box>
-      <Heading tag="h3" align="center">
+    </Section>
+    <Section>
+      <Heading tag="h2" align="center">
         Share This Article
       </Heading>
       <Box align="center">
@@ -57,12 +59,15 @@ const PostTags = ({
           />
         </Menu>
       </Box>
-    </Article>
-  </Section>
+    </Section>
+  </Article>
 );
 
-PostTags.propTypes = {
-  tags: PropTypes.array.isRequired,
+ArticleMeta.propTypes = {
+  article: PropTypes.shape({
+    tags: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
 };
 
-export default cssModules(PostTags, styles);
+export default cssModules(ArticleMeta, styles);
