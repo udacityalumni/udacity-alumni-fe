@@ -20,6 +20,7 @@ const article = {
     updated_at: '2016-10-03T18:49:42.965Z',
     name: 'Andreas Daimainger',
     avatar: 'https://avatars3.githubusercontent.com/u/13679375?v=3&s=466',
+    bio: 'Hello world',
     role: 'user',
   },
   created_at: '2016-09-30T02:39:57.352Z',
