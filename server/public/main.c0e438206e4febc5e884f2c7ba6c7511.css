@@ -1,4 +1,10 @@
-.app-src-components-AppFooter-___index-module__appFooter___1DA5x {
+.app-src-components-SignupForm-___index-module__signupForm___1GA8Y {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 24px;
+}.app-src-components-AppFooter-___index-module__appFooter___1DA5x {
   background: #f5f5f5;
   padding: 50px;
 }
@@ -230,13 +236,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 90vh;
+  min-height: 95vh;
 }.app-src-containers-LoginContainer-___index-module__login___2X2WQ {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 90vh;
+  min-height: 95vh;
 }.app-src-containers-LandingContainer-___index-module__landing___nj0KQ {
   min-height: 100vh;
 }
