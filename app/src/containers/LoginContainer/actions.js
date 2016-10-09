@@ -27,19 +27,19 @@ const fakeLatency = () =>
 
 export const submitLoginRequest = () =>
   (dispatch) => {
-    const fakeUser = {
-      name: 'David Harris',
-      avatar: '',
-    };
     dispatch(
       startLoginRequest()
     );
     // Hit the api here .then((res) => {...})
     fakeLatency().then(() => {
+      // Need to handle the response
+      // For now, just throw
+      throw new Error('The app is not hooked up to the api yet, sadly 😕');
+    }).catch((err) => {
       dispatch(
         loginRequestFailure([
           {
-            message: 'The app is not hooked up to the api yet, sadly 😕',
+            message: err.message,
           },
         ])
       );
