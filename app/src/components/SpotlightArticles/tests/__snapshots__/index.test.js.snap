@@ -35,37 +35,20 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
         hoverStyle="none"
         pad="none"
         separator="bottom">
-        <Box
-          announce={false}
-          direction="column"
-          focusable={true}
-          pad={
+        <undefined
+          article={
             Object {
-              "vertical": "medium"
+              "content": "Hello World",
+              "feature_image": "http://helloworld.com",
+              "id": 1,
+              "slug": "hello-world",
+              "title": "Hello World",
+              "updated_at": "12",
+              "user": Object {
+                "name": "Ryan Collins"
+              }
             }
-          }
-          responsive={true}
-          size="medium"
-          tag="div">
-          <Card
-            contentPad="medium"
-            description="Hello World..."
-            heading="Hello World"
-            headingStrong={true}
-            label="By Ryan Collins"
-            link={
-              <function Anchor() {
-                  (0, _classCallCheck3.default)(this, Anchor);
-                  return (0, _possibleConstructorReturn3.default)(this, (Anchor.__proto__ || (0, _getPrototypeOf2.default)(Anchor)).apply(this, arguments));
-                }
-                href="/articles/1"
-                label="Read More"
-                primary={true}
-                tag="a" />
-            }
-            textSize="small"
-            thumbnail="http://helloworld.com" />
-        </Box>
+          } />
       </Tile>
     </Tiles>
   </Box>

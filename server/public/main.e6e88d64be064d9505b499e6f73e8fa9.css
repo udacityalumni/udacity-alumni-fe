@@ -201,9 +201,30 @@
   width: 11.0625rem;
   height: 1.9375rem;
   margin-left: 10px;
-}.app-src-pages-SingleArticlePage-___index-module__container___23MPt {
-  height: 100vh;
+}.app-src-pages-SearchPage-___index-module__container___18cbH {
+  min-height: calc(100vh - 74px);
   width: 100%;
+}.app-src-containers-SearchContainer-___index-module__search___3QiDq {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.app-src-containers-SearchContainer-___index-module__searchHeader___2iCIM {
+  padding: 16px 0;
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 32px;
+  background: #FFF;
+}
+
+.app-src-containers-SearchContainer-___index-module__rowFull___1rlCW {
+  max-width: 75rem;
+}
+
+.app-src-containers-SearchContainer-___index-module__centerBox___3YZ2h {
+  align-self: center;
+  height: 80vh;
 }.app-src-containers-SingleArticleContainer-___index-module__singleArticle___qU5SV {
   position: relative;
   margin: 0 auto;
@@ -265,6 +286,9 @@
   .app-src-containers-LandingContainer-___index-module__mainSection___1bw3k {
     padding: 0 !important;
   }
+}.app-src-pages-SingleArticlePage-___index-module__container___23MPt {
+  height: 100vh;
+  width: 100%;
 }.app-src-pages-CmsEditorPage-___index-module__container___MOsrM {
   height: 100vh;
   width: 100%;

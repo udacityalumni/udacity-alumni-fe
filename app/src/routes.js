@@ -21,6 +21,7 @@ const routes = (
         <Route path="/signup" component={Pages.SignupPage} />
         <Route path="admin/new-story" component={Pages.CmsEditorPage} />
         <Route path="/martin" component={Pages.MartinPage} />
+        <Route path="/search" component={Pages.SearchPage} />
         <Route path="*" component={Pages.NotFoundPage} />
       </Route>
     </Router>

@@ -2,12 +2,11 @@ import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import Heading from 'grommet-udacity/components/Heading';
-import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
 import Section from 'grommet-udacity/components/Section';
-import Card from 'grommet-udacity/components/Card';
 import Tiles from 'grommet-udacity/components/Tiles';
 import Tile from 'grommet-udacity/components/Tile';
+import { ArticlePreview } from 'components';
 
 const SpotlightArticles = ({
   articles,
@@ -27,21 +26,7 @@ const SpotlightArticles = ({
             separator="bottom"
             className={styles.featuredArticle}
           >
-            <Box size="medium" pad={{ vertical: 'medium' }}>
-              <Card
-                label={`By ${article.user.name}`}
-                thumbnail={article.feature_image}
-                heading={article.title.slice(0, 15)}
-                description={`${article.content.slice(0, 200)}...`}
-                link={
-                  <Anchor
-                    href={`/articles/${article.id}`}
-                    primary
-                    label="Read More"
-                  />
-                }
-              />
-            </Box>
+            <ArticlePreview article={article} />
           </Tile>
         )}
       </Tiles>

@@ -1,0 +1,26 @@
+exports[`<Search /> should render with default props 1`] = `
+<Search
+  actions={
+    Object {
+      "clearSearchError": [Function anonymous],
+      "loadSearchArticles": [Function anonymous],
+      "loadSearchArticlesFailure": [Function anonymous],
+      "loadSearchArticlesInitiation": [Function anonymous],
+      "loadSearchArticlesSuccess": [Function anonymous]
+    }
+  }
+  articles={null}
+  errorMessage={null}
+  isLoading={false}
+  searchTerm="Test"
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  } />
+`;

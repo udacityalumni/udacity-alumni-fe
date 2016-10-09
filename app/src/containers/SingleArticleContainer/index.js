@@ -7,7 +7,7 @@ import styles from './index.module.scss';
 import { SingleArticle, ErrorAlert, LoadingIndicator } from 'components';
 import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
-import Status from 'grommet/components/icons/Status';
+import Status from 'grommet-udacity/components/icons/Status';
 import { updatePageTitle } from '../../../utils/a11y';
 
 class SingleArticleContainer extends Component {
