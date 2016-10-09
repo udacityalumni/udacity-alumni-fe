@@ -13,7 +13,7 @@ const SingleArticle = ({
   article,
 }) => (
   <Box>
-    <Section>
+    <Section align="center">
       <Article align="center" className={styles.singleArticle}>
         <Heading className={styles.heading} align="center" tag="h2">
           {article.title}
@@ -31,10 +31,10 @@ const SingleArticle = ({
         </Box>
       </Article>
     </Section>
-    <Section>
+    <Section align="center">
       <Author author={article.user} />
     </Section>
-    <Section>
+    <Section align="center">
       <ArticleMeta article={article} />
     </Section>
   </Box>

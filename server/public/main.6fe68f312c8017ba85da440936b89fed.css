@@ -29,17 +29,19 @@
 }.app-src-components-ArticleMeta-___index-module__panel___1fwU- {
   position: relative;
   width: 100%;
-  max-width: 750px;
   background: #fff;
   box-shadow: 0 2px 4px 0 rgba(167, 157, 144, 0.52);
-  padding: 60px !important;
+  max-width: 100vw;
+  box-sizing: border-box;
+  padding: 60px 10px;
 }.app-src-components-Author-___index-module__panel___-4DY3 {
   position: relative;
   width: 100%;
-  max-width: 750px;
   background: #fff;
   box-shadow: 0 2px 4px 0 rgba(167, 157, 144, 0.52);
-  padding: 60px !important;
+  max-width: 100vw;
+  box-sizing: border-box;
+  padding: 60px 10px;
 }
 
 .app-src-components-Author-___index-module__avatar___lBMEo {
@@ -58,10 +60,11 @@
 .app-src-components-SingleArticle-___index-module__singleArticle___3jtZl {
   position: relative;
   width: 100%;
-  max-width: 750px;
   background: #fff;
   box-shadow: 0 2px 4px 0 rgba(167, 157, 144, 0.52);
-  padding: 60px !important;
+  max-width: 100vw;
+  box-sizing: border-box;
+  padding: 60px 10px;
 }.app-src-components-SessionMenu-___index-module__userAvatar___1QFQh {
   width: 48px;
   height: 48px;
