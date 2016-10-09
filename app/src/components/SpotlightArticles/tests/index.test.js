@@ -9,8 +9,10 @@ describe('<SpotlightArticles />', () => {
       <SpotlightArticles
         articles={[
           {
-            image: 'http://helloworld.com',
+            id: 1,
+            feature_image: 'http://helloworld.com',
             content: 'Hello World',
+            title: 'Hello World',
             updated_at: '12',
             user: {
               name: 'Ryan Collins',

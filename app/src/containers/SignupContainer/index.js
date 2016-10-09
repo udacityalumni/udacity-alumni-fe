@@ -6,11 +6,12 @@ import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Heading from 'grommet-udacity/components/Heading';
 import Anchor from 'grommet-udacity/components/Anchor';
+import Section from 'grommet-udacity/components/Section';
 
 class Signup extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className={styles.signup}>
+      <Section className={styles.signup}>
         <Heading align="center">
           Hello from Signup Container
         </Heading>
@@ -20,7 +21,7 @@ class Signup extends Component { // eslint-disable-line react/prefer-stateless-f
         <Anchor href="https://github.com/RyanCCollins/code-review-client/tree/master/app/src/containers/SignupContainer">
           https://github.com/RyanCCollins/code-review-client/tree/master/app/src/containers/SignupContainer
         </Anchor>
-      </div>
+      </Section>
     );
   }
 }

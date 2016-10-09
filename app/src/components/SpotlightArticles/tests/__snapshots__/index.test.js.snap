@@ -1,14 +1,14 @@
 exports[`<SpotlightArticles /> should render with default props 1`] = `
-<Box
-  announce={false}
+<Section
   direction="column"
-  focusable={true}
-  pad="small"
-  responsive={true}
-  tag="div">
+  pad={
+    Object {
+      "vertical": "medium"
+    }
+  }>
   <Heading
     align="center"
-    tag="h3">
+    tag="h2">
     Spotlight Articles
   </Heading>
   <Box
@@ -22,33 +22,52 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
     }
     responsive={true}
     tag="div">
-    <Box
-      align="center"
-      announce={false}
-      basis="1/3"
-      direction="column"
-      focusable={true}
-      pad={
-        Object {
-          "horizontal": "small"
-        }
-      }
-      responsive={true}
-      tag="div">
-      <img />
-      <Paragraph>
-        Hello World...
-      </Paragraph>
-      <span>
-        Posted by Ryan Collins
-      </span>
-      <Link
-        onlyActiveOnIndex={false}
-        style={Object {}}
-        to="/articles/undefined">
-        Read More
-      </Link>
-    </Box>
+    <Tiles
+      fill={true}
+      flush={true}
+      justify="start"
+      pad="small">
+      <Tile
+        align="start"
+        basis="small"
+        direction="row"
+        hoverColorIndex="disabled"
+        hoverStyle="none"
+        pad="none"
+        separator="bottom">
+        <Box
+          announce={false}
+          direction="column"
+          focusable={true}
+          pad={
+            Object {
+              "vertical": "medium"
+            }
+          }
+          responsive={true}
+          size="medium"
+          tag="div">
+          <Card
+            contentPad="medium"
+            description="Hello World..."
+            heading="Hello World"
+            headingStrong={true}
+            label="By Ryan Collins"
+            link={
+              <function Anchor() {
+                  (0, _classCallCheck3.default)(this, Anchor);
+                  return (0, _possibleConstructorReturn3.default)(this, (Anchor.__proto__ || (0, _getPrototypeOf2.default)(Anchor)).apply(this, arguments));
+                }
+                href="/articles/1"
+                label="Read More"
+                primary={true}
+                tag="a" />
+            }
+            textSize="small"
+            thumbnail="http://helloworld.com" />
+        </Box>
+      </Tile>
+    </Tiles>
   </Box>
-</Box>
+</Section>
 `;

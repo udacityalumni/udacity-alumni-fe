@@ -51,7 +51,11 @@ class SingleArticleContainer extends Component {
       errors,
     } = this.props;
     return (
-      <Section>
+      <Section
+        align="center"
+        justify="center"
+        className={styles.singleArticleContainer}
+      >
         {isLoading ?
           <LoadingIndicator
             message="Loading"
