@@ -40,7 +40,6 @@
     "configFile": "./config/webpack/webpack.test.config.js"
   },
   "scripts": {
-
     "t": "npm run test",
     "test:watch": "npm test -- --watch",
     "test": "BABEL_DISABLE_CACHE=1 NODE_ENV=test node --harmony_proxies node_modules/.bin/jest",
@@ -107,6 +106,7 @@
     "jest": "^15.1.1",
     "jest-cli": "^15.1.1",
     "json-loader": "^0.5.4",
+    "lru-memoize": "^1.0.1",
     "megadraft": "^0.3.1",
     "megadraft-js-export-markdown": "^0.2.2",
     "minimist": "^1.2.0",
@@ -131,7 +131,7 @@
     "style-loader": "^0.13.0",
     "svg-react-loader": "^0.3.6",
     "utils": "^0.3.1",
-    "webpack": "2.1.0-beta.19"
+    "webpack": "^2.1.0-beta.19"
   },
   "devDependencies": {
     "all-contributors-cli": "^3.0.6",
