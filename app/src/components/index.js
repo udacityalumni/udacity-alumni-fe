@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export AppFooter from './AppFooter';
 export ArticleFeedItem from './ArticleFeedItem';
 export ArticleMeta from './ArticleMeta';
 export Author from './Author';

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 import App from 'grommet-udacity/components/App';
-import { MobileNav, LogoImage, Navbar } from 'components';
+import { MobileNav, LogoImage, Navbar, AppFooter } from 'components';
 import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
 import Header from 'grommet-udacity/components/Header';
 import Title from 'grommet-udacity/components/Title';
@@ -92,6 +92,7 @@ class Main extends Component {
               </Title>
             </Header>
             {React.cloneElement(this.props.children, this.props)}
+            <AppFooter />
           </MobileNav>
         }
       </App>

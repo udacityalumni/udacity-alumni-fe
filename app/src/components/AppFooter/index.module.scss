@@ -1,0 +1,25 @@
+.appFooter {
+  background: #f5f5f5;
+  padding: 50px;
+  title {
+    color: black !important;
+  }
+}
+
+.flexOne {
+  flex: 1;
+}
+
+.termsAnchor {
+  margin-top: 40px;
+  @media screen and (max-width: 680px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.seperator {
+  @media screen and (max-width: 680px) {
+    display: none;
+  }
+}
