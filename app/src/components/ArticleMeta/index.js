@@ -24,7 +24,7 @@ const ArticleMeta = ({
         align="center"
         pad={{ vertical: 'medium' }}
       >
-        <Tags> {/* NOTE: need to parse the real tags */}
+        <Tags align="center" justify="center"> {/* NOTE: need to parse the real tags */}
           {fakeData.map((tag, i) =>
             <Tag key={i} label={tag} />
           )}
