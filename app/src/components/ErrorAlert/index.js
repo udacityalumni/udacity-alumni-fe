@@ -28,7 +28,7 @@ const ErrorAlert = ({
           style={{ paddingTop: 10 }}
           status="critical"
           a11yTitle="Submission Failed"
-          size="small"
+          size="large"
           message={error.message}
         />
       </div>
