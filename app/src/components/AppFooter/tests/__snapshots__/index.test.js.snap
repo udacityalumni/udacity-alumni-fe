@@ -19,7 +19,7 @@ exports[`<AppFooter /> should render with default props 1`] = `
       <Anchor
         href="https://medium.com/react-weekly"
         tag="a">
-        Meetup Event Planner
+        Udacity Alumni Web App
       </Anchor>
     </Heading>
     <Heading

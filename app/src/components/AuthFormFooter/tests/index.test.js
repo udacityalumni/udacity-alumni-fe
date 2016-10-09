@@ -6,7 +6,7 @@ import React from 'react';
 describe('<AuthFormFooter />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <AuthFormFooter />
+      <AuthFormFooter text="hello world" link="http://github.com" />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

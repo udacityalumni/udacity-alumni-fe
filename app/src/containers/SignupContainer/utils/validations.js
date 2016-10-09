@@ -1,4 +1,4 @@
-import * as validation from 'utils/validation';
+import * as validation from '../../../../utils/validation';
 import memoize from 'lru-memoize';
 
 // Compose validation functions for all input fields
@@ -28,7 +28,6 @@ const emailInput = [
 const passwordConfirmationInput = [
   validation.valueRequired,
 ];
-
 
 // Create the validator
 const signupValidation = validation.createValidator({

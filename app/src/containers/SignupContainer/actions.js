@@ -43,7 +43,6 @@ export const submitSignupRequest = () =>
   };
 
 // clearSignupError :: None -> Action
-export const clearSignupError = (index) => ({
+export const clearSignupError = () => ({
   type: types.CLEAR_SIGNUP_ERROR,
-  index,
 });

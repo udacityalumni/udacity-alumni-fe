@@ -26,7 +26,7 @@ exports[`<ErrorAlert /> should render with default props 1`] = `
       message="A bad, bad error has occured :("
       pad="medium"
       role="alert"
-      size="small"
+      size="large"
       status="critical"
       style={
         Object {
@@ -55,7 +55,7 @@ exports[`<ErrorAlert /> should render with default props 1`] = `
       message="An even worse error has occured"
       pad="medium"
       role="alert"
-      size="small"
+      size="large"
       status="critical"
       style={
         Object {

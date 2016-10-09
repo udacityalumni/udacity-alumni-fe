@@ -1,0 +1,120 @@
+exports[`<SignupForm /> should render with default props 1`] = `
+<Box
+  announce={false}
+  direction="column"
+  focusable={true}
+  pad={
+    Object {
+      "horizontal": "small",
+      "vertical": "small"
+    }
+  }
+  responsive={true}
+  tag="div">
+  <Form
+    className="grommetux-form grommetux-login-form grommetux-form--pad-none"
+    compact={false}
+    fill={false}
+    pad="none">
+    <Box
+      align="center"
+      announce={false}
+      direction="column"
+      focusable={true}
+      justify="center"
+      pad="none"
+      responsive={true}
+      tag="div">
+      <img
+        src="https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/udacity-alumni-png.png?raw=true"
+        style={
+          Object {
+            "height": "auto",
+            "maxWidth": 150
+          }
+        } />
+    </Box>
+    <Heading
+      align="center"
+      strong={true}
+      tag="h1">
+      Udacity Alumni
+    </Heading>
+    <Heading
+      align="center"
+      tag="h5">
+      Signup
+    </Heading>
+    <FormFields>
+      <FormField
+        error={null}
+        help="What should we call you?"
+        htmlFor="nameInput"
+        label="Name"
+        size="medium"
+        strong={false}>
+        <input
+          error={null}
+          id="nameInput"
+          touched={false}
+          type="text" />
+      </FormField>
+      <FormField
+        error={null}
+        help="How should we get in touch with you?"
+        label="Email"
+        size="medium"
+        strong={false}>
+        <input
+          error={null}
+          id="emailInput"
+          touched={false}
+          type="email" />
+      </FormField>
+      <FormField
+        error={null}
+        help="Make it secure"
+        label="Password"
+        size="medium"
+        strong={false}>
+        <input
+          error={null}
+          id="passwordInput"
+          touched={false}
+          type="password" />
+      </FormField>
+      <FormField
+        error={null}
+        help="Confirm your password"
+        label="Password Confirmation"
+        size="medium"
+        strong={false}>
+        <input
+          error={null}
+          id="passwordConfirmationInput"
+          touched={false}
+          type="password" />
+      </FormField>
+    </FormFields>
+    <Footer
+      align="center"
+      direction="row"
+      pad={
+        Object {
+          "vertical": "medium"
+        }
+      }
+      responsive={false}>
+      <Button
+        fill={true}
+        label="Submit"
+        onClick={[Function onSubmit]}
+        primary={true}
+        type="button" />
+    </Footer>
+    <undefined
+      link="/login"
+      text="Already a member?" />
+  </Form>
+</Box>
+`;

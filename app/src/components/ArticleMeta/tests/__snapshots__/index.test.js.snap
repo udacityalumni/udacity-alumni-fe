@@ -18,6 +18,7 @@ exports[`<ArticleMeta /> should render with default props 1`] = `
       announce={false}
       direction="column"
       focusable={true}
+      justify="center"
       pad={
         Object {
           "vertical": "medium"
@@ -26,8 +27,9 @@ exports[`<ArticleMeta /> should render with default props 1`] = `
       responsive={true}
       tag="div">
       <Tags
-        align="start"
-        direction="row">
+        align="center"
+        direction="row"
+        justify="center">
          
         <Tag
           label="Blog Post" />
@@ -67,7 +69,8 @@ exports[`<ArticleMeta /> should render with default props 1`] = `
           }
         }
         inline={true}
-        pad="none">
+        pad="none"
+        responsive={true}>
         <SocialShare
           a11yTitle="Go to Twitter to Share this article"
           link="http://udacity-alumni.com/articles/undefined"

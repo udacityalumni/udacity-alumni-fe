@@ -28,11 +28,11 @@ class Signup extends Component {
     } = this.props.actions;
     submitSignupRequest(params);
   }
-  handleErrorClose(index) {
+  handleErrorClose() {
     const {
       clearSignupError,
     } = this.props.actions;
-    clearSignupError(index);
+    clearSignupError();
   }
   render() {
     const {

@@ -1,17 +1,29 @@
 ## SignupForm Component
-A component that ...
+A reusable signup form component.
 
 ### Example
 
 ```js
-<SignupForm />
+const fields = [
+  'nameInput',
+  'emailInput',
+  'passwordInput',
+  'passwordConfirmationInput'
+];
+<SignupForm {...fields} onSubmit={this.handleSubmit} />
 ```
 
 ### Props
 
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
-| **myProp**    | String   |             | Any string value
+| **onSubmit**    | Function   |             | An on submit callback
+| **fields**    | Object   |             | With the keys shown below
+- nameInput
+- emailInput
+- passwordInput
+- passwordConfirmationInput
 
 
 ### Other Information
+Use the redux form field model.
