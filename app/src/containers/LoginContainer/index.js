@@ -48,6 +48,15 @@ class Login extends Component {
         justify="center"
         className={styles.login}
       >
+        {isLoading &&
+          <LoadingIndicator
+            message="Submitting"
+            isLoading={isLoading}
+          />
+        }
+        {errors && errors.length > 0 &&
+          <ErrorAlert errors={errors} onClose={this.handleErrorClose} />
+        }
         <Box
           size="large"
           className={styles.loginFormWrapper}
@@ -68,15 +77,6 @@ class Login extends Component {
             onSubmit={this.handleSubmit}
           />
         </Box>
-        {isLoading &&
-          <LoadingIndicator
-            message="Submitting"
-            isLoading={isLoading}
-          />
-        }
-        {errors && errors.length > 0 &&
-          <ErrorAlert errors={errors} onClose={this.handleErrorClose} />
-        }
       </Section>
     );
   }

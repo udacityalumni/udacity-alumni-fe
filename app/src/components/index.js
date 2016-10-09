@@ -1,4 +1,6 @@
 /* Assemble all components for export */
+export AuthFormFooter from './AuthFormFooter';
+export SignupForm from './SignupForm';
 export AppFooter from './AppFooter';
 export ArticleFeedItem from './ArticleFeedItem';
 export ArticleMeta from './ArticleMeta';

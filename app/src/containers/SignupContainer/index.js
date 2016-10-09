@@ -1,34 +1,81 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as SignupActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import Heading from 'grommet-udacity/components/Heading';
-import Anchor from 'grommet-udacity/components/Anchor';
 import Section from 'grommet-udacity/components/Section';
+import validation from './utils/validations';
+import { reduxForm } from 'redux-form';
+import { LoadingIndicator, ErrorAlert, SignupForm } from 'components';
 
-class Signup extends Component { // eslint-disable-line react/prefer-stateless-function
+export const formFields = [
+  'nameInput',
+  'emailInput',
+  'passwordInput',
+  'passwordConfirmationInput',
+];
+
+class Signup extends Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleErrorClose = this.handleErrorClose.bind(this);
+  }
+  handleSubmit(params) {
+    const {
+      submitSignupRequest,
+    } = this.props.actions;
+    submitSignupRequest(params);
+  }
+  handleErrorClose() {
+    const {
+      clearSignupError,
+    } = this.props.actions;
+    clearSignupError();
+  }
   render() {
+    const {
+      fields,
+      isLoading,
+      errorMessage,
+    } = this.props;
     return (
-      <Section className={styles.signup}>
-        <Heading align="center">
-          Hello from Signup Container
-        </Heading>
-        <Heading align="center" tag="h3">
-          Please implement me. For an example, see here:
-        </Heading>
-        <Anchor href="https://github.com/RyanCCollins/code-review-client/tree/master/app/src/containers/SignupContainer">
-          https://github.com/RyanCCollins/code-review-client/tree/master/app/src/containers/SignupContainer
-        </Anchor>
+      <Section
+        pad={{ horizontal: 'large' }}
+        align="center"
+        justify="center"
+        className={styles.signup}
+      >
+        {isLoading &&
+          <LoadingIndicator
+            message="Submitting"
+            isLoading={isLoading}
+          />
+        }
+        {errorMessage &&
+          <ErrorAlert errors={[new Error(errorMessage)]} onClose={this.handleErrorClose} />
+        }
+        <SignupForm
+          {...fields}
+          onSubmit={this.handleSubmit}
+        />
       </Section>
     );
   }
 }
 
+Signup.propTypes = {
+  fields: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
+  errorMessage: PropTypes.string,
+  isLoading: PropTypes.bool.isRequired,
+};
+
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
-  // myProp: state.myProp,
+  errorMessage: state.signupContainer.error,
+  isLoading: state.signupContainer.isLoading,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -41,7 +88,13 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Container = cssModules(Signup, styles);
 
+const FormContainer = reduxForm({
+  form: 'Signup',
+  fields: formFields,
+  validate: validation,
+})(Container);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Container);
+)(FormContainer);

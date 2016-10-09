@@ -1,10 +1,16 @@
 exports[`<Signup /> should render with default props 1`] = `
-<Signup
+<ConnectedForm
   actions={
     Object {
-      "signupDefaultAction": [Function anonymous]
+      "clearSignupError": [Function anonymous],
+      "signupRequestFailure": [Function anonymous],
+      "signupRequestInitiation": [Function anonymous],
+      "signupRequestSuccess": [Function anonymous],
+      "submitSignupRequest": [Function anonymous]
     }
   }
+  errorMessage={null}
+  isLoading={false}
   store={
     Object {
       "clearActions": [Function clearActions],
