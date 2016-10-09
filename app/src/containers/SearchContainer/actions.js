@@ -21,8 +21,8 @@ export const loadSearchArticlesFailure = (error) => ({
 });
 
 // clearSearchErrors :: None -> {Action}
-export const clearSearchErrors = () => ({
-  type: types.CLEAR_SEARCH_ERRORS,
+export const clearSearchError = () => ({
+  type: types.CLEAR_SEARCH_ERROR,
 });
 
 // loadFeaturedArticles :: None -> Thunk
@@ -40,7 +40,6 @@ export const loadSearchArticles = () =>
           new Date(a.updated_at) - new Date(b.updated_at)
         )
       )
-      .then(articles => articles.slice(0, 4))
       .then(articles => {
         dispatch(
           loadSearchArticlesSuccess(articles)

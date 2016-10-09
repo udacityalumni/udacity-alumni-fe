@@ -30,9 +30,9 @@ class Search extends Component {
   }
   handleClearError() {
     const {
-      clearSearchErrors,
+      clearSearchError,
     } = this.props.actions;
-    clearSearchErrors();
+    clearSearchError();
   }
   render() {
     const {

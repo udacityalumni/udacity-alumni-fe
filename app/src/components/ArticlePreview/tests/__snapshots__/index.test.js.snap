@@ -1,0 +1,33 @@
+exports[`<ArticlePreview /> should render with default props 1`] = `
+<Box
+  announce={false}
+  direction="column"
+  focusable={true}
+  pad={
+    Object {
+      "vertical": "medium"
+    }
+  }
+  responsive={true}
+  size="medium"
+  tag="div">
+  <Card
+    contentPad="medium"
+    description="Diagnostic related group HIPAA accreditation..."
+    heading="Current procedu"
+    headingStrong={true}
+    label="By Andreas Daimainger"
+    link={
+      <function Anchor() {
+          (0, _classCallCheck3.default)(this, Anchor);
+          return (0, _possibleConstructorReturn3.default)(this, (Anchor.__proto__ || (0, _getPrototypeOf2.default)(Anchor)).apply(this, arguments));
+        }
+        href="/articles/4"
+        label="Read More"
+        primary={true}
+        tag="a" />
+    }
+    textSize="small"
+    thumbnail="https://robohash.org/sapienteeaoptio.png?size=300x300" />
+</Box>
+`;
