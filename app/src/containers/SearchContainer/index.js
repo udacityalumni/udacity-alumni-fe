@@ -5,7 +5,6 @@ import * as SearchActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
-import Heading from 'grommet-udacity/components/Heading';
 import Anchor from 'grommet-udacity/components/Anchor';
 import SearchIcon from 'grommet-udacity/components/icons/base/Search';
 import LinkPreviousIcon from 'grommet-udacity/components/icons/base/LinkPrevious';
