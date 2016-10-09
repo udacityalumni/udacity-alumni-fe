@@ -19,7 +19,11 @@ const ArticleMeta = ({
       <Heading tag="h2" align="center">
         Article Tags
       </Heading>
-      <Box align="center" pad={{ vertical: 'medium' }}>
+      <Box
+        justify="center"
+        align="center"
+        pad={{ vertical: 'medium' }}
+      >
         <Tags> {/* NOTE: need to parse the real tags */}
           {fakeData.map((tag, i) =>
             <Tag key={i} label={tag} />
@@ -32,7 +36,7 @@ const ArticleMeta = ({
         Share This Article
       </Heading>
       <Box align="center">
-        <Menu inline direction="row">
+        <Menu inline direction="row" responsive={false}>
           <SocialShare
             a11yTitle="Go to Twitter to Share this article"
             type="twitter"
