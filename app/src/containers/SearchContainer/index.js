@@ -47,6 +47,7 @@ class Search extends Component {
         article.content.toLowerCase().includes(filterableTerm) ||
           article.user.name.toLowerCase().includes(filterableTerm)
     );
+    const articleCount = filteredArticles ? filteredArticles.length : 0;
     return (
       <Section className={styles.search}>
         {isLoading &&
@@ -62,7 +63,7 @@ class Search extends Component {
           <Box align="center" justify="center">
             <Header justify="between">
               <Title>
-                {`Found ${filteredArticles.length} results for the term "${searchTerm}"`}
+                {`Found ${articleCount} results for the term "${searchTerm}"`}
               </Title>
             </Header>
             {filteredArticles && filteredArticles.length > 0 &&
