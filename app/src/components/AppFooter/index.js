@@ -17,7 +17,7 @@ const AppFooter = () => (
     >
       <Heading tag="h3">
         <Anchor href="https://medium.com/react-weekly">
-          Meetup Event Planner
+          Udacity Alumni Web App
         </Anchor>
       </Heading>
       <Heading tag="h5">

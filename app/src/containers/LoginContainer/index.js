@@ -43,7 +43,6 @@ class Login extends Component {
     } = this.props;
     return (
       <Section
-        size="large"
         pad={{ horizontal: 'large' }}
         align="center"
         justify="center"
