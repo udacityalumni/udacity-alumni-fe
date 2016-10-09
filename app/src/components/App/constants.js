@@ -1,2 +1,4 @@
 export const APP_SET_MOBILE = 'APP_SET_MOBILE';
 export const APP_ON_TOGGLE_NAV = 'APP_ON_TOGGLE_NAV';
+export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
+export const CLEAR_SEARCH_TERM = 'CLEAR_SEARCH_TERM';

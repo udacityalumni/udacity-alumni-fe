@@ -15,6 +15,7 @@ class Main extends Component {
     super();
     this.handleToggleNav = this.handleToggleNav.bind(this);
     this.handleSetMobile = this.handleSetMobile.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
   componentDidMount() {
     const {
@@ -53,6 +54,21 @@ class Main extends Component {
     } = this.props.actions;
     appToggleNav();
   }
+  handleSearch(e) {
+    const {
+      router,
+    } = this.context;
+    const {
+      setSearchTerm,
+      clearSearchTerm,
+    } = this.props.actions;
+    if (e.target.value) {
+      setSearchTerm(e.target.value);
+      router.push('/search');
+    } else {
+      clearSearchTerm();
+    }
+  }
   render() {
     const {
       user,
@@ -64,7 +80,7 @@ class Main extends Component {
       <App centered={false}>
         {!isMobile ?
           <main>
-            <Navbar onSearch={(e) => e} />
+            <Navbar onSearch={this.handleSearch} />
             {React.cloneElement(this.props.children, this.props)}
           </main>
         :
@@ -107,6 +123,10 @@ Main.propTypes = {
   navIsActive: PropTypes.bool.isRequired,
   navLinks: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
+};
+
+Main.contextTypes = {
+  router: PropTypes.func.isRequired,
 };
 
 // Map the global state to global props here.

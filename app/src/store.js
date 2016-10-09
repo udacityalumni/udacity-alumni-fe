@@ -12,6 +12,7 @@ import { initialState as landing } from './containers/LandingContainer/reducer';
 import { initialState as loginContainer } from './containers/LoginContainer/reducer';
 import { initialState as signupContainer } from './containers/SignupContainer/reducer';
 import { initialState as cmsEditorContainer } from './containers/CmsEditorContainer/reducer';
+import { initialState as searchContainer } from './containers/SearchContainer/reducer';
 import {
   initialState as singleArticleContainer,
 } from './containers/SingleArticleContainer/reducer';
@@ -24,6 +25,7 @@ const initialState = {
   signupContainer,
   cmsEditorContainer,
   singleArticleContainer,
+  searchContainer,
 };
 
 /* Commonly used middlewares and enhancers */

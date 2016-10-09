@@ -22,6 +22,7 @@ export const initialState = {
   ],
   navIsActive: false,
   isMobile: false,
+  searchTerm: null,
 };
 
 const appReducer =
@@ -37,6 +38,18 @@ const appReducer =
         return update(state, {
           navIsActive: {
             $set: !state.navIsActive,
+          },
+        });
+      case types.SET_SEARCH_TERM:
+        return update(state, {
+          searchTerm: {
+            $set: action.term,
+          },
+        });
+      case types.CLEAR_SEARCH_TERM:
+        return update(state, {
+          searchTerm: {
+            $set: null,
           },
         });
       default:

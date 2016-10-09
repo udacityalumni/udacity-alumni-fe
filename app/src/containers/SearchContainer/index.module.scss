@@ -1,0 +1,22 @@
+.search {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.searchHeader {
+  padding: 16px 0;
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 32px;
+  background: #FFF;
+}
+
+.rowFull {
+  max-width: 75rem;
+}
+
+.centerBox {
+  align-self: center;
+  height: 80vh;
+}
