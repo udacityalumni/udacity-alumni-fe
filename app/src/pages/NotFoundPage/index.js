@@ -13,10 +13,10 @@ import { NotFoundContainer } from 'containers';
 
 const NotFound = () => (
   <div className={styles.container}>
-    <h1 className={styles.header}>Not Found (tried 404 times!)</h1>
+    <h1 className={styles.header}>Tried 404 times, but...</h1>
     <Section>
       <Header tag="h2">
-        cheeky heading
+        heading
       </Header>
       <Paragraph>
         Holds some text
