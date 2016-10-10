@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 // importing the gromment components used in this page
-// import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
-import Header from 'grommet-udacity/components/Header';
 import Heading from 'grommet-udacity/components/Heading';
 import Paragraph from 'grommet-udacity/components/Paragraph';
 import Anchor from 'grommet-udacity/components/Anchor';
@@ -128,14 +126,26 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
     const randomArticle = getRandomInt(0, content.length);
 
     return (
-      <Box pad="large" textAlign="center">
+      <Box
+        pad="large"
+        textAlign="center"
+        className={styles.fillHeight}
+      >
         <Box align="center">
+          {/* Un comment for a cute / funny image
+             <Box align="center" justify="center">
+            <img
+              className={styles.image}
+              src="http://vignette2.wikia.nocookie.net/tinydicedungeon/images/c/cc/Adventurer.png/revision/latest?cb=20140804135030"
+            />
+          </Box> */}
           <Heading tag="h3">
             Hello curious adventurer! : )
           </Heading>
           <Paragraph textAlign="center">
             { /* maybe could be smaller font. better would be no linebreak in here */ }
-            You've wandered into uncharted territory. 404-Land.<br />If that is right were you belong, then get ready to map!
+            You've wandered into uncharted territory. 404-Land.
+            <br />If that is right were you belong, then get ready to map!
           </Paragraph>
         </Box>
         <Box align="center">

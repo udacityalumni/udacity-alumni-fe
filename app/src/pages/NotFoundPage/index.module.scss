@@ -1,9 +1,4 @@
 .container {
-  height: 100vh;
+  min-height: calc(100vh-70px);
   width: 100%
-};
-
-.header {
-  font-size: 32px;
-  font: 'Open Sans';
 }
