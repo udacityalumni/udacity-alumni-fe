@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
+// importing the gromment components used in this page
+import Section from 'grommet-udacity/components/Section';
+// import Box from 'grommet-udacity/components/Box';
+import Header from 'grommet-udacity/components/Header';
+import Heading from 'grommet-udacity/components/Heading';
+import Paragraph from 'grommet-udacity/components/Paragraph';
+import Anchor from 'grommet-udacity/components/Anchor';
 
 class NotFound extends Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -15,17 +22,17 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    // I'd like this one to be a list of content entries that I can loop over randomly
+    // a list of content entries that can be loop over randomly
     const content = [
       {
-        title: 'Could not find any banana bread recipes...',
+        title: 'Could not think of any banana bread recipes...',
         body: 'Learn to make an app that guides you through the baking-process!',
         link: 'https://www.udacity.com/course/ios-developer-nanodegree--nd003',
         description: 'iOS Developer Nanodegree',
       },
       {
         title: 'Failed to reticulate splines...',
-        body: 'Learn to reticulate a ton of inputs to make a car drive itself (no splines attached)!',
+        body: 'Learn to reticulate inputs to make a car drive itself (no splines attached)!',
         link: 'https://www.udacity.com/drive',
         description: 'Self-Driving Car Nanodegree',
       },
@@ -36,30 +43,39 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
         description: 'Senior Web-Developer Nanodegree',
       },
       {
-        title: 'Sorry, we forgot to clean the classrooms...',
+        title: 'The classrooms are not prepared...',
         body: 'Learn to create a virtual classroom that does not collect any dust!',
         link: 'https://www.udacity.com/course/vr-developer-nanodegree--nd017',
         description: 'Virtual-Reality Nanodegree',
       },
     ];
 
+    // choosing a random entry for the 404 page from content
     const randomArticle = getRandomInt(0, content.length);
 
     return (
-      <div>
-        { /* choosing a random entry for the 404 page from content */ }
-        { /* the console is unhappy with me making a var here (but also if not). */ }
-        <h2 className="legacy-message">{ content[randomArticle].title }</h2>
-        <p className="learn-more">{ content[randomArticle].body }</p>
-        <a href={ content[randomArticle].link }>{ content[randomArticle].description }</a>
-      </div>
+      <Section>
+        <Header>
+          <Heading tag="h1">
+            Tried 404 times, but:
+          </Heading>
+        </Header>
+        <Heading tag="h2" className="legacy-message">
+          { content[randomArticle].title }
+        </Heading>
+        <Paragraph className="learn-more">
+          { content[randomArticle].body }
+        </Paragraph>
+        <Anchor href={ content[randomArticle].link }>
+          { content[randomArticle].description }
+        </Anchor>
+      </Section>
       );
   }
 
   render() {
     return (
       <div className={styles.notFound}>
-        { /* calling the function here */ }
         { this.renderContent() }
       </div>
     );
