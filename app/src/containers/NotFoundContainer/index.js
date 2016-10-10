@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 // importing the gromment components used in this page
-import Section from 'grommet-udacity/components/Section';
-// import Box from 'grommet-udacity/components/Box';
+// import Section from 'grommet-udacity/components/Section';
+import Box from 'grommet-udacity/components/Box';
 import Header from 'grommet-udacity/components/Header';
 import Heading from 'grommet-udacity/components/Heading';
 import Paragraph from 'grommet-udacity/components/Paragraph';
@@ -53,11 +53,18 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
         description: 'Virtual-Reality Nanodegree',
       },
       {
+        original: 'Thanks for waiting while we prepare the classroom',
+        title: 'These classrooms take a while to be prepared',
+        body: 'Learn to teach machines that need no classrooms!',
+        link: 'https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009',
+        description: 'Machine Learning Nanodegree',
+      },
+      {
         original: 'Adding duplication fluid to our ditto machine...',
         title: 'Ran out of duplication fluid',
-        body: 'Learn to code and make functions do the work!',
-        link: 'https://www.udacity.com/course/intro-to-programming-nanodegree--nd000',
-        description: 'Introduction to Programming Nanodegree',
+        body: 'Learn to code and make smart functions do the work!',
+        link: 'https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801',
+        description: 'Android Developer Nanodegree',
       },
       {
         original: 'Once you have completed the course, cake will be served',
@@ -69,9 +76,9 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
       {
         original: 'Dust off your slide-rule...',
         title: 'No need for dusty slide-rules',
-        body: 'Learn how to make them virtually!',
-        link: 'https://www.udacity.com/course/vr-developer-nanodegree--nd017',
-        description: 'Virtual-Reality Nanodegree',
+        body: 'Learn to move the numbers on your computer!',
+        link: 'https://www.udacity.com/course/data-analyst-nanodegree--nd002',
+        description: 'Data Analyst Nanodegree',
       },
       {
         original: 'Cleaning the whiteboard',
@@ -83,7 +90,7 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
       {
         original: 'And now for something completely different...',
         title: 'And now for something slightly different...',
-        body: 'Learn about Business Analysis because, you know... money.',
+        body: 'Learn about Business Analysis, because, you know... money.',
         link: 'https://www.udacity.com/course/predictive-analytics-for-business--nd008',
         description: 'Predictive Analytics for Business Nanodegree',
       },
@@ -102,16 +109,16 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
         description: 'Contribute to the Alumni-Web-App',
       },
       {
-        original: 'Thanks for waiting while we prepare the classroom',
-        title: 'Your code here',
-        body: 'If it is empty and you want it, come and make it!',
+        original: 'Waking up the sleepers in the front row...',
+        title: 'Good morning front-row-sleeper! Put your dreams onto this page',
+        body: 'Become a part of the Developer-Team!',
         link: 'https://github.com/udacityalumni/',
         description: 'Contribute to the Alumni-Web-App',
       },
       {
-        original: 'Waking up the sleepers in the front row...',
-        title: 'Hei, front-row-sleeper: Put your dreams on this page',
-        body: 'Become a part of the Developer-Team!',
+        original: 'None',
+        title: 'Your code here',
+        body: 'If it is empty and you want it, come and make it!',
         link: 'https://github.com/udacityalumni/',
         description: 'Contribute to the Alumni-Web-App',
       },
@@ -121,25 +128,28 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
     const randomArticle = getRandomInt(0, content.length);
 
     return (
-      <Section align="center">
-        <Header className="introduction" justify="center" direction="column">
+      <Box pad="large" textAlign="center">
+        <Box align="center">
           <Heading tag="h3">
             Hello curious adventurer! : )
           </Heading>
           <Paragraph textAlign="center">
-            You've come to uncharted territory. 404-Land. - Is that right were you belong? Then get ready to map!
+            { /* maybe could be smaller font. better would be no linebreak in here */ }
+            You've wandered into uncharted territory. 404-Land.<br />If that is right were you belong, then get ready to map!
           </Paragraph>
-        </Header>
-        <Heading tag="h1" className="problem">
-          { content[randomArticle].title }
-        </Heading>
-        <Paragraph className="solution">
-          { content[randomArticle].body }
-        </Paragraph>
-        <Anchor className="solution-link" href={ content[randomArticle].link }>
-          { content[randomArticle].description }
-        </Anchor>
-      </Section>
+        </Box>
+        <Box align="center">
+          <Heading tag="h1" className="problem" alignContent="center">
+            { content[randomArticle].title }
+          </Heading>
+          <Paragraph className="solution">
+            { content[randomArticle].body }
+          </Paragraph>
+          <Anchor className="solution-link" href={ content[randomArticle].link }>
+            { content[randomArticle].description }
+          </Anchor>
+        </Box>
+      </Box>
       );
   }
 
