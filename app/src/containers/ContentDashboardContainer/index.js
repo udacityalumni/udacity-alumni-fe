@@ -7,14 +7,19 @@ import styles from './index.module.scss';
 import Heading from 'grommet-udacity/components/Heading';
 import Box from 'grommet-udacity/components/Box';
 import Section from 'grommet-udacity/components/Section';
-import Table from 'grommet-udacity/components/Table';
-import TableRow from 'grommet-udacity/components/TableRow';
-import { MainAside } from 'components';
+import { MainAside, DashboardTable } from 'components';
 
 class ContentDashboard extends Component {
+  componentDidMount() {
+    const {
+      loadDashboardArticles,
+    } = this.props.actions;
+    loadDashboardArticles();
+  }
   render() {
     const {
       user,
+      articles,
     } = this.props;
     return (
       <div className={styles.contentDashboard}>
@@ -33,36 +38,9 @@ class ContentDashboard extends Component {
               <Heading tag="h3" align="center">
                 Content Dashboard Creator
               </Heading>
-              <Box
-                pad="large"
-                style={{ minHeight: 300, minWidth: 600, border: '1px solid black' }}
-                color="light-2"
-              >
-                <Table>
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th></th>
-                      <th>Author</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <TableRow>
-                      {/* Map over recent articles here */}
-                    </TableRow>
-                    <TableRow>
-                      {/* Map over status here */}
-                    </TableRow>
-                    <TableRow>
-                      {/* Map over authors */}
-                    </TableRow>
-                    <TableRow>
-                      {/* Crud actions */}
-                    </TableRow>
-                  </tbody>
-                </Table>
-              </Box>
+              {articles && articles.length > 0 &&
+                <DashboardTable articles={articles} />
+              }
             </Box>
             <MainAside
               user={user}
@@ -76,11 +54,17 @@ class ContentDashboard extends Component {
 
 ContentDashboard.propTypes = {
   user: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  articles: PropTypes.array,
+  actions: PropTypes.object.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
-  // myProp: state.myProp,
+  isLoading: state.contentDashboardContainer.isLoading,
+  errorMessage: state.contentDashboardContainer.error,
+  articles: state.contentDashboardContainer.articles,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
