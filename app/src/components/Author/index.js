@@ -23,9 +23,7 @@ const Author = ({
     </Heading>
     <Quote borderColorIndex="light-2">
       <Heading tag="h5" align="center">
-        Preventive care centers of excellence misrepresentation waiting
-        period EOB. Second surgical opinion network home health care
-        co-insurance NAIC out-of-network.
+        {author.bio}
       </Heading>
     </Quote>
   </Article>
@@ -35,6 +33,7 @@ Author.propTypes = {
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
     avatar: PropTypes.string,
+    bio: PropTypes.string.isRequired,
   }),
 };
 

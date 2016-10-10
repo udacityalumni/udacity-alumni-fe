@@ -25,8 +25,8 @@ export const clearDashboardError = () => ({
   type: types.CLEAR_DASHBOARD_ERROR,
 });
 
-// loadFeaturedArticles :: None -> Thunk
-export const loadSearchArticles = () =>
+// loadDashboardArticles :: None -> Thunk
+export const loadDashboardArticles = () =>
   (dispatch) => {
     dispatch(
       loadDashboardArticlesInitiation()
