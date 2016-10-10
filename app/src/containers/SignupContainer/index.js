@@ -2,12 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as SignupActionCreators from './actions';
+import * as AppActions from '../../components/app/actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
 import validation from './utils/validations';
 import { reduxForm } from 'redux-form';
-import { LoadingIndicator, ErrorAlert, SignupForm } from 'components';
+import {
+  LoadingIndicator,
+  ErrorAlert,
+  SignupForm,
+  ToastMessage,
+} from 'components';
 
 export const formFields = [
   'nameInput',
@@ -21,6 +27,18 @@ class Signup extends Component {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrorClose = this.handleErrorClose.bind(this);
+    this.handleToastClose = this.handleToastClose.bind(this);
+  }
+  componentWillReceiveProps({ user }) {
+    if (user) {
+      const {
+        actions,
+      } = this.props;
+      actions.setPersistentUser(user);
+      setTimeout(() => {
+        this.context.router.push('/');
+      }, 3000);
+    }
   }
   handleSubmit() {
     const {
@@ -42,12 +60,19 @@ class Signup extends Component {
     } = this.props.actions;
     clearSignupError();
   }
+  handleToastClose() {
+    const {
+      signupClearMessage,
+    } = this.props.actions;
+    signupClearMessage();
+  }
   render() {
     const {
       fields,
       isLoading,
       errorMessage,
       valid,
+      message,
     } = this.props;
     return (
       <Section
@@ -57,6 +82,12 @@ class Signup extends Component {
         justify="center"
         className={styles.signup}
       >
+        {message &&
+          <ToastMessage
+            message={message}
+            onClose={this.handleToastClose}
+          />
+        }
         {isLoading &&
           <LoadingIndicator
             message="Submitting"
@@ -85,19 +116,28 @@ Signup.propTypes = {
   errorMessage: PropTypes.string,
   isLoading: PropTypes.bool.isRequired,
   valid: PropTypes.bool.isRequired,
+  message: PropTypes.string.isRequired,
+};
+
+Signup.contextTypes = {
+  router: PropTypes.object.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   errorMessage: state.signupContainer.error,
   isLoading: state.signupContainer.isLoading,
-  user: state.app.user,
+  user: state.signupContainer.user,
+  message: state.signupContainer.message,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(
-    SignupActionCreators,
+    Object.assign({},
+      SignupActionCreators,
+      AppActions,
+    ),
     dispatch
   ),
 });

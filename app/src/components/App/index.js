@@ -41,6 +41,12 @@ class Main extends Component {
       window.removeEventListener('resize', this.handleSetMobile);
     }
   }
+  loadUser() {
+    const {
+      loadPersistedUser,
+    } = this.props.actions;
+    loadPersistedUser();
+  }
   handleSetMobile() {
     const isMobile = window.innerWidth <= 768;
     const {

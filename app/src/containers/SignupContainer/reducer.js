@@ -5,6 +5,7 @@ export const initialState = {
   error: null,
   user: null,
   isLoading: false,
+  message: null,
 };
 
 const signupReducer =
@@ -27,6 +28,18 @@ const signupReducer =
       case types.CLEAR_SIGNUP_ERROR:
         return Object.assign({}, state, {
           error: null,
+        });
+      case types.SIGNUP_SET_MESSAGE:
+        return update(state, {
+          message: {
+            $set: action.message,
+          },
+        });
+      case types.SIGNUP_CLEAR_MESSAGE:
+        return update(state, {
+          message: {
+            $set: null,
+          },
         });
       default:
         return state;
