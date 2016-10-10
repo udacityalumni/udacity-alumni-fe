@@ -4,13 +4,13 @@ import * as types from '../constants';
 
 describe('Login actions', () => {
   describe('Default Action', () => {
-    it('has a type of START_LOGIN_REQUEST', () => {
+    it('should have a type of LOGIN_INITIATE_REQUEST', () => {
       const expected = {
-        type: types.START_LOGIN_REQUEST,
+        type: types.LOGIN_INITIATE_REQUEST,
       };
-      expect(actions.startLoginRequest()).toEqual(expected);
+      expect(actions.loginInitiateRequest()).toEqual(expected);
     });
-    it('has a type of LOGIN_REQUEST_SUCCESS', () => {
+    it('should have a type of LOGIN_REQUEST_SUCCESS', () => {
       const user = {
         name: 'Ryan Collins',
         avatar: 'https://github.com/avatar.png',
@@ -21,7 +21,7 @@ describe('Login actions', () => {
       };
       expect(actions.loginRequestSuccess(user)).toEqual(expected);
     });
-    it('has a type of LOGIN_REQUEST_FAILURE', () => {
+    it('should have a type of LOGIN_REQUEST_FAILURE', () => {
       const errors = [
         new Error('An error has occured'),
         new Error('Another error has occured'),
@@ -32,19 +32,31 @@ describe('Login actions', () => {
       };
       expect(actions.loginRequestFailure(errors)).toEqual(expected);
     });
-    it('has a type of LOGOUT_USER', () => {
-      const expected = {
-        type: types.LOGOUT_USER,
-      };
-      expect(actions.logoutUser()).toEqual(expected);
-    });
-    it('has a type of CLEAR_LOGIN_ERROR', () => {
+    it('should have a type of LOGIN_CLEAR_ERROR', () => {
       const index = 1;
       const expected = {
-        type: types.CLEAR_LOGIN_ERROR,
+        type: types.LOGIN_CLEAR_ERROR,
         index,
       };
-      expect(actions.clearLoginError(index)).toEqual(expected);
+      expect(actions.loginClearError(index)).toEqual(expected);
+    });
+    it('should have a type of LOGIN_SET_MESSAGE', () => {
+      const message = 'Logged in, woohoo!';
+      const expected = {
+        type: types.LOGIN_SET_MESSAGE,
+        message,
+      };
+      expect(
+        actions.loginSetMessage(message)
+      ).toEqual(expected);
+    });
+    it('should have a type of LOGIN_CLEAR_MESSAGE', () => {
+      const expected = {
+        type: types.LOGIN_CLEAR_MESSAGE,
+      };
+      expect(
+        actions.loginClearMessage()
+      ).toEqual(expected);
     });
   });
 });

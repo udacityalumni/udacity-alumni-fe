@@ -8,7 +8,7 @@ describe('loginReducer', () => {
       loginReducer(undefined, {})
     ).toEqual(initialState);
   });
-  it('should handle START_LOGIN_REQUEST', () => {
+  it('should handle LOGIN_INITIATE_REQUEST', () => {
     const stateBefore = {
       isLoading: false,
     };
@@ -17,7 +17,7 @@ describe('loginReducer', () => {
     };
     expect(
       loginReducer(stateBefore, {
-        type: types.START_LOGIN_REQUEST,
+        type: types.LOGIN_INITIATE_REQUEST,
       })
     ).toEqual(stateAfter);
   });
@@ -28,33 +28,16 @@ describe('loginReducer', () => {
     };
     const stateBefore = {
       isLoading: true,
-      loggedInUser: null,
+      user: null,
     };
     const stateAfter = {
       isLoading: false,
-      loggedInUser: user,
+      user,
     };
     expect(
       loginReducer(stateBefore, {
         type: types.LOGIN_REQUEST_SUCCESS,
         user,
-      })
-    ).toEqual(stateAfter);
-  });
-  it('should handle LOGOUT_USER', () => {
-    const loggedInUser = {
-      name: 'Ryan Collins',
-      avatar: 'https://github.com/ryanccollins',
-    };
-    const stateBefore = {
-      loggedInUser,
-    };
-    const stateAfter = {
-      loggedInUser: null,
-    };
-    expect(
-      loginReducer(stateBefore, {
-        type: types.LOGOUT_USER,
       })
     ).toEqual(stateAfter);
   });
@@ -93,6 +76,37 @@ describe('loginReducer', () => {
         loginReducer(stateBefore, {
           type: types.CLEAR_LOGIN_ERROR,
           index,
+        })
+      ).toEqual(stateAfter);
+    });
+  });
+  describe('loginReducer message handling', () => {
+    it('should handle LOGIN_SET_MESSAGE', () => {
+      const message = 'Hurray, it works';
+      const stateBefore = {
+        message: null,
+      };
+      const stateAfter = {
+        message,
+      };
+      expect(
+        loginReducer(stateBefore, {
+          type: types.LOGIN_SET_MESSAGE,
+          message,
+        })
+      ).toEqual(stateAfter);
+    });
+    it('should handle LOGIN_CLEAR_MESSAGE', () => {
+      const message = 'Hurray, it works';
+      const stateBefore = {
+        message,
+      };
+      const stateAfter = {
+        message: null,
+      };
+      expect(
+        loginReducer(stateBefore, {
+          type: types.LOGIN_CLEAR_MESSAGE,
         })
       ).toEqual(stateAfter);
     });

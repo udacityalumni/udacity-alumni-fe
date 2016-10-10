@@ -10,7 +10,7 @@ import { LogoImage } from 'components';
 
 const Navbar = ({
   onSearch,
-  isLoggedIn,
+  user,
 }) => (
   <div className={styles.navbar}>
     <Header justify="between" colorIndex="light-1">
@@ -25,7 +25,7 @@ const Navbar = ({
         responsive
         className={styles.leftMenu}
       >
-        {isLoggedIn &&
+        {user &&
           <Anchor>
             My Classroom
           </Anchor>
@@ -41,21 +41,21 @@ const Navbar = ({
         </Anchor>
         <Search onDOMChange={onSearch} dropAlign={{ left: 'left' }} />
       </Menu>
-      {isLoggedIn ?
+      {user ?
         <Menu
           direction="row"
           align="center"
           className={styles.rightMenu}
           responsive
         >
-          <Anchor>
-            Logout
-          </Anchor>
-          <Anchor>
-            Account
-          </Anchor>
-          <Anchor>
+          <Anchor href="/classroom">
             My Classroom
+          </Anchor>
+          <Anchor href="/me/profile">
+            My Profile
+          </Anchor>
+          <Anchor href="/logout">
+            Logout
           </Anchor>
         </Menu>
       :
@@ -78,11 +78,7 @@ const Navbar = ({
 
 Navbar.propTypes = {
   onSearch: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired,
-};
-
-Navbar.defaultProps = {
-  isLoggedIn: false,
+  user: PropTypes.object,
 };
 
 export default cssModules(Navbar, styles);

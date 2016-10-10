@@ -37,6 +37,7 @@ class Landing extends Component {
       carouselImages,
       featuredArticles,
       errors,
+      user,
     } = this.props;
     return (
       <div className={styles.landing}>
@@ -59,7 +60,7 @@ class Landing extends Component {
           >
             <Box direction="row">
               <Box
-                basis="2/3"
+                basis={user ? '2/3' : 'full'}
                 pad="medium"
                 align="center"
                 justify="center"
@@ -70,12 +71,9 @@ class Landing extends Component {
                   <SpotlightArticles articles={featuredArticles} />
                 }
               </Box>
-              <MainAside
-                user={{
-                  avatar: 'http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png',
-                  name: 'David',
-                }}
-              />
+              {user &&
+                <MainAside user={user} />
+              }
             </Box>
           </Section>
         }
@@ -90,6 +88,7 @@ Landing.propTypes = {
   carouselImages: PropTypes.array.isRequired,
   featuredArticles: PropTypes.array,
   errors: PropTypes.array,
+  user: PropTypes.object,
 };
 
 // mapStateToProps :: {State} -> {Props}
@@ -98,6 +97,7 @@ const mapStateToProps = (state) => ({
   carouselImages: state.landing.carouselImages,
   featuredArticles: state.landing.featuredArticles,
   errors: state.landing.errors,
+  user: state.app.user,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

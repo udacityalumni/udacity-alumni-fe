@@ -1,8 +1,12 @@
 import * as types from './constants';
+import 'whatwg-fetch';
+const baseUrl = 'https://udacity-alumni-api.herokuapp.com/api/v1/';
+const sessionsUrl = `${baseUrl}sessions`;
+const usersUrl = `${baseUrl}users`;
 
-// startLoginRequest :: None -> Action
-export const startLoginRequest = () => ({
-  type: types.START_LOGIN_REQUEST,
+// loginInitiateRequest :: None -> Action
+export const loginInitiateRequest = () => ({
+  type: types.LOGIN_INITIATE_REQUEST,
 });
 
 // loginRequestSuccess :: JSON -> Action
@@ -17,42 +21,106 @@ export const loginRequestFailure = (errors) => ({
   errors,
 });
 
-// TODO: Get rid of this and actually hit the API.
-const fakeLatency = () =>
+// loginClearError :: None -> Action
+export const loginClearError = (index) => ({
+  type: types.LOGIN_CLEAR_ERROR,
+  index,
+});
+
+export const loginSetMessage = (message) => ({
+  type: types.LOGIN_SET_MESSAGE,
+  message,
+});
+
+export const loginClearMessage = () => ({
+  type: types.LOGIN_CLEAR_MESSAGE,
+});
+
+class SessionParams {
+  constructor() {
+    this.toJson = this.toJson.bind(this);
+    const args = arguments[0];
+    this.email = args.email;
+    this.password = args.password;
+    this.remember = args.rememberMe;
+    this.valid = this.email && this.password;
+  }
+  toJson() {
+    const body = {
+      session: {
+        email: this.email,
+        password: this.password,
+      },
+    };
+    return JSON.stringify(body);
+  }
+}
+
+const persistAuthToken = (authToken) =>
   new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, 4000);
+    const token = localStorage.setItem('auth_token', authToken);
+    resolve(token);
   });
 
-export const submitLoginRequest = () =>
+export const performLogin = (params) =>
   (dispatch) => {
-    dispatch(
-      startLoginRequest()
-    );
-    // Hit the api here .then((res) => {...})
-    fakeLatency().then(() => {
-      // Need to handle the response
-      // For now, just throw
-      throw new Error('The app is not hooked up to the api yet, sadly 😕');
-    }).catch((err) => {
+    dispatch(loginInitiateRequest());
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const session = new SessionParams(params);
+    if (!session.valid) {
+      throw new Error('A valid email and password are required');
+    }
+    const body = session.toJson();
+    fetch(sessionsUrl, {
+      method: 'POST',
+      headers,
+      body,
+    })
+    .then(res => res.json())
+    .then(res => {
+      const token = res.session.auth_token;
+      if (!token) {
+        throw new Error('The request failed.');
+      }
+      if (session.remember) {
+        persistAuthToken(token).then(t => t);
+      }
+      return token;
+    })
+    .then(token => {
+      const userHeaders = new Headers();
+      userHeaders.append('Content-Type', 'application/json');
+      userHeaders.append('Authorization', token);
+      return fetch(usersUrl, {
+        method: 'GET',
+        headers: userHeaders,
+      });
+    })
+    .then(res => res.json())
+    .then(res => {
+      if (!res.user) {
+        throw new Error(
+          'Unexpected response from server.  ' +
+          'Please check your password and try again.'
+        );
+      }
+      return res.user;
+    })
+    .then(user => {
       dispatch(
-        loginRequestFailure([
-          {
-            message: err.message,
-          },
-        ])
+        loginRequestSuccess(user)
+      );
+    })
+    .then(() => {
+      const message = 'Login was successful!  Redirecting to your profile.';
+      dispatch(
+        loginSetMessage(message)
+      );
+    })
+    .catch(err => {
+      dispatch(
+        loginRequestFailure([err])
       );
     });
   };
-
-// logoutUser :: None -> Action
-export const logoutUser = () => ({
-  type: types.LOGOUT_USER,
-});
-
-// clearLoginErrors :: None -> Action
-export const clearLoginError = (index) => ({
-  type: types.CLEAR_LOGIN_ERROR,
-  index,
-});
