@@ -1,4 +1,5 @@
 /* Assemble all pages for export */
+export LogoutPage from './LogoutPage/index';
 export SearchPage from './SearchPage/index';
 export SingleArticlePage from './SingleArticlePage/index';
 export CmsEditorPage from './CmsEditorPage/index';

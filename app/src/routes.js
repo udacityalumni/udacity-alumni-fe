@@ -22,7 +22,8 @@ const routes = (
         <Route path="admin/new-story" component={Pages.CmsEditorPage} />
         <Route path="/martin" component={Pages.MartinPage} />
         <Route path="/search" component={Pages.SearchPage} />
-        <Route path="*" component={Pages.NotFoundPage} />
+        <Route path="/logout" component={Pages.LogoutPage} />
+          <Route path="*" component={Pages.NotFoundPage} />
       </Route>
     </Router>
   </Provider>

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as LoginActionCreators from './actions';
-import * as AppActions from '../../components/app/actions';
+import * as AppActions from '../../components/App/actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
@@ -17,20 +17,14 @@ class Login extends Component {
     this.handleErrorClose = this.handleErrorClose.bind(this);
     this.handleToastClose = this.handleToastClose.bind(this);
   }
-  componentDidMount() {
-    const {
-      loggedInUser,
-    } = this.props;
-    if (loggedInUser) {
-      // Todo: reroute to a logged in route, i.e.
-      // this.context.router.push('/logged-in-route');
-    }
-  }
   componentWillReceiveProps({ user }) {
     if (user) {
-      this.props.actions.setAuthUser(user);
+      const {
+        actions,
+      } = this.props;
+      actions.setPersistentUser(user);
       setTimeout(() => {
-        this.context.router.push('/me/profile');
+        this.context.router.push('/');
       }, 3000);
     }
   }
@@ -64,6 +58,7 @@ class Login extends Component {
     } = this.props;
     return (
       <Section
+        primary
         pad={{ horizontal: 'large' }}
         align="center"
         justify="center"
@@ -131,9 +126,9 @@ const mapStateToProps = (state) => ({
 // mapDispatchToProps :: Dispatch -> {Action}
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(
-    Object.assign(
-      AppActions,
+    Object.assign({},
       LoginActionCreators,
+      AppActions
     ),
     dispatch
   ),

@@ -54,6 +54,7 @@ class Landing extends Component {
           </Section>
         :
           <Section
+            primary
             alignContent="center"
             align="center"
             className={styles.mainSection}
