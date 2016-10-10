@@ -25,26 +25,26 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
     // a list of content entries that can be loop over randomly
     const content = [
       {
-        title: 'Could not think of any banana bread recipes...',
-        body: 'Learn to make an app that guides you through the baking-process!',
+        title: 'We could not think of 404 banana bread recipes...',
+        body: 'Learn to make an app that shuffles ingredients endlessly!',
         link: 'https://www.udacity.com/course/ios-developer-nanodegree--nd003',
         description: 'iOS Developer Nanodegree',
       },
       {
-        title: 'Failed to reticulate splines...',
+        title: 'We did not manage to reticulate 404 splines...',
         body: 'Learn to reticulate inputs to make a car drive itself (no splines attached)!',
         link: 'https://www.udacity.com/drive',
         description: 'Self-Driving Car Nanodegree',
       },
       {
-        title: 'Instructors are not camera-ready...',
+        title: 'In 404-Land the instructors are not camera-ready...',
         body: 'Learn to make them look good anyways!',
         link: 'https://www.udacity.com/course/senior-web-developer-nanodegree-by-google--nd802',
         description: 'Senior Web-Developer Nanodegree',
       },
       {
-        title: 'The classrooms are not prepared...',
-        body: 'Learn to create a virtual classroom that does not collect any dust!',
+        title: 'None of the 404 classrooms are currently prepared...',
+        body: 'Learn to create a virtual classroom that is always ready (and needs no brooming)!',
         link: 'https://www.udacity.com/course/vr-developer-nanodegree--nd017',
         description: 'Virtual-Reality Nanodegree',
       },
@@ -55,11 +55,15 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
 
     return (
       <Section align="center">
-        <Header justify="center">
+        <Header justify="center" direction="column">
           <Heading tag="h1">
-            Tried 404 times, but:
+            Hello curious adventurer! : )
           </Heading>
+          <Paragraph>
+            This is uncharted territory. 404-Land. Your help is needed!
+          </Paragraph>
         </Header>
+        <hr />
         <Heading tag="h2" className="legacy-message">
           { content[randomArticle].title }
         </Heading>
