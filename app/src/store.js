@@ -1,9 +1,5 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import {
-  syncHistoryWithStore,
-  routerActions,
-  routerMiddleware,
-} from 'react-router-redux';
+import { syncHistoryWithStore, routerActions, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import { browserHistory } from 'react-router';
 import createLogger from 'redux-logger';
@@ -39,7 +35,8 @@ const initialState = {
 /* Commonly used middlewares and enhancers */
 /* See: http://redux.js.org/docs/advanced/Middleware.html*/
 const loggerMiddleware = createLogger();
-const middlewares = [thunk, routerMiddleware];
+const routingMiddleware = routerMiddleware(browserHistory);
+const middlewares = [thunk, routingMiddleware];
 
 if (isDeveloping) {
   middlewares.push(loggerMiddleware);
@@ -75,7 +72,7 @@ const store = createStore(
 export const history = syncHistoryWithStore(browserHistory, store);
 
 export const userIsAuthenticated = userAuthWrapper({
-  authSelector: state => state.app.user,
+  authSelector: state => state.authReducer.user,
   redirectAction: routerActions.replace,
   failureRedirectPath: '/login',
   wrapperDisplayName: 'userIsAuthenticated',
