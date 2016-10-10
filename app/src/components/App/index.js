@@ -80,7 +80,7 @@ class Main extends Component {
       <App centered={false}>
         {!isMobile ?
           <main>
-            <Navbar onSearch={this.handleSearch} />
+            <Navbar user={user} onSearch={this.handleSearch} />
             {React.cloneElement(this.props.children, this.props)}
           </main>
         :

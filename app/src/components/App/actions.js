@@ -17,3 +17,8 @@ export const setSearchTerm = (term) => ({
 export const clearSearchTerm = () => ({
   type: types.CLEAR_SEARCH_TERM,
 });
+
+export const setAuthUser = (user) => ({
+  type: types.SET_AUTH_USER,
+  user,
+});

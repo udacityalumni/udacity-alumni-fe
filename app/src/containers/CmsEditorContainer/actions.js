@@ -58,14 +58,12 @@ export const submitArticleRequest = (articleProps) =>
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const body = article.toJson();
-    console.log(`Body is ${body}`);
     fetch(articlesUrl, {
       method: 'POST',
       headers,
       body,
     })
     .then((res) => {
-      console.log(res);
       if (!res.ok) {
         throw new Error(
           `The following error has occured: ${res.statusText}. Code ${res.status}`

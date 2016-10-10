@@ -3,8 +3,9 @@ import update from 'react-addons-update';
 
 export const initialState = {
   errors: [],
-  loggedInUser: null,
   isLoading: false,
+  message: null,
+  user: null,
 };
 
 const loginReducer =
@@ -21,7 +22,7 @@ const loginReducer =
           isLoading: {
             $set: false,
           },
-          loggedInUser: {
+          user: {
             $set: action.user,
           },
         });
@@ -46,9 +47,15 @@ const loginReducer =
             ],
           },
         });
-      case types.LOGOUT_USER:
+      case types.LOGIN_SET_MESSAGE:
         return update(state, {
-          loggedInUser: {
+          message: {
+            $set: action.message,
+          },
+        });
+      case types.LOGIN_CLEAR_MESSAGE:
+        return update(state, {
+          message: {
             $set: null,
           },
         });
