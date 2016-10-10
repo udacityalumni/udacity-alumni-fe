@@ -54,8 +54,8 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
     const randomArticle = getRandomInt(0, content.length);
 
     return (
-      <Section>
-        <Header>
+      <Section align="center">
+        <Header justify="center">
           <Heading tag="h1">
             Tried 404 times, but:
           </Heading>
