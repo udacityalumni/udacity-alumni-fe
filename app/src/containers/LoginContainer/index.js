@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as LoginActionCreators from './actions';
-import * as AppActions from 'components/app/actions';
+import * as AppActions from '../../components/app/actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
@@ -36,9 +36,9 @@ class Login extends Component {
   }
   handleErrorClose(index) {
     const {
-      clearLoginError,
+      loginClearError,
     } = this.props.actions;
-    clearLoginError(index);
+    loginClearError(index);
   }
   handleToastClose() {
     const {

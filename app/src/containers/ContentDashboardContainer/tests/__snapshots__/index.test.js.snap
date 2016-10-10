@@ -2,7 +2,11 @@ exports[`<ContentDashboard /> should render with default props 1`] = `
 <ContentDashboard
   actions={
     Object {
-      "contentDashboardDefaultAction": [Function anonymous]
+      "clearDashboardError": [Function anonymous],
+      "loadDashboardArticlesFailure": [Function anonymous],
+      "loadDashboardArticlesInitiation": [Function anonymous],
+      "loadDashboardArticlesSuccess": [Function anonymous],
+      "loadSearchArticles": [Function anonymous]
     }
   }
   store={

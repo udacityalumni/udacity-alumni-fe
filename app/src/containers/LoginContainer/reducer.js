@@ -11,7 +11,7 @@ export const initialState = {
 const loginReducer =
   (state = initialState, action) => {
     switch (action.type) {
-      case types.START_LOGIN_REQUEST:
+      case types.LOGIN_INITIATE_REQUEST:
         return update(state, {
           isLoading: {
             $set: true,

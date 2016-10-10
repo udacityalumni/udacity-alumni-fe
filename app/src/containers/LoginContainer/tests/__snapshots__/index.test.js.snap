@@ -2,17 +2,23 @@ exports[`<LoginContainer /> should render with default props 1`] = `
 <Login
   actions={
     Object {
-      "clearLoginError": [Function anonymous],
+      "appSetMobile": [Function anonymous],
+      "appToggleNav": [Function anonymous],
+      "clearSearchTerm": [Function anonymous],
+      "loginClearError": [Function anonymous],
+      "loginClearMessage": [Function anonymous],
+      "loginInitiateRequest": [Function anonymous],
       "loginRequestFailure": [Function anonymous],
       "loginRequestSuccess": [Function anonymous],
-      "logoutUser": [Function anonymous],
-      "startLoginRequest": [Function anonymous],
-      "submitLoginRequest": [Function anonymous]
+      "loginSetMessage": [Function anonymous],
+      "performLogin": [Function anonymous],
+      "setAuthUser": [Function anonymous],
+      "setSearchTerm": [Function anonymous]
     }
   }
   errors={Array []}
   isLoading={false}
-  loggedInUser={null}
+  message={null}
   store={
     Object {
       "clearActions": [Function clearActions],
@@ -22,5 +28,6 @@ exports[`<LoginContainer /> should render with default props 1`] = `
       "replaceReducer": [Function replaceReducer],
       "subscribe": [Function subscribe]
     }
-  } />
+  }
+  user={null} />
 `;

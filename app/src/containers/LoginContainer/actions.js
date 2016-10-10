@@ -4,9 +4,9 @@ const baseUrl = 'https://udacity-alumni-api.herokuapp.com/api/v1/';
 const sessionsUrl = `${baseUrl}sessions`;
 const usersUrl = `${baseUrl}users`;
 
-// startLoginRequest :: None -> Action
-export const startLoginRequest = () => ({
-  type: types.START_LOGIN_REQUEST,
+// loginInitiateRequest :: None -> Action
+export const loginInitiateRequest = () => ({
+  type: types.LOGIN_INITIATE_REQUEST,
 });
 
 // loginRequestSuccess :: JSON -> Action
@@ -21,14 +21,9 @@ export const loginRequestFailure = (errors) => ({
   errors,
 });
 
-// logoutUser :: None -> Action
-export const logoutUser = () => ({
-  type: types.LOGOUT_USER,
-});
-
-// clearLoginErrors :: None -> Action
-export const clearLoginError = (index) => ({
-  type: types.CLEAR_LOGIN_ERROR,
+// loginClearError :: None -> Action
+export const loginClearError = (index) => ({
+  type: types.LOGIN_CLEAR_ERROR,
   index,
 });
 
@@ -69,7 +64,7 @@ const persistAuthToken = (authToken) =>
 
 export const performLogin = (params) =>
   (dispatch) => {
-    dispatch(startLoginRequest());
+    dispatch(loginInitiateRequest());
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const session = new SessionParams(params);

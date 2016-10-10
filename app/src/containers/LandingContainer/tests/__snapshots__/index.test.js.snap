@@ -34,5 +34,10 @@ exports[`<Landing /> should render with default props 1`] = `
       "replaceReducer": [Function replaceReducer],
       "subscribe": [Function subscribe]
     }
+  }
+  user={
+    Object {
+      "name": "Ryan Collins"
+    }
   } />
 `;
