@@ -58,7 +58,7 @@ const DashboardTable = ({
 );
 
 DashboardTable.propTypes = {
-
+  articles: PropTypes.array.isRequired,
 };
 
 export default DashboardTable;

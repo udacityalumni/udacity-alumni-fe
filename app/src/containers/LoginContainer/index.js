@@ -64,6 +64,7 @@ class Login extends Component {
     } = this.props;
     return (
       <Section
+        primary
         pad={{ horizontal: 'large' }}
         align="center"
         justify="center"

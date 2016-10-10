@@ -22,11 +22,19 @@ class Signup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrorClose = this.handleErrorClose.bind(this);
   }
-  handleSubmit(params) {
+  handleSubmit() {
     const {
-      submitSignupRequest,
-    } = this.props.actions;
-    submitSignupRequest(params);
+      nameInput,
+      emailInput,
+      passwordInput,
+      passwordConfirmationInput,
+    } = this.props.fields;
+    this.props.actions.handleSignup({
+      name: nameInput.value,
+      email: emailInput.value,
+      password: passwordInput.value,
+      passwordConfirmation: passwordConfirmationInput.value,
+    });
   }
   handleErrorClose() {
     const {
@@ -39,9 +47,11 @@ class Signup extends Component {
       fields,
       isLoading,
       errorMessage,
+      valid,
     } = this.props;
     return (
       <Section
+        primary
         pad={{ horizontal: 'large' }}
         align="center"
         justify="center"
@@ -54,10 +64,14 @@ class Signup extends Component {
           />
         }
         {errorMessage &&
-          <ErrorAlert errors={[new Error(errorMessage)]} onClose={this.handleErrorClose} />
+          <ErrorAlert
+            errors={[new Error(errorMessage)]}
+            onClose={this.handleErrorClose}
+          />
         }
         <SignupForm
           {...fields}
+          isValid={valid}
           onSubmit={this.handleSubmit}
         />
       </Section>
@@ -70,12 +84,14 @@ Signup.propTypes = {
   actions: PropTypes.object.isRequired,
   errorMessage: PropTypes.string,
   isLoading: PropTypes.bool.isRequired,
+  valid: PropTypes.bool.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   errorMessage: state.signupContainer.error,
   isLoading: state.signupContainer.isLoading,
+  user: state.app.user,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

@@ -16,6 +16,7 @@ const SignupForm = ({
   emailInput,
   passwordInput,
   passwordConfirmationInput,
+  isValid,
 }) => (
   <Box
     className={styles.signupForm}
@@ -41,7 +42,7 @@ const SignupForm = ({
           label="Name"
           htmlFor="nameInput"
         >
-          <input {...nameInput} id="nameInput" type="text" />
+          <input {...nameInput} autoFocus id="nameInput" type="text" />
         </FormField>
         <FormField
           help="How should we get in touch with you?"
@@ -70,7 +71,7 @@ const SignupForm = ({
         </FormField>
       </FormFields>
       <Footer pad={{ vertical: 'medium' }} align="center">
-        <Button onClick={onSubmit} fill label="Submit" primary />
+        <Button onClick={isValid ? onSubmit : null} fill label="Submit" primary />
       </Footer>
       <AuthFormFooter text="Already a member?" link="/login" />
     </Form>
@@ -79,6 +80,11 @@ const SignupForm = ({
 
 SignupForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  nameInput: PropTypes.object.isRequired,
+  emailInput: PropTypes.object.isRequired,
+  passwordInput: PropTypes.object.isRequired,
+  passwordConfirmationInput: PropTypes.object.isRequired,
+  isValid: PropTypes.bool.isRequired,
 };
 
 export default cssModules(SignupForm, styles);
