@@ -34,6 +34,13 @@ export const setPersistentUser = (user) => (dispatch) => {
   );
 };
 
+export const logoutUser = () => (dispatch) => {
+  localStorage.setItem('user', null);
+  dispatch(
+    invalidateAuthUser()
+  );
+};
+
 export const loadPersistedUser = () => (dispatch) => {
   const user = localStorage.getItem('user');
   if (user) {
