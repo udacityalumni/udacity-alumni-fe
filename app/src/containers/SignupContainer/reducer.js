@@ -3,40 +3,41 @@ import update from 'react-addons-update';
 
 export const initialState = {
   error: null,
-  loggedInUser: null,
+  user: null,
   isLoading: false,
+  message: null,
 };
 
 const signupReducer =
   (state = initialState, action) => {
     switch (action.type) {
       case types.SIGNUP_REQUEST_INITIATION:
-        return update(state, {
-          isLoading: {
-            $set: true,
-          },
+        return Object.assign({}, state, {
+          isLoading: true,
         });
       case types.SIGNUP_REQUEST_SUCCESS:
-        return update(state, {
-          isLoading: {
-            $set: false,
-          },
-          loggedInUser: {
-            $set: action.user,
-          },
+        return Object.assign({}, state, {
+          isLoading: false,
+          user: action.user,
         });
       case types.SIGNUP_REQUEST_FAILURE:
-        return update(state, {
-          isLoading: {
-            $set: false,
-          },
-          error: {
-            $set: action.error,
-          },
+        return Object.assign({}, state, {
+          isLoading: false,
+          error: action.error,
         });
       case types.CLEAR_SIGNUP_ERROR:
+        return Object.assign({}, state, {
+          error: null,
+        });
+      case types.SIGNUP_SET_MESSAGE:
         return update(state, {
-          error: {
+          message: {
+            $set: action.message,
+          },
+        });
+      case types.SIGNUP_CLEAR_MESSAGE:
+        return update(state, {
+          message: {
             $set: null,
           },
         });

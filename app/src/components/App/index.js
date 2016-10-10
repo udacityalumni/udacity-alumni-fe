@@ -16,8 +16,10 @@ class Main extends Component {
     this.handleToggleNav = this.handleToggleNav.bind(this);
     this.handleSetMobile = this.handleSetMobile.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.loadUser = this.loadUser.bind(this);
   }
   componentDidMount() {
+    this.loadUser();
     const {
       pathname,
     } = this.props.location;
@@ -40,6 +42,12 @@ class Main extends Component {
     if (window) {
       window.removeEventListener('resize', this.handleSetMobile);
     }
+  }
+  loadUser() {
+    const {
+      loadPersistedUser,
+    } = this.props.actions;
+    loadPersistedUser();
   }
   handleSetMobile() {
     const isMobile = window.innerWidth <= 768;
