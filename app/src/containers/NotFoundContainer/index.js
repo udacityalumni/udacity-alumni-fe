@@ -25,28 +25,46 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
     // a list of content entries that can be loop over randomly
     const content = [
       {
-        title: 'We could not think of 404 banana bread recipes...',
+        title: 'We could not think of enough banana bread recipes...',
         body: 'Learn to make an app that shuffles ingredients endlessly!',
         link: 'https://www.udacity.com/course/ios-developer-nanodegree--nd003',
         description: 'iOS Developer Nanodegree',
       },
       {
-        title: 'We did not manage to reticulate 404 splines...',
-        body: 'Learn to reticulate inputs to make a car drive itself (no splines attached)!',
+        title: 'We did not manage to reticulate all splines...',
+        body: 'Learn to reticulate inputs to make a car spin its splines autonomously!',
         link: 'https://www.udacity.com/drive',
         description: 'Self-Driving Car Nanodegree',
       },
       {
-        title: 'In 404-Land the instructors are not camera-ready...',
+        title: 'The instructors are not quite camera-ready...',
         body: 'Learn to make them look good anyways!',
         link: 'https://www.udacity.com/course/senior-web-developer-nanodegree-by-google--nd802',
         description: 'Senior Web-Developer Nanodegree',
       },
       {
-        title: 'None of the 404 classrooms are currently prepared...',
+        title: 'None of the classrooms are currently prepared...',
         body: 'Learn to create a virtual classroom that is always ready (and needs no brooming)!',
         link: 'https://www.udacity.com/course/vr-developer-nanodegree--nd017',
         description: 'Virtual-Reality Nanodegree',
+      },
+      {
+        title: 'This corner of the App did not get attention yet...',
+        body: 'Bring it into existence (and learn a lot on the way)!',
+        link: 'https://github.com/udacityalumni/',
+        description: 'Contribute to the Alumni-Web-App',
+      },
+      {
+        title: 'Your code here...',
+        body: 'If it is empty and you want it, come and make it!',
+        link: 'https://github.com/udacityalumni/',
+        description: 'Contribute to the Alumni-Web-App',
+      },
+      {
+        title: 'Fill this space with your work...',
+        body: 'Become a part of the Developer-Team!',
+        link: 'https://github.com/udacityalumni/',
+        description: 'Contribute to the Alumni-Web-App',
       },
     ];
 
@@ -56,15 +74,15 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
     return (
       <Section align="center">
         <Header justify="center" direction="column">
-          <Heading tag="h1">
+          <Heading tag="h3">
             Hello curious adventurer! : )
           </Heading>
           <Paragraph>
-            This is uncharted territory. 404-Land. Your help is needed!
+            You've come to uncharted territory. 404-Land. Right were you belong! Ready to map?
           </Paragraph>
         </Header>
         <hr />
-        <Heading tag="h2" className="legacy-message">
+        <Heading tag="h1" className="legacy-message">
           { content[randomArticle].title }
         </Heading>
         <Paragraph className="learn-more">
