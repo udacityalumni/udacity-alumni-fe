@@ -1,4 +1,5 @@
 /* Assemble all containers for export */
+export NotFoundContainer from './NotFoundContainer';
 export SearchContainer from './SearchContainer';
 export ArticleFeedContainer from './ArticleFeedContainer';
 export SingleArticleContainer from './SingleArticleContainer';
