@@ -32,6 +32,10 @@
   .app-src-components-AppFooter-___index-module__seperator___3AfBJ {
     display: none;
   }
+}
+
+.app-src-components-AppFooter-___index-module__heart___2uEw2 {
+  color: red;
 }.app-src-components-ArticleMeta-___index-module__panel___1fwU- {
   position: relative;
   width: 100%;
@@ -9619,3 +9623,7 @@ section:not(.grommetux-section) {
 */
 html {
   overflow-x: hidden; }
+
+@media screen and (max-width: 768px) {
+  .grommetux-menu a:not(.grommetux-button), .grommetux-menu .grommetux-anchor {
+    margin-right: 5px !important; } }

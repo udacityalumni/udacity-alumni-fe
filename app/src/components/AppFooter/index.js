@@ -38,7 +38,7 @@ const SocialIcon = ({
   type,
 }) => (
   <span className={styles.socialIcon}>
-    {(() => {
+    {(() => { // eslint-disable-line
       switch (type) {
         case 'twitter':
           return <SocialTwitterIcon size="small" />;
