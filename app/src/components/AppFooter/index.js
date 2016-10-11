@@ -64,7 +64,12 @@ const AppFooter = () => (
       responsive
       className={styles.flexOne}
     >
-      <Menu inline responsive direction="row">
+      <Menu
+        inline
+        responsive={false}
+        closeOnClick={false}
+        direction="row"
+      >
         {socialIcons.map((icon, index) =>
           <Anchor href={icon.url} key={index}>
             <SocialIcon type={icon.type} />
