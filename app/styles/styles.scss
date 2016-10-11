@@ -15,3 +15,9 @@
 html {
   overflow-x: hidden;
 }
+
+.grommetux-menu a:not(.grommetux-button), .grommetux-menu .grommetux-anchor {
+  @media screen and (max-width: 768px) {
+    margin-right: 5px !important;
+  }
+}

@@ -36,7 +36,11 @@ const ArticleMeta = ({
         Share This Article
       </Heading>
       <Box align="center">
-        <Menu inline direction="row" responsive>
+        <Menu
+          inline
+          direction="row"
+          responsive={false}
+        >
           <SocialShare
             a11yTitle="Go to Twitter to Share this article"
             type="twitter"
