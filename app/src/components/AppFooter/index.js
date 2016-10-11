@@ -15,22 +15,22 @@ const socialIcons = [
   {
     id: 0,
     type: 'twitter',
-    url: 'http://twitter.com',
+    url: 'https://twitter.com/udacity',
   },
   {
     id: 1,
     type: 'facebook',
-    url: 'http://facebook.com',
+    url: 'https://www.facebook.com/Udacity',
   },
   {
     id: 2,
-    type: 'google',
-    url: 'http://google.com',
+    type: 'linkedin',
+    url: 'https://www.linkedin.com/company/udacity',
   },
   {
     id: 3,
-    type: 'linkedin',
-    url: 'http://linkedin.com',
+    type: 'google',
+    url: 'https://plus.google.com/+Udacity',
   },
 ];
 
@@ -41,13 +41,13 @@ const SocialIcon = ({
     {(() => {
       switch (type) {
         case 'twitter':
-          return <SocialTwitterIcon colorIndex="grey-3-a" size="small" />;
+          return <SocialTwitterIcon size="small" />;
         case 'facebook':
-          return <SocialFacebookOptionIcon size="small" colorIndex="grey-3-a" />;
-        case 'google':
-          return <SocialGooglePlusIcon size="small" colorIndex="grey-3-a" />;
+          return <SocialFacebookOptionIcon size="small" />;
         case 'linkedin':
-          return <SocialLinkedinOptionIcon size="small" colorIndex="grey-3-a" />;
+          return <SocialLinkedinOptionIcon size="small" />;
+        case 'google':
+          return <SocialGooglePlusIcon size="small" />;
         default:
           break;
       }
@@ -64,6 +64,17 @@ const AppFooter = () => (
       responsive
       className={styles.flexOne}
     >
+      <Heading tag="h3">
+      <Anchor href="http://www.udacity.com">
+        Udacity Alumni Web App
+      </Anchor>
+      </Heading>
+      <Heading tag="h5">
+        Made with <span className={styles.heart}>♥️</span> by
+        <Anchor href="http://www.udacity.com">
+          {' Udacity Alumni'}
+        </Anchor>
+      </Heading>
       <Menu
         inline
         responsive={false}
@@ -76,17 +87,6 @@ const AppFooter = () => (
           </Anchor>
         )}
       </Menu>
-      <Heading tag="h3">
-        <Anchor href="http://www.udacity.com">
-          Udacity Alumni Web App
-        </Anchor>
-      </Heading>
-      <Heading tag="h5">
-        Made with <span className={styles.heart}>♥️</span>{' '} by
-        <Anchor href="http://www.udacity.com">
-          {' Udacity Alumni'}
-        </Anchor>
-      </Heading>
     </Box>
   </Footer>
 );
