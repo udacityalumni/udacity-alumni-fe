@@ -23,6 +23,7 @@ const routes = (
         <Route path="/martin" component={Pages.MartinPage} />
         <Route path="/search" component={Pages.SearchPage} />
         <Route path="/logout" component={Pages.LogoutPage} />
+          <Route path="notyet" component={Pages.NotYetReadyPage} />
           <Route path="*" component={Pages.NotFoundPage} />
       </Route>
     </Router>
