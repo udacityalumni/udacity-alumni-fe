@@ -1,3 +1,13 @@
+// Copyright Ryan Collins, 2016
+// Released under the MIT Open Source License
+//
+// \______   \___.__._____    ____ \_   ___ \  ____ |  | |  | |__| ____   ______
+//  |       _<   |  |\__  \  /    \/    \  \/ /  _ \|  | |  | |  |/    \ /  ___/
+//  |    |   \\___  | / __ \|   |  \     \___(  <_> )  |_|  |_|  |   |  \\___ \ 
+//  |____|_  // ____|(____  /___|  /\______  /\____/|____/____/__|___|  /____  >
+//         \/ \/          \/     \/        \/                         \/     \/     
+//
+
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
