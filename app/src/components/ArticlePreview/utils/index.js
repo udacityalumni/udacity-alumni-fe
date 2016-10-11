@@ -4,16 +4,29 @@ function insertMarkTag(sourceString, subString) {
   return sourceString.replace(new RegExp("(" + subString + ")", "g"), "<mark>$1</mark>");
 }
 
+// helper to get right content snippet containing the search term
+function setPreviewSnippet(searchTerm, text){
+  /**
+    TODO: make sure the text is not sliced in the middle of a <mark> tag
+  **/
+  let start, end;
+  const offset = 200;
+  const pos =  text.indexOf(searchTerm);
+  if (pos > offset) {
+    start = pos - offset;
+    end = pos + offset;
+  }else {
+    start = 0;
+    end = offset + offset - pos;
+  }
+  return text.slice(start, end);
+}
+
 // {`${article.content.slice(0, 200)}...`}
 export const highlightContent = (searchTerm, text) => {
   if (text.indexOf(searchTerm) !== -1) {
-    /**
-      TODO: do a better algorythm to get the right text section containing
-      the search term. Right now we only show the first 200 characters of the text.
-      This will be a problem for bigger texts.
-    **/
     const formattedText = insertMarkTag(text, searchTerm);
-    return formattedText.slice(0, 200);
+    return setPreviewSnippet(searchTerm, formattedText);
   }
   else {
     return text.slice(0, 200);
