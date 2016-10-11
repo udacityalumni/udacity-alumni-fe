@@ -1,3 +1,4 @@
+/* eslint-disable */
 // helper to insert mark tags
 function insertMarkTag(sourceString, subString) {
   return sourceString.replace(new RegExp("(" + subString + ")", "g"), "<mark>$1</mark>");
@@ -18,3 +19,4 @@ export const highlightContent = (searchTerm, text) => {
     return text.slice(0, 200);
   }
 };
+/* eslint-enable */

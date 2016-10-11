@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
 import Card from 'grommet-udacity/components/Card';
-import { highlightTitle, highlightContent } from './utils';
+import { highlightContent } from './utils';
 
 const ArticlePreview = ({
   article,
