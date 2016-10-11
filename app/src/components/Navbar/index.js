@@ -26,20 +26,24 @@ const Navbar = ({
         className={styles.leftMenu}
       >
         {user &&
-          <Anchor>
+          <Anchor href="/me/classroom">
             My Classroom
           </Anchor>
         }
-        <Anchor>
+        <Anchor href="/careers">
           Careers
         </Anchor>
-        <Anchor>
+        <Anchor href="/mentorship">
           Mentorship
         </Anchor>
-        <Anchor>
+        <Anchor href="/meetups">
           Meetups
         </Anchor>
-        <Search onDOMChange={onSearch} dropAlign={{ left: 'left' }} />
+        <Search
+          onDOMChange={onSearch}
+          dropAlign={{ left: 'left' }}
+          placeHolder="Start typing..."
+        />
       </Menu>
       {user ?
         <Menu
@@ -48,7 +52,7 @@ const Navbar = ({
           className={styles.rightMenu}
           responsive
         >
-          <Anchor href="/classroom">
+          <Anchor href="/me/classroom">
             My Classroom
           </Anchor>
           <Anchor href="/me/profile">
