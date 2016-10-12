@@ -69,7 +69,7 @@ class Search extends Component {
               <List>
                 {filteredArticles.map((article, i) =>
                   <ListItem key={i}>
-                    <ArticlePreview article={article} />
+                    <ArticlePreview article={article} searchTerm={searchTerm} />
                   </ListItem>
                 )}
               </List>

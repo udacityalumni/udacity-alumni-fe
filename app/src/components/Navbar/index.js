@@ -4,6 +4,7 @@ import Title from 'grommet-udacity/components/Title';
 import Menu from 'grommet-udacity/components/Menu';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Search from 'grommet-udacity/components/Search';
+import Button from 'grommet-udacity/components/Button';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import { LogoImage } from 'components';
@@ -26,20 +27,27 @@ const Navbar = ({
         className={styles.leftMenu}
       >
         {user &&
-          <Anchor>
-            My Classroom
-          </Anchor>
+          <Button
+            href="https://classroom.udacity.com/me"
+            label="My Classroom"
+            className={styles.myClassroomButton}
+            primary
+          />
         }
-        <Anchor>
+        <Anchor href="/careers">
           Careers
         </Anchor>
-        <Anchor>
+        <Anchor href="/mentorship">
           Mentorship
         </Anchor>
-        <Anchor>
+        <Anchor href="/meetups">
           Meetups
         </Anchor>
-        <Search onDOMChange={onSearch} dropAlign={{ left: 'left' }} />
+        <Search
+          onDOMChange={onSearch}
+          dropAlign={{ left: 'left' }}
+          placeHolder="Start typing..."
+        />
       </Menu>
       {user ?
         <Menu
@@ -48,9 +56,6 @@ const Navbar = ({
           className={styles.rightMenu}
           responsive
         >
-          <Anchor href="/classroom">
-            My Classroom
-          </Anchor>
           <Anchor href="/me/profile">
             My Profile
           </Anchor>

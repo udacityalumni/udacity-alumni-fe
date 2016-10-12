@@ -32,6 +32,10 @@
   .app-src-components-AppFooter-___index-module__seperator___3AfBJ {
     display: none;
   }
+}
+
+.app-src-components-AppFooter-___index-module__heart___2uEw2 {
+  color: red;
 }.app-src-components-ArticleMeta-___index-module__panel___1fwU- {
   position: relative;
   width: 100%;
@@ -197,16 +201,26 @@
 
 .app-src-components-Navbar-___index-module__rightMenu___2ljaI {
   margin-right: 20px !important;
+}
+
+.app-src-components-Navbar-___index-module__myClassroomButton___1JBLb {
+  margin-right: 12px;
+  padding: 5px 10px !important;
+  font-weight: 500 !important;
 }.app-src-components-LogoImage-___index-module__logoImageContainer___2clBy {
   width: 11.0625rem;
   height: 1.9375rem;
   margin-left: 10px;
-}.app-src-pages-LogoutPage-___index-module__container___3L7Je {
-  height: 100vh;
+}.app-src-pages-MentorshipPage-___index-module__container___2JmBm {
+  min-height: 100vh;
   width: 100%;
-}.app-src-pages-SearchPage-___index-module__container___18cbH {
-  min-height: calc(100vh - 74px);
-  width: 100%;
+}.app-src-containers-NotFoundContainer-___index-module__image___f8toA {
+  margin-bottom: 20px;
+}
+
+.app-src-containers-NotFoundContainer-___index-module__fillHeight___2MejL {
+  min-height: 90vh;
+  margin-top: 2rem;
 }.app-src-containers-SearchContainer-___index-module__search___3QiDq {
   min-height: 90vh;
   display: flex;
@@ -289,6 +303,15 @@
   .app-src-containers-LandingContainer-___index-module__mainSection___1bw3k {
     padding: 0 !important;
   }
+}.app-src-pages-MeetupsPage-___index-module__container___Vi67R {
+  min-height: 100vh;
+  width: 100%;
+}.app-src-pages-LogoutPage-___index-module__container___3L7Je {
+  height: 100vh;
+  width: 100%;
+}.app-src-pages-SearchPage-___index-module__container___18cbH {
+  min-height: calc(100vh - 74px);
+  width: 100%;
 }.app-src-pages-SingleArticlePage-___index-module__container___23MPt {
   height: 100vh;
   width: 100%;
@@ -305,13 +328,8 @@
   height: 100vh;
   width: 100%;
 }.app-src-pages-NotFoundPage-___index-module__container___21GsS {
-  height: 100vh;
+  min-height: calc(100vh-70px);
   width: 100%;
-}
-
-.app-src-pages-NotFoundPage-___index-module__header___1kuz7 {
-  font-size: 32px;
-  font: 'Open Sans';
 }.app-src-pages-LandingPage-___index-module__container___3hjVU {
   min-height: 100vh;
   width: 100%;
@@ -9605,3 +9623,7 @@ section:not(.grommetux-section) {
 */
 html {
   overflow-x: hidden; }
+
+@media screen and (max-width: 768px) {
+  .grommetux-menu a:not(.grommetux-button), .grommetux-menu .grommetux-anchor {
+    margin-right: 5px !important; } }

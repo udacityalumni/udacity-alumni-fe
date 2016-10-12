@@ -1,13 +1,3 @@
-// Copyright Ryan Collins, 2016
-// Released under the MIT Open Source License
-//
-// \______   \___.__._____    ____ \_   ___ \  ____ |  | |  | |__| ____   ______
-//  |       _<   |  |\__  \  /    \/    \  \/ /  _ \|  | |  | |  |/    \ /  ___/
-//  |    |   \\___  | / __ \|   |  \     \___(  <_> )  |_|  |_|  |   |  \\___ \ 
-//  |____|_  // ____|(____  /___|  /\______  /\____/|____/____/__|___|  /____  >
-//         \/ \/          \/     \/        \/                         \/     \/     
-//
-
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -31,9 +21,12 @@ class Landing extends Component {
   }
   componentDidMount() {
     const {
-      loadFeaturedArticles,
-    } = this.props.actions;
-    loadFeaturedArticles();
+      actions,
+      featuredArticles,
+    } = this.props;
+    if (!featuredArticles || !featuredArticles.length > 0) {
+      actions.loadFeaturedArticles();
+    }
   }
   handleCloseErrorAlert() {
     const {
@@ -52,7 +45,10 @@ class Landing extends Component {
     return (
       <div className={styles.landing}>
         {errors && errors.length > 0 &&
-          <ErrorAlert errors={errors} onClose={this.handleCloseErrorAlert} />
+          <ErrorAlert
+            errors={errors}
+            onClose={this.handleCloseErrorAlert}
+          />
         }
         {isLoading ?
           <Section
