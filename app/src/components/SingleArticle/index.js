@@ -22,10 +22,18 @@ const SingleArticle = ({
         <Box
           align="center"
           justify="center"
-          size="large"
+          className="markdown-body"
           pad={{ horizontal: 'small' }}
         >
-          <Markdown content={article.content} />
+          <Markdown
+            content={article.content}
+            components={{
+              h1: { props: { strong: true } },
+              h2: { props: { strong: true } },
+              p: { props: { size: 'large' } },
+              img: { props: { size: 'small' } },
+            }}
+          />
         </Box>
       </Article>
     </Section>
