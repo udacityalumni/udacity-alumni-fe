@@ -5,14 +5,18 @@ exports[`<LoginContainer /> should render with default props 1`] = `
       "appSetMobile": [Function anonymous],
       "appToggleNav": [Function anonymous],
       "clearSearchTerm": [Function anonymous],
+      "invalidateAuthUser": [Function anonymous],
+      "loadPersistedUser": [Function anonymous],
       "loginClearError": [Function anonymous],
       "loginClearMessage": [Function anonymous],
       "loginInitiateRequest": [Function anonymous],
       "loginRequestFailure": [Function anonymous],
       "loginRequestSuccess": [Function anonymous],
       "loginSetMessage": [Function anonymous],
+      "logoutUser": [Function anonymous],
       "performLogin": [Function anonymous],
       "setAuthUser": [Function anonymous],
+      "setPersistentUser": [Function anonymous],
       "setSearchTerm": [Function anonymous]
     }
   }

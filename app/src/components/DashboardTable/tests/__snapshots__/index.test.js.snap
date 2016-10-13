@@ -1,0 +1,76 @@
+exports[`<DashboardTable /> should render with default props 1`] = `
+<Box
+  announce={false}
+  color="light-2"
+  direction="column"
+  focusable={true}
+  pad="large"
+  responsive={true}
+  style={
+    Object {
+      "border": "1px solid black",
+      "minHeight": 300,
+      "minWidth": 600
+    }
+  }
+  tag="div">
+  <Table>
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Status
+        </th>
+        <th>
+          Author
+        </th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <TableRow>
+        <td>
+          <Anchor
+            href="/admin/articles/0"
+            tag="a">
+            Hello World
+          </Anchor>
+        </td>
+        <td>
+          <Anchor
+            href="/admin/articles/0"
+            tag="a">
+            Published
+          </Anchor>
+        </td>
+        <td>
+          <Anchor
+            href="/admin/articles/0"
+            tag="a">
+            Ryan Collins
+          </Anchor>
+        </td>
+        <td>
+          <span>
+            <Anchor
+              href="/admin/articles/0/edit"
+              tag="a">
+              Edit
+            </Anchor>
+             / 
+            <Anchor
+              href="/admin/articles/0/delete"
+              tag="a">
+              Delete
+            </Anchor>
+          </span>
+        </td>
+      </TableRow>
+    </tbody>
+  </Table>
+</Box>
+`;

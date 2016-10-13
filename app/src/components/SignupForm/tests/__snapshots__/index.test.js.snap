@@ -47,17 +47,28 @@ exports[`<SignupForm /> should render with default props 1`] = `
     </Heading>
     <FormFields>
       <FormField
-        error={null}
+        error="value Required"
         help="What should we call you?"
         htmlFor="nameInput"
         label="Name"
         size="medium"
         strong={false}>
         <input
-          error={null}
+          active={false}
+          autoFocus={true}
+          autofilled={false}
+          dirty={false}
+          error="value Required"
           id="nameInput"
-          touched={false}
-          type="text" />
+          initialValue=""
+          invalid={true}
+          name="nameInput"
+          pristine={true}
+          touched={true}
+          type="text"
+          valid={false}
+          value=""
+          visited={true} />
       </FormField>
       <FormField
         error={null}
@@ -66,10 +77,20 @@ exports[`<SignupForm /> should render with default props 1`] = `
         size="medium"
         strong={false}>
         <input
-          error={null}
+          active={false}
+          autofilled={false}
+          dirty={false}
+          error="value Required"
           id="emailInput"
+          initialValue=""
+          invalid={true}
+          name="emailInput"
+          pristine={true}
           touched={false}
-          type="email" />
+          type="email"
+          valid={false}
+          value=""
+          visited={false} />
       </FormField>
       <FormField
         error={null}
@@ -78,10 +99,20 @@ exports[`<SignupForm /> should render with default props 1`] = `
         size="medium"
         strong={false}>
         <input
-          error={null}
+          active={false}
+          autofilled={false}
+          dirty={false}
+          error="value Required"
           id="passwordInput"
+          initialValue=""
+          invalid={true}
+          name="passwordInput"
+          pristine={true}
           touched={false}
-          type="password" />
+          type="password"
+          valid={false}
+          value=""
+          visited={false} />
       </FormField>
       <FormField
         error={null}
@@ -90,10 +121,20 @@ exports[`<SignupForm /> should render with default props 1`] = `
         size="medium"
         strong={false}>
         <input
-          error={null}
+          active={false}
+          autofilled={false}
+          dirty={false}
+          error="value Required"
           id="passwordConfirmationInput"
+          initialValue=""
+          invalid={true}
+          name="passwordConfirmationInput"
+          pristine={true}
           touched={false}
-          type="password" />
+          type="password"
+          valid={false}
+          value=""
+          visited={false} />
       </FormField>
     </FormFields>
     <Footer
@@ -108,7 +149,7 @@ exports[`<SignupForm /> should render with default props 1`] = `
       <Button
         fill={true}
         label="Submit"
-        onClick={[Function onSubmit]}
+        onClick={null}
         primary={true}
         type="button" />
     </Footer>

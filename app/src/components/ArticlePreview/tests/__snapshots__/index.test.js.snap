@@ -13,7 +13,7 @@ exports[`<ArticlePreview /> should render with default props 1`] = `
   tag="div">
   <Card
     contentPad="medium"
-    description="Diagnostic related group HIPAA accreditation..."
+    description="Diagnostic related group HIPAA accreditation"
     heading="Current procedu"
     headingStrong={true}
     label="By Andreas Daimainger"
