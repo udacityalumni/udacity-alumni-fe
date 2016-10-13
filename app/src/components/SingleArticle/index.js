@@ -6,7 +6,7 @@ import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
 import Article from 'grommet-udacity/components/Article';
 import Image from 'grommet-udacity/components/Image';
-import Paragraph from 'grommet-udacity/components/Paragraph';
+import Markdown from 'grommet-udacity/components/Markdown';
 import { Author, ArticleMeta } from 'components';
 
 const SingleArticle = ({
@@ -25,9 +25,7 @@ const SingleArticle = ({
           size="large"
           pad={{ horizontal: 'small' }}
         >
-          <Paragraph>
-            {article.content}
-          </Paragraph>
+          <Markdown content={article.content} />
         </Box>
       </Article>
     </Section>
