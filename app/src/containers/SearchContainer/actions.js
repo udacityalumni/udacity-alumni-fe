@@ -44,7 +44,8 @@ export const loadSearchArticles = () =>
         dispatch(
           loadSearchArticlesSuccess(articles)
         );
-      }).catch(error =>
+      })
+      .catch(error =>
         dispatch(
           loadSearchArticlesFailure(
             error.message || 'An unknown error has occured'
