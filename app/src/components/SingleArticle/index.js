@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import Heading from 'grommet-udacity/components/Heading';
+import Headline from 'grommet-udacity/components/Headline';
 import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
 import Article from 'grommet-udacity/components/Article';
@@ -15,10 +15,10 @@ const SingleArticle = ({
   <Box>
     <Section align="center">
       <Article align="center" className={styles.singleArticle}>
-        <Heading className={styles.heading} align="center" tag="h2">
+        <Headline align="center">
           {article.title}
-        </Heading>
-        <Image src={article.feature_image} full="horizontal" />
+        </Headline>
+        <Image src={article.feature_image} full="true" />
         <Box
           align="center"
           justify="center"
