@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export LoginForm from './LoginForm';
 export DashboardTable from './DashboardTable';
 export ArticlePreview from './ArticlePreview';
 export AuthFormFooter from './AuthFormFooter';

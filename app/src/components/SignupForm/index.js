@@ -19,10 +19,10 @@ const SignupForm = ({
   isValid,
 }) => (
   <Box
-    className={styles.signupForm}
-    pad={{ horizontal: 'small', vertical: 'small' }}
+    className={styles.signup}
+    pad={{ horizontal: 'large' }}
   >
-    <Form className="grommetux-form grommetux-login-form grommetux-form--pad-none">
+    <Form>
       <Box align="center" justify="center">
         <img
           style={{ maxWidth: 150, height: 'auto' }}
@@ -35,28 +35,44 @@ const SignupForm = ({
       <Heading align="center" tag="h5">
         Signup
       </Heading>
-      <FormFields>
+      <FormFields className={styles.formFields}>
         <FormField
           help="What should we call you?"
           error={nameInput.touched && nameInput.error ? nameInput.error : null}
           label="Name"
           htmlFor="nameInput"
         >
-          <input {...nameInput} autoFocus id="nameInput" type="text" />
+          <input
+            {...nameInput}
+            id="nameInput"
+            placeholder="Bill Richardson"
+            type="text"
+            name="name"
+          />
         </FormField>
         <FormField
           help="How should we get in touch with you?"
           error={emailInput.touched && emailInput.error ? emailInput.error : null}
           label="Email"
         >
-          <input {...emailInput} id="emailInput" type="email" />
+          <input
+            {...emailInput}
+            id="emailInput"
+            type="email"
+            placeholder="me@udacity.com"
+            name="email"
+          />
         </FormField>
         <FormField
           help="Make it secure"
           error={passwordInput.touched && passwordInput.error ? passwordInput.error : null}
           label="Password"
         >
-          <input {...passwordInput} id="passwordInput" type="password" />
+          <input
+            {...passwordInput}
+            id="passwordInput"
+            type="password"
+          />
         </FormField>
         <FormField
           help="Confirm your password"

@@ -1,9 +1,61 @@
-.app-src-components-SignupForm-___index-module__signupForm___1GA8Y {
+.app-src-components-LoginForm-___index-module__loginForm___1rqon {
   display: flex;
+  margin: 60px 0;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: #fff;
-  padding: 24px;
+  padding: 60px;
+  max-width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px 0 rgba(46, 61, 73, 0.2);
+  border: 1px solid #dbe2e8;
+}
+
+@media screen and (max-width: 768px) {
+  .app-src-components-LoginForm-___index-module__loginForm___1rqon {
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app-src-components-LoginForm-___index-module__loginForm___1rqon {
+    margin: 10px 0;
+  }
+}
+
+.app-src-components-LoginForm-___index-module__formFields___2ByEU {
+  width: 100%;
+  max-width: 480px;
+}.app-src-components-SignupForm-___index-module__signup___1Zww5 {
+  display: flex;
+  margin: 60px 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 60px;
+  max-width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px 0 rgba(46, 61, 73, 0.2);
+  border: 1px solid #dbe2e8;
+}
+
+@media screen and (max-width: 768px) {
+  .app-src-components-SignupForm-___index-module__signup___1Zww5 {
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app-src-components-SignupForm-___index-module__signup___1Zww5 {
+    margin: 10px 0;
+  }
+}
+
+.app-src-components-SignupForm-___index-module__formFields___I9iQU {
+  width: 100%;
+  max-width: 480px;
 }.app-src-components-AppFooter-___index-module__appFooter___1DA5x {
   background: #f5f5f5;
   padding: 50px;
@@ -150,6 +202,14 @@
   max-height: 300px;
 }
 
+.app-src-components-MainAside-___index-module__aside___LDF8G {
+  margin-bottom: 14px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(46, 61, 73, 0.2);
+  border: 1px solid #dbe2e8;
+  margin-left: 30px;
+}
+
 @media screen and (max-width: 956px) {
   .app-src-components-MainAside-___index-module__aside___LDF8G {
     display: none !important;
@@ -279,17 +339,24 @@
   justify-content: center;
   width: 100%;
   min-height: 95vh;
+  background: #fafbfc;
 }.app-src-containers-LoginContainer-___index-module__login___2X2WQ {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   min-height: 95vh;
+  background: #fafbfc;
 }.app-src-containers-LandingContainer-___index-module__landing___nj0KQ {
   min-height: 100vh;
 }
 
 .app-src-containers-LandingContainer-___index-module__mainContent___1UMld {
+  background: #FFF;
+  margin-bottom: 14px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(46, 61, 73, 0.2);
+  border: 1px solid #dbe2e8;
   max-width: 960px;
 }
 
@@ -337,6 +404,7 @@
 }.app-src-pages-LandingPage-___index-module__container___3hjVU {
   min-height: 100vh;
   width: 100%;
+  background: #fafbfc;
 }@charset "UTF-8";
 /*!
  * inuitcss, by @csswizardry

@@ -12,7 +12,7 @@ const MainAside = ({
 }) => (
   <Box
     basis="1/3"
-    pad="medium"
+    pad={{ vertical: 'large', horizontal: 'small' }}
     align="center"
     className={styles.aside}
   >

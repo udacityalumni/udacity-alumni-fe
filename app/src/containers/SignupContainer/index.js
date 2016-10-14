@@ -6,6 +6,7 @@ import * as AppActions from '../../components/App/actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
+import Box from 'grommet-udacity/components/Box';
 import validation from './utils/validations';
 import { reduxForm } from 'redux-form';
 import {
@@ -100,11 +101,18 @@ class Signup extends Component {
             onClose={this.handleErrorClose}
           />
         }
-        <SignupForm
-          {...fields}
-          isValid={valid}
-          onSubmit={this.handleSubmit}
-        />
+        <Box
+          size="large"
+          className={styles.loginFormWrapper}
+          align="center"
+          pad={{ horizontal: 'small', vertical: 'small' }}
+        >
+          <SignupForm
+            {...fields}
+            isValid={valid}
+            onSubmit={this.handleSubmit}
+          />
+        </Box>
       </Section>
     );
   }

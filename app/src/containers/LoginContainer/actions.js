@@ -42,7 +42,6 @@ class SessionParams {
     const args = arguments[0];
     this.email = args.email;
     this.password = args.password;
-    this.remember = args.rememberMe;
     this.valid = this.email && this.password;
   }
   toJson() {
@@ -83,9 +82,7 @@ export const performLogin = (params) =>
       if (!token) {
         throw new Error('The request failed.');
       }
-      if (session.remember) {
-        persistAuthToken(token).then(t => t);
-      }
+      persistAuthToken(token).then(t => t);
       return token;
     })
     .then(token => {
