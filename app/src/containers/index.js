@@ -1,4 +1,6 @@
 /* Assemble all containers for export */
+export MentorshipContainer from './MentorshipContainer';
+export MeetupsContainer from './MeetupsContainer';
 export NotFoundContainer from './NotFoundContainer';
 export SearchContainer from './SearchContainer';
 export ArticleFeedContainer from './ArticleFeedContainer';

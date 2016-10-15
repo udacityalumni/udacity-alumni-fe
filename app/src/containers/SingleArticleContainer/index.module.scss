@@ -4,13 +4,13 @@
   width: 90%;
   max-width: 750px;
 }
+
 .mainSection {
-  margin: 40px 0;
   @media screen and (max-width: 768px) {
     padding: 0 !important;
-    margin: 20px 0;
   }
 }
+
 .center {
   margin: auto;
   width: 10em;
@@ -19,5 +19,6 @@
 }
 
 .singleArticleContainer {
-  min-height: 90vh;
+  min-height: 100vh;
+  background: #fafbfc;
 }

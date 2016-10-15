@@ -12,11 +12,18 @@ class CmsEditorContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCloseToast = this.handleCloseToast.bind(this);
   }
+
   handleSubmit(data) {
     const {
       submitArticleRequest,
     } = this.props.actions;
     submitArticleRequest(data);
+    const path = `/admin/content-dashboard`;
+    // this.context.router.push(path);
+    const {
+      router,
+    } = this.context;
+    router.push(path);
   }
   handleCloseToast({ type }) {
     const {
@@ -56,6 +63,10 @@ CmsEditorContainer.propTypes = {
   actions: PropTypes.object.isRequired,
   error: PropTypes.object,
   message: PropTypes.string,
+};
+
+CmsEditorContainer.contextTypes = {
+  router: PropTypes.object.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}

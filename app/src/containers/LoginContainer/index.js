@@ -6,9 +6,21 @@ import * as AppActions from '../../components/App/actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
-import LoginForm from 'grommet-udacity/components/LoginForm';
 import Box from 'grommet-udacity/components/Box';
-import { LoadingIndicator, ErrorAlert, ToastMessage } from 'components';
+import validation from './utils/validation';
+import { reduxForm } from 'redux-form';
+import {
+  LoadingIndicator,
+  ErrorAlert,
+  ToastMessage,
+  LoginForm,
+} from 'components';
+
+
+export const formFields = [
+  'emailInput',
+  'passwordInput',
+];
 
 class Login extends Component {
   constructor() {
@@ -40,21 +52,24 @@ class Login extends Component {
     } = this.props.actions;
     loginClearMessage();
   }
-  handleSubmit({ username, password, rememberMe }) {
+  handleSubmit() {
     const {
-      performLogin,
-    } = this.props.actions;
-    performLogin({
-      email: username,
-      password,
-      rememberMe,
-    });
+      actions,
+      fields,
+    } = this.props;
+    const data = {
+      email: fields.emailInput.value,
+      password: fields.passwordInput.value,
+    };
+    actions.performLogin(data);
   }
   render() {
     const {
       isLoading,
       errors,
       message,
+      fields,
+      invalid,
     } = this.props;
     return (
       <Section
@@ -79,20 +94,12 @@ class Login extends Component {
         <Box
           size="large"
           className={styles.loginFormWrapper}
-          colorIndex="light-1"
           align="center"
           pad={{ horizontal: 'small', vertical: 'small' }}
         >
           <LoginForm
-            title="Udacity Alumni"
-            secondaryText="Enter your credentials to Login"
-            rememberMe
-            logo={
-              <img
-                style={{ maxWidth: 150, height: 'auto' }}
-                src="https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/udacity-alumni-png.png?raw=true"
-              />
-            }
+            {...fields}
+            invalid={invalid}
             onSubmit={this.handleSubmit}
           />
         </Box>
@@ -108,6 +115,8 @@ Login.propTypes = {
   errors: PropTypes.array,
   user: PropTypes.object,
   message: PropTypes.string,
+  fields: PropTypes.object.isRequired,
+  invalid: PropTypes.bool.isRequired,
 };
 
 Login.contextTypes = {
@@ -136,7 +145,13 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Container = cssModules(Login, styles);
 
+const FormContainer = reduxForm({
+  form: 'Login',
+  fields: formFields,
+  validate: validation,
+})(Container);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Container);
+)(FormContainer);

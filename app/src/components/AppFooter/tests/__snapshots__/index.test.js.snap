@@ -17,20 +17,61 @@ exports[`<AppFooter /> should render with default props 1`] = `
     <Heading
       tag="h3">
       <Anchor
-        href="https://medium.com/react-weekly"
+        href="http://www.udacity.com"
         tag="a">
         Udacity Alumni Web App
       </Anchor>
     </Heading>
     <Heading
       tag="h5">
-      Made with ♥️ by
+      Made with 
+      <span>
+        ♥️
+      </span>
+       by
       <Anchor
         href="http://www.udacity.com"
         tag="a">
          Udacity Alumni
       </Anchor>
     </Heading>
+    <Menu
+      closeOnClick={false}
+      direction="row"
+      dropAlign={
+        Object {
+          "left": "left",
+          "top": "top"
+        }
+      }
+      inline={true}
+      pad="none"
+      responsive={false}>
+      <Anchor
+        href="https://twitter.com/udacity"
+        tag="a">
+        <SocialIcon
+          type="twitter" />
+      </Anchor>
+      <Anchor
+        href="https://www.facebook.com/Udacity"
+        tag="a">
+        <SocialIcon
+          type="facebook" />
+      </Anchor>
+      <Anchor
+        href="https://www.linkedin.com/company/udacity"
+        tag="a">
+        <SocialIcon
+          type="linkedin" />
+      </Anchor>
+      <Anchor
+        href="https://plus.google.com/+Udacity"
+        tag="a">
+        <SocialIcon
+          type="google" />
+      </Anchor>
+    </Menu>
   </Box>
 </Footer>
 `;

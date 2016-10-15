@@ -28,11 +28,11 @@ describe('signupReducer', () => {
     };
     const stateBefore = {
       isLoading: true,
-      loggedInUser: null,
+      user: null,
     };
     const stateAfter = {
       isLoading: false,
-      loggedInUser: user,
+      user,
     };
     expect(
       signupReducer(stateBefore, {

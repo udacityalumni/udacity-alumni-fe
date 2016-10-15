@@ -2,15 +2,27 @@ exports[`<Signup /> should render with default props 1`] = `
 <ConnectedForm
   actions={
     Object {
+      "appSetMobile": [Function anonymous],
+      "appToggleNav": [Function anonymous],
+      "clearSearchTerm": [Function anonymous],
       "clearSignupError": [Function anonymous],
+      "handleSignup": [Function anonymous],
+      "invalidateAuthUser": [Function anonymous],
+      "loadPersistedUser": [Function anonymous],
+      "logoutUser": [Function anonymous],
+      "setAuthUser": [Function anonymous],
+      "setPersistentUser": [Function anonymous],
+      "setSearchTerm": [Function anonymous],
+      "signupClearMessage": [Function anonymous],
       "signupRequestFailure": [Function anonymous],
       "signupRequestInitiation": [Function anonymous],
       "signupRequestSuccess": [Function anonymous],
-      "submitSignupRequest": [Function anonymous]
+      "signupSetMessage": [Function anonymous]
     }
   }
   errorMessage={null}
   isLoading={false}
+  message={null}
   store={
     Object {
       "clearActions": [Function clearActions],
@@ -20,5 +32,6 @@ exports[`<Signup /> should render with default props 1`] = `
       "replaceReducer": [Function replaceReducer],
       "subscribe": [Function subscribe]
     }
-  } />
+  }
+  user={null} />
 `;

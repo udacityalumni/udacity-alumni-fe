@@ -132,13 +132,6 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
         className={styles.fillHeight}
       >
         <Box align="center">
-          {/* Un comment for a cute / funny image
-             <Box align="center" justify="center">
-            <img
-              className={styles.image}
-              src="http://vignette2.wikia.nocookie.net/tinydicedungeon/images/c/cc/Adventurer.png/revision/latest?cb=20140804135030"
-            />
-          </Box> */}
           <Heading tag="h3">
             Hello curious adventurer! : )
           </Heading>

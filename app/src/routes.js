@@ -23,8 +23,11 @@ const routes = (
         <Route path="/martin" component={Pages.MartinPage} />
         <Route path="/search" component={Pages.SearchPage} />
         <Route path="/logout" component={Pages.LogoutPage} />
-          <Route path="notyet" component={Pages.NotYetReadyPage} />
-          <Route path="*" component={Pages.NotFoundPage} />
+        <Route path="/notyet" component={Pages.NotYetReadyPage} />
+        <Route path="/careers" component={Pages.NotYetReadyPage} />
+        <Route path="/meetups" component={Pages.MeetupsPage} />
+        <Route path="/mentorship" component={Pages.MentorshipPage} />
+        <Route path="*" component={Pages.NotFoundPage} />
       </Route>
     </Router>
   </Provider>

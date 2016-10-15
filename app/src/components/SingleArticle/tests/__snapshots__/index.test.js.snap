@@ -17,13 +17,12 @@ exports[`<SingleArticle /> should render with default props 1`] = `
       align="center"
       direction="column"
       pad="none">
-      <Heading
-        align="center"
-        tag="h2">
+      <Headline
+        align="center">
         Creditable coverage Hcfa common procedure coding system Group health plan
-      </Heading>
+      </Headline>
       <Image
-        full="horizontal"
+        full="true"
         size="medium"
         src="https://robohash.org/magnietnon.png?size=300x300" />
       <Box

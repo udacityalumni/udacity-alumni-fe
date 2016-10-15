@@ -34,14 +34,17 @@ exports[`<Navbar /> should render with default props 1`] = `
       pad="none"
       responsive={true}>
       <Anchor
+        href="/careers"
         tag="a">
         Careers
       </Anchor>
       <Anchor
+        href="/mentorship"
         tag="a">
         Mentorship
       </Anchor>
       <Anchor
+        href="/meetups"
         tag="a">
         Meetups
       </Anchor>
@@ -55,6 +58,7 @@ exports[`<Navbar /> should render with default props 1`] = `
         iconAlign="end"
         inline={false}
         onDOMChange={[Function onSearch]}
+        placeHolder="Start typing..."
         responsive={true} />
     </Menu>
     <Menu
