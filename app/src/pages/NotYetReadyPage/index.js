@@ -20,10 +20,14 @@ const NotYetReadyPage = (props) => (
         src="http://oi63.tinypic.com/24vse9f.jpg"
       />
     </Box>
-    <Heading tag="h3">
-      If you think you can help us build it,
-    </Heading>
-    <Button href="mailto:admin@ryancollins.io" label="Get in Touch!" />
+    <Box
+      align="center"
+    >
+      <Heading tag="h3">
+        If you feel like helping us build this page
+      </Heading>
+      <Button href="mailto:admin@ryancollins.io" label="Get in Touch!" />
+      </Box>
   </div>
 );
 
