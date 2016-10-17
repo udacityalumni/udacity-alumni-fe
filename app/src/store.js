@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router';
 import createLogger from 'redux-logger';
 import rootReducer from './reducers';
 import { UserAuthWrapper as userAuthWrapper } from 'redux-auth-wrapper';
+import client from './apolloClient';
 const isClient = typeof document !== 'undefined';
 const isDeveloping = process.env.NODE_ENV !== 'production';
 
@@ -36,7 +37,7 @@ const initialState = {
 /* See: http://redux.js.org/docs/advanced/Middleware.html*/
 const loggerMiddleware = createLogger();
 const routingMiddleware = routerMiddleware(browserHistory);
-const middlewares = [thunk, routingMiddleware];
+const middlewares = [thunk, routingMiddleware, client.middleware()];
 
 if (isDeveloping) {
   middlewares.push(loggerMiddleware);
