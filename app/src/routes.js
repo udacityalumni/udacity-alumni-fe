@@ -18,7 +18,7 @@ const routes = (
         <Route path="/admin/content-dashboard" component={Pages.ContentDashboardPage} />
         <Route path="/login" component={Pages.LoginPage} />
         <Route path="/signup" component={Pages.SignupPage} />
-        <Route path="admin/new-story" component={Pages.CmsEditorPage} />
+        <Route path="admin/cms/:articleId" component={Pages.CmsEditorPage} />
         <Route path="/martin" component={Pages.MartinPage} />
         <Route path="/search" component={Pages.SearchPage} />
         <Route path="/logout" component={Pages.LogoutPage} />

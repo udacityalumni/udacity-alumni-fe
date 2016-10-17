@@ -30,22 +30,22 @@ const DashboardTable = ({
               </Anchor>
             </td>
             <td>
-              <Anchor href={`/admin/articles/${article.id}`}>
+              <Anchor href={`/admin/cms/${article.id}`}>
                 {`${article.status.charAt(0).toUpperCase()}${article.status.slice(1)}`}
               </Anchor>
             </td>
             <td>
-              <Anchor href={`/admin/articles/${article.id}`}>
+              <Anchor href={`/admin/cms/${article.id}`}>
                 {article.user.name}
               </Anchor>
             </td>
             <td>
               <span>
-                <Anchor href={`/admin/articles/${article.id}/edit`}>
+                <Anchor href={`/admin/cms/${article.id}/edit`}>
                   Edit
                 </Anchor>
                 {' / '}
-                <Anchor href={`/admin/articles/${article.id}/delete`}>
+                <Anchor href={`/admin/cms/${article.id}/delete`}>
                   Delete
                 </Anchor>
               </span>

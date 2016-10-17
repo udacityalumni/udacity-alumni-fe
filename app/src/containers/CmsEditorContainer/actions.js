@@ -45,9 +45,7 @@ class Article {
         status: this.status,
         json: this.json,
         featured_image: this.featuredImage,
-        tags: this.tags && this.tags.length > 0 && this.tags.map((tag) => ({
-          tag: tag.value,
-        })),
+        tags: this.tags,
       },
     };
     return JSON.stringify(body);

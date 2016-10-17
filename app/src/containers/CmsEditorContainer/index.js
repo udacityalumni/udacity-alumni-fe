@@ -32,6 +32,11 @@ class CmsEditorContainer extends Component {
     this.handleClosePreview = this.handleClosePreview.bind(this);
     this.handlePreviewArticle = this.handlePreviewArticle.bind(this);
   }
+  componentDidMount({ params }) {
+    if (params.id) {
+      console.log(`Passed in params ${params}`)
+    }
+  }
   componentWillReceiveProps({ message }) {
     if (message) {
       const {
@@ -213,6 +218,7 @@ CmsEditorContainer.propTypes = {
   editorTitle: PropTypes.string,
   isValid: PropTypes.bool.isRequired,
   preview: PropTypes.object.isRequired,
+  params: PropTypes.object,
 };
 
 CmsEditorContainer.contextTypes = {
