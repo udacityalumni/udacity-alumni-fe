@@ -1,5 +1,5 @@
 exports[`<LoginContainer /> should render with default props 1`] = `
-<Login
+<ConnectedForm
   actions={
     Object {
       "appSetMobile": [Function anonymous],

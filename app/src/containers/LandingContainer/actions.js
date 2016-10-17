@@ -2,6 +2,7 @@ import * as types from './constants';
 import 'whatwg-fetch';
 const baseUrl = 'https://udacity-alumni-api.herokuapp.com/';
 const articlesUrl = `${baseUrl}api/v1/articles`;
+const spotlightedImagesUrl = `${baseUrl}api/v1/spotlight_images`;
 
 // loadFeaturedArticlesInitiation :: None -> {Action}
 export const loadFeaturedArticlesInitiation = () => ({
@@ -51,6 +52,42 @@ export const loadFeaturedArticles = () =>
       }).catch(error =>
         dispatch(
           loadFeaturedArticlesFailure([error])
+        )
+      );
+  };
+
+
+export const loadSpotlightedImagesInitiation = () => ({
+  type: types.SPOTLIGHTED_IMAGES_INITIATION,
+});
+
+export const loadSpotlightedImagesSuccess = (images) => ({
+  type: types.SPOTLIGHTED_IMAGES_SUCCESS,
+  images,
+});
+
+export const loadSpotlightedImagesFailure = (error) => ({
+  type: types.SPOTLIGHTED_IMAGES_FAILURE,
+  error,
+});
+
+export const loadSpotlightedImages = () =>
+  (dispatch) => {
+    dispatch(
+      loadSpotlightedImagesInitiation()
+    );
+    fetch(spotlightedImagesUrl)
+      .then(res => res.json())
+      .then(res => res.spotlight_images)
+      .then(images => images.slice(0, 4))
+      .then(images =>
+        dispatch(
+          loadSpotlightedImagesSuccess(images)
+        )
+      )
+      .catch(error =>
+        dispatch(
+          loadSpotlightedImagesFailure(error)
         )
       );
   };

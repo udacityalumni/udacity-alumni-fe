@@ -5,14 +5,12 @@ exports[`<SignupForm /> should render with default props 1`] = `
   focusable={true}
   pad={
     Object {
-      "horizontal": "small",
-      "vertical": "small"
+      "horizontal": "large"
     }
   }
   responsive={true}
   tag="div">
   <Form
-    className="grommetux-form grommetux-login-form grommetux-form--pad-none"
     compact={false}
     fill={false}
     pad="none">
@@ -55,14 +53,14 @@ exports[`<SignupForm /> should render with default props 1`] = `
         strong={false}>
         <input
           active={false}
-          autoFocus={true}
           autofilled={false}
           dirty={false}
           error="value Required"
           id="nameInput"
           initialValue=""
           invalid={true}
-          name="nameInput"
+          name="name"
+          placeholder="Bill Richardson"
           pristine={true}
           touched={true}
           type="text"
@@ -84,7 +82,8 @@ exports[`<SignupForm /> should render with default props 1`] = `
           id="emailInput"
           initialValue=""
           invalid={true}
-          name="emailInput"
+          name="email"
+          placeholder="me@udacity.com"
           pristine={true}
           touched={false}
           type="email"

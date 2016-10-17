@@ -3,17 +3,7 @@ import update from 'react-addons-update';
 
 export const initialState = {
   isLoading: false,
-  carouselImages: [
-    {
-      src: 'http://zdnet4.cbsistatic.com/hub/i/r/2016/01/13/df0444a8-0bcd-46cc-b9d4-e5be56a36341/resize/770xauto/cd213f8602843b807ed63aef891203c7/image.jpg',
-    },
-    {
-      src: 'http://zdnet4.cbsistatic.com/hub/i/r/2016/01/13/df0444a8-0bcd-46cc-b9d4-e5be56a36341/resize/770xauto/cd213f8602843b807ed63aef891203c7/image.jpg',
-    },
-    {
-      src: 'http://zdnet4.cbsistatic.com/hub/i/r/2016/01/13/df0444a8-0bcd-46cc-b9d4-e5be56a36341/resize/770xauto/cd213f8602843b807ed63aef891203c7/image.jpg',
-    },
-  ],
+  carouselImages: [],
   featuredArticles: null,
   errors: null,
 };
@@ -49,6 +39,24 @@ const landingReducer =
         return update(state, {
           errors: {
             $set: null,
+          },
+        });
+      case types.SPOTLIGHTED_IMAGES_INITIATION:
+        return update(state, {
+          isLoading: {
+            $set: true,
+          },
+        });
+      case types.SPOTLIGHTED_IMAGES_SUCCESS:
+        return update(state, {
+          carouselImages: {
+            $set: action.images,
+          },
+        });
+      case types.SPOTLIGHTED_IMAGES_FAILURE:
+        return update(state, {
+          errors: {
+            $set: [...state.errors, action.error],
           },
         });
       default:

@@ -27,6 +27,7 @@ class Landing extends Component {
     if (!featuredArticles || !featuredArticles.length > 0) {
       actions.loadFeaturedArticles();
     }
+    actions.loadSpotlightedImages();
   }
   handleCloseErrorAlert() {
     const {

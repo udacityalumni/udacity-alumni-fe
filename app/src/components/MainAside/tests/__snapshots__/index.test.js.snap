@@ -5,7 +5,12 @@ exports[`<MainAside /> should render with default props 1`] = `
   basis="1/3"
   direction="column"
   focusable={true}
-  pad="medium"
+  pad={
+    Object {
+      "horizontal": "small",
+      "vertical": "large"
+    }
+  }
   responsive={true}
   tag="div">
   <div>

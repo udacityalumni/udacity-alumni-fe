@@ -28,6 +28,7 @@ exports[`<SingleArticle /> should render with default props 1`] = `
       <Box
         align="center"
         announce={false}
+        className="markdown-body"
         direction="column"
         focusable={true}
         justify="center"
@@ -37,11 +38,33 @@ exports[`<SingleArticle /> should render with default props 1`] = `
           }
         }
         responsive={true}
-        size="large"
         tag="div">
-        <Paragraph>
-          Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage.
-        </Paragraph>
+        <Markdown
+          components={
+            Object {
+              "h1": Object {
+                "props": Object {
+                  "strong": true
+                }
+              },
+              "h2": Object {
+                "props": Object {
+                  "strong": true
+                }
+              },
+              "img": Object {
+                "props": Object {
+                  "size": "small"
+                }
+              },
+              "p": Object {
+                "props": Object {
+                  "size": "large"
+                }
+              }
+            }
+          }
+          content="Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage." />
       </Box>
     </Article>
   </Section>

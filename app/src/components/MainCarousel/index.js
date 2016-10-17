@@ -19,7 +19,7 @@ class MainCarousel extends Component {
       <Box className={styles.carouselBox}>
         <Carousel>
           {images.map((item, i) =>
-            <img key={i} src={item.src} />
+            <img key={i} src={item.url} />
           )}
         </Carousel>
       </Box>

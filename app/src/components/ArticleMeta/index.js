@@ -9,7 +9,6 @@ import Article from 'grommet-udacity/components/Article';
 import Heading from 'grommet-udacity/components/Heading';
 import Menu from 'grommet-udacity/components/Menu';
 import SocialShare from 'grommet-udacity/components/SocialShare';
-import fakeData from './postTags';
 
 const ArticleMeta = ({
   article,
@@ -24,8 +23,8 @@ const ArticleMeta = ({
         align="center"
         pad={{ vertical: 'medium' }}
       >
-        <Tags align="center" justify="center"> {/* NOTE: need to parse the real tags */}
-          {fakeData.map((tag, i) =>
+        <Tags align="center" justify="center">
+          {article.tags.map((tag, i) =>
             <Tag key={i} label={tag} />
           )}
         </Tags>
