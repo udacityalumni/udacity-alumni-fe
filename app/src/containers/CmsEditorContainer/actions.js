@@ -30,6 +30,7 @@ class Article {
     this.featured = false;
     this.spotlighted = args.spotlighted;
     this.featuredImage = args.featuredImage || '';
+    this.tags = args.tags;
     this.toJson = this.toJson.bind(this);
   }
   toJson() {
@@ -42,6 +43,9 @@ class Article {
         user_id: this.userId,
         status: this.status,
         featured_image: this.featuredImage,
+        tags: this.tags && this.tags.length > 0 && this.tags.map((tag) => ({
+          tag: tag.value,
+        })),
       },
     };
     return JSON.stringify(body);
@@ -121,4 +125,18 @@ export const cmsSetStatus = (status) => ({
 export const cmsSetSelectedTags = (tags) => ({
   type: types.CMS_SET_SELECTED_TAGS,
   tags,
+});
+
+export const cmsToggleSpotlight = () => ({
+  type: types.CMS_TOGGLE_SPOTLIGHT,
+});
+
+export const cmsSetEditorState = (state) => ({
+  type: types.CMS_SET_EDITOR_STATE,
+  state,
+});
+
+export const cmsSetEditorTitle = (title) => ({
+  type: types.CMS_SET_EDITOR_TITLE,
+  title,
 });

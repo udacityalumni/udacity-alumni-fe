@@ -29,7 +29,6 @@ const CmsModal = ({
   onSave,
   canSubmit,
   tags,
-  onCreateTag,
   onChangeValue,
   selectedTags,
 }) => (

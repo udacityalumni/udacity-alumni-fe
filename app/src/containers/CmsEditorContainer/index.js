@@ -20,8 +20,11 @@ class CmsEditorContainer extends Component {
     this.handleCloseToast = this.handleCloseToast.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleAddingTag = this.handleAddingTag.bind(this);
     this.handleChangeSelectedTags = this.handleChangeSelectedTags.bind(this);
+    this.handleToggleSpotlight = this.handleToggleSpotlight.bind(this);
+    this.handleSetStatus = this.handleSetStatus.bind(this);
+    this.handleEditorSetContent = this.handleEditorSetContent.bind(this);
+    this.handleEditorSetTitle = this.handleEditorSetTitle.bind(this);
   }
   handleSubmit(data) {
     const {
@@ -57,35 +60,32 @@ class CmsEditorContainer extends Component {
     const {
       cmsSetStatus,
     } = this.props.actions;
-    cmsSetStatus(status);
-  }
-  handleAddingTag(label) {
-    const {
-      mutate,
-      user,
-      refetch,
-    } = this.props;
-    const params = {
-      variables: {
-        tag: label,
-        authToken: user.authToken,
-      },
-    };
-    mutate(params)
-      .then(() => {
-        refetch();
-      }).catch(err => {
-        console.log(err);
-      });
+    cmsSetStatus(status.value);
   }
   handleChangeSelectedTags(tags) {
     const {
       cmsSetSelectedTags,
     } = this.props.actions;
-    console.log(
-      `Creating tags ${tags}`
-    );
     cmsSetSelectedTags(tags);
+  }
+  handleToggleSpotlight() {
+    const {
+      cmsToggleSpotlight,
+    } = this.props.actions;
+    cmsToggleSpotlight();
+  }
+  handleEditorSetContent(state) {
+    const {
+      cmsSetEditorState,
+    } = this.props.actions;
+    console.log(`Setting editor state ${JSON.stringify(state)}`);
+    cmsSetEditorState(state);
+  }
+  handleEditorSetTitle({ target }) {
+    const {
+      cmsSetEditorTitle,
+    } = this.props.actions;
+    cmsSetEditorTitle(target.value);
   }
   render() {
     const {
@@ -94,6 +94,9 @@ class CmsEditorContainer extends Component {
       modal,
       tags,
       loading,
+      editorState,
+      editorTitle,
+      isValid,
     } = this.props;
     return (
       <div className={styles.cmsEditor}>
@@ -115,6 +118,11 @@ class CmsEditorContainer extends Component {
         }
         <CmsEditor
           onSubmit={this.handleOpenModal}
+          onChangeContent={this.handleEditorSetContent}
+          onChangeTitle={this.handleEditorSetTitle}
+          editorState={editorState}
+          editorTitle={editorTitle}
+          isValid={isValid}
         />
         <CmsModal
           isShowing={modal.isShowing}
@@ -144,6 +152,9 @@ CmsEditorContainer.propTypes = {
   user: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
   mutate: PropTypes.func.isRequired,
+  editorState: PropTypes.object,
+  editorTitle: PropTypes.string,
+  isValid: PropTypes.bool.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -156,6 +167,9 @@ const mapStateToProps = (state) => ({
   message: state.cmsEditorContainer.message,
   isSubmitting: state.cmsEditorContainer.isSubmitting,
   modal: state.cmsEditorContainer.modal,
+  editorState: state.cmsEditorContainer.editorState,
+  editorTitle: state.cmsEditorContainer.editorTitle,
+  isValid: state.cmsEditorContainer.isValid,
   user: state.app.user,
 });
 
@@ -187,21 +201,7 @@ const ContainerWithTags = graphql(loadTagsQuery, {
   }),
 })(Container);
 
-const createTagMutation = gql`
-mutation createTag($tag: TagInput, $authToken: String!) {
-  CreateTag(input: { tag: $tag, auth_token: $authToken }) {
-    tags {
-      id
-      slug
-      tag
-    }
-  }
-}
-`;
-
-const ContainerWithMutations = graphql(createTagMutation)(ContainerWithTags);
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ContainerWithMutations);
+)(ContainerWithTags);

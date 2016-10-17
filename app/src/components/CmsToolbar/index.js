@@ -8,6 +8,7 @@ import Button from 'grommet-udacity/components/Button';
 const CmsToolbar = ({
   onSave,
   canSubmit,
+  onPreview,
 }) => (
   <Box
     align="center"
@@ -19,7 +20,7 @@ const CmsToolbar = ({
       <Box
         direction="row"
         full="horizontal"
-        justify="end"
+        justify="around"
         align="center"
         pad="medium"
         margin="small"
@@ -27,6 +28,7 @@ const CmsToolbar = ({
         colorIndex="light-2"
       >
         <Button label="Submit" onClick={canSubmit ? onSave : null} />
+        <Button label="Preview" onClick={onPreview} />
       </Box>
     </Columns>
   </Box>
@@ -34,6 +36,7 @@ const CmsToolbar = ({
 
 CmsToolbar.propTypes = {
   canSubmit: PropTypes.bool.isRequired,
+  onPreview: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
 };
 

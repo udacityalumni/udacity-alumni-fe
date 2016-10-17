@@ -2,6 +2,9 @@ import * as types from './constants';
 import update from 'react-addons-update';
 
 export const initialState = {
+  editorState: null,
+  editorTitle: null,
+  isValid: false,
   isSubmitting: false,
   error: null,
   message: null,
@@ -16,6 +19,12 @@ export const initialState = {
 
 const modalReducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.CMS_TOGGLE_SPOTLIGHT:
+      return update(state, {
+        spotlighted: {
+          $set: !state.spotlighted,
+        },
+      });
     case types.CMS_OPEN_MODAL:
       return update(state, {
         isShowing: {
@@ -34,7 +43,7 @@ const modalReducer = (state = initialState, action) => {
           $set: action.status,
         },
       });
-    case types.SET_SELECTED_TAGS:
+    case types.CMS_SET_SELECTED_TAGS:
       return update(state, {
         selectedTags: {
           $set: action.tags,
@@ -105,6 +114,24 @@ const cmsEditorReducer =
         return update(state, {
           modal: {
             $set: modalReducer(state.modal, action),
+          },
+        });
+      case types.CMS_TOGGLE_SPOTLIGHT:
+        return update(state, {
+          modal: {
+            $set: modalReducer(state.modal, action),
+          },
+        });
+      case types.CMS_SET_EDITOR_TITLE:
+        return update(state, {
+          editorTitle: {
+            $set: action.title,
+          },
+        });
+      case types.CMS_SET_EDITOR_STATE:
+        return update(state, {
+          editorState: {
+            $set: action.state,
           },
         });
       default:
