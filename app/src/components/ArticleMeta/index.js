@@ -9,6 +9,7 @@ import Article from 'grommet-udacity/components/Article';
 import Heading from 'grommet-udacity/components/Heading';
 import Menu from 'grommet-udacity/components/Menu';
 import SocialShare from 'grommet-udacity/components/SocialShare';
+import Anchor from 'grommet-udacity/components/Anchor';
 
 const ArticleMeta = ({
   article,
@@ -24,8 +25,10 @@ const ArticleMeta = ({
         pad={{ vertical: 'medium' }}
       >
         <Tags align="center" justify="center">
-          {article.tags.map((tag, i) =>
-            <Tag key={i} label={tag} />
+          {article.tags.map((item, i) =>
+            <Anchor key={i} href={`/tags/${item.id}`}>
+              <Tag label={item.tag} />
+            </Anchor>
           )}
         </Tags>
       </Box>
