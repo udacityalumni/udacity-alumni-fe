@@ -17,7 +17,6 @@ export const initialState = {
     isShowing: false,
     status: 0,
     spotlighted: false,
-    canSubmit: false,
     selectedTags: [],
   },
 };

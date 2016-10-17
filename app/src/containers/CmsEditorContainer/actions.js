@@ -24,6 +24,7 @@ class Article {
   constructor() {
     const args = arguments[0];
     this.content = args.content;
+    this.json = args.json;
     this.title = args.title;
     this.status = args.status;
     this.userId = args.userId || 1;
@@ -42,6 +43,7 @@ class Article {
         featured: this.featured,
         user_id: this.userId,
         status: this.status,
+        json: this.json,
         featured_image: this.featuredImage,
         tags: this.tags && this.tags.length > 0 && this.tags.map((tag) => ({
           tag: tag.value,
@@ -52,9 +54,11 @@ class Article {
   }
 }
 
-export const submitArticleRequest = (articleProps) =>
+const inputToArticle = (input) => new Article(input);
+
+export const submitArticleRequest = (input) =>
   (dispatch) => {
-    const article = new Article(articleProps);
+    const article = inputToArticle(input);
     if (!article && !article.toJson()) {
       throw new Error('Unable to encode the article data.');
     }

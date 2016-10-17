@@ -32,17 +32,44 @@ class CmsEditorContainer extends Component {
     this.handleClosePreview = this.handleClosePreview.bind(this);
     this.handlePreviewArticle = this.handlePreviewArticle.bind(this);
   }
-  handleSubmit(data) {
+  componentWillReceiveProps({ message }) {
+    if (message) {
+      const {
+        router,
+      } = this.context;
+      setTimeout(() => {
+        const path = '/admin/content-dashboard';
+        this.context.router.push(path);
+        router.push(path);
+      }, 3000);
+    }
+  }
+  handleSubmit() {
+    const {
+      editorTitle,
+      editorState,
+      modal,
+      user,
+    } = this.props;
     const {
       submitArticleRequest,
     } = this.props.actions;
-    submitArticleRequest(data);
-    const path = '/admin/content-dashboard';
-    this.context.router.push(path);
-    const {
-      router,
-    } = this.context;
-    router.push(path);
+    const rawState = editorStateToJSON(editorState);
+    const blockArray = convertFromRaw(JSON.parse(rawState));
+    const markdown = stateToMarkdown(blockArray);
+    const input = {
+      content: markdown,
+      json: rawState,
+      title: editorTitle,
+      spotlighted: modal.spotlighted,
+      status: modal.status,
+      tags: modal.selectedTags.map((tag) => ({
+        tag: tag.label,
+      })),
+      featuredImage: '',
+      userId: user.id,
+    };
+    submitArticleRequest(input);
   }
   handleCloseToast({ type }) {
     const {
@@ -111,7 +138,7 @@ class CmsEditorContainer extends Component {
   }
   render() {
     const {
-      error,
+      submissionError,
       message,
       modal,
       tags,
@@ -123,9 +150,9 @@ class CmsEditorContainer extends Component {
     } = this.props;
     return (
       <div className={styles.cmsEditor}>
-        {error &&
+        {submissionError &&
           <ToastMessage
-            message={error.message ? error.message : error}
+            message={submissionError.message}
             onClose={() => this.handleCloseToast({ type: 'error' })}
             status="critical"
           />
@@ -156,7 +183,7 @@ class CmsEditorContainer extends Component {
           onSetStatus={this.handleSetStatus}
           status={modal.status}
           onSave={this.handleSubmit}
-          canSubmit={modal.canSubmit}
+          canSubmit={isValid}
           tags={tags}
           selectedTags={modal.selectedTags}
           onChangeValue={this.handleChangeSelectedTags}
@@ -174,7 +201,7 @@ class CmsEditorContainer extends Component {
 
 CmsEditorContainer.propTypes = {
   actions: PropTypes.object.isRequired,
-  error: PropTypes.object,
+  submissionError: PropTypes.object,
   message: PropTypes.string,
   modal: PropTypes.object.isRequired,
   tags: PropTypes.array.isRequired,
@@ -194,7 +221,7 @@ CmsEditorContainer.contextTypes = {
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
-  error: state.cmsEditorContainer.error,
+  submissionError: state.cmsEditorContainer.error,
   message: state.cmsEditorContainer.message,
   isSubmitting: state.cmsEditorContainer.isSubmitting,
   modal: state.cmsEditorContainer.modal,
