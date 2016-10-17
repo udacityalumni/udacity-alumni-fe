@@ -140,3 +140,13 @@ export const cmsSetEditorTitle = (title) => ({
   type: types.CMS_SET_EDITOR_TITLE,
   title,
 });
+
+export const cmsSetPreviewState = ({ markdown, title }) => ({
+  type: types.CMS_SET_PREVIEW_STATE,
+  markdown,
+  title,
+});
+
+export const cmsClosePreview = () => ({
+  type: types.CMS_CLOSE_PREVIEW,
+});

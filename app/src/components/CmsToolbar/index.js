@@ -20,7 +20,7 @@ const CmsToolbar = ({
       <Box
         direction="row"
         full="horizontal"
-        justify="around"
+        justify="between"
         align="center"
         pad="medium"
         margin="small"

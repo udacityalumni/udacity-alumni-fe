@@ -4,6 +4,11 @@ import update from 'react-addons-update';
 export const initialState = {
   editorState: null,
   editorTitle: null,
+  preview: {
+    isPreviewing: false,
+    content: null,
+    title: null,
+  },
   isValid: false,
   isSubmitting: false,
   error: null,
@@ -17,7 +22,37 @@ export const initialState = {
   },
 };
 
-const modalReducer = (state = initialState, action) => {
+const previewReducer = (state = initialState.preview, action) => {
+  switch (action.type) {
+    case types.CMS_CLOSE_PREVIEW:
+      return update(state, {
+        isPreviewing: {
+          $set: false,
+        },
+        markdown: {
+          $set: null,
+        },
+        title: {
+          $set: null,
+        },
+      });
+    case types.CMS_SET_PREVIEW_STATE:
+      return update(state, {
+        isPreviewing: {
+          $set: true,
+        },
+        content: {
+          $set: action.markdown,
+        },
+        title: {
+          $set: action.title,
+        },
+      });
+    default: return state;
+  }
+};
+
+const modalReducer = (state = initialState.modal, action) => {
   switch (action.type) {
     case types.CMS_TOGGLE_SPOTLIGHT:
       return update(state, {
@@ -127,11 +162,26 @@ const cmsEditorReducer =
           editorTitle: {
             $set: action.title,
           },
+          isValid: {
+            $set: action.title !== '',
+          },
         });
       case types.CMS_SET_EDITOR_STATE:
         return update(state, {
           editorState: {
             $set: action.state,
+          },
+        });
+      case types.CMS_CLOSE_PREVIEW:
+        return update(state, {
+          preview: {
+            $set: previewReducer(state.preview, action),
+          },
+        });
+      case types.CMS_SET_PREVIEW_STATE:
+        return update(state, {
+          preview: {
+            $set: previewReducer(state.preview, action),
           },
         });
       default:

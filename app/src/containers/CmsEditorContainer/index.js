@@ -4,6 +4,9 @@ import { bindActionCreators } from 'redux';
 import * as CmsEditorActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
+import { stateToMarkdown } from 'megadraft-js-export-markdown';
+import{ editorStateToJSON } from 'megadraft';
+import { convertFromRaw } from 'draft-js';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import {
@@ -11,6 +14,7 @@ import {
   ToastMessage,
   CmsModal,
   LoadingIndicator,
+  CmsEditorPreview,
 } from 'components';
 
 class CmsEditorContainer extends Component {
@@ -25,6 +29,8 @@ class CmsEditorContainer extends Component {
     this.handleSetStatus = this.handleSetStatus.bind(this);
     this.handleEditorSetContent = this.handleEditorSetContent.bind(this);
     this.handleEditorSetTitle = this.handleEditorSetTitle.bind(this);
+    this.handleClosePreview = this.handleClosePreview.bind(this);
+    this.handlePreviewArticle = this.handlePreviewArticle.bind(this);
   }
   handleSubmit(data) {
     const {
@@ -78,7 +84,6 @@ class CmsEditorContainer extends Component {
     const {
       cmsSetEditorState,
     } = this.props.actions;
-    console.log(`Setting editor state ${JSON.stringify(state)}`);
     cmsSetEditorState(state);
   }
   handleEditorSetTitle({ target }) {
@@ -86,6 +91,23 @@ class CmsEditorContainer extends Component {
       cmsSetEditorTitle,
     } = this.props.actions;
     cmsSetEditorTitle(target.value);
+  }
+  handlePreviewArticle() {
+    const {
+      editorState,
+      editorTitle,
+      actions,
+    } = this.props;
+    const rawState = editorStateToJSON(editorState);
+    const blockArray = convertFromRaw(JSON.parse(rawState));
+    const markdown = stateToMarkdown(blockArray);
+    actions.cmsSetPreviewState({ markdown, title: editorTitle });
+  }
+  handleClosePreview() {
+    const {
+      cmsClosePreview,
+    } = this.props.actions;
+    cmsClosePreview();
   }
   render() {
     const {
@@ -97,6 +119,7 @@ class CmsEditorContainer extends Component {
       editorState,
       editorTitle,
       isValid,
+      preview,
     } = this.props;
     return (
       <div className={styles.cmsEditor}>
@@ -123,6 +146,7 @@ class CmsEditorContainer extends Component {
           editorState={editorState}
           editorTitle={editorTitle}
           isValid={isValid}
+          onTapToPreview={this.handlePreviewArticle}
         />
         <CmsModal
           isShowing={modal.isShowing}
@@ -136,6 +160,12 @@ class CmsEditorContainer extends Component {
           tags={tags}
           selectedTags={modal.selectedTags}
           onChangeValue={this.handleChangeSelectedTags}
+        />
+        <CmsEditorPreview
+          isShowing={preview.isPreviewing}
+          onClose={this.handleClosePreview}
+          content={preview.content}
+          title={preview.title}
         />
       </div>
     );
@@ -155,6 +185,7 @@ CmsEditorContainer.propTypes = {
   editorState: PropTypes.object,
   editorTitle: PropTypes.string,
   isValid: PropTypes.bool.isRequired,
+  preview: PropTypes.object.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -170,6 +201,7 @@ const mapStateToProps = (state) => ({
   editorState: state.cmsEditorContainer.editorState,
   editorTitle: state.cmsEditorContainer.editorTitle,
   isValid: state.cmsEditorContainer.isValid,
+  preview: state.cmsEditorContainer.preview,
   user: state.app.user,
 });
 
