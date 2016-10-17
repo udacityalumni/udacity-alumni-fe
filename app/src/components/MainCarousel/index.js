@@ -17,11 +17,13 @@ class MainCarousel extends Component {
     } = this.props;
     return (
       <Box className={styles.carouselBox}>
-        <Carousel>
-          {images.map((item, i) =>
-            <img key={i} src={item.url} />
-          )}
-        </Carousel>
+        {images && images.length > 0 &&
+          <Carousel>
+            {images.map((item, i) =>
+              <img key={i} src={item.url} />
+            )}
+          </Carousel>
+        }
       </Box>
     );
   }
