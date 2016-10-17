@@ -25,7 +25,7 @@ const DashboardTable = ({
         {articles.map((article, i) =>
           <TableRow key={i}>
             <td>
-              <Anchor href={`/admin/articles/${article.id}`}>
+              <Anchor href={`/articles/${article.id}`}>
                 {article.title.slice(0, 15)}
               </Anchor>
             </td>
