@@ -7,3 +7,9 @@
   width: 100%;
   z-index: 100;
 }
+
+.toolbarWrapper {
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
+}

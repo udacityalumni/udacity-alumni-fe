@@ -104,3 +104,16 @@ export const handleClearingToast = (type) =>
       default: break;
     }
   };
+
+export const cmsOpenModal = () => ({
+  type: types.CMS_OPEN_MODAL,
+});
+
+export const cmsCloseModal = () => ({
+  type: types.CMS_CLOSE_MODAL,
+});
+
+export const cmsSetStatus = (status) => ({
+  type: types.CMS_SET_STATUS,
+  status,
+});

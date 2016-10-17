@@ -49,13 +49,11 @@ class CmsEditor extends React.Component {
     const {
       editorState,
       articleTitle,
-      spotlighted,
-      status,
     } = this.state;
     const markdown = stateToMarkdown(editorState.getCurrentContent());
     const { onSubmit } = this.props;
     // save the article
-    onSubmit({ title: articleTitle, content: markdown, spotlighted, status });
+    onSubmit({ title: articleTitle, content: markdown });
     // clear the editor state
     this.setState({
       editorState: editorStateFromRaw(null),
@@ -66,7 +64,7 @@ class CmsEditor extends React.Component {
   }
 
   render() {
-    const { editorState, articleTitle, spotlighted, status } = this.state;
+    const { editorState, articleTitle } = this.state;
     const markdown = stateToMarkdown(editorState.getCurrentContent());
     const isValid = articleTitle !== null && articleTitle.length > 0 &&
                       markdown !== null && markdown.length > 0;
@@ -89,10 +87,6 @@ class CmsEditor extends React.Component {
         />
         <CmsToolbar
           canSubmit={isValid}
-          spotlighted={spotlighted}
-          onToggleSpotlight={this.setSpotlightToggle}
-          onSetStatus={this.setStatus}
-          status={status}
           onSave={this.publish}
         />
       </div>

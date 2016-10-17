@@ -5,6 +5,36 @@ export const initialState = {
   isSubmitting: false,
   error: null,
   message: null,
+  modal: {
+    isShowing: false,
+    status: 0,
+    spotlighted: false,
+    canSubmit: false,
+  },
+};
+
+const modalReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.CMS_OPEN_MODAL:
+      return update(state, {
+        isShowing: {
+          $set: true,
+        },
+      });
+    case types.CMS_CLOSE_MODAL:
+      return update(state, {
+        isShowing: {
+          $set: false,
+        },
+      });
+    case types.CMS_SET_STATUS:
+      return update(state, {
+        status: {
+          $set: action.status,
+        },
+      });
+    default: return state;
+  }
 };
 
 const cmsEditorReducer =
@@ -44,6 +74,24 @@ const cmsEditorReducer =
         return update(state, {
           message: {
             $set: null,
+          },
+        });
+      case types.CMS_OPEN_MODAL:
+        return update(state, {
+          modal: {
+            $set: modalReducer(state.modal, action),
+          },
+        });
+      case types.CMS_CLOSE_MODAL:
+        return update(state, {
+          modal: {
+            $set: modalReducer(state.modal, action),
+          },
+        });
+      case types.CMS_SET_STATUS:
+        return update(state, {
+          modal: {
+            $set: modalReducer(state.modal, action),
           },
         });
       default:

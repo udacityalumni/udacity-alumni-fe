@@ -4,15 +4,16 @@ import { bindActionCreators } from 'redux';
 import * as CmsEditorActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import { CmsEditor, ToastMessage } from 'components';
+import { CmsEditor, ToastMessage, CmsModal } from 'components';
 
 class CmsEditorContainer extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCloseToast = this.handleCloseToast.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
-
   handleSubmit(data) {
     const {
       submitArticleRequest,
@@ -31,10 +32,29 @@ class CmsEditorContainer extends Component {
     } = this.props.actions;
     handleClearingToast(type);
   }
+  handleOpenModal() {
+    const {
+      cmsOpenModal,
+    } = this.props.actions;
+    cmsOpenModal();
+  }
+  handleCloseModal() {
+    const {
+      cmsCloseModal,
+    } = this.props.actions;
+    cmsCloseModal();
+  }
+  handleSetStatus(status) {
+    const {
+      cmsSetStatus,
+    } = this.props.actions;
+    cmsSetStatus(status);
+  }
   render() {
     const {
       error,
       message,
+      modal,
     } = this.props;
     return (
       <div className={styles.cmsEditor}>
@@ -52,7 +72,17 @@ class CmsEditorContainer extends Component {
           />
         }
         <CmsEditor
-          onSubmit={this.handleSubmit}
+          onSubmit={this.handleOpenModal}
+        />
+        <CmsModal
+          isShowing={modal.isShowing}
+          onClose={this.handleCloseModal}
+          spotlighted={modal.spotlighted}
+          onToggleSpotlight={this.handleToggleSpotlight}
+          onSetStatus={this.handleSetStatus}
+          status={modal.status}
+          onSave={this.handleSubmit}
+          canSubmit={modal.canSubmit}
         />
       </div>
     );
@@ -63,6 +93,7 @@ CmsEditorContainer.propTypes = {
   actions: PropTypes.object.isRequired,
   error: PropTypes.object,
   message: PropTypes.string,
+  modal: PropTypes.object.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -74,6 +105,7 @@ const mapStateToProps = (state) => ({
   error: state.cmsEditorContainer.error,
   message: state.cmsEditorContainer.message,
   isSubmitting: state.cmsEditorContainer.isSubmitting,
+  modal: state.cmsEditorContainer.modal,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
