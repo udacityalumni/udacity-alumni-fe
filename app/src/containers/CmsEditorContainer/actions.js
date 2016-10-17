@@ -117,3 +117,8 @@ export const cmsSetStatus = (status) => ({
   type: types.CMS_SET_STATUS,
   status,
 });
+
+export const cmsSetSelectedTags = (tags) => ({
+  type: types.CMS_SET_SELECTED_TAGS,
+  tags,
+});

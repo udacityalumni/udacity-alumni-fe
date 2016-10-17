@@ -28,6 +28,10 @@ const CmsModal = ({
   status,
   onSave,
   canSubmit,
+  tags,
+  onCreateTag,
+  onChangeValue,
+  selectedTags,
 }) => (
   <Layer
     hidden={!isShowing}
@@ -69,13 +73,19 @@ const CmsModal = ({
             options={selectOptions}
           />
         </FormField>
-        <FormField
-          label="Tags"
-          className={styles.formField}
-        >
-          <TagEditor />
-        </FormField>
-      </FormFields>
+        {tags && tags.length > 0 &&
+          <FormField
+            label="Tags"
+            className={styles.formField}
+          >
+            <TagEditor
+              onChangeValue={onChangeValue}
+              selectedTags={selectedTags}
+              tags={tags}
+            />
+          </FormField>
+        }
+        </FormFields>
       <Footer align="center" justify="center" pad="medium">
         <Button label="Publish" onClick={canSubmit ? onSave : null} />
       </Footer>
@@ -92,6 +102,7 @@ CmsModal.propTypes = {
   status: PropTypes.oneOf([0, 1, 2]),
   onSave: PropTypes.func.isRequired,
   canSubmit: PropTypes.bool.isRequired,
+  onCreateTag: PropTypes.func.isRequired,
 };
 
 CmsModal.defaultProps = {

@@ -6,10 +6,14 @@ import { Creatable } from 'react-select';
 
 const TagEditor = ({
   tags,
+  selectedTags,
+  onChangeValue,
 }) => (
   <Box className={styles.tagEditor}>
     <Creatable
       multi
+      value={selectedTags}
+      onChange={onChangeValue}
       options={tags.map((tag) =>
         ({
           value: tag.tag,
@@ -21,7 +25,8 @@ const TagEditor = ({
 );
 
 TagEditor.propTypes = {
-
+  onCreateTag: PropTypes.func.isRequired,
+  tags: PropTypes.array.isRequired,
 };
 
 export default cssModules(TagEditor, styles);

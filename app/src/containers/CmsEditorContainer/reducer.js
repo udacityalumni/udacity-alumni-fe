@@ -10,6 +10,7 @@ export const initialState = {
     status: 0,
     spotlighted: false,
     canSubmit: false,
+    selectedTags: [],
   },
 };
 
@@ -31,6 +32,12 @@ const modalReducer = (state = initialState, action) => {
       return update(state, {
         status: {
           $set: action.status,
+        },
+      });
+    case types.SET_SELECTED_TAGS:
+      return update(state, {
+        selectedTags: {
+          $set: action.tags,
         },
       });
     default: return state;
@@ -89,6 +96,12 @@ const cmsEditorReducer =
           },
         });
       case types.CMS_SET_STATUS:
+        return update(state, {
+          modal: {
+            $set: modalReducer(state.modal, action),
+          },
+        });
+      case types.CMS_SET_SELECTED_TAGS:
         return update(state, {
           modal: {
             $set: modalReducer(state.modal, action),
