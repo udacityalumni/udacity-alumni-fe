@@ -18,8 +18,8 @@ class CmsEditorContainer extends Component {
       submitArticleRequest,
     } = this.props.actions;
     submitArticleRequest(data);
-    const path = `/admin/content-dashboard`;
-    // this.context.router.push(path);
+    const path = '/admin/content-dashboard';
+    this.context.router.push(path);
     const {
       router,
     } = this.context;
