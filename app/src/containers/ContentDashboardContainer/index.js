@@ -42,9 +42,11 @@ class ContentDashboard extends Component {
                 <DashboardTable articles={articles} />
               }
             </Box>
-            <MainAside
-              user={user}
-            />
+            {user && user.role === 'admin' &&
+              <MainAside
+                user={user}
+              />
+            }
           </Box>
         </Section>
       </div>
