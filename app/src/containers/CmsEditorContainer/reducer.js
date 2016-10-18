@@ -1,14 +1,13 @@
 import * as types from './constants';
 import update from 'react-addons-update';
-import { stateFromMarkdown } from 'draft-js-import-markdown';
-import { EditorState } from 'draft-js';
+import { editorStateFromRaw } from 'megadraft';
 
 export const initialState = {
   article: {
     id: null,
     action: null,
   },
-  editorState: null,
+  editorState: editorStateFromRaw(null),
   editorTitle: null,
   preview: {
     isPreviewing: false,
@@ -201,13 +200,10 @@ const cmsEditorReducer =
           },
         });
       case types.CMS_SET_STATE_FROM_ARTICLE:
+        const rawContent = JSON.parse(action.article.json);
         return update(state, {
           editorState: {
-            $set: EditorState.createWithContent(
-              stateFromMarkdown(
-                action.article.content
-              )
-            ),
+            $set: editorStateFromRaw(rawContent),
           },
           editorTitle: {
             $set: action.article.title,

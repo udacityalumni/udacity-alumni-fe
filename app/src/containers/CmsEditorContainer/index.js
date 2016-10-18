@@ -85,7 +85,7 @@ class CmsEditorContainer extends Component {
     const {
       submitArticleRequest,
     } = this.props.actions;
-    const rawState = JSON.stringify(editorStateToJSON(editorState));
+    const rawState = editorStateToJSON(editorState);
     const blockArray = convertFromRaw(JSON.parse(rawState));
     const markdown = stateToMarkdown(blockArray);
     const input = {
