@@ -44,7 +44,6 @@ export const loadFeaturedArticles = () =>
           new Date(a.updated_at) - new Date(b.updated_at)
         )
       )
-      .then(articles => articles.slice(0, 4))
       .then(articles => {
         dispatch(
           loadFeaturedArticlesSuccess(articles)
