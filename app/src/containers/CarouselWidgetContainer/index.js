@@ -15,7 +15,14 @@ const formFields = [
   'editImageInput',
 ];
 
-class CarouselWidgetContainer extends Component { // eslint-disable-line react/prefer-stateless-function
+class CarouselWidgetContainer extends Component {
+  constructor() {
+    super();
+    this.handleSaveImages = this.handleSaveImages.bind(this);
+  }
+  handleSaveImages() {
+    // Need this to work with api.
+  }
   render() {
     const {
       images,
@@ -50,6 +57,7 @@ class CarouselWidgetContainer extends Component { // eslint-disable-line react/p
                 cancelEditing={(index) => actions.carouselCancelEditing(index)}
                 onDeleteImage={(index) => actions.carouselRemoveImage(index)}
                 onAddImage={(image) => actions.carouselAddImage(image)}
+                onSaveImages={this.handleSaveImages}
                 images={images}
               />
             </Box>

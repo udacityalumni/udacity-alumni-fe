@@ -6,6 +6,9 @@ import Box from 'grommet-udacity/components/Box';
 import Form from 'grommet-udacity/components/Form';
 import Button from 'grommet-udacity/components/Button';
 import Carousel from 'grommet-udacity/components/Carousel';
+import Section from 'grommet-udacity/components/Section';
+import Footer from 'grommet-udacity/components/Footer';
+import Heading from 'grommet-udacity/components/Heading';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import TrashIcon from 'grommet-udacity/components/icons/base/Trash';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
@@ -25,6 +28,7 @@ const CarouselWidget = ({
   currentlyEditing,
   setEditing,
   cancelEditing,
+  onSaveImages,
 }) => (
   <div className={styles.carouselWidget}>
     <Box className={styles.carouselBox}>
@@ -57,62 +61,77 @@ const CarouselWidget = ({
         </span>
       </Box>
     </Form>
-    <List>
-      {images.map((image, i) =>
-        <ListItem key={i}>
-          {currentlyEditing !== null && currentlyEditing === i ?
-            <Box
-              direction="row"
-              align="center"
-              justify="between"
-              className={styles.inputBox}
-            >
-              <FormField className={styles.editInputFormField}>
-                <input {...editImageInput} type="text" placeholder={images[currentlyEditing].url} />
-              </FormField>
-              <span>
-                <Button
-                  icon={<CheckmarkIcon />}
-                  onClick={() => onEditImage({
-                    image: {
-                      id: images[currentlyEditing].id,
-                      url: editImageInput.value,
-                    },
-                    index: currentlyEditing,
-                  })}
-                  plain
-                />
-              </span>
-              <span>
-                <Button
-                  plain
-                  icon={<CloseIcon />}
-                  onClick={() => cancelEditing(currentlyEditing)}
-                />
-              </span>
-            </Box>
-          :
-            <div className={styles.listItemBox}>
-              <span style={{ flex: 1 }}>{image.url}</span>
-              <span>
-                <Button
-                  plain
-                  icon={<EditIcon />}
-                  onClick={() => setEditing(i)}
-                />
-              </span>
-              <span>
-                <Button
-                  plain
-                  icon={<TrashIcon />}
-                  onClick={() => onDeleteImage(i)}
-                />
-              </span>
-            </div>
-          }
-        </ListItem>
-      )}
-    </List>
+    <Section pad={{ vertical: 'medium' }}>
+      <Heading align="center" tag="h3">
+        Current Images
+      </Heading>
+      <List>
+        {images.map((image, i) =>
+          <ListItem key={i}>
+            {currentlyEditing !== null && currentlyEditing === i ?
+              <Box
+                direction="row"
+                align="center"
+                justify="between"
+                className={styles.inputBox}
+              >
+                <FormField className={styles.editInputFormField}>
+                  <input
+                    {...editImageInput}
+                    type="text"
+                    placeholder={images[currentlyEditing].url}
+                  />
+                </FormField>
+                <span>
+                  <Button
+                    icon={<CheckmarkIcon />}
+                    onClick={() => onEditImage({
+                      image: {
+                        id: images[currentlyEditing].id,
+                        url: editImageInput.value,
+                      },
+                      index: currentlyEditing,
+                    })}
+                    plain
+                  />
+                </span>
+                <span>
+                  <Button
+                    plain
+                    icon={<CloseIcon />}
+                    onClick={() => cancelEditing(currentlyEditing)}
+                  />
+                </span>
+              </Box>
+            :
+              <div className={styles.listItemBox}>
+                <span style={{ flex: 1 }}>{image.url}</span>
+                <span>
+                  <Button
+                    plain
+                    icon={<EditIcon />}
+                    onClick={() => setEditing(i)}
+                  />
+                </span>
+                <span>
+                  <Button
+                    plain
+                    icon={<TrashIcon />}
+                    onClick={() => onDeleteImage(i)}
+                  />
+                </span>
+              </div>
+            }
+          </ListItem>
+        )}
+      </List>
+      <Footer pad={{ vertical: 'large' }} align="center" justify="center">
+        <Button
+          label="Save Images"
+          onClick={onSaveImages}
+        />
+      </Footer>
+    </Section>
   </div>
 );
 
