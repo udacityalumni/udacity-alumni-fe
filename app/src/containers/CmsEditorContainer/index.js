@@ -43,10 +43,10 @@ class CmsEditorContainer extends Component {
       action,
     } = location.query;
     if (articleId && action) {
-      actions.cmsSetArticle(articleId, action);
+      actions.cmsSetArticleId(articleId, action);
     }
   }
-  componentWillReceiveProps({ message, articleId }) {
+  componentWillReceiveProps({ message, articleId, article }) {
     if (message) {
       const {
         router,
@@ -60,12 +60,20 @@ class CmsEditorContainer extends Component {
     if (articleId) {
       this.handleLoadingArticle();
     }
+    if (article) {
+      const {
+        actions,
+      } = this.props;
+      actions.cmsSetStateFromArticle(article);
+    }
   }
   handleLoadingArticle() {
     const {
       refetchArticle,
     } = this.props;
-    refetchArticle();
+    if (typeof refetchArticle === 'function') {
+      refetchArticle();
+    }
   }
   handleSubmit() {
     const {
@@ -165,7 +173,7 @@ class CmsEditorContainer extends Component {
       message,
       modal,
       tags,
-      loading,
+      loadingTags,
       articleLoading,
       editorState,
       editorTitle,
@@ -187,7 +195,7 @@ class CmsEditorContainer extends Component {
             onClose={() => this.handleCloseToast({ type: 'message' })}
           />
         }
-        {loading || articleLoading &&
+        {loadingTags || articleLoading &&
           <LoadingIndicator isLoading />
         }
         <CmsEditor
@@ -230,7 +238,7 @@ CmsEditorContainer.propTypes = {
   message: PropTypes.string,
   modal: PropTypes.object.isRequired,
   tags: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired,
+  loadingTags: PropTypes.bool.isRequired,
   user: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
   mutate: PropTypes.func.isRequired,
@@ -285,10 +293,9 @@ const loadTagsQuery = gql`
 `;
 
 const ContainerWithTags = graphql(loadTagsQuery, {
-  props: ({ data: { tags, loading, refetch } }) => ({
-    loading,
+  props: ({ data: { tags, loading } }) => ({
+    loadingTags: loading,
     tags,
-    refetch,
   }),
 })(Container);
 
@@ -310,7 +317,7 @@ const ContainerWithArticle = graphql(loadArticleQuery, {
   options: (ownProps) => ({
     skip: !ownProps.articleId,
     variables: {
-      id: ownProps.articleId,
+      id: parseInt(ownProps.articleId, 10),
     },
   }),
   props: ({ data: { article, loading, refetch } }) => ({

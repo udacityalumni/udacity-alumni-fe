@@ -153,8 +153,13 @@ export const cmsClosePreview = () => ({
   type: types.CMS_CLOSE_PREVIEW,
 });
 
-export const cmsSetArticle = (id, action) => ({
-  type: types.CMS_SET_ARTICLE,
+export const cmsSetArticleId = (id, action) => ({
+  type: types.CMS_SET_ARTICLE_ID,
   id,
   action,
+});
+
+export const cmsSetStateFromArticle = (article) => ({
+  type: types.CMS_SET_STATE_FROM_ARTICLE,
+  article,
 });

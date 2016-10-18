@@ -1,10 +1,12 @@
 import * as types from './constants';
 import update from 'react-addons-update';
+import { stateFromMarkdown } from 'draft-js-import-markdown';
 
 export const initialState = {
   article: {
     id: null,
     action: null,
+    article: null,
   },
   editorState: null,
   editorTitle: null,
@@ -187,7 +189,7 @@ const cmsEditorReducer =
             $set: previewReducer(state.preview, action),
           },
         });
-      case types.CMS_SET_ARTICLE:
+      case types.CMS_SET_ARTICLE_ID:
         return update(state, {
           article: {
             id: {
@@ -196,6 +198,17 @@ const cmsEditorReducer =
             action: {
               $set: action.action,
             },
+          },
+        });
+      case types.CMS_SET_STATE_FROM_ARTICLE:
+        return update(state, {
+          editorState: {
+            $set: stateFromMarkdown(
+              action.article.content
+            ),
+          },
+          editorTitle: {
+            $set: action.article.title,
           },
         });
       default:
