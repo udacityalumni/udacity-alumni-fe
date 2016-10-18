@@ -6,6 +6,7 @@ import Image from 'grommet-udacity/components/Image';
 import Box from 'grommet-udacity/components/Box';
 import Button from 'grommet-udacity/components/Button';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
+import ArticleIcon from 'grommet-udacity/components/icons/base/Article';
 
 const MainAside = ({
   user,
@@ -41,8 +42,16 @@ const MainAside = ({
       <Button
         label="Post an Article"
         onClick={e => e}
+        plain
         href="/admin/cms?new=true"
         icon={<EditIcon />}
+      />
+      <Button
+        label="Manage Articles"
+        onClick={e => e}
+        plain
+        href="/admin/content-dashboard"
+        icon={<ArticleIcon />}
       />
     </Box>
   </Box>
