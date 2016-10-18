@@ -25,7 +25,8 @@ const TagEditor = ({
 );
 
 TagEditor.propTypes = {
-  onCreateTag: PropTypes.func.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
+  selectedTags: PropTypes.array,
   tags: PropTypes.array.isRequired,
 };
 
