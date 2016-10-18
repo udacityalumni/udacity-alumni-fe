@@ -26,36 +26,12 @@ exports[`<CmsToolbar /> should render with default props 1`] = `
       pad="medium"
       responsive={true}
       tag="div">
-      <CheckBox
-        checked={false}
-        id="spotlight-toggle"
-        label="Spotlight"
-        name="spotlight"
-        onChange={[Function onToggleSpotlight]}
-        toggle={true} />
       <Button
-        label="Save"
+        label="Submit"
         type="button" />
-      <Select
-        label="Status"
-        onChange={[Function onChange]}
-        options={
-          Array [
-            Object {
-              "label": "Draft",
-              "value": 0
-            },
-            Object {
-              "label": "Published",
-              "value": 1
-            },
-            Object {
-              "label": "Archived",
-              "value": 2
-            }
-          ]
-        }
-        value="Draft" />
+      <Button
+        label="Preview"
+        type="button" />
     </Box>
   </Columns>
 </Box>

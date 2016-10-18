@@ -6,22 +6,14 @@ exports[`<Landing /> should render with default props 1`] = `
       "loadFeaturedArticles": [Function anonymous],
       "loadFeaturedArticlesFailure": [Function anonymous],
       "loadFeaturedArticlesInitiation": [Function anonymous],
-      "loadFeaturedArticlesSuccess": [Function anonymous]
+      "loadFeaturedArticlesSuccess": [Function anonymous],
+      "loadSpotlightedImages": [Function anonymous],
+      "loadSpotlightedImagesFailure": [Function anonymous],
+      "loadSpotlightedImagesInitiation": [Function anonymous],
+      "loadSpotlightedImagesSuccess": [Function anonymous]
     }
   }
-  carouselImages={
-    Array [
-      Object {
-        "src": "http://zdnet4.cbsistatic.com/hub/i/r/2016/01/13/df0444a8-0bcd-46cc-b9d4-e5be56a36341/resize/770xauto/cd213f8602843b807ed63aef891203c7/image.jpg"
-      },
-      Object {
-        "src": "http://zdnet4.cbsistatic.com/hub/i/r/2016/01/13/df0444a8-0bcd-46cc-b9d4-e5be56a36341/resize/770xauto/cd213f8602843b807ed63aef891203c7/image.jpg"
-      },
-      Object {
-        "src": "http://zdnet4.cbsistatic.com/hub/i/r/2016/01/13/df0444a8-0bcd-46cc-b9d4-e5be56a36341/resize/770xauto/cd213f8602843b807ed63aef891203c7/image.jpg"
-      }
-    ]
-  }
+  carouselImages={Array []}
   errors={null}
   featuredArticles={null}
   isLoading={false}

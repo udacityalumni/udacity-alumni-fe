@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import { CmsEditorContainer } from 'containers';
 
-// Pages map directly to Routes, i.e. one page equals on Route
-
-const CmsEditorPage = (props) => (
+const CmsEditorPage = ({
+  location,
+}) => (
   <div className={styles.container}>
-    <CmsEditorContainer />
+    <CmsEditorContainer location={location} />
   </div>
 );
+
+CmsEditorPage.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 
 export default cssModules(CmsEditorPage, styles);

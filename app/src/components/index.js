@@ -1,4 +1,7 @@
 /* Assemble all components for export */
+export CmsEditorPreview from './CmsEditorPreview';
+export CmsModal from './CmsModal';
+export TagEditor from './TagEditor';
 export LoginForm from './LoginForm';
 export DashboardTable from './DashboardTable';
 export ArticlePreview from './ArticlePreview';

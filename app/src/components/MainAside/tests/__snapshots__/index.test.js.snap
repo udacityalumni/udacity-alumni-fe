@@ -52,7 +52,7 @@ exports[`<MainAside /> should render with default props 1`] = `
     responsive={true}
     tag="div">
     <Button
-      href="/admin/new-story"
+      href="/admin/cms?new=true"
       icon={
         <function Icon() {
             (0, _classCallCheck3.default)(this, Icon);

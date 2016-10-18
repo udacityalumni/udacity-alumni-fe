@@ -1,17 +1,12 @@
-import LoginForm from '../index';
+import CmsEditorPreview from '../index';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import React from 'react';
-import { fields } from './mocks';
 
-describe('<LoginForm />', () => {
+describe('<CmsEditorPreview />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <LoginForm
-        {...fields}
-        onSubmit={e => e}
-        invalid
-      />
+      <CmsEditorPreview />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

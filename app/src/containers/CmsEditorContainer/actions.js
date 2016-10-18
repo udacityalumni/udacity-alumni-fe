@@ -24,12 +24,14 @@ class Article {
   constructor() {
     const args = arguments[0];
     this.content = args.content;
+    this.json = args.json;
     this.title = args.title;
     this.status = args.status;
     this.userId = args.userId || 1;
     this.featured = false;
     this.spotlighted = args.spotlighted;
     this.featuredImage = args.featuredImage || '';
+    this.tags = args.tags;
     this.toJson = this.toJson.bind(this);
   }
   toJson() {
@@ -41,16 +43,20 @@ class Article {
         featured: this.featured,
         user_id: this.userId,
         status: this.status,
+        json: this.json,
         featured_image: this.featuredImage,
+        tags: this.tags,
       },
     };
     return JSON.stringify(body);
   }
 }
 
-export const submitArticleRequest = (articleProps) =>
+const inputToArticle = (input) => new Article(input);
+
+export const submitArticleRequest = (input) =>
   (dispatch) => {
-    const article = new Article(articleProps);
+    const article = inputToArticle(input);
     if (!article && !article.toJson()) {
       throw new Error('Unable to encode the article data.');
     }
@@ -104,3 +110,56 @@ export const handleClearingToast = (type) =>
       default: break;
     }
   };
+
+export const cmsOpenModal = () => ({
+  type: types.CMS_OPEN_MODAL,
+});
+
+export const cmsCloseModal = () => ({
+  type: types.CMS_CLOSE_MODAL,
+});
+
+export const cmsSetStatus = (status) => ({
+  type: types.CMS_SET_STATUS,
+  status,
+});
+
+export const cmsSetSelectedTags = (tags) => ({
+  type: types.CMS_SET_SELECTED_TAGS,
+  tags,
+});
+
+export const cmsToggleSpotlight = () => ({
+  type: types.CMS_TOGGLE_SPOTLIGHT,
+});
+
+export const cmsSetEditorState = (state) => ({
+  type: types.CMS_SET_EDITOR_STATE,
+  state,
+});
+
+export const cmsSetEditorTitle = (title) => ({
+  type: types.CMS_SET_EDITOR_TITLE,
+  title,
+});
+
+export const cmsSetPreviewState = ({ markdown, title }) => ({
+  type: types.CMS_SET_PREVIEW_STATE,
+  markdown,
+  title,
+});
+
+export const cmsClosePreview = () => ({
+  type: types.CMS_CLOSE_PREVIEW,
+});
+
+export const cmsSetArticleId = (id, action) => ({
+  type: types.CMS_SET_ARTICLE_ID,
+  id,
+  action,
+});
+
+export const cmsSetStateFromArticle = (article) => ({
+  type: types.CMS_SET_STATE_FROM_ARTICLE,
+  article,
+});
