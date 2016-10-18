@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: center;
   transform: translateY(-250px);
-  z-index: 3;
+  z-index: 2;
   opacity: .9;
   flex-direction: column;
 }
@@ -33,7 +33,6 @@
 }
 
 .carouselImage {
-  z-index: 2;
   max-width: 100vw;
   max-height: 300px;
   min-width: 850px;

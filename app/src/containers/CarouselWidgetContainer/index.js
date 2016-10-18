@@ -7,7 +7,7 @@ import styles from './index.module.scss';
 import Heading from 'grommet-udacity/components/Heading';
 import Box from 'grommet-udacity/components/Box';
 import Section from 'grommet-udacity/components/Section';
-import { CarouselWidget } from 'components';
+import { CarouselWidget, MainAside } from 'components';
 import { reduxForm } from 'redux-form';
 
 const formFields = [
@@ -29,6 +29,7 @@ class CarouselWidgetContainer extends Component {
       fields,
       actions,
       currentlyEditing,
+      user,
     } = this.props;
     return (
       <div className={styles.carouselWidget}>
@@ -40,7 +41,7 @@ class CarouselWidgetContainer extends Component {
         >
           <Box direction="row">
             <Box
-              basis="full"
+              basis="2/3"
               pad="large"
               align="center"
               justify="center"
@@ -61,6 +62,11 @@ class CarouselWidgetContainer extends Component {
                 images={images}
               />
             </Box>
+            {user &&
+              <MainAside
+                user={user}
+              />
+            }
           </Box>
         </Section>
       </div>
@@ -73,11 +79,13 @@ CarouselWidgetContainer.propTypes = {
   fields: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
   currentlyEditing: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   images: state.carouselWidgetContainer.images,
+  user: state.app.user,
   currentlyEditing: state.carouselWidgetContainer.currentlyEditing,
 });
 

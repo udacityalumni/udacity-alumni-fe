@@ -17,6 +17,21 @@
   flex: 1;
 }
 
+.app-src-components-CarouselWidget-___index-module__overlay___3GPGA {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-250px);
+  z-index: 2;
+  opacity: .9;
+  flex-direction: column;
+}
+
+.app-src-components-CarouselWidget-___index-module__overlayValue___F0Kb0 {
+  text-shadow: 4px 4px 2px white;
+}
+
 .app-src-components-CarouselWidget-___index-module__carouselImage___2iolB {
   max-width: 100vw;
   max-height: 300px;
@@ -46,6 +61,11 @@
 
 .app-src-components-CarouselWidget-___index-module__imageNum___3fLon {
   margin-right: 10px;
+}
+
+.app-src-components-CarouselWidget-___index-module__anchorOverlay___1c3DF {
+  background-color: black;
+  opacity: 0.8;
 }.app-src-components-CmsModal-___index-module__formField___3Viqz {
   overflow: inherit !important;
 }.app-src-components-TagEditor-___index-module__tagEditor___209jA {
