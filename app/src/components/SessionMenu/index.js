@@ -39,6 +39,7 @@ const SessionMenu = ({
                 inline={false}
                 dropAlign={{ bottom: 'bottom' }}
                 a11yTitle="Session"
+                className={styles.rightMenu}
               >
                 <Anchor href="/me/profile">
                   My Profile
@@ -55,15 +56,16 @@ const SessionMenu = ({
                 dropAlign={{ bottom: 'bottom' }}
                 a11yTitle="Session"
                 inline={false}
+                className={styles.rightMenu}
               >
                 <Anchor href="/me/profile">
                   My Profile
                 </Anchor>
                 <Anchor href="/admin/content-dashboard">
-                  Admin Dashboard
+                  Dashboard
                 </Anchor>
                 <Anchor href="/admin/cms?new=true">
-                  Post an Article
+                  Post
                 </Anchor>
                 <Anchor href="/logout" onClick={onLogout}>
                   Logout
@@ -75,6 +77,7 @@ const SessionMenu = ({
               <Menu
                 direction="row"
                 align="center"
+                className={styles.rightMenu}
               >
                 <Anchor href="/login">
                   Log In
@@ -90,6 +93,7 @@ const SessionMenu = ({
           <Menu
             direction="row"
             align="center"
+            className={styles.rightMenu}
           >
             <Anchor href="/login">
               Log In

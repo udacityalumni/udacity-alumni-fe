@@ -5,8 +5,10 @@ import Heading from 'grommet-udacity/components/Heading';
 import Image from 'grommet-udacity/components/Image';
 import Box from 'grommet-udacity/components/Box';
 import Button from 'grommet-udacity/components/Button';
+import Menu from 'grommet-udacity/components/Menu';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import ArticleIcon from 'grommet-udacity/components/icons/base/Article';
+import ImageIcon from 'grommet-udacity/components/icons/base/Image';
 
 const MainAside = ({
   user,
@@ -55,6 +57,22 @@ const MainAside = ({
            href="/admin/content-dashboard"
            icon={<ArticleIcon />}
          />
+       </Box>
+       <Box className={styles.widgetBox}>
+         <Heading align="center" tag="h3">
+           Widgets
+         </Heading>
+         <Box className={styles.innerWidgetBox}>
+           <Menu inline>
+             <Button
+               label="Carousel"
+               onClick={e => e}
+               plain
+               href="/admin/carousel"
+               icon={<ImageIcon />}
+             />
+           </Menu>
+         </Box>
        </Box>
      </div>
    }

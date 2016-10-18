@@ -26,7 +26,8 @@ const routes = (
         <Route path="/careers" component={Pages.NotYetReadyPage} />
         <Route path="/meetups" component={Pages.MeetupsPage} />
         <Route path="/mentorship" component={Pages.MentorshipPage} />
-        <Route path="*" component={Pages.NotFoundPage} />
+        <Route path="/admin/carousel" component={Pages.CarouselWidgetPage} />
+          <Route path="*" component={Pages.NotFoundPage} />
       </Route>
     </Router>
   </ApolloProvider>
