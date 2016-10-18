@@ -79,7 +79,7 @@ class Landing extends Component {
                   <SpotlightArticles articles={featuredArticles} />
                 }
               </Box>
-              {user &&
+              {user && user.role === 'admin' &&
                 <MainAside user={user} />
               }
             </Box>

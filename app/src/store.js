@@ -21,6 +21,9 @@ import {
   initialState as contentDashboardContainer,
 } from './containers/ContentDashboardContainer/reducer';
 import { initialState as app } from './components/App/reducer';
+import {
+  initialState as carouselWidgetContainer
+} from './containers/CarouselWidgetContainer/reducer';
 
 const initialState = {
   app,
@@ -31,6 +34,7 @@ const initialState = {
   singleArticleContainer,
   searchContainer,
   contentDashboardContainer,
+  carouselWidgetContainer,
 };
 
 /* Commonly used middlewares and enhancers */

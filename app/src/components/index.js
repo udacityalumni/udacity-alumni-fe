@@ -1,5 +1,4 @@
 /* Assemble all components for export */
-export UserMenu from './UserMenu';
 export CmsEditorPreview from './CmsEditorPreview';
 export CmsModal from './CmsModal';
 export TagEditor from './TagEditor';
