@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
+import Menu from 'grommet-udacity/components/Menu';
 import Table from 'grommet-udacity/components/Table';
+import Button from 'grommet-udacity/components/Button';
+import TrashIcon from 'grommet-udacity/components/icons/base/Trash';
+import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import TableRow from 'grommet-udacity/components/TableRow';
 import Anchor from 'grommet-udacity/components/Anchor';
 
@@ -40,15 +44,20 @@ const DashboardTable = ({
               </Anchor>
             </td>
             <td>
-              <span>
-                <Anchor href={`/admin/cms?action=edit&articleId=${article.id}`}>
-                  Edit
-                </Anchor>
-                {' / '}
-                <Anchor href={`/admin/cms?action=delete&articleId=${article.id}`}>
-                  Delete
-                </Anchor>
-              </span>
+              <Menu inline direction="row">
+                <Button
+                  style={{ padding: 5 }}
+                  plain
+                  icon={<EditIcon />}
+                  href={`/admin/cms?action=edit&articleId=${article.id}`}
+                />
+                <Button
+                  style={{ padding: 5 }}
+                  plain
+                  icon={<TrashIcon />}
+                  href={`/admin/cms?action=delete&articleId=${article.id}`}
+                />
+              </Menu>
             </td>
           </TableRow>
         )}

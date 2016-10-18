@@ -35,12 +35,14 @@ class ContentDashboard extends Component {
               justify="start"
               className={styles.mainContent}
             >
-              <Heading tag="h3" align="center">
-                Content Dashboard Creator
+              <Heading align="center">
+                Content Dashboard
               </Heading>
-              {articles && articles.length > 0 &&
-                <DashboardTable articles={articles} />
-              }
+              <Box pad="large">
+                {articles && articles.length > 0 &&
+                  <DashboardTable articles={articles} />
+                }
+              </Box>
             </Box>
             {user && user.role === 'admin' &&
               <MainAside

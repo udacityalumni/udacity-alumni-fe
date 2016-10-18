@@ -373,6 +373,7 @@
   margin-left: 10px;
 }.app-src-pages-CarouselWidgetPage-___index-module__container____sH5B {
   min-height: 100vh;
+  background: #fafbfc;
   width: 100%;
 }.app-src-containers-CarouselWidgetContainer-___index-module__mainContent___3JuGy {
   background: #FFF;
@@ -464,6 +465,26 @@
   width: 100%;
   min-height: 95vh;
   background: #fafbfc;
+}.app-src-containers-ContentDashboardContainer-___index-module__mainContent___3GBGR {
+  background: #FFF;
+  margin-bottom: 14px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(46, 61, 73, 0.2);
+  border: 1px solid #dbe2e8;
+  max-width: 960px;
+  padding: 60px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .app-src-containers-ContentDashboardContainer-___index-module__mainContent___3GBGR {
+    padding-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-src-containers-ContentDashboardContainer-___index-module__mainSection___3BtNP {
+    padding: 0 !important;
+  }
 }.app-src-containers-LandingContainer-___index-module__landing___nj0KQ {
   min-height: 100vh;
 }
@@ -519,8 +540,9 @@
   min-height: calc(100vh - 74px);
   width: 100%;
 }.app-src-pages-ContentDashboardPage-___index-module__container___2AYWf {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
+  background: #fafbfc;
 }.app-src-pages-NotFoundPage-___index-module__container___21GsS {
   min-height: calc(100vh-70px);
   width: 100%;
