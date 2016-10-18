@@ -11,6 +11,7 @@ import cmsEditorContainer from 'containers/CmsEditorContainer/reducer';
 import contentDashboardContainer from 'containers/ContentDashboardContainer/reducer';
 import singleArticleContainer from 'containers/SingleArticleContainer/reducer';
 import searchContainer from 'containers/SearchContainer/reducer';
+import carouselWidgetContainer from 'containers/CarouselWidgetContainer/reducer';
 import app from 'components/App/reducer';
 
 const rootReducer = combineReducers({
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   cmsEditorContainer,
   singleArticleContainer,
   contentDashboardContainer,
+  carouselWidgetContainer,
   routing: routerReducer,
   form: formReducer,
   apollo: client.reducer(),

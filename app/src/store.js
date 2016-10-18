@@ -22,7 +22,7 @@ import {
 } from './containers/ContentDashboardContainer/reducer';
 import { initialState as app } from './components/App/reducer';
 import {
-  initialState as carouselWidgetContainer
+  initialState as carouselWidgetContainer,
 } from './containers/CarouselWidgetContainer/reducer';
 
 const initialState = {
