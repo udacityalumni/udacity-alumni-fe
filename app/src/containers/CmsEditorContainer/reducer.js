@@ -1,12 +1,12 @@
 import * as types from './constants';
 import update from 'react-addons-update';
 import { stateFromMarkdown } from 'draft-js-import-markdown';
+import { EditorState } from 'draft-js';
 
 export const initialState = {
   article: {
     id: null,
     action: null,
-    article: null,
   },
   editorState: null,
   editorTitle: null,
@@ -193,7 +193,7 @@ const cmsEditorReducer =
         return update(state, {
           article: {
             id: {
-              $set: action.id,
+              $set: parseInt(action.id, 10),
             },
             action: {
               $set: action.action,
@@ -203,8 +203,10 @@ const cmsEditorReducer =
       case types.CMS_SET_STATE_FROM_ARTICLE:
         return update(state, {
           editorState: {
-            $set: stateFromMarkdown(
-              action.article.content
+            $set: EditorState.createWithContent(
+              stateFromMarkdown(
+                action.article.content
+              )
             ),
           },
           editorTitle: {

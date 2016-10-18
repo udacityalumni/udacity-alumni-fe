@@ -57,10 +57,10 @@ class CmsEditorContainer extends Component {
         router.push(path);
       }, 3000);
     }
-    if (articleId) {
+    if (articleId && !article) {
       this.handleLoadingArticle();
     }
-    if (article) {
+    if (article && !this.props.article) {
       const {
         actions,
       } = this.props;
