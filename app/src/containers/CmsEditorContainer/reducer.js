@@ -2,6 +2,10 @@ import * as types from './constants';
 import update from 'react-addons-update';
 
 export const initialState = {
+  article: {
+    id: null,
+    action: null,
+  },
   editorState: null,
   editorTitle: null,
   preview: {
@@ -181,6 +185,17 @@ const cmsEditorReducer =
         return update(state, {
           preview: {
             $set: previewReducer(state.preview, action),
+          },
+        });
+      case types.CMS_SET_ARTICLE:
+        return update(state, {
+          article: {
+            id: {
+              $set: action.id,
+            },
+            action: {
+              $set: action.action,
+            },
           },
         });
       default:

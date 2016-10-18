@@ -134,7 +134,7 @@ Main.propTypes = {
 };
 
 Main.contextTypes = {
-  router: PropTypes.func.isRequired,
+  router: PropTypes.object.isRequired,
 };
 
 // Map the global state to global props here.

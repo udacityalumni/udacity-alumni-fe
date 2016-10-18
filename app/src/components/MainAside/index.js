@@ -41,7 +41,7 @@ const MainAside = ({
       <Button
         label="Post an Article"
         onClick={e => e}
-        href="/admin/cms"
+        href="/admin/cms?new=true"
         icon={<EditIcon />}
       />
     </Box>

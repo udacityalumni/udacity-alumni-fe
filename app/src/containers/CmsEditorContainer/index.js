@@ -31,13 +31,22 @@ class CmsEditorContainer extends Component {
     this.handleEditorSetTitle = this.handleEditorSetTitle.bind(this);
     this.handleClosePreview = this.handleClosePreview.bind(this);
     this.handlePreviewArticle = this.handlePreviewArticle.bind(this);
+    this.handleLoadingArticle = this.handleLoadingArticle.bind(this);
   }
-  componentDidMount({ params }) {
-    if (params.id) {
-      console.log(`Passed in params ${params}`)
+  componentDidMount() {
+    const {
+      location,
+      actions,
+    } = this.props;
+    const {
+      articleId,
+      action,
+    } = location.query;
+    if (articleId && action) {
+      actions.cmsSetArticle(articleId, action);
     }
   }
-  componentWillReceiveProps({ message }) {
+  componentWillReceiveProps({ message, articleId }) {
     if (message) {
       const {
         router,
@@ -48,6 +57,15 @@ class CmsEditorContainer extends Component {
         router.push(path);
       }, 3000);
     }
+    if (articleId) {
+      this.handleLoadingArticle();
+    }
+  }
+  handleLoadingArticle() {
+    const {
+      refetchArticle,
+    } = this.props;
+    refetchArticle();
   }
   handleSubmit() {
     const {
@@ -148,6 +166,7 @@ class CmsEditorContainer extends Component {
       modal,
       tags,
       loading,
+      articleLoading,
       editorState,
       editorTitle,
       isValid,
@@ -168,7 +187,7 @@ class CmsEditorContainer extends Component {
             onClose={() => this.handleCloseToast({ type: 'message' })}
           />
         }
-        {loading &&
+        {loading || articleLoading &&
           <LoadingIndicator isLoading />
         }
         <CmsEditor
@@ -205,6 +224,7 @@ class CmsEditorContainer extends Component {
 }
 
 CmsEditorContainer.propTypes = {
+  articleId: PropTypes.number,
   actions: PropTypes.object.isRequired,
   submissionError: PropTypes.object,
   message: PropTypes.string,
@@ -219,6 +239,10 @@ CmsEditorContainer.propTypes = {
   isValid: PropTypes.bool.isRequired,
   preview: PropTypes.object.isRequired,
   params: PropTypes.object,
+  location: PropTypes.object.isRequired,
+  article: PropTypes.object,
+  articleLoading: PropTypes.bool.isRequired,
+  refetchArticle: PropTypes.func.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -235,6 +259,8 @@ const mapStateToProps = (state) => ({
   editorTitle: state.cmsEditorContainer.editorTitle,
   isValid: state.cmsEditorContainer.isValid,
   preview: state.cmsEditorContainer.preview,
+  articleId: state.cmsEditorContainer.article.id,
+  action: state.cmsEditorContainer.article.action,
   user: state.app.user,
 });
 
@@ -266,7 +292,35 @@ const ContainerWithTags = graphql(loadTagsQuery, {
   }),
 })(Container);
 
+const loadArticleQuery = gql`
+  query getArticle($id: ID) {
+    article(id: $id) {
+      title
+      status
+      content
+      json
+      spotlighted
+      featured
+      feature_image
+    }
+  }
+`;
+
+const ContainerWithArticle = graphql(loadArticleQuery, {
+  options: (ownProps) => ({
+    skip: !ownProps.articleId,
+    variables: {
+      id: ownProps.articleId,
+    },
+  }),
+  props: ({ data: { article, loading, refetch } }) => ({
+    articleLoading: loading,
+    article,
+    refetchArticle: refetch,
+  }),
+})(ContainerWithTags);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ContainerWithTags);
+)(ContainerWithArticle);

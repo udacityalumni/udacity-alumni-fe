@@ -30,7 +30,7 @@ const DashboardTable = ({
               </Anchor>
             </td>
             <td>
-              <Anchor href={`/admin/cms/${article.id}`}>
+              <Anchor href={`/admin/cms?edit=true?articleId=${article.id}`}>
                 {`${article.status.charAt(0).toUpperCase()}${article.status.slice(1)}`}
               </Anchor>
             </td>
@@ -41,11 +41,11 @@ const DashboardTable = ({
             </td>
             <td>
               <span>
-                <Anchor href={`/admin/cms/${article.id}/edit`}>
+                <Anchor href={`/admin/cms?action=edit&articleId=${article.id}`}>
                   Edit
                 </Anchor>
                 {' / '}
-                <Anchor href={`/admin/cms/${article.id}/delete`}>
+                <Anchor href={`/admin/cms?action=delete&articleId=${article.id}`}>
                   Delete
                 </Anchor>
               </span>

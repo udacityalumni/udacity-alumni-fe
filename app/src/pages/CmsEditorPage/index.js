@@ -4,15 +4,15 @@ import styles from './index.module.scss';
 import { CmsEditorContainer } from 'containers';
 
 const CmsEditorPage = ({
-  params,
+  location,
 }) => (
   <div className={styles.container}>
-    <CmsEditorContainer params={params} />
+    <CmsEditorContainer location={location} />
   </div>
 );
 
 CmsEditorPage.propTypes = {
-  params: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default cssModules(CmsEditorPage, styles);
