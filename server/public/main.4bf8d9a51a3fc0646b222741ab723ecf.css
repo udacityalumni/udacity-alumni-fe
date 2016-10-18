@@ -347,6 +347,8 @@
 .app-src-containers-SingleArticleContainer-___index-module__singleArticleContainer___2-FOU {
   min-height: 100vh;
   background: #fafbfc;
+}.app-src-containers-CmsEditorContainer-___index-module__cmsEditor___1xCKv {
+  min-height: 100vh;
 }.app-src-containers-SignupContainer-___index-module__signup___14ADT {
   display: flex;
   align-items: center;
@@ -401,7 +403,7 @@
   height: 100vh;
   width: 100%;
 }.app-src-pages-CmsEditorPage-___index-module__container___MOsrM {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 }.app-src-pages-SignupPage-___index-module__container___2A2GR {
   min-height: calc(100vh - 74px);
@@ -9362,6 +9364,8 @@ section:not(.grommetux-section) {
     -moz-osx-font-smoothing: grayscale; }
   .megadraft-editor .DraftEditor-editorContainer {
     position: relative;
+    overflow-y: scroll;
+    margin-bottom: 80px;
     z-index: 1; }
   .megadraft-editor .paragraph + .paragraph {
     margin-top: 40px; }
@@ -9536,7 +9540,7 @@ section:not(.grommetux-section) {
       width: 250px; }
       .megadraft-editor .toolbar__input:focus {
         outline: none;
-        color: #181818; }
+        color: #20BCE5; }
   .megadraft-editor .block__hover {
     padding: 8px;
     margin: -8px; }
