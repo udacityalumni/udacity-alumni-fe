@@ -309,6 +309,10 @@ const loadArticleQuery = gql`
       spotlighted
       featured
       feature_image
+      tags {
+        id
+        tag
+      }
     }
   }
 `;
