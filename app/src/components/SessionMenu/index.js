@@ -28,18 +28,84 @@ const SessionMenu = ({
   onLogout,
   user,
 }) => (
-  <Menu
-    icon={<SessionIcon user={user} />}
-    dropAlign={{ bottom: 'bottom' }}
-    a11yTitle="Session"
-  >
-    <Anchor href="/profile">Profile</Anchor>
-    <Anchor href="/logout" onClick={onLogout}>Logout</Anchor>
-  </Menu>
+  <span>
+    {(() => { // eslint-disable-line
+      if (user) {
+        switch (user.role) {
+          case 'user':
+            return (
+              <Menu
+                icon={<SessionIcon user={user} />}
+                inline={false}
+                dropAlign={{ bottom: 'bottom' }}
+                a11yTitle="Session"
+              >
+                <Anchor href="/me/profile">
+                  My Profile
+                </Anchor>
+                <Anchor href="/logout" onClick={onLogout}>
+                  Logout
+                </Anchor>
+              </Menu>
+            );
+          case 'admin':
+            return (
+              <Menu
+                icon={<SessionIcon user={user} />}
+                dropAlign={{ bottom: 'bottom' }}
+                a11yTitle="Session"
+                inline={false}
+              >
+                <Anchor href="/me/profile">
+                  My Profile
+                </Anchor>
+                <Anchor href="/admin/content-dashboard">
+                  Admin Dashboard
+                </Anchor>
+                <Anchor href="/admin/cms?new=true">
+                  Post an Article
+                </Anchor>
+                <Anchor href="/logout" onClick={onLogout}>
+                  Logout
+                </Anchor>
+              </Menu>
+            );
+          default:
+            return (
+              <Menu
+                direction="row"
+                align="center"
+              >
+                <Anchor href="/login">
+                  Log In
+                </Anchor>
+                <Anchor href="/signup">
+                  Sign Up
+                </Anchor>
+              </Menu>
+            );
+        }
+      } else {
+        return (
+          <Menu
+            direction="row"
+            align="center"
+          >
+            <Anchor href="/login">
+              Log In
+            </Anchor>
+            <Anchor href="/signup">
+              Sign Up
+            </Anchor>
+          </Menu>
+        );
+      }
+    })()}
+  </span>
 );
 
 SessionMenu.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default cssModules(SessionMenu, styles);

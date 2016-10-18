@@ -7,7 +7,7 @@ import Search from 'grommet-udacity/components/Search';
 import Button from 'grommet-udacity/components/Button';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import { LogoImage } from 'components';
+import { LogoImage, SessionMenu } from 'components';
 
 const Navbar = ({
   onSearch,
@@ -49,34 +49,7 @@ const Navbar = ({
           placeHolder="Start typing..."
         />
       </Menu>
-      {user ?
-        <Menu
-          direction="row"
-          align="center"
-          className={styles.rightMenu}
-          responsive
-        >
-          <Anchor href="/me/profile">
-            My Profile
-          </Anchor>
-          <Anchor href="/logout">
-            Logout
-          </Anchor>
-        </Menu>
-      :
-        <Menu
-          direction="row"
-          align="center"
-          className={styles.rightMenu}
-        >
-          <Anchor href="/login">
-            Log In
-          </Anchor>
-          <Anchor href="/signup">
-            Sign Up
-          </Anchor>
-        </Menu>
-      }
+      <SessionMenu user={user} />
     </Header>
   </div>
 );
