@@ -17,43 +17,47 @@ const MainAside = ({
     align="center"
     className={styles.aside}
   >
-    <div className={styles.avatarWrapper}>
-      <Image
-        className={styles.avatarImage}
-        size="medium"
-        src={user.avatar}
-      />
-    </div>
-    <Box
-      className={styles.careerResourcesBlurb}
-      align="center"
-      pad={{ horizontal: 'small', vertical: 'small' }}
-    >
-      <Heading tag="h3" align="center">
-        {`Hello, ${user.name}!`}
-      </Heading>
-    </Box>
-    <Box
-      className={styles.careerResourcesBlurb}
-      basis="2/3"
-      align="center"
-      pad={{ horizontal: 'small', vertical: 'small' }}
-    >
-      <Button
-        label="Post an Article"
-        onClick={e => e}
-        plain
-        href="/admin/cms?new=true"
-        icon={<EditIcon />}
-      />
-      <Button
-        label="Manage Articles"
-        onClick={e => e}
-        plain
-        href="/admin/content-dashboard"
-        icon={<ArticleIcon />}
-      />
-    </Box>
+   {user &&
+     <div>
+       <div className={styles.avatarWrapper}>
+         <Image
+           className={styles.avatarImage}
+           size="medium"
+           src={user.avatar}
+         />
+       </div>
+       <Box
+         className={styles.careerResourcesBlurb}
+         align="center"
+         pad={{ horizontal: 'small', vertical: 'small' }}
+       >
+         <Heading tag="h3" align="center">
+           {`Hello, ${user.name}!`}
+         </Heading>
+       </Box>
+       <Box
+         className={styles.careerResourcesBlurb}
+         basis="2/3"
+         align="center"
+         pad={{ horizontal: 'small', vertical: 'small' }}
+       >
+         <Button
+           label="Post an Article"
+           onClick={e => e}
+           plain
+           href="/admin/cms?new=true"
+           icon={<EditIcon />}
+         />
+         <Button
+           label="Manage Articles"
+           onClick={e => e}
+           plain
+           href="/admin/content-dashboard"
+           icon={<ArticleIcon />}
+         />
+       </Box>
+     </div>
+   }
   </Box>
 );
 

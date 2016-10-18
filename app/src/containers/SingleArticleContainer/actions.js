@@ -1,7 +1,7 @@
 import * as types from './constants';
 import 'whatwg-fetch';
 // import fetch from 'isomorphic-fetch';
-const baseUrl = 'https://udacity-alumni-api.herokuapp.com/';
+const baseUrl = 'https://udacity-api.herokuapp.com/';
 const articleUrl = (id) => `${baseUrl}api/v1/articles/${id}`;
 
 // loadArticleInitiation :: None -> {Action}

@@ -53,10 +53,10 @@ class ContentDashboard extends Component {
 }
 
 ContentDashboard.propTypes = {
-  user: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string,
   articles: PropTypes.array,
+  user: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
 };
 
@@ -65,6 +65,7 @@ const mapStateToProps = (state) => ({
   isLoading: state.contentDashboardContainer.isLoading,
   errorMessage: state.contentDashboardContainer.error,
   articles: state.contentDashboardContainer.articles,
+  user: state.app.user,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

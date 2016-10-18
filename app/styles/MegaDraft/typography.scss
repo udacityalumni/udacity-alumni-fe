@@ -19,6 +19,8 @@
 
 .DraftEditor-editorContainer {
     position: relative;
+    overflow-y: scroll;
+    margin-bottom: 80px;
     z-index: 1;
 }
 

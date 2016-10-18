@@ -7,14 +7,7 @@ class ContentDashboardPage extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <ContentDashboardContainer
-          user={{
-            name: 'David Harris',
-            isLoggedIn: false,
-            isAdmin: false,
-            avatar: 'http://1onjea25cyhx3uvxgs4vu325.wpengine.netdna-cdn.com/wp-content/uploads/2016/05/image08.png',
-          }}
-        />
+        <ContentDashboardContainer />
       </div>
     );
   }
