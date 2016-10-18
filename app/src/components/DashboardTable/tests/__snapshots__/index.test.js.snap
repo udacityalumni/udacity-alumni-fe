@@ -35,21 +35,21 @@ exports[`<DashboardTable /> should render with default props 1`] = `
       <TableRow>
         <td>
           <Anchor
-            href="/admin/articles/0"
+            href="/articles/0"
             tag="a">
             Hello World
           </Anchor>
         </td>
         <td>
           <Anchor
-            href="/admin/articles/0"
+            href="/admin/cms?edit=true?articleId=0"
             tag="a">
             Published
           </Anchor>
         </td>
         <td>
           <Anchor
-            href="/admin/articles/0"
+            href="/admin/cms/0"
             tag="a">
             Ryan Collins
           </Anchor>
@@ -57,13 +57,13 @@ exports[`<DashboardTable /> should render with default props 1`] = `
         <td>
           <span>
             <Anchor
-              href="/admin/articles/0/edit"
+              href="/admin/cms?action=edit&articleId=0"
               tag="a">
               Edit
             </Anchor>
              / 
             <Anchor
-              href="/admin/articles/0/delete"
+              href="/admin/cms?action=delete&articleId=0"
               tag="a">
               Delete
             </Anchor>

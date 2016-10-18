@@ -30,13 +30,11 @@ exports[`<ArticleMeta /> should render with default props 1`] = `
         align="center"
         direction="row"
         justify="center">
-         
-        <Tag
-          label="Blog Post" />
-        <Tag
-          label="Career Resources" />
-        <Tag
-          label="Announcements" />
+        <Anchor
+          href="/tags/undefined"
+          tag="a">
+          <Tag />
+        </Anchor>
       </Tags>
     </Box>
   </Section>

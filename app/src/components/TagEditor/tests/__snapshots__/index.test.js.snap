@@ -1,0 +1,19 @@
+exports[`<TagEditor /> should render with default props 1`] = `
+<Box
+  announce={false}
+  direction="column"
+  focusable={true}
+  pad="none"
+  responsive={true}
+  tag="div">
+  <CreatableSelect
+    filterOptions={[Function filterOptions]}
+    isOptionUnique={[Function isOptionUnique]}
+    isValidNewOption={[Function isValidNewOption]}
+    menuRenderer={[Function menuRenderer]}
+    multi={true}
+    newOptionCreator={[Function newOptionCreator]}
+    promptTextCreator={[Function promptTextCreator]}
+    shouldKeyDownEventCreateNewOption={[Function shouldKeyDownEventCreateNewOption]} />
+</Box>
+`;

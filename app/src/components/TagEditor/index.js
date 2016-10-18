@@ -14,7 +14,7 @@ const TagEditor = ({
       multi
       value={selectedTags}
       onChange={onChangeValue}
-      options={tags.map((tag) =>
+      options={tags && tags.length > 0 && tags.map((tag) =>
         ({
           value: tag.tag,
           label: tag.tag,

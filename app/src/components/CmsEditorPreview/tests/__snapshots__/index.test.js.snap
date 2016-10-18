@@ -1,0 +1,26 @@
+exports[`<CmsEditorPreview /> should render with default props 1`] = `
+<Layer
+  align="center"
+  closer={true}
+  hidden={true}>
+  <Box
+    announce={false}
+    direction="column"
+    focusable={true}
+    pad="large"
+    responsive={true}
+    size="large"
+    tag="div">
+    <Heading
+      align="center"
+      tag="h1">
+      No Title Set
+    </Heading>
+    <Heading
+      align="center"
+      tag="h5">
+      No Content
+    </Heading>
+  </Box>
+</Layer>
+`;

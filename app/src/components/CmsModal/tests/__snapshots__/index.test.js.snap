@@ -1,0 +1,74 @@
+exports[`<CmsModal /> should render with default props 1`] = `
+<Layer
+  align="center"
+  closer={true}
+  hidden={true}>
+  <Box
+    announce={false}
+    direction="column"
+    focusable={true}
+    pad="medium"
+    responsive={true}
+    tag="div">
+    <Heading
+      align="center"
+      tag="h1">
+      Article Settings
+    </Heading>
+  </Box>
+  <Form
+    compact={false}
+    fill={false}
+    pad="large">
+    <FormFields>
+      <FormField
+        label="Settings"
+        size="medium"
+        strong={false}>
+        <CheckBox
+          checked={false}
+          id="spotlight-toggle"
+          label="Spotlight"
+          name="spotlight"
+          toggle={true} />
+      </FormField>
+      <FormField
+        label="Status"
+        size="medium"
+        strong={false}>
+        <Select
+          label="Status"
+          onChange={[Function onChange]}
+          options={
+            Array [
+              Object {
+                "label": "Draft",
+                "value": 0
+              },
+              Object {
+                "label": "Published",
+                "value": 1
+              },
+              Object {
+                "label": "Archived",
+                "value": 2
+              }
+            ]
+          }
+          value="Draft" />
+      </FormField>
+    </FormFields>
+    <Footer
+      align="center"
+      direction="row"
+      justify="center"
+      pad="medium"
+      responsive={false}>
+      <Button
+        label="Publish"
+        onClick={null}
+        type="button" />
+    </Footer>
+  </Form>
+</Layer>
+`;

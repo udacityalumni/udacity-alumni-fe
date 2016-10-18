@@ -2,96 +2,18 @@ exports[`<CmsEditor /> should render with default props 1`] = `
 <div>
   <div>
     <input
-      onChange={[Function bound handleInputChange]}
+      onChange={[Function onChangeTitle]}
       placeholder="Title"
       type="titleInput"
-      value="" />
+      value="Hello World" />
   </div>
   <MegadraftEditor
-    editorState={
-      EditorState {
-        "_immutable": Object {
-          "allowUndo": true,
-          "currentContent": Object {
-            "blockMap": Object {
-              "5i3gc": Object {
-                "characterList": Array [],
-                "data": Object {},
-                "depth": 0,
-                "key": "5i3gc",
-                "text": "",
-                "type": "unstyled"
-              }
-            },
-            "selectionAfter": Object {
-              "anchorKey": "5i3gc",
-              "anchorOffset": 0,
-              "focusKey": "5i3gc",
-              "focusOffset": 0,
-              "hasFocus": false,
-              "isBackward": false
-            },
-            "selectionBefore": Object {
-              "anchorKey": "5i3gc",
-              "anchorOffset": 0,
-              "focusKey": "5i3gc",
-              "focusOffset": 0,
-              "hasFocus": false,
-              "isBackward": false
-            }
-          },
-          "decorator": CompositeDraftDecorator {
-            "_decorators": Array [
-              Object {
-                "component": [Function Link],
-                "strategy": [Function findLinkEntities]
-              }
-            ]
-          },
-          "directionMap": Object {
-            "5i3gc": "LTR"
-          },
-          "forceSelection": false,
-          "inCompositionMode": false,
-          "inlineStyleOverride": null,
-          "lastChangeType": null,
-          "nativelyRenderedContent": null,
-          "redoStack": Array [],
-          "selection": Object {
-            "anchorKey": "5i3gc",
-            "anchorOffset": 0,
-            "focusKey": "5i3gc",
-            "focusOffset": 0,
-            "hasFocus": false,
-            "isBackward": false
-          },
-          "treeMap": Object {
-            "5i3gc": Array [
-              Object {
-                "decoratorKey": null,
-                "end": 0,
-                "leaves": Array [
-                  Object {
-                    "end": 0,
-                    "start": 0
-                  }
-                ],
-                "start": 0
-              }
-            ]
-          },
-          "undoStack": Array []
-        }
-      }
-    }
-    onChange={[Function bound onChange]}
+    editorState={Object {}}
+    onChange={[Function onChange]}
     placeholder="Tell a story ..." />
   <undefined
-    canSubmit={false}
-    onSave={[Function bound publish]}
-    onSetStatus={[Function bound setStatus]}
-    onToggleSpotlight={[Function bound setSpotlightToggle]}
-    spotlighted={false}
-    status={0} />
+    canSubmit={true}
+    onPreview={[Function onTapToPreview]}
+    onSave={[Function onSubmit]} />
 </div>
 `;
