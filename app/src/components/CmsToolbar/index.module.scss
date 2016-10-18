@@ -11,5 +11,14 @@
 .toolbarWrapper {
   @media screen and (max-width: 768px) {
     justify-content: center;
+    align-items: center !important;
+  }
+}
+
+.button {
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
   }
 }

@@ -42,6 +42,10 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.app-src-components-CarouselWidget-___index-module__imageNum___3fLon {
+  margin-right: 10px;
 }.app-src-components-CmsModal-___index-module__formField___3Viqz {
   overflow: inherit !important;
 }.app-src-components-TagEditor-___index-module__tagEditor___209jA {
@@ -213,6 +217,15 @@
 @media screen and (max-width: 768px) {
   .app-src-components-CmsToolbar-___index-module__toolbarWrapper___2oRtz {
     justify-content: center;
+    align-items: center !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-src-components-CmsToolbar-___index-module__button___2fnyl {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
   }
 }.app-src-components-CmsEditor-___index-module__container___1WJNz {
   padding: 3% 10%;

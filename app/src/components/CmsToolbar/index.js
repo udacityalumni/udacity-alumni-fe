@@ -27,8 +27,16 @@ const CmsToolbar = ({
         className={styles.toolbarWrapper}
         colorIndex="light-2"
       >
-        <Button label="Submit" onClick={canSubmit ? onSave : null} />
-        <Button label="Preview" onClick={onPreview} />
+        <Button
+          className={styles.button}
+          label="Submit"
+          onClick={canSubmit ? onSave : null}
+        />
+        <Button
+          className={styles.button}
+          label="Preview"
+          onClick={onPreview}
+        />
       </Box>
     </Columns>
   </Box>

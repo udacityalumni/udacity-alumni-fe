@@ -6,7 +6,9 @@ import Box from 'grommet-udacity/components/Box';
 import Form from 'grommet-udacity/components/Form';
 import Button from 'grommet-udacity/components/Button';
 import Carousel from 'grommet-udacity/components/Carousel';
+import Anchor from 'grommet-udacity/components/Anchor';
 import Section from 'grommet-udacity/components/Section';
+import Value from 'grommet-udacity/components/Value';
 import Footer from 'grommet-udacity/components/Footer';
 import Heading from 'grommet-udacity/components/Heading';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
@@ -34,7 +36,21 @@ const CarouselWidget = ({
     <Box className={styles.carouselBox}>
       <Carousel>
         {images.map((image, i) =>
-          <img src={image.url} key={i} className={styles.carouselImage} />
+          <Box align="center" justify="center">
+            <img src={image.url} key={i} className={styles.carouselImage} />
+            <div className={styles.overlay}>
+              <Value
+                value={i + 1}
+                size="xlarge"
+                className={styles.overlayValue}
+              />
+              <div className={styles.anchorOverlay}>
+                <Anchor href={image.url}>
+                  {image.url.length > 100 ? `${image.url.slice(0, 100)}...` : image.url}
+                </Anchor>
+              </div>
+            </div>
+          </Box>
         )}
       </Carousel>
     </Box>
@@ -105,6 +121,9 @@ const CarouselWidget = ({
               </Box>
             :
               <div className={styles.listItemBox}>
+                <span className={styles.imageNum}>
+                  <Value value={i + 1} size="medium" />
+                </span>
                 <span style={{ flex: 1 }}>{image.url}</span>
                 <span>
                   <Button
