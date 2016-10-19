@@ -15,7 +15,7 @@ export const initialState = {
     title: null,
   },
   isValid: false,
-  isSubmitting: false,
+  isLoading: false,
   error: null,
   message: null,
   modal: {
@@ -126,13 +126,13 @@ const cmsEditorReducer =
     switch (action.type) {
       case types.SUBMIT_ARTICLE_INITIATION:
         return update(state, {
-          isSubmitting: {
+          isLoading: {
             $set: true,
           },
         });
       case types.SUBMIT_ARTICLE_FAILURE:
         return update(state, {
-          isSubmitting: {
+          isLoading: {
             $set: false,
           },
           error: {
@@ -141,7 +141,7 @@ const cmsEditorReducer =
         });
       case types.SUBMIT_ARTICLE_SUCCESS:
         return update(state, {
-          isSubmitting: {
+          isLoading: {
             $set: false,
           },
           message: {

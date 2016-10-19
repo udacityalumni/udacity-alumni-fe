@@ -115,6 +115,7 @@ class CmsEditorContainer extends Component {
         article,
       },
     };
+    actions.submitArticleInitiation();
     createArticleMutation(data)
       .then(() => {
         actions.submitArticleSucces('Successfully created the article.');
@@ -136,6 +137,7 @@ class CmsEditorContainer extends Component {
         article,
       },
     };
+    actions.submitArticleInitiation();
     updateArticleMutation(data)
       .then(() => {
         actions.submitArticleSucces('Successfully updated the article.');
@@ -220,9 +222,9 @@ class CmsEditorContainer extends Component {
       editorTitle,
       isValid,
       preview,
-      articleUpdating,
+      isLoading,
     } = this.props;
-    const loading = loadingTags || articleLoading || articleUpdating;
+    const loading = loadingTags || articleLoading || isLoading;
     return (
       <div className={styles.cmsEditor}>
         {submissionError &&
@@ -276,7 +278,6 @@ class CmsEditorContainer extends Component {
 
 CmsEditorContainer.propTypes = {
   updateArticleMutation: PropTypes.func.isRequired,
-  articleUpdating: PropTypes.bool.isRequired,
   articleId: PropTypes.number,
   action: PropTypes.string,
   actions: PropTypes.object.isRequired,
@@ -298,7 +299,7 @@ CmsEditorContainer.propTypes = {
   articleLoading: PropTypes.bool.isRequired,
   refetchArticle: PropTypes.func.isRequired,
   createArticleMutation: PropTypes.func.isRequired,
-  articleCreating: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -309,7 +310,6 @@ CmsEditorContainer.contextTypes = {
 const mapStateToProps = (state) => ({
   submissionError: state.cmsEditorContainer.error,
   message: state.cmsEditorContainer.message,
-  isSubmitting: state.cmsEditorContainer.isSubmitting,
   modal: state.cmsEditorContainer.modal,
   editorState: state.cmsEditorContainer.editorState,
   editorTitle: state.cmsEditorContainer.editorTitle,
@@ -319,6 +319,7 @@ const mapStateToProps = (state) => ({
   action: state.cmsEditorContainer.article.action,
   user: state.app.user,
   authToken: state.app.authToken,
+  isLoading: state.cmsEditorContainer.isLoading,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -386,14 +387,13 @@ const ContainerWithMutations = graphql(updateArticleMutation, {
   options: () => ({
     fragments: [articleDataFragment],
   }),
-  props: ({ mutate, loading }) => ({
+  props: ({ mutate }) => ({
     updateArticleMutation: mutate,
-    articleUpdating: loading,
   }),
 })(ContainerWithArticle);
 
 const createArticleMutation = gql`
-mutation createArticleMutation($authToken: String!, $article: ArticleInput) {
+  mutation createArticleMutation($authToken: String!, $article: ArticleInput) {
     CreateArticle(input: { auth_token: $authToken, article: $article }) {
       article {
         ...articleDataFragment
@@ -406,9 +406,8 @@ const ContainerWithMoreMutations = graphql(createArticleMutation, {
   options: () => ({
     fragments: [articleDataFragment],
   }),
-  props: ({ mutate, loading }) => ({
+  props: ({ mutate }) => ({
     createArticleMutation: mutate,
-    articleCreating: loading,
   }),
 })(ContainerWithMutations);
 

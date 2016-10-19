@@ -1,7 +1,4 @@
 import * as types from './constants';
-import 'whatwg-fetch';
-const baseUrl = 'https://udacity-api.herokuapp.com/';
-const articlesUrl = `${baseUrl}api/v1/articles/`;
 
 // submitArticleInitiation :: None -> {Action}
 export const submitArticleInitiation = () => ({
@@ -19,38 +16,6 @@ export const submitArticleSucces = (message) => ({
   type: types.SUBMIT_ARTICLE_SUCCESS,
   message,
 });
-//
-// class Article {
-//   constructor() {
-//     const args = arguments[0];
-//     this.content = args.content;
-//     this.json = args.json;
-//     this.title = args.title;
-//     this.status = args.status;
-//     this.userId = args.userId || 1;
-//     this.featured = false;
-//     this.spotlighted = args.spotlighted;
-//     this.feature_image = args.feature_image || '';
-//     this.tags = args.tags;
-//     this.toJson = this.toJson.bind(this);
-//   }
-//   toJson() {
-//     const body = {
-//       article: {
-//         content: this.content,
-//         title: this.title,
-//         spotlighted: this.spotlighted,
-//         featured: this.featured,
-//         user_id: this.userId,
-//         status: this.status,
-//         json: this.json,
-//         feature_image: this.feature_image,
-//         tags_attributes: this.tags,
-//       },
-//     };
-//     return JSON.stringify(body);
-//   }
-// }
 
 // clearCmsMessage :: None -> {Action}
 export const clearCmsMessage = () => ({
