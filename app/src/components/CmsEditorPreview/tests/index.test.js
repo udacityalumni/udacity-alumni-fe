@@ -6,7 +6,12 @@ import React from 'react';
 describe('<CmsEditorPreview />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <CmsEditorPreview />
+      <CmsEditorPreview
+        title="Foobar"
+        content="Foobar@"
+        isShowing
+        onClose={e => e}
+      />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

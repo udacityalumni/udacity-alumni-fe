@@ -30,27 +30,27 @@ exports[`<CmsEditor /> should render with default props 1`] = `
         "allowUndo": true,
         "currentContent": Object {
           "blockMap": Object {
-            "ev6do": Object {
+            "305pe": Object {
               "characterList": Array [],
               "data": Object {},
               "depth": 0,
-              "key": "ev6do",
+              "key": "305pe",
               "text": "",
               "type": "unstyled"
             }
           },
           "selectionAfter": Object {
-            "anchorKey": "ev6do",
+            "anchorKey": "305pe",
             "anchorOffset": 0,
-            "focusKey": "ev6do",
+            "focusKey": "305pe",
             "focusOffset": 0,
             "hasFocus": false,
             "isBackward": false
           },
           "selectionBefore": Object {
-            "anchorKey": "ev6do",
+            "anchorKey": "305pe",
             "anchorOffset": 0,
-            "focusKey": "ev6do",
+            "focusKey": "305pe",
             "focusOffset": 0,
             "hasFocus": false,
             "isBackward": false
@@ -65,7 +65,7 @@ exports[`<CmsEditor /> should render with default props 1`] = `
           ]
         },
         "directionMap": Object {
-          "ev6do": "LTR"
+          "305pe": "LTR"
         },
         "forceSelection": false,
         "inCompositionMode": false,
@@ -74,15 +74,15 @@ exports[`<CmsEditor /> should render with default props 1`] = `
         "nativelyRenderedContent": null,
         "redoStack": Array [],
         "selection": Object {
-          "anchorKey": "ev6do",
+          "anchorKey": "305pe",
           "anchorOffset": 0,
-          "focusKey": "ev6do",
+          "focusKey": "305pe",
           "focusOffset": 0,
           "hasFocus": false,
           "isBackward": false
         },
         "treeMap": Object {
-          "ev6do": Array [
+          "305pe": Array [
             Object {
               "decoratorKey": null,
               "end": 0,

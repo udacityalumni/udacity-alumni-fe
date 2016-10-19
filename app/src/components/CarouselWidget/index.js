@@ -34,8 +34,8 @@ const CarouselWidget = ({
     <Box className={styles.carouselBox}>
       <Carousel>
         {images.map((image, i) =>
-          <Box align="center" justify="center">
-            <img src={image.url} key={i} className={styles.carouselImage} />
+          <Box align="center" justify="center" key={i}>
+            <img src={image.url} className={styles.carouselImage} />
             <div className={styles.overlay}>
               <Value
                 value={i + 1}

@@ -1,0 +1,257 @@
+exports[`<CarouselWidget /> should render with default props 1`] = `
+<div>
+  <Box
+    announce={false}
+    direction="column"
+    focusable={true}
+    pad="none"
+    responsive={true}
+    tag="div">
+    <Carousel
+      autoplay={true}
+      autoplaySpeed={5000}
+      infinite={true}
+      persistentNav={true}>
+      <Box
+        align="center"
+        announce={false}
+        direction="column"
+        focusable={true}
+        justify="center"
+        pad="none"
+        responsive={true}
+        tag="div">
+        <img
+          src="http://images.bidnessetc.com/img/960-google-adds-to-talent-bank-with-machine-learning-courses-on-udacity.jpg" />
+        <div>
+          <Value
+            align="center"
+            announce={false}
+            size="xlarge"
+            value={1} />
+          <div>
+            <Anchor
+              href="http://images.bidnessetc.com/img/960-google-adds-to-talent-bank-with-machine-learning-courses-on-udacity.jpg"
+              tag="a">
+              http://images.bidnessetc.com/img/960-google-adds-to-talent-bank-with-machine-lea...
+            </Anchor>
+          </div>
+        </div>
+      </Box>
+      <Box
+        align="center"
+        announce={false}
+        direction="column"
+        focusable={true}
+        justify="center"
+        pad="none"
+        responsive={true}
+        tag="div">
+        <img
+          src="https://s3-us-west-1.amazonaws.com/udacity-content/images/shared/self-driving-car-engineer-nanodegree.png" />
+        <div>
+          <Value
+            align="center"
+            announce={false}
+            size="xlarge"
+            value={2} />
+          <div>
+            <Anchor
+              href="https://s3-us-west-1.amazonaws.com/udacity-content/images/shared/self-driving-car-engineer-nanodegree.png"
+              tag="a">
+              https://s3-us-west-1.amazonaws.com/udacity-content/images/shared/self-driving-ca...
+            </Anchor>
+          </div>
+        </div>
+      </Box>
+    </Carousel>
+  </Box>
+  <Form
+    compact={false}
+    fill={false}
+    pad="none">
+    <Box
+      align="center"
+      announce={false}
+      direction="row"
+      focusable={true}
+      justify="between"
+      pad="none"
+      responsive={true}
+      tag="div">
+      <FormField
+        size="medium"
+        strong={false}>
+        <input
+          active={false}
+          autofilled={false}
+          dirty={false}
+          initialValue=""
+          invalid={false}
+          name="newImageInput"
+          placeholder="Add an image URL for the carousel"
+          pristine={true}
+          touched={true}
+          type="text"
+          valid={true}
+          value=""
+          visited={true} />
+      </FormField>
+      <span>
+        <Button
+          icon={
+            <function Icon() {
+                (0, _classCallCheck3.default)(this, Icon);
+                return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+              }
+              a11yTitleId="add-title"
+              responsive={true} />
+          }
+          onClick={[Function onClick]}
+          plain={true}
+          type="button" />
+      </span>
+    </Box>
+  </Form>
+  <Section
+    pad={
+      Object {
+        "vertical": "medium"
+      }
+    }>
+    <Heading
+      align="center"
+      tag="h3">
+      Current Images
+    </Heading>
+    <List
+      role="list">
+      <ListItem
+        align="center"
+        direction="row"
+        pad={
+          Object {
+            "horizontal": "medium",
+            "vertical": "small"
+          }
+        }
+        role="listitem"
+        separator="bottom">
+        <div>
+          <span>
+            <Value
+              align="center"
+              announce={false}
+              size="medium"
+              value={1} />
+          </span>
+          <span
+            style={
+              Object {
+                "flex": 1
+              }
+            }>
+            http://images.bidnessetc.com/img/960-google-adds-to-talent-bank-with-machine-lea...
+          </span>
+          <span>
+            <Button
+              icon={
+                <function Icon() {
+                    (0, _classCallCheck3.default)(this, Icon);
+                    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+                  }
+                  a11yTitleId="edit-title"
+                  responsive={true} />
+              }
+              onClick={[Function onClick]}
+              plain={true}
+              type="button" />
+          </span>
+          <span>
+            <Button
+              icon={
+                <function Icon() {
+                    (0, _classCallCheck3.default)(this, Icon);
+                    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+                  }
+                  a11yTitleId="trash-title"
+                  responsive={true} />
+              }
+              onClick={[Function onClick]}
+              plain={true}
+              type="button" />
+          </span>
+        </div>
+      </ListItem>
+      <ListItem
+        align="center"
+        direction="row"
+        pad={
+          Object {
+            "horizontal": "medium",
+            "vertical": "small"
+          }
+        }
+        role="listitem"
+        separator="bottom">
+        <Box
+          align="center"
+          announce={false}
+          direction="row"
+          focusable={true}
+          justify="between"
+          pad="none"
+          responsive={true}
+          tag="div">
+          <FormField
+            size="medium"
+            strong={false}>
+            <input
+              active={false}
+              autofilled={false}
+              dirty={false}
+              initialValue=""
+              invalid={false}
+              name="editImageInput"
+              placeholder="https://s3-us-west-1.amazonaws.com/udacity-content/images/shared/self-driving-car-engineer-nanodegree.png"
+              pristine={true}
+              touched={true}
+              type="text"
+              valid={true}
+              value=""
+              visited={true} />
+          </FormField>
+          <span>
+            <Button
+              icon={
+                <function Icon() {
+                    (0, _classCallCheck3.default)(this, Icon);
+                    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+                  }
+                  a11yTitleId="checkmark-title"
+                  responsive={true} />
+              }
+              onClick={[Function onClick]}
+              plain={true}
+              type="button" />
+          </span>
+          <span>
+            <Button
+              icon={
+                <function Icon() {
+                    (0, _classCallCheck3.default)(this, Icon);
+                    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+                  }
+                  a11yTitleId="close-title"
+                  responsive={true} />
+              }
+              onClick={[Function onClick]}
+              plain={true}
+              type="button" />
+          </span>
+        </Box>
+      </ListItem>
+    </List>
+  </Section>
+</div>
+`;

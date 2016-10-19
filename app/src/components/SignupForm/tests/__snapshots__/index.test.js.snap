@@ -148,7 +148,7 @@ exports[`<SignupForm /> should render with default props 1`] = `
       <Button
         fill={true}
         label="Submit"
-        onClick={null}
+        onClick={[Function onSubmit]}
         primary={true}
         type="button" />
     </Footer>

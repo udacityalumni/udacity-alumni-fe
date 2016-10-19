@@ -8,7 +8,11 @@ exports[`<SingleArticleContent /> should render with default props 1`] = `
     Creditable coverage Hcfa common procedure coding system Group health plan
   </Headline>
   <Image
-    full="true"
+    full={
+      Object {
+        "horizontal": true
+      }
+    }
     size="medium"
     src="https://robohash.org/magnietnon.png?size=300x300" />
   <Box
