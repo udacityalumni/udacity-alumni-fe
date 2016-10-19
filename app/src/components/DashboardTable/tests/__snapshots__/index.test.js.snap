@@ -55,19 +55,52 @@ exports[`<DashboardTable /> should render with default props 1`] = `
           </Anchor>
         </td>
         <td>
-          <span>
-            <Anchor
+          <Menu
+            closeOnClick={true}
+            direction="row"
+            dropAlign={
+              Object {
+                "left": "left",
+                "top": "top"
+              }
+            }
+            inline={true}
+            pad="none">
+            <Button
               href="/admin/cms?action=edit&articleId=0"
-              tag="a">
-              Edit
-            </Anchor>
-             / 
-            <Anchor
+              icon={
+                <function Icon() {
+                    (0, _classCallCheck3.default)(this, Icon);
+                    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+                  }
+                  a11yTitleId="edit-title"
+                  responsive={true} />
+              }
+              plain={true}
+              style={
+                Object {
+                  "padding": 5
+                }
+              }
+              type="button" />
+            <Button
               href="/admin/cms?action=delete&articleId=0"
-              tag="a">
-              Delete
-            </Anchor>
-          </span>
+              icon={
+                <function Icon() {
+                    (0, _classCallCheck3.default)(this, Icon);
+                    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+                  }
+                  a11yTitleId="trash-title"
+                  responsive={true} />
+              }
+              plain={true}
+              style={
+                Object {
+                  "padding": 5
+                }
+              }
+              type="button" />
+          </Menu>
         </td>
       </TableRow>
     </tbody>

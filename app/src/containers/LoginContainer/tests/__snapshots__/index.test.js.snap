@@ -6,6 +6,8 @@ exports[`<LoginContainer /> should render with default props 1`] = `
       "appToggleNav": [Function anonymous],
       "clearSearchTerm": [Function anonymous],
       "invalidateAuthUser": [Function anonymous],
+      "loadAuthToken": [Function anonymous],
+      "loadPersistedAuthToken": [Function anonymous],
       "loadPersistedUser": [Function anonymous],
       "loginClearError": [Function anonymous],
       "loginClearMessage": [Function anonymous],

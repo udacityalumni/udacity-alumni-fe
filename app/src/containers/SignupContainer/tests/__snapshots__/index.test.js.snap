@@ -8,6 +8,8 @@ exports[`<Signup /> should render with default props 1`] = `
       "clearSignupError": [Function anonymous],
       "handleSignup": [Function anonymous],
       "invalidateAuthUser": [Function anonymous],
+      "loadAuthToken": [Function anonymous],
+      "loadPersistedAuthToken": [Function anonymous],
       "loadPersistedUser": [Function anonymous],
       "logoutUser": [Function anonymous],
       "setAuthUser": [Function anonymous],
