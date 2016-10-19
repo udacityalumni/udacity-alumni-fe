@@ -3,25 +3,18 @@ import update from 'react-addons-update';
 
 export const initialState = {
   currentlyEditing: null,
-  images: [
-    {
-      id: 1,
-      url:"https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/Udacity-Self-Driving-Car-Engineer-Nanodegree-800x333.jpg?raw=true",
-    },
-    {
-      id: 2,
-      url: "https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/VRDeveloperNanodegreeProgram.png?raw=true",
-    },
-    {
-      id: 3,
-      url: "https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/deeplearning.jpg?raw=true",
-    },
-  ],
+  images: null,
 };
 
 const carouselWidgetReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.CAROUSEL_SET_IMAGES:
+        return update(state, {
+          images: {
+            $set: action.images,
+          },
+        });
       case types.CAROUSEL_SET_EDITING:
         return update(state, {
           currentlyEditing: {

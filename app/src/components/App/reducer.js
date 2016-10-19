@@ -22,11 +22,18 @@ export const initialState = {
   navIsActive: false,
   isMobile: false,
   searchTerm: null,
+  authToken: null,
 };
 
 const appReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.SET_AUTH_TOKEN:
+        return update(state, {
+          authToken: {
+            $set: action.token,
+          },
+        });
       case types.APP_SET_MOBILE:
         return update(state, {
           isMobile: {

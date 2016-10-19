@@ -45,7 +45,7 @@ class Article {
         status: this.status,
         json: this.json,
         featured_image: this.featuredImage,
-        tags: this.tags,
+        tags_attributes: this.tags,
       },
     };
     return JSON.stringify(body);

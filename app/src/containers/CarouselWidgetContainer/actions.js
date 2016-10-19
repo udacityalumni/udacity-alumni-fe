@@ -25,3 +25,8 @@ export const carouselCancelEditing = (index) => ({
   type: types.CAROUSEL_CANCEL_EDITING,
   index,
 });
+
+export const carouselSetImages = (images) => ({
+  type: types.CAROUSEL_SET_IMAGES,
+  images,
+});
