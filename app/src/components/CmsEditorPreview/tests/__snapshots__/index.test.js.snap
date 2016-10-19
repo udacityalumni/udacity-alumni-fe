@@ -2,7 +2,8 @@ exports[`<CmsEditorPreview /> should render with default props 1`] = `
 <Layer
   align="center"
   closer={true}
-  hidden={true}>
+  hidden={false}
+  onClose={[Function onClose]}>
   <Box
     announce={false}
     direction="column"
@@ -14,13 +15,11 @@ exports[`<CmsEditorPreview /> should render with default props 1`] = `
     <Heading
       align="center"
       tag="h1">
-      No Title Set
+      Foobar
     </Heading>
-    <Heading
-      align="center"
-      tag="h5">
-      No Content
-    </Heading>
+    <Markdown
+      components={Object {}}
+      content="Foobar@" />
   </Box>
 </Layer>
 `;

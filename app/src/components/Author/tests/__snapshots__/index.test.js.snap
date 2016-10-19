@@ -36,7 +36,9 @@ exports[`<Author /> should render with default props 1`] = `
     size="large">
     <Heading
       align="center"
-      tag="h5" />
+      tag="h5">
+      Hello world
+    </Heading>
   </Quote>
 </Article>
 `;

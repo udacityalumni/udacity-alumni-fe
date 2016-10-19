@@ -39,17 +39,17 @@ exports[`<NotFound /> should render with default props 1`] = `
         alignContent="center"
         className="problem"
         tag="h1">
-        We did not manage to reticulate all splines
+        And now for something slightly different...
       </Heading>
       <Paragraph
         className="solution">
-        Learn to reticulate inputs to make cars spin their splines autonomously!
+        Learn about Business Analysis, because, you know... money.
       </Paragraph>
       <Anchor
         className="solution-link"
-        href="https://www.udacity.com/drive"
+        href="https://www.udacity.com/course/predictive-analytics-for-business--nd008"
         tag="a">
-        Self-Driving Car Nanodegree
+        Predictive Analytics for Business Nanodegree
       </Anchor>
     </Box>
   </Box>

@@ -2,7 +2,8 @@ exports[`<CmsModal /> should render with default props 1`] = `
 <Layer
   align="center"
   closer={true}
-  hidden={true}>
+  hidden={false}
+  onClose={[Function onClose]}>
   <Box
     announce={false}
     direction="column"
@@ -26,10 +27,11 @@ exports[`<CmsModal /> should render with default props 1`] = `
         size="medium"
         strong={false}>
         <CheckBox
-          checked={false}
+          checked={true}
           id="spotlight-toggle"
           label="Spotlight"
           name="spotlight"
+          onChange={[Function onToggleSpotlight]}
           toggle={true} />
       </FormField>
       <FormField
@@ -57,6 +59,81 @@ exports[`<CmsModal /> should render with default props 1`] = `
           }
           value="Draft" />
       </FormField>
+      <FormField
+        label="Tags"
+        size="medium"
+        strong={false}>
+        <undefined
+          onChangeValue={[Function onChangeValue]}
+          selectedTags={
+            Array [
+              Object {
+                "id": "1",
+                "slug": "software-engineering",
+                "tag": "Software Engineering"
+              }
+            ]
+          }
+          tags={
+            Array [
+              Object {
+                "id": "1",
+                "slug": "software-engineering",
+                "tag": "Software Engineering"
+              },
+              Object {
+                "id": "2",
+                "slug": "open-source",
+                "tag": "Open Source"
+              },
+              Object {
+                "id": "3",
+                "slug": "mobile",
+                "tag": "Mobile"
+              },
+              Object {
+                "id": "4",
+                "slug": "web",
+                "tag": "Web"
+              },
+              Object {
+                "id": "5",
+                "slug": "machine-learning",
+                "tag": "Machine Learning"
+              },
+              Object {
+                "id": "6",
+                "slug": "data-analysis",
+                "tag": "Data Analysis"
+              },
+              Object {
+                "id": "7",
+                "slug": "javascript",
+                "tag": "JavaScript"
+              },
+              Object {
+                "id": "8",
+                "slug": "react",
+                "tag": "React"
+              },
+              Object {
+                "id": "9",
+                "slug": "graphql",
+                "tag": "GraphQL"
+              },
+              Object {
+                "id": "10",
+                "slug": "ruby-on-rails",
+                "tag": "Ruby on Rails"
+              },
+              Object {
+                "id": "11",
+                "slug": "salary-negotiation",
+                "tag": "Salary Negotiation"
+              }
+            ]
+          } />
+      </FormField>
     </FormFields>
     <Footer
       align="center"
@@ -66,7 +143,7 @@ exports[`<CmsModal /> should render with default props 1`] = `
       responsive={false}>
       <Button
         label="Publish"
-        onClick={null}
+        onClick={[Function onSave]}
         type="button" />
     </Footer>
   </Form>

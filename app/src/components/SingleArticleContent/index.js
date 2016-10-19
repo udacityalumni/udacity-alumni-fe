@@ -14,7 +14,7 @@ const SingleArticleContent = ({
     <Headline align="center">
       {article.title}
     </Headline>
-    <Image src={article.feature_image} full="true" />
+    <Image src={article.feature_image} />
     <Box
       align="center"
       justify="center"
