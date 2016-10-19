@@ -27,6 +27,18 @@ export const setAuthUser = (user) => ({
   user,
 });
 
+export const loadAuthToken = (token) => ({
+  type: types.SET_AUTH_TOKEN,
+  token,
+});
+
+export const loadPersistedAuthToken = () => (dispatch) => {
+  const token = localStorage.getItem('auth_token');
+  dispatch(
+    loadAuthToken(token)
+  );
+};
+
 export const setPersistentUser = (user) => (dispatch) => {
   localStorage.setItem('user', JSON.stringify(user));
   dispatch(

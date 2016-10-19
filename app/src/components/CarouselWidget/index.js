@@ -9,7 +9,6 @@ import Carousel from 'grommet-udacity/components/Carousel';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Section from 'grommet-udacity/components/Section';
 import Value from 'grommet-udacity/components/Value';
-import Footer from 'grommet-udacity/components/Footer';
 import Heading from 'grommet-udacity/components/Heading';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import TrashIcon from 'grommet-udacity/components/icons/base/Trash';
@@ -30,7 +29,6 @@ const CarouselWidget = ({
   currentlyEditing,
   setEditing,
   cancelEditing,
-  onSaveImages,
 }) => (
   <div className={styles.carouselWidget}>
     <Box className={styles.carouselBox}>
@@ -46,7 +44,7 @@ const CarouselWidget = ({
               />
               <div className={styles.anchorOverlay}>
                 <Anchor href={image.url}>
-                  {image.url.length > 100 ? `${image.url.slice(0, 100)}...` : image.url}
+                  {image.url.length > 80 ? `${image.url.slice(0, 80)}...` : image.url}
                 </Anchor>
               </div>
             </div>
@@ -124,7 +122,9 @@ const CarouselWidget = ({
                 <span className={styles.imageNum}>
                   <Value value={i + 1} size="medium" />
                 </span>
-                <span style={{ flex: 1 }}>{image.url}</span>
+                <span style={{ flex: 1 }}>
+                  {image.url.length > 80 ? `${image.url.slice(0, 80)}...` : image.url}
+                </span>
                 <span>
                   <Button
                     plain
@@ -144,12 +144,6 @@ const CarouselWidget = ({
           </ListItem>
         )}
       </List>
-      <Footer pad={{ vertical: 'large' }} align="center" justify="center">
-        <Button
-          label="Save Images"
-          onClick={onSaveImages}
-        />
-      </Footer>
     </Section>
   </div>
 );

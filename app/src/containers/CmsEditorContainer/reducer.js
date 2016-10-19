@@ -56,15 +56,27 @@ const previewReducer = (state = initialState.preview, action) => {
   }
 };
 
+const statusEnum = (status) => {
+  switch (status) {
+    case 'draft':
+      return 0;
+    case 'published':
+      return 1;
+    case 'archived':
+      return 2;
+    default: return 0;
+  }
+};
+
 const modalReducer = (state = initialState.modal, action) => {
   switch (action.type) {
     case types.CMS_SET_STATE_FROM_ARTICLE:
-      return udpdate(state, {
+      return update(state, {
         spotlighted: {
           $set: action.article.spotlighted,
         },
         status: {
-          $set: action.article.status,
+          $set: statusEnum(action.article.status),
         },
         selectedTags: {
           $set: action.article.tags.map((tag) =>
@@ -219,6 +231,9 @@ const cmsEditorReducer =
       case types.CMS_SET_STATE_FROM_ARTICLE:
         const rawContent = JSON.parse(action.article.json);
         return update(state, {
+          isValid: {
+            $set: true,
+          },
           editorState: {
             $set: editorStateFromRaw(rawContent),
           },
@@ -226,7 +241,7 @@ const cmsEditorReducer =
             $set: action.article.title,
           },
           modal: {
-            $set: modalReducer(state.modal, action), 
+            $set: modalReducer(state.modal, action),
           },
         });
       default:

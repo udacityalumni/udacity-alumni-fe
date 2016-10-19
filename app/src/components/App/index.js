@@ -46,8 +46,10 @@ class Main extends Component {
   loadUser() {
     const {
       loadPersistedUser,
+      loadPersistedAuthToken,
     } = this.props.actions;
     loadPersistedUser();
+    loadPersistedAuthToken();
   }
   handleSetMobile() {
     const isMobile = window.innerWidth <= 768;
