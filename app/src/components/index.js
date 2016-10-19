@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export SingleArticleContent from './SingleArticleContent';
 export CarouselWidget from './CarouselWidget';
 export CmsEditorPreview from './CmsEditorPreview';
 export CmsModal from './CmsModal';
