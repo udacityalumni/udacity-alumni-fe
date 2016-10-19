@@ -7,7 +7,6 @@ import styles from './index.module.scss';
 import Heading from 'grommet-udacity/components/Heading';
 import Box from 'grommet-udacity/components/Box';
 import Section from 'grommet-udacity/components/Section';
-import { CarouselWidget, MainAside } from 'components';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { reduxForm } from 'redux-form';
@@ -15,6 +14,8 @@ import calculateLoading from './utils/loading';
 import {
   LoadingIndicator,
   ErrorAlert,
+  MainAside,
+  CarouselWidget,
 } from 'components';
 
 const formFields = [
