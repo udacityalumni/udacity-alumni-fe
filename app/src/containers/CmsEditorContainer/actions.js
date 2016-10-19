@@ -19,74 +19,38 @@ export const submitArticleSucces = (message) => ({
   type: types.SUBMIT_ARTICLE_SUCCESS,
   message,
 });
-
-class Article {
-  constructor() {
-    const args = arguments[0];
-    this.content = args.content;
-    this.json = args.json;
-    this.title = args.title;
-    this.status = args.status;
-    this.userId = args.userId || 1;
-    this.featured = false;
-    this.spotlighted = args.spotlighted;
-    this.feature_image = args.feature_image || '';
-    this.tags = args.tags;
-    this.toJson = this.toJson.bind(this);
-  }
-  toJson() {
-    const body = {
-      article: {
-        content: this.content,
-        title: this.title,
-        spotlighted: this.spotlighted,
-        featured: this.featured,
-        user_id: this.userId,
-        status: this.status,
-        json: this.json,
-        feature_image: this.feature_image,
-        tags_attributes: this.tags,
-      },
-    };
-    return JSON.stringify(body);
-  }
-}
-
-const inputToArticle = (input) => new Article(input);
-
-export const submitArticleRequest = (input) =>
-  (dispatch) => {
-    const article = inputToArticle(input);
-    if (!article && !article.toJson()) {
-      throw new Error('Unable to encode the article data.');
-    }
-    dispatch(submitArticleInitiation());
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    const body = article.toJson();
-    fetch(articlesUrl, {
-      method: 'POST',
-      headers,
-      body,
-    })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error(
-          `The following error has occured: ${res.statusText}. Code ${res.status}`
-        );
-      }
-      dispatch(
-        submitArticleSucces('The article has successfully been submitted!')
-      );
-    })
-    .catch(err => {
-      const error = err ||
-        new Error('An unknown error has occured.');
-      dispatch(
-        submitArticleFailure(error)
-      );
-    });
-  };
+//
+// class Article {
+//   constructor() {
+//     const args = arguments[0];
+//     this.content = args.content;
+//     this.json = args.json;
+//     this.title = args.title;
+//     this.status = args.status;
+//     this.userId = args.userId || 1;
+//     this.featured = false;
+//     this.spotlighted = args.spotlighted;
+//     this.feature_image = args.feature_image || '';
+//     this.tags = args.tags;
+//     this.toJson = this.toJson.bind(this);
+//   }
+//   toJson() {
+//     const body = {
+//       article: {
+//         content: this.content,
+//         title: this.title,
+//         spotlighted: this.spotlighted,
+//         featured: this.featured,
+//         user_id: this.userId,
+//         status: this.status,
+//         json: this.json,
+//         feature_image: this.feature_image,
+//         tags_attributes: this.tags,
+//       },
+//     };
+//     return JSON.stringify(body);
+//   }
+// }
 
 // clearCmsMessage :: None -> {Action}
 export const clearCmsMessage = () => ({

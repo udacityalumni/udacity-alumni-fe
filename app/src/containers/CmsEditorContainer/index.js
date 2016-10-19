@@ -10,6 +10,7 @@ import { convertFromRaw } from 'draft-js';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import articleDataFragment from './graph/fragments';
+import inputToArticle from './model/articleSubmission';
 import {
   CmsEditor,
   ToastMessage,
@@ -17,17 +18,6 @@ import {
   LoadingIndicator,
   CmsEditorPreview,
 } from 'components';
-
-const status = (value) => {
-  switch(value) {
-    case 0:
-      return 'draft';
-    case 1:
-      return 'published';
-    case 2:
-      return 'archived';
-  }
-}
 
 class CmsEditorContainer extends Component {
   constructor() {
@@ -95,38 +85,44 @@ class CmsEditorContainer extends Component {
       editorTitle,
       editorState,
       modal,
-      user,
     } = this.props;
-    const rawState = editorStateToJSON(editorState);
-    const blockArray = convertFromRaw(JSON.parse(rawState));
-    const markdown = stateToMarkdown(blockArray);
-    const input = {
-      content: markdown,
-      json: rawState,
+    const json = editorStateToJSON(editorState);
+    const blockArray = convertFromRaw(JSON.parse(json));
+    const content = stateToMarkdown(blockArray);
+    const article = inputToArticle({
+      json,
+      content,
       title: editorTitle,
       spotlighted: modal.spotlighted,
-      status: status(modal.status),
-      tags: modal.selectedTags.map((tag) => ({
-        tag: tag.label,
-      })),
+      tags: modal.selectedTags,
       feature_image: '',
-    };
+    });
     if (action && action === 'edit') {
-      this.handleUpdateArticleSubmission(input);
+      this.handleUpdateArticleSubmission(article);
     } else {
-      // HACK: Need to set user id for new article submission
-      // Sorry for all the complexity here :D.
-      input.userId = user.id;
-      this.handleNewArticleSubmission(input);
+      this.handleNewArticleSubmission(article);
     }
   }
-  handleNewArticleSubmission(input) {
+  handleNewArticleSubmission(article) {
     const {
-      submitArticleRequest,
-    } = this.props.actions;
-    submitArticleRequest(input);
+      actions,
+      authToken,
+      createArticleMutation,
+    } = this.props;
+    const data = {
+      variables: {
+        authToken,
+        article,
+      },
+    };
+    createArticleMutation(data)
+      .then(() => {
+        actions.submitArticleSucces('Successfully created the article.');
+      }).catch(err => {
+        actions.submitArticleFailure(err);
+      });
   }
-  handleUpdateArticleSubmission(input) {
+  handleUpdateArticleSubmission(article) {
     const {
       updateArticleMutation,
       articleId,
@@ -137,7 +133,7 @@ class CmsEditorContainer extends Component {
       variables: {
         authToken,
         id: articleId,
-        article: input,
+        article,
       },
     };
     updateArticleMutation(data)
@@ -301,6 +297,8 @@ CmsEditorContainer.propTypes = {
   article: PropTypes.object,
   articleLoading: PropTypes.bool.isRequired,
   refetchArticle: PropTypes.func.isRequired,
+  createArticleMutation: PropTypes.func.isRequired,
+  articleCreating: PropTypes.func.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -388,13 +386,33 @@ const ContainerWithMutations = graphql(updateArticleMutation, {
   options: () => ({
     fragments: [articleDataFragment],
   }),
-  props: ({ mutate, loading, error }) => ({
+  props: ({ mutate, loading }) => ({
     updateArticleMutation: mutate,
     articleUpdating: loading,
   }),
 })(ContainerWithArticle);
 
+const createArticleMutation = gql`
+mutation createArticleMutation($authToken: String!, $article: ArticleInput) {
+    CreateArticle(input: { auth_token: $authToken, article: $article }) {
+      article {
+        ...articleDataFragment
+      }
+    }
+  }
+`;
+
+const ContainerWithMoreMutations = graphql(createArticleMutation, {
+  options: () => ({
+    fragments: [articleDataFragment],
+  }),
+  props: ({ mutate, loading }) => ({
+    createArticleMutation: mutate,
+    articleCreating: loading,
+  }),
+})(ContainerWithMutations);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ContainerWithMutations);
+)(ContainerWithMoreMutations);
