@@ -18,6 +18,17 @@ import {
   CmsEditorPreview,
 } from 'components';
 
+const status = (value) => {
+  switch(value) {
+    case 0:
+      return 'draft';
+    case 1:
+      return 'published';
+    case 2:
+      return 'archived';
+  }
+}
+
 class CmsEditorContainer extends Component {
   constructor() {
     super();
@@ -33,6 +44,8 @@ class CmsEditorContainer extends Component {
     this.handleClosePreview = this.handleClosePreview.bind(this);
     this.handlePreviewArticle = this.handlePreviewArticle.bind(this);
     this.handleLoadingArticle = this.handleLoadingArticle.bind(this);
+    this.handleNewArticleSubmission = this.handleNewArticleSubmission.bind(this);
+    this.handleUpdateArticleSubmission = this.handleUpdateArticleSubmission.bind(this);
   }
   componentDidMount() {
     const {
@@ -78,14 +91,12 @@ class CmsEditorContainer extends Component {
   }
   handleSubmit() {
     const {
+      action,
       editorTitle,
       editorState,
       modal,
       user,
     } = this.props;
-    const {
-      submitArticleRequest,
-    } = this.props.actions;
     const rawState = editorStateToJSON(editorState);
     const blockArray = convertFromRaw(JSON.parse(rawState));
     const markdown = stateToMarkdown(blockArray);
@@ -94,14 +105,47 @@ class CmsEditorContainer extends Component {
       json: rawState,
       title: editorTitle,
       spotlighted: modal.spotlighted,
-      status: modal.status,
+      status: status(modal.status),
       tags: modal.selectedTags.map((tag) => ({
         tag: tag.label,
       })),
-      featuredImage: '',
-      userId: user.id,
+      feature_image: '',
     };
+    if (action && action === 'edit') {
+      this.handleUpdateArticleSubmission(input);
+    } else {
+      // HACK: Need to set user id for new article submission
+      // Sorry for all the complexity here :D.
+      input.userId = user.id;
+      this.handleNewArticleSubmission(input);
+    }
+  }
+  handleNewArticleSubmission(input) {
+    const {
+      submitArticleRequest,
+    } = this.props.actions;
     submitArticleRequest(input);
+  }
+  handleUpdateArticleSubmission(input) {
+    const {
+      updateArticleMutation,
+      articleId,
+      authToken,
+      actions,
+    } = this.props;
+    const data = {
+      variables: {
+        authToken,
+        id: articleId,
+        article: input,
+      },
+    };
+    updateArticleMutation(data)
+      .then(() => {
+        actions.submitArticleSucces('Successfully updated the article.');
+      }).catch(err => {
+        actions.submitArticleFailure(err);
+      });
   }
   handleCloseToast({ type }) {
     const {
@@ -181,15 +225,13 @@ class CmsEditorContainer extends Component {
       isValid,
       preview,
       articleUpdating,
-      articleUpdateError,
     } = this.props;
-    const error = submissionError || articleUpdateError;
     const loading = loadingTags || articleLoading || articleUpdating;
     return (
       <div className={styles.cmsEditor}>
-        {error &&
+        {submissionError &&
           <ToastMessage
-            message={error.message}
+            message={submissionError.message}
             onClose={() => this.handleCloseToast({ type: 'error' })}
             status="critical"
           />
@@ -239,8 +281,8 @@ class CmsEditorContainer extends Component {
 CmsEditorContainer.propTypes = {
   updateArticleMutation: PropTypes.func.isRequired,
   articleUpdating: PropTypes.bool.isRequired,
-  articleUpdateError: PropTypes.object,
   articleId: PropTypes.number,
+  action: PropTypes.string,
   actions: PropTypes.object.isRequired,
   submissionError: PropTypes.object,
   message: PropTypes.string,
@@ -248,8 +290,8 @@ CmsEditorContainer.propTypes = {
   tags: PropTypes.array.isRequired,
   loadingTags: PropTypes.bool.isRequired,
   user: PropTypes.object.isRequired,
+  authToken: PropTypes.string.isRequired,
   refetch: PropTypes.func.isRequired,
-  mutate: PropTypes.func.isRequired,
   editorState: PropTypes.object,
   editorTitle: PropTypes.string,
   isValid: PropTypes.bool.isRequired,
@@ -278,6 +320,7 @@ const mapStateToProps = (state) => ({
   articleId: state.cmsEditorContainer.article.id,
   action: state.cmsEditorContainer.article.action,
   user: state.app.user,
+  authToken: state.app.authToken,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -332,10 +375,10 @@ const ContainerWithArticle = graphql(loadArticleQuery, {
 
 const updateArticleMutation = gql`
 mutation updateArticleMutation($id: ID!,
-  $token: String!, $article: ArticleInput) {
-    UpdateArticle(input: { id: $id, auth_token: $token, article: $article }) {
+  $authToken: String!, $article: ArticleInput) {
+    UpdateArticle(input: { id: $id, auth_token: $authToken, article: $article }) {
       article {
-        ...articleData
+        ...articleDataFragment
       }
     }
   }
@@ -348,7 +391,6 @@ const ContainerWithMutations = graphql(updateArticleMutation, {
   props: ({ mutate, loading, error }) => ({
     updateArticleMutation: mutate,
     articleUpdating: loading,
-    articleUpdateError: error,
   }),
 })(ContainerWithArticle);
 

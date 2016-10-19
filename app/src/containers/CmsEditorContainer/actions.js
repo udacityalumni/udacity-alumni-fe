@@ -30,7 +30,7 @@ class Article {
     this.userId = args.userId || 1;
     this.featured = false;
     this.spotlighted = args.spotlighted;
-    this.featuredImage = args.featuredImage || '';
+    this.feature_image = args.feature_image || '';
     this.tags = args.tags;
     this.toJson = this.toJson.bind(this);
   }
@@ -44,7 +44,7 @@ class Article {
         user_id: this.userId,
         status: this.status,
         json: this.json,
-        featured_image: this.featuredImage,
+        feature_image: this.feature_image,
         tags_attributes: this.tags,
       },
     };
