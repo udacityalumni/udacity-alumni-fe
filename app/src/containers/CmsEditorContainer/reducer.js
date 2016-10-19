@@ -58,6 +58,23 @@ const previewReducer = (state = initialState.preview, action) => {
 
 const modalReducer = (state = initialState.modal, action) => {
   switch (action.type) {
+    case types.CMS_SET_STATE_FROM_ARTICLE:
+      return udpdate(state, {
+        spotlighted: {
+          $set: action.article.spotlighted,
+        },
+        status: {
+          $set: action.article.status,
+        },
+        selectedTags: {
+          $set: action.article.tags.map((tag) =>
+            ({
+              value: tag.tag,
+              label: tag.tag,
+            }),
+          ),
+        },
+      });
     case types.CMS_TOGGLE_SPOTLIGHT:
       return update(state, {
         spotlighted: {
@@ -207,6 +224,9 @@ const cmsEditorReducer =
           },
           editorTitle: {
             $set: action.article.title,
+          },
+          modal: {
+            $set: modalReducer(state.modal, action), 
           },
         });
       default:
