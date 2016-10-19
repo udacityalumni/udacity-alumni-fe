@@ -1,4 +1,5 @@
 import * as types from './constants';
+import { reset } from 'redux-form';
 
 // carouselAddImage :: JSON -> {Action}
 export const carouselAddImage = (image) => ({
@@ -36,3 +37,9 @@ export const carouselSetImages = (images) => ({
   type: types.CAROUSEL_SET_IMAGES,
   images,
 });
+
+export const carouselResetForm = () => (dispatch) => {
+  dispatch(
+    reset('CarouselWidget')
+  );
+};

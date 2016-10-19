@@ -46,6 +46,7 @@ class CarouselWidgetContainer extends Component {
       .then(res => {
         const newImage = res.data.CreateSpotlightImage.spotlight_image;
         actions.carouselAddImage(newImage);
+        actions.carouselResetForm();
         refetch();
       });
   }
@@ -67,6 +68,7 @@ class CarouselWidgetContainer extends Component {
       .then(res => {
         const newImage = res.data.UpdateSpotlightImage.spotlight_image;
         actions.carouselEditImage(index, newImage);
+        actions.carouselResetForm();
         refetch();
       });
   }

@@ -9,6 +9,7 @@ import{ editorStateToJSON } from 'megadraft';
 import { convertFromRaw } from 'draft-js';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import articleDataFragment from './graph/fragments';
 import {
   CmsEditor,
   ToastMessage,
@@ -179,12 +180,16 @@ class CmsEditorContainer extends Component {
       editorTitle,
       isValid,
       preview,
+      articleUpdating,
+      articleUpdateError,
     } = this.props;
+    const error = submissionError || articleUpdateError;
+    const loading = loadingTags || articleLoading || articleUpdating;
     return (
       <div className={styles.cmsEditor}>
-        {submissionError &&
+        {error &&
           <ToastMessage
-            message={submissionError.message}
+            message={error.message}
             onClose={() => this.handleCloseToast({ type: 'error' })}
             status="critical"
           />
@@ -195,7 +200,7 @@ class CmsEditorContainer extends Component {
             onClose={() => this.handleCloseToast({ type: 'message' })}
           />
         }
-        {loadingTags || articleLoading &&
+        {loading &&
           <LoadingIndicator isLoading />
         }
         <CmsEditor
@@ -232,6 +237,9 @@ class CmsEditorContainer extends Component {
 }
 
 CmsEditorContainer.propTypes = {
+  updateArticleMutation: PropTypes.func.isRequired,
+  articleUpdating: PropTypes.bool.isRequired,
+  articleUpdateError: PropTypes.object,
   articleId: PropTypes.number,
   actions: PropTypes.object.isRequired,
   submissionError: PropTypes.object,
@@ -302,17 +310,7 @@ const ContainerWithTags = graphql(loadTagsQuery, {
 const loadArticleQuery = gql`
   query getArticle($id: ID) {
     article(id: $id) {
-      title
-      status
-      content
-      json
-      spotlighted
-      featured
-      feature_image
-      tags {
-        id
-        tag
-      }
+      ...articleDataFragment
     }
   }
 `;
@@ -323,6 +321,7 @@ const ContainerWithArticle = graphql(loadArticleQuery, {
     variables: {
       id: parseInt(ownProps.articleId, 10),
     },
+    fragments: [articleDataFragment],
   }),
   props: ({ data: { article, loading, refetch } }) => ({
     articleLoading: loading,
@@ -331,7 +330,29 @@ const ContainerWithArticle = graphql(loadArticleQuery, {
   }),
 })(ContainerWithTags);
 
+const updateArticleMutation = gql`
+mutation updateArticleMutation($id: ID!,
+  $token: String!, $article: ArticleInput) {
+    UpdateArticle(input: { id: $id, auth_token: $token, article: $article }) {
+      article {
+        ...articleData
+      }
+    }
+  }
+`;
+
+const ContainerWithMutations = graphql(updateArticleMutation, {
+  options: () => ({
+    fragments: [articleDataFragment],
+  }),
+  props: ({ mutate, loading, error }) => ({
+    updateArticleMutation: mutate,
+    articleUpdating: loading,
+    articleUpdateError: error,
+  }),
+})(ContainerWithArticle);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ContainerWithArticle);
+)(ContainerWithMutations);

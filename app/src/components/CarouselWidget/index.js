@@ -15,6 +15,7 @@ import TrashIcon from 'grommet-udacity/components/icons/base/Trash';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
 import CloseIcon from 'grommet-udacity/components/icons/base/Close';
 import AddIcon from 'grommet-udacity/components/icons/base/Add';
+import DragIcon from 'grommet-udacity/components/icons/base/Drag';
 
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
