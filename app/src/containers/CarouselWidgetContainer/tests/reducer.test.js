@@ -1,5 +1,5 @@
 import expect from 'expect';
-import * as types from './constants';
+import * as types from '../constants';
 import carouselWidgetReducer, { initialState } from '../reducer';
 
 describe('carouselWidgetReducer', () => {
