@@ -24,6 +24,7 @@ describe('carouselWidgetReducer', () => {
     expect(
       carouselWidgetReducer(stateBefore, {
         type: types.CAROUSEL_SET_IMAGES,
+        images,
       })
     ).toEqual(stateAfter);
   });
@@ -38,6 +39,7 @@ describe('carouselWidgetReducer', () => {
     expect(
       carouselWidgetReducer(stateBefore, {
         type: types.CAROUSEL_SET_EDITING,
+        index,
       })
     ).toEqual(stateAfter);
   });
@@ -55,7 +57,7 @@ describe('carouselWidgetReducer', () => {
     ).toEqual(stateAfter);
   });
   it('should handle reducer for CAROUSEL_ADD_IMAGE', () => {
-    const images = [
+    const imagesAfter = [
       {
         id: 0,
         url: 'https://c2.staticflickr.com/8/7127/7552248154_978bcb1773.jpg',
@@ -65,15 +67,21 @@ describe('carouselWidgetReducer', () => {
         url: 'https://c2.staticflickr.com/8/7127/7552248154_978bcb1775.jpg',
       },
     ];
+    const imagesBefore = [
+      {
+        id: 0,
+        url: 'https://c2.staticflickr.com/8/7127/7552248154_978bcb1773.jpg',
+      },
+    ];
     const image = {
       id: 1,
       url: 'https://c2.staticflickr.com/8/7127/7552248154_978bcb1775.jpg',
     };
     const stateBefore = {
-      images: [image],
+      images: imagesBefore,
     };
     const stateAfter = {
-      images,
+      images: imagesAfter,
     };
     expect(
       carouselWidgetReducer(stateBefore, {

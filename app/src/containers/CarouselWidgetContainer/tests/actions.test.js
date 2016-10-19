@@ -4,11 +4,15 @@ import * as types from '../constants';
 
 describe('CarouselWidget actions', () => {
   it('should handle CAROUSEL_ADD_IMAGE', () => {
+    const image = {
+      url: 'http://google.com/avatar.png',
+    };
     const expected = {
       type: types.CAROUSEL_ADD_IMAGE,
+      image,
     };
     expect(
-      actions.carouselAddImage()
+      actions.carouselAddImage(image)
     ).toEqual(expected);
   });
   it('should handle CAROUSEL_REMOVE_IMAGE', () => {
