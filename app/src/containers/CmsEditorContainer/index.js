@@ -5,7 +5,7 @@ import * as CmsEditorActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import { stateToMarkdown } from 'megadraft-js-export-markdown';
-import{ editorStateToJSON } from 'megadraft';
+import { editorStateToJSON } from 'megadraft';
 import { convertFromRaw } from 'draft-js';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -93,6 +93,7 @@ class CmsEditorContainer extends Component {
       json,
       content,
       title: editorTitle,
+      status: modal.status,
       spotlighted: modal.spotlighted,
       tags: modal.selectedTags,
       feature_image: '',
@@ -109,19 +110,17 @@ class CmsEditorContainer extends Component {
       authToken,
       createArticleMutation,
     } = this.props;
-    const data = {
+    actions.submitArticleInitiation();
+    createArticleMutation({
       variables: {
         authToken,
         article,
       },
-    };
-    actions.submitArticleInitiation();
-    createArticleMutation(data)
-      .then(() => {
-        actions.submitArticleSucces('Successfully created the article.');
-      }).catch(err => {
-        actions.submitArticleFailure(err);
-      });
+    }).then(() => {
+      actions.submitArticleSucces('Successfully created the article.');
+    }).catch(err => {
+      actions.submitArticleFailure(err);
+    });
   }
   handleUpdateArticleSubmission(article) {
     const {
@@ -130,20 +129,18 @@ class CmsEditorContainer extends Component {
       authToken,
       actions,
     } = this.props;
-    const data = {
+    actions.submitArticleInitiation();
+    updateArticleMutation({
       variables: {
         authToken,
         id: articleId,
         article,
       },
-    };
-    actions.submitArticleInitiation();
-    updateArticleMutation(data)
-      .then(() => {
-        actions.submitArticleSucces('Successfully updated the article.');
-      }).catch(err => {
-        actions.submitArticleFailure(err);
-      });
+    }).then(() => {
+      actions.submitArticleSucces('Successfully updated the article.');
+    }).catch(err => {
+      actions.submitArticleFailure(err);
+    });
   }
   handleCloseToast({ type }) {
     const {
