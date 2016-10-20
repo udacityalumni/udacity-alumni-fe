@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 import App from 'grommet-udacity/components/App';
-import { MobileNav, LogoImage, Navbar } from 'components';
+import { MobileNav, LogoImage, Navbar, ToastMessage } from 'components';
 import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
 import Header from 'grommet-udacity/components/Header';
 import Title from 'grommet-udacity/components/Title';
@@ -17,6 +17,7 @@ class Main extends Component {
     this.handleSetMobile = this.handleSetMobile.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.loadUser = this.loadUser.bind(this);
+    this.handleOffline = this.handleOffline.bind(this);
   }
   componentDidMount() {
     this.loadUser();
@@ -27,6 +28,8 @@ class Main extends Component {
     this.handleSetMobile();
     if (window) {
       window.addEventListener('resize', this.handleSetMobile);
+      window.addEventListener('online', this.handleOffline);
+      window.addEventListener('offline', this.handleOffline);
     }
   }
   componentWillReceiveProps(newProps) {
@@ -37,10 +40,26 @@ class Main extends Component {
     if (newPathname !== pathname) {
       updatePageTitle(getTitleFromRoute(newPathname));
     }
+    const {
+      isOffline,
+    } = newProps;
+    if (isOffline !== this.props.isOffline) {
+      if (isOffline) {
+        this.props.actions.appSetError(
+          'Warning, the app is now offline.'
+        );
+      } else {
+        this.props.actions.appSetMessage(
+          'The app is now back online!'
+        );
+      }
+    }
   }
   componentWillUnmount() {
     if (window) {
       window.removeEventListener('resize', this.handleSetMobile);
+      window.removeEventListener('online', this.handleOffline);
+      window.removeEventListener('offline', this.handleOffline);
     }
   }
   loadUser() {
@@ -57,6 +76,10 @@ class Main extends Component {
       appSetMobile,
     } = this.props.actions;
     appSetMobile(isMobile);
+  }
+  handleOffline() {
+    const isOffline = !navigator.onLine;
+    this.props.actions.toggleOfflineMode(isOffline);
   }
   handleToggleNav() {
     const {
@@ -85,9 +108,25 @@ class Main extends Component {
       isMobile,
       navIsActive,
       navLinks,
+      message,
+      errorMessage,
+      actions,
     } = this.props;
     return (
       <App centered={false}>
+        {errorMessage &&
+          <ToastMessage
+            message={errorMessage}
+            onClose={actions.appCloseToast('error')}
+            status="critical"
+          />
+        }
+        {message &&
+          <ToastMessage
+            message={message}
+            onClose={actions.appCloseToast('message')}
+          />
+        }
         {!isMobile ?
           <Navbar user={user} onSearch={this.handleSearch} />
         :
@@ -123,13 +162,16 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  children: React.children,
+  children: PropTypes.node,
   location: PropTypes.object.isRequired,
   user: PropTypes.object,
   isMobile: PropTypes.bool.isRequired,
   navIsActive: PropTypes.bool.isRequired,
   navLinks: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
+  isOffline: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  message: PropTypes.string,
 };
 
 Main.contextTypes = {
@@ -144,6 +186,9 @@ const mapStateToProps = (state) => ({
   navIsActive: state.app.navIsActive,
   isMobile: state.app.isMobile,
   navLinks: state.app.navLinks,
+  isOffline: state.app.isOffline,
+  errorMessage: state.app.error,
+  message: state.app.message,
 });
 
 // Map the dispatch and bind the action creators.

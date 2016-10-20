@@ -17,13 +17,13 @@ export const loadFeaturedArticlesSuccess = (articles) => ({
 });
 
 // loadFeaturedArticlesFailure :: Err -> {Action}
-export const loadFeaturedArticlesFailure = (errors) => ({
+export const loadFeaturedArticlesFailure = (error) => ({
   type: types.FEATURE_ARTICLES_FAILURE,
-  errors,
+  error,
 });
 
 // clearLandingErrors :: None -> {Action}
-export const clearLandingErrors = () => ({
+export const clearLandingError = () => ({
   type: types.CLEAR_LANDING_ERRORS,
 });
 
@@ -51,7 +51,7 @@ export const loadFeaturedArticles = () =>
         );
       }).catch(error =>
         dispatch(
-          loadFeaturedArticlesFailure([error])
+          loadFeaturedArticlesFailure(error)
         )
       );
   };
@@ -79,7 +79,6 @@ export const loadSpotlightedImages = () =>
     fetch(spotlightedImagesUrl)
       .then(res => res.json())
       .then(res => res.spotlight_images)
-      .then(images => images.slice(0, 4))
       .then(images =>
         dispatch(
           loadSpotlightedImagesSuccess(images)

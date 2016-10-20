@@ -6,7 +6,7 @@ import {
   MainCarousel,
   SpotlightArticles,
   MainAside,
-  ErrorAlert,
+  ToastMessage,
 } from 'components';
 import * as LandingActionCreators from './actions';
 import cssModules from 'react-css-modules';
@@ -15,10 +15,6 @@ import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
 
 class Landing extends Component {
-  constructor() {
-    super();
-    this.handleCloseErrorAlert = this.handleCloseErrorAlert.bind(this);
-  }
   componentDidMount() {
     const {
       actions,
@@ -29,29 +25,25 @@ class Landing extends Component {
     }
     actions.loadSpotlightedImages();
   }
-  handleCloseErrorAlert() {
-    const {
-      clearLandingErrors,
-    } = this.props.actions;
-    clearLandingErrors();
-  }
   render() {
     const {
       isLoading,
       carouselImages,
       featuredArticles,
-      errors,
+      error,
       user,
+      actions,
     } = this.props;
     return (
       <div className={styles.landing}>
-        {errors && errors.length > 0 &&
-          <ErrorAlert
-            errors={errors}
-            onClose={this.handleCloseErrorAlert}
+        {error &&
+          <ToastMessage
+            message={error.message}
+            status="critical"
+            onClose={() => actions.clearLandingError()}
           />
         }
-        {isLoading ?
+        {isLoading || !featuredArticles || !carouselImages ?
           <Section
             align="center"
             justify="center"
@@ -95,7 +87,7 @@ Landing.propTypes = {
   actions: PropTypes.object.isRequired,
   carouselImages: PropTypes.array.isRequired,
   featuredArticles: PropTypes.array,
-  errors: PropTypes.array,
+  error: PropTypes.object,
   user: PropTypes.object,
 };
 
@@ -104,7 +96,7 @@ const mapStateToProps = (state) => ({
   isLoading: state.landing.isLoading,
   carouselImages: state.landing.carouselImages,
   featuredArticles: state.landing.featuredArticles,
-  errors: state.landing.errors,
+  error: state.landing.error,
   user: state.app.user,
 });
 

@@ -73,6 +73,7 @@ class ContentDashboard extends Component {
       isLoading,
       message,
       errorMessage,
+      isMobile,
     } = this.props;
     return (
       <div className={styles.contentDashboard}>
@@ -100,7 +101,13 @@ class ContentDashboard extends Component {
           align="center"
         >
          {isLoading ?
-           <LoadingIndicator isLoading />
+           <Section
+             align="center"
+             justify="center"
+             className="loading__box"
+           >
+             <LoadingIndicator isLoading />
+           </Section>
           :
             <Box direction="row">
               <Box
@@ -116,6 +123,7 @@ class ContentDashboard extends Component {
                 <Box pad="large">
                   {articles && articles.length > 0 &&
                     <DashboardTable
+                      isMobile={isMobile}
                       articles={articles}
                       onDeleteArticle={(id) => this.handleOpenModal(id)}
                     />
@@ -146,6 +154,7 @@ ContentDashboard.propTypes = {
   selectedArticleId: PropTypes.number,
   deleteArticleMutation: PropTypes.func.isRequired,
   authToken: PropTypes.string.isRequired,
+  isMobile: PropTypes.bool.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
@@ -158,6 +167,7 @@ const mapStateToProps = (state) => ({
   message: state.contentDashboardContainer.message,
   user: state.app.user,
   authToken: state.app.authToken,
+  isMobile: state.app.isMobile,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

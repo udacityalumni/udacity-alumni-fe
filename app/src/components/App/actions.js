@@ -66,3 +66,54 @@ export const loadPersistedUser = () => (dispatch) => {
     );
   }
 };
+
+export const toggleOfflineMode = (offline) => ({
+  type: types.TOGGLE_OFFLINE_MODE,
+  offline,
+});
+
+export const appSetMessage = (message) => ({
+  type: types.APP_SET_MESSAGE,
+  message,
+});
+
+export const appSetError = (error) => ({
+  type: types.APP_SET_ERROR,
+  error,
+});
+
+export const appClearError = () => ({
+  type: types.APP_CLEAR_ERROR,
+});
+
+export const appClearMessage = () => ({
+  type: types.APP_CLEAR_MESSAGE,
+});
+
+const clearErrorAndMessage = (dispatch) => {
+  dispatch(
+    appClearError()
+  );
+  dispatch(
+    appClearMessage()
+  );
+};
+
+export const appCloseToast = (type) =>
+  (dispatch) => {
+    switch (type) {
+      case 'error':
+        dispatch(
+          appClearError()
+        );
+        break;
+      case 'message':
+        dispatch(
+          appClearMessage()
+        );
+        break;
+      default:
+        clearErrorAndMessage(dispatch);
+        break;
+    }
+  };

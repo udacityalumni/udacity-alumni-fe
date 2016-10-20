@@ -5,6 +5,7 @@ export const initialState = {
   user: null,
   isLoading: false,
   error: null,
+  message: null,
   navLinks: [
     {
       url: '/careers',
@@ -23,6 +24,7 @@ export const initialState = {
   isMobile: false,
   searchTerm: null,
   authToken: null,
+  isOffline: false,
 };
 
 const appReducer =
@@ -62,6 +64,36 @@ const appReducer =
         return update(state, {
           user: {
             $set: action.user,
+          },
+        });
+      case types.TOGGLE_OFFLINE_MODE:
+        return update(state, {
+          isOffline: {
+            $set: action.offline,
+          },
+        });
+      case types.APP_SET_MESSAGE:
+        return update(state, {
+          message: {
+            $set: action.message,
+          },
+        });
+      case types.APP_SET_ERROR:
+        return update(state, {
+          error: {
+            $set: action.error,
+          },
+        });
+      case types.APP_CLEAR_MESSAGE:
+        return update(state, {
+          message: {
+            $set: null,
+          },
+        });
+      case types.APP_CLEAR_ERROR:
+        return update(state, {
+          error: {
+            $set: null,
           },
         });
       default:

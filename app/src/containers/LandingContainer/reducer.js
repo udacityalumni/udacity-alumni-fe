@@ -5,7 +5,7 @@ export const initialState = {
   isLoading: false,
   carouselImages: [],
   featuredArticles: null,
-  errors: null,
+  error: null,
 };
 
 const landingReducer =
@@ -31,13 +31,13 @@ const landingReducer =
           isLoading: {
             $set: false,
           },
-          errors: {
-            $set: action.errors,
+          error: {
+            $set: action.error,
           },
         });
-      case types.CLEAR_LANDING_ERRORS:
+      case types.CLEAR_LANDING_ERROR:
         return update(state, {
-          errors: {
+          error: {
             $set: null,
           },
         });
@@ -55,8 +55,8 @@ const landingReducer =
         });
       case types.SPOTLIGHTED_IMAGES_FAILURE:
         return update(state, {
-          errors: {
-            $set: [...state.errors, action.error],
+          error: {
+            $set: action.error,
           },
         });
       default:
