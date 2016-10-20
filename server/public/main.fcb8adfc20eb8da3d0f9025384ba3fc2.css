@@ -9598,6 +9598,7 @@ section:not(.grommetux-section) {
         left: 50%;
         margin: -12px 0 0 -12px; }
     .megadraft-editor .sidemenu__items {
+      display: none;
       list-style: none;
       padding: 0;
       margin-top: 8px;
@@ -9608,6 +9609,9 @@ section:not(.grommetux-section) {
       width: 36px;
       text-align: center; }
       .megadraft-editor .sidemenu__items--open {
+        display: block;
+        margin-top: 5px;
+        z-index: 10;
         max-height: 116px; }
     .megadraft-editor .sidemenu__items .sidemenu__button {
       background: none; }
@@ -9806,7 +9810,7 @@ section:not(.grommetux-section) {
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
       color: #333; }
   .megadraft-editor .dropdown {
-    display: none;
+    display: none !important;
     list-style: none;
     margin: 0;
     border-top: 1px solid #ddd;
