@@ -13,7 +13,17 @@ const ArticleFeedItem = ({
   article,
 }) => (
   <Article className={styles.articleFeedItem}>
-    <Heading strong align="end" tag="h2">
+    <Box>
+      {article.tags && article.tags.map((tag, i) =>
+        <Anchor
+          key={i}
+          label={tag.tag}
+          className={styles.tagLink}
+          href={`/tags/${tag.tag}`}
+        />
+    ).join(', ')}
+    </Box>
+    <Heading strong align="start" tag="h2">
       {article.title.slice(0, 30)}
     </Heading>
     {article.feature_image &&
