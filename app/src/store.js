@@ -80,10 +80,18 @@ export const history = isClient ?
   syncHistoryWithStore(browserHistory, store) : undefined;
 
 export const userIsAuthenticated = userAuthWrapper({
-  authSelector: state => state.authReducer.user,
+  authSelector: state => state.app.user,
   redirectAction: routerActions.replace,
   failureRedirectPath: '/login',
   wrapperDisplayName: 'userIsAuthenticated',
+});
+
+export const userIsAdmin = userAuthWrapper({
+  authSelector: state => state.app.user,
+  redirectAction: routerActions.replace,
+  failureRedirectPath: '/',
+  wrapperDisplayName: 'userIsAdmin',
+  predicate: user => user.role === 'admin',
 });
 
 /* Hot reloading of reducers.  How futuristic!! */

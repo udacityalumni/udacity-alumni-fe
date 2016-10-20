@@ -1,7 +1,12 @@
 import React from 'react';
 import { Router } from 'react-router';
 import { ApolloProvider } from 'react-apollo';
-import store, { history } from './store';
+import store, {
+  history,
+  // Uncomment to apply authentiation
+  // userIsAuthenticated,
+  // userIsAdmin,
+} from './store';
 import client from './apolloClient';
 import App from './components/App';
 
@@ -33,17 +38,6 @@ export const routes = {
       },
     },
     {
-      path: 'admin/content-dashboard',
-      getComponent(location, callback) {
-        require.ensure([], () => {
-          const ContentDashboardPage = require(
-            './pages/ContentDashboardPage'
-          ).default;
-          callback(null, ContentDashboardPage);
-        });
-      },
-    },
-    {
       path: 'login',
       getComponent(location, callback) {
         require.ensure([], () => {
@@ -62,17 +56,6 @@ export const routes = {
             './pages/SignupPage'
           ).default;
           callback(null, SignupPage);
-        });
-      },
-    },
-    {
-      path: 'admin/cms',
-      getComponent(location, callback) {
-        require.ensure([], () => {
-          const CmsEditorPage = require(
-            './pages/CmsEditorPage'
-          ).default;
-          callback(null, CmsEditorPage);
         });
       },
     },
@@ -137,7 +120,38 @@ export const routes = {
       getComponent(location, callback) {
         require.ensure([], () => {
           const CarouselWidgetPage = require('./pages/CarouselWidgetPage').default;
+          // Uncomment before deploying and remove the callback below
+          // const ProtectedComponent = userIsAdmin(CarouselWidgetPage);
+          // callback(null, ProtectedComponent);
           callback(null, CarouselWidgetPage);
+        });
+      },
+    },
+    {
+      path: 'admin/content-dashboard',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const ContentDashboardPage = require(
+            './pages/ContentDashboardPage'
+          ).default;
+          // Uncomment before deploying and remove the callback below
+          // const ProtectedComponent = userIsAdmin(ContentDashboardPage);
+          // callback(null, ProtectedComponent);
+          callback(null, ContentDashboardPage);
+        });
+      },
+    },
+    {
+      path: 'admin/cms',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const CmsEditorPage = require(
+            './pages/CmsEditorPage'
+          ).default;
+          // Uncomment before deploying and remove the callback below
+          // const ProtectedComponent = userIsAdmin(CmsEditorPage);
+          // callback(null, ProtectedComponent);
+          callback(null, CmsEditorPage);
         });
       },
     },

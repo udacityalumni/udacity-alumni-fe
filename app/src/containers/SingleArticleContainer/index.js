@@ -49,6 +49,7 @@ class SingleArticleContainer extends Component {
       isLoading,
       article,
       errors,
+      actions,
     } = this.props;
     return (
       <Section
@@ -74,7 +75,10 @@ class SingleArticleContainer extends Component {
             </div>
           }
           {errors && errors.length > 0 &&
-            <ErrorAlert errors={errors} onClose={this.handleErrorClose} />
+            <ErrorAlert
+              errors={errors}
+              onClose={() => actions.closeArticleErrors()}
+            />
           }
         </Box>
       }

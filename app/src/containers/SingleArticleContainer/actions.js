@@ -22,6 +22,10 @@ export const loadArticleFailure = (errors) => ({
   errors,
 });
 
+export const closeArticleErrors = () => ({
+  type: types.CLOSE_ARTICLE_ERRORS,
+});
+
 export const loadArticle = (articleId) =>
   (dispatch) => {
     dispatch(
@@ -30,6 +34,12 @@ export const loadArticle = (articleId) =>
     fetch(articleUrl(articleId))
       .then(res => res.json())
       .then(res => res.article)
+      .then(article => {
+        if (article.status !== 'published') {
+          return null;
+        }
+        return article;
+      })
       .then(article => {
         dispatch(
           loadArticleSuccess(article)

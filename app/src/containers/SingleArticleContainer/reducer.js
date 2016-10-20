@@ -11,6 +11,12 @@ export const initialState = {
 const singleArticleReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.CLOSE_ARTICLE_ERRORS:
+        return update(state, {
+          errors: {
+            $set: null,
+          },
+        });
       case types.ARTICLE_INITIATION:
         return update(state, {
           isLoading: {
