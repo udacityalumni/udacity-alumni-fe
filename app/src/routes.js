@@ -155,6 +155,7 @@ export const routes = {
         });
       },
     },
+/* Newly generated Routes go here */
     {
       path: '*',
       getComponent(location, callback) {
