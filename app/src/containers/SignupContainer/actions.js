@@ -1,8 +1,9 @@
 import * as types from './constants';
 import 'whatwg-fetch';
-const baseUrl = 'https://udacity-api.herokuapp.com/api/v1/';
-const sessionsUrl = `${baseUrl}sessions`;
-const usersUrl = `${baseUrl}users`;
+const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
+  process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
+const sessionsUrl = `${baseUrl}api/v1/sessions`;
+const usersUrl = `${baseUrl}api/v1/users`;
 
 // signupRequestInitiation :: None -> {Action}
 export const signupRequestInitiation = () => ({

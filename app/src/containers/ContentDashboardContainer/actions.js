@@ -1,6 +1,7 @@
 import * as types from './constants';
 import 'whatwg-fetch';
-const baseUrl = 'https://udacity-api.herokuapp.com/';
+const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
+  process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
 const articlesUrl = `${baseUrl}api/v1/articles`;
 
 // loadDashboardArticlesInitiation :: None -> {Action}
