@@ -23,7 +23,7 @@ const apiUrl = `${baseUrl}graphql`;
 app.use(express.static(__dirname + '/public'));
 
 app.use((req, res) => {
-  match({ routes, location: req.originalUrl },
+  match({ routes, location: req.url },
     (error, redirectLocation, renderProps) => {
       if (redirectLocation) {
         res.redirect(redirectLocation.pathname + redirectLocation.search);
