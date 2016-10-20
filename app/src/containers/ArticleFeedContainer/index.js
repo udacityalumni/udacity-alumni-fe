@@ -27,7 +27,7 @@ class ArticleFeed extends Component {
   render() {
     const {
       articles,
-      loading,
+      loadingArticles,
       current,
     } = this.props;
     let pagedArticles;
@@ -39,14 +39,14 @@ class ArticleFeed extends Component {
     }
     return (
       <Section align="center" justify="center">
-        <Box className={styles.articleFeed} pad={{ vertical: 'large' }}>
-          <Heading align="center">
-            Article Feed
-          </Heading>
-          <Section pad={{ horizontal: 'large' }} align="center" justify="center">
-            {loading || !articles ?
-              <LoadingIndicator isLoading />
-            :
+        {loadingArticles || !articles ?
+          <LoadingIndicator isLoading />
+        :
+          <Box className={styles.articleFeed} pad={{ vertical: 'large' }}>
+            <Heading align="center">
+              Article Feed
+            </Heading>
+            <Section pad={{ horizontal: 'large' }} align="center" justify="center">
               <Box>
                 <Table
                   onMore={current <= articles.length - 1 ?
@@ -66,9 +66,9 @@ class ArticleFeed extends Component {
                   </List>
                 </Table>
               </Box>
-            }
-          </Section>
-        </Box>
+            </Section>
+          </Box>
+        }
       </Section>
     );
   }
@@ -77,7 +77,7 @@ class ArticleFeed extends Component {
 ArticleFeed.propTypes = {
   current: PropTypes.number.isRequired,
   articles: PropTypes.array,
-  loading: PropTypes.bool.isRequired,
+  loadingArticles: PropTypes.bool.isRequired,
   error: PropTypes.string,
   actions: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
@@ -128,7 +128,7 @@ const ContainerWithData = graphql(loadArticleFeed, {
     error,
     articles: articleFeed,
     count: articleFeedCount,
-    loading,
+    loadingArticles: loading,
   }),
 })(Container);
 

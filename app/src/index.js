@@ -2,7 +2,7 @@
 import React from 'react';
 /* eslint-enable */
 import { render } from 'react-dom';
-import routes from './routes';
+import RouterApp from './routes';
 import '../styles/styles.scss';
 
-render(routes, document.getElementById('app'));
+render(<RouterApp />, document.getElementById('app'));

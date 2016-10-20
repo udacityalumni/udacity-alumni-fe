@@ -1,28 +1,21 @@
 export class ArticleSubmission {
   constructor() {
-    this.setStatusFromRaw = this.setStatusFromRaw.bind(this);
+    this.statusEnum = {
+      0: 'draft',
+      1: 'published',
+      2: 'archived',
+    };
     this.toArticle = this.toArticle.bind(this);
     const args = arguments[0];
     this.content = args.content;
     this.title = args.title;
-    this.status = this.setStatusFromRaw(args.status);
+    this.status = this.statusEnum[`${args.status}`];
     this.tags = args.tags.map((tag) => ({
       tag: tag.label,
     }));
     this.spotlighted = args.spotlighted;
     this.json = args.json;
     this.feature_image = args.feature_image;
-  }
-  setStatusFromRaw(status) {
-    switch (status) {
-      case 0:
-        return 'draft';
-      case 1:
-        return 'published';
-      case 2:
-        return 'archived';
-      default: return 'draft';
-    }
   }
   toArticle() {
     return {

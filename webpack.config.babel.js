@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 1337;
 const HOST = '0.0.0.0'; // Set to localhost if need be.
 
 module.exports = {
-  devtool: isProduction ? '' : 'inline-eval-cheap-source-map',
+  devtool: isProduction ? '' : 'cheap-module-eval-source-map',
   entry: [
     path.resolve(ROOT_PATH,'app/src/index')
   ],
@@ -108,10 +108,11 @@ module.exports = {
     hot: true,
     inline: true,
     progress: true,
-    // Constants defined above take care of logic
-    // For setting host and port
     host: HOST,
-    port: PORT
+    port: PORT,
+    quiet: true, // Make it fast by not logging
+    noInfo: true,
+    cache: true
   },
   plugins: isProduction ?
     [
