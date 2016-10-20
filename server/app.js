@@ -23,7 +23,7 @@ const apiUrl = `${baseUrl}graphql`;
 
 app.use(morgan('combined'));
 
-app.use(express.static(__dirname + '/public'));
+app.use('public', express.static(__dirname + '/public'));
 
 app.use((req, res) => {
   match({ routes, location: req.url },
