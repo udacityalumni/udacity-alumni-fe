@@ -21,22 +21,25 @@ class ContentDashboard extends Component {
   constructor() {
     super();
     this.handleDeletingArticle = this.handleDeletingArticle.bind(this);
-    this.handleCloseToast = this.handleCloseToast.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
   }
   componentDidMount() {
-    const {
-      loadDashboardArticles,
-    } = this.props.actions;
-    loadDashboardArticles();
+    this.props.actions.loadDashboardArticles();
   }
-  handleDeletingArticle() {
+  componentWillReceiveProps({ message }) {
+    // New message, so that means something was deleted
+    // Refetch at this point.
+    if (message && !this.props.message) {
+      this.props.actions.loadDashboardArticles();
+    }
+  }
+  handleOpenModal(id) {
     const {
       actions,
     } = this.props;
-    actions.dashboardToggleModal();
+    actions.dashboardToggleModalToDelete(id);
   }
-  handleOpenModal() {
+  handleDeletingArticle() {
     const {
       deleteArticleMutation,
       selectedArticleId,
@@ -49,6 +52,7 @@ class ContentDashboard extends Component {
         authToken,
       },
     };
+    actions.dashboardModalConfirmation();
     actions.dashboardDeleteArticleInitiation();
     deleteArticleMutation(data)
       .then(() => {
@@ -59,12 +63,6 @@ class ContentDashboard extends Component {
       .catch(err => {
         actions.dashboardDeleteArticleFailure(err);
       });
-  }
-  handleCloseToast({ type }) {
-    const {
-      handleClearingToast,
-    } = this.props.actions;
-    handleClearingToast(type);
   }
   render() {
     const {
@@ -81,18 +79,19 @@ class ContentDashboard extends Component {
         {message &&
           <ToastMessage
             message={message}
-            onClose={() => this.handleToastClose('message')}
+            onClose={() => actions.handleClearingToast('message')}
           />
         }
         {errorMessage &&
           <ToastMessage
             message={errorMessage}
-            onClose={() => this.handleToastClose('error')}
+            status="critical"
+            onClose={() => actions.handleClearingToast('error')}
           />
         }
         <ConfirmationModal
           isVisible={isShowingModal}
-          onConfirm={() => actions.dashboardModalConfirmation()}
+          onConfirm={() => this.handleDeletingArticle()}
           onCancel={() => actions.dashboardModalCancelation()}
           title="Confirm Deletion"
         />
@@ -118,7 +117,7 @@ class ContentDashboard extends Component {
                   {articles && articles.length > 0 &&
                     <DashboardTable
                       articles={articles}
-                      onDeleteArticle={this.handleOpenModal}
+                      onDeleteArticle={(id) => this.handleOpenModal(id)}
                     />
                   }
                 </Box>
@@ -173,7 +172,7 @@ const Container = cssModules(ContentDashboard, styles);
 
 const deleteArticleMutation = gql`
   mutation deleteArticle($authToken: String!, $id: ID!) {
-    DeleteArticle(id: $id, auth_token: $authToken) {
+    DeleteArticle(input: { id: $id, auth_token: $authToken }) {
       id: deleted_id
     }
   }
