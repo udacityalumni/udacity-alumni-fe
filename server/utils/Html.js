@@ -12,11 +12,11 @@ function Html({ content, state, scriptHash, cssHash }) {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>Udacity Alumni</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,300,700|Lato:400,300,700" rel="stylesheet" type="text/css" />
-        <link href={`/main.${scriptHash}.css`} rel="stylesheet" />
+        <link href={`/public/main.${scriptHash}.css`} rel="stylesheet" />
       </head>
       <body>
         <div id="app" dangerouslySetInnerHTML={{ __html: content }} />
-        <script src={`/main.${cssHash}.js`} charSet="UTF-8" />
+        <script src={`/public/main.${cssHash}.js`} charSet="UTF-8" />
         <script
           dangerouslySetInnerHTML={{ __html: `window.__APOLLO_STATE__=${JSON.stringify(state)};` }}
           charSet="UTF-8"
