@@ -6,13 +6,13 @@ import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
-import Heading from 'grommet-udacity/components/Heading';
+import Headline from 'grommet-udacity/components/Headline';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import List from 'grommet-udacity/components/List';
 import Table from 'grommet-udacity/components/Table';
 import ListItem from 'grommet-udacity/components/ListItem';
-import { ArticleFeedItem, LoadingIndicator } from 'components';
+import { ArticleFeedItem, LoadingIndicator, Divider } from 'components';
 
 class ArticleFeed extends Component {
   constructor() {
@@ -43,9 +43,10 @@ class ArticleFeed extends Component {
           <LoadingIndicator isLoading />
         :
           <Box className={styles.articleFeed} pad={{ vertical: 'large' }}>
-            <Heading align="center">
+            <Headline align="center">
               Article Feed
-            </Heading>
+            </Headline>
+            <Divider />
             <Section pad={{ horizontal: 'large' }} align="center" justify="center">
               <Box>
                 <Table

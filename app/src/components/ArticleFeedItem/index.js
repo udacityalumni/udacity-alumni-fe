@@ -9,20 +9,32 @@ import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
 import Label from 'grommet-udacity/components/Label';
 
+const TagList = ({
+  tags,
+}) => (
+  <Box direction="row">
+    {tags.map((tag, i) => {
+      const seperator = i < tags.length - 1 && ', ';
+      return (
+        <span>
+          <Anchor
+            label={`${tag.tag}`}
+            key={i}
+            className={styles.tagLink}
+            href={`/tags/${tag.tag}`}
+          />
+          {seperator}
+        </span>
+      );
+    })}
+  </Box>
+);
+
 const ArticleFeedItem = ({
   article,
 }) => (
   <Article className={styles.articleFeedItem}>
-    <Box>
-      {article.tags && article.tags.map((tag, i) =>
-        <Anchor
-          key={i}
-          label={tag.tag}
-          className={styles.tagLink}
-          href={`/tags/${tag.tag}`}
-        />
-    ).join(', ')}
-    </Box>
+    <TagList tags={article.tags} />
     <Heading strong align="start" tag="h2">
       {article.title.slice(0, 30)}
     </Heading>
@@ -31,22 +43,22 @@ const ArticleFeedItem = ({
     }
     <Markdown content={`${article.content.slice(0, 350)}...`} />
     <Box align="start" direction="row" justify="center">
-      <Anchor
-        href={`/articles/${article.id}`}
-        primary
-        label="Read More"
-      />
-      <div style={{ flex: 1 }}>
-        <Label uppercase>
-          - {article.user.name}
-        </Label>
+      <div className={styles.readMoreWrapper}>
+        <Anchor
+          href={`/articles/${article.id}`}
+          primary
+          label="Read More"
+        />
       </div>
+      <Label uppercase>
+        - {article.user.name}
+      </Label>
     </Box>
   </Article>
 );
 
 ArticleFeedItem.propTypes = {
-
+  article: PropTypes.object.isRequired,
 };
 
 export default cssModules(ArticleFeedItem, styles);

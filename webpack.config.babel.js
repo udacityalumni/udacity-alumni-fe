@@ -112,8 +112,8 @@ module.exports = {
     port: PORT,
     quiet: true, // Make it fast by not logging
     noInfo: true,
-    cache: true
   },
+  cache: true,
   plugins: isProduction ?
     [
       new ExtractTextPlugin('[name].[contenthash].css'),
@@ -156,6 +156,5 @@ module.exports = {
         title: 'Udacity Alumni Client',
         template: 'index.html'
       }),
-      new Visualizer()
     ]
 };

@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export Divider from './Divider';
 export ConfirmationModal from './ConfirmationModal';
 export SingleArticleContent from './SingleArticleContent';
 export CarouselWidget from './CarouselWidget';

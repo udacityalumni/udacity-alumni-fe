@@ -1,4 +1,12 @@
-.app-src-components-SingleArticleContent-___index-module__singleArticle___1FByH {
+.app-src-components-Divider-___index-module__divider___gA7SZ {
+  background-color: #7d97ad;
+  width: 150px;
+  height: 3px;
+  display: block;
+  margin: 35px 0;
+  margin-right: auto;
+  margin-left: auto;
+}.app-src-components-SingleArticleContent-___index-module__singleArticle___1FByH {
   position: relative;
   width: 100%;
   background: #fff;
@@ -174,6 +182,13 @@
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.1em;
+  margin-left: 8px;
+}
+
+.app-src-components-ArticleFeedItem-___index-module__readMoreWrapper___3yCHj {
+  flex: 1;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }.app-src-components-ArticleMeta-___index-module__panel___1fwU- {
   position: relative;
   width: 100%;
