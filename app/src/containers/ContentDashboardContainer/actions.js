@@ -51,3 +51,48 @@ export const loadDashboardArticles = () =>
         )
       );
   };
+
+export const dashboardToggleModalToDelete = (id) => ({
+  type: types.DASHBOARD_TOGGLE_MODAL,
+  id,
+});
+
+export const dashboardModalConfirmation = () => ({
+  type: types.DASHBOARD_MODAL_CONFIRMATION,
+});
+
+export const dashboardModalCancelation = () => ({
+  type: types.DASHBOARD_MODAL_CANCEL,
+});
+
+export const dashboardDeleteArticleInitiation = () => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_INITIATION,
+});
+
+export const dashboardDeleteArticleSuccess = (message) => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_SUCCESS,
+  message,
+});
+
+export const dashboardDeleteArticleFailure = (error) => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_FAILURE,
+  error,
+});
+
+// clearCmsMessage :: None -> {Action}
+export const clearDashboardMessage = () => ({
+  type: types.CLEAR_DASHBOARD_MESSAGE,
+});
+
+export const handleClearingToast = (type) =>
+  (dispatch) => {
+    switch (type) {
+      case 'error':
+        dispatch(clearDashboardError());
+        break;
+      case 'message':
+        dispatch(clearDashboardMessage());
+        break;
+      default: break;
+    }
+  };

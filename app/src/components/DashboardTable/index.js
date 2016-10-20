@@ -10,6 +10,7 @@ import Anchor from 'grommet-udacity/components/Anchor';
 
 const DashboardTable = ({
   articles,
+  onDeleteArticle,
 }) => (
   <Box
     pad="large"
@@ -34,14 +35,10 @@ const DashboardTable = ({
               </Anchor>
             </td>
             <td>
-              <Anchor href={`/admin/cms?edit=true?articleId=${article.id}`}>
-                {`${article.status.charAt(0).toUpperCase()}${article.status.slice(1)}`}
-              </Anchor>
+              {`${article.status.charAt(0).toUpperCase()}${article.status.slice(1)}`}
             </td>
             <td>
-              <Anchor href={`/admin/cms/${article.id}`}>
-                {article.user.name}
-              </Anchor>
+              {article.user.name}
             </td>
             <td>
               <Menu inline direction="row">
@@ -54,8 +51,8 @@ const DashboardTable = ({
                 <Button
                   style={{ padding: 5 }}
                   plain
+                  onClick={() => onDeleteArticle(article.id)}
                   icon={<TrashIcon />}
-                  href={`/admin/cms?action=delete&articleId=${article.id}`}
                 />
               </Menu>
             </td>
