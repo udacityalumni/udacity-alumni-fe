@@ -34,7 +34,7 @@ app.use((req, res) => {
         console.error('ROUTER ERROR:', error); // eslint-disable-line no-console
         res.status(500);
       } else if (renderProps) {
-        console.log(`Called match with location: ${location} and renderProps: ${renderProps}`);
+        console.log(`Called match with renderProps: ${renderProps}`);
         const client = createApolloClient({
           ssrMode: true,
           networkInterface: createNetworkInterface({
@@ -52,7 +52,6 @@ app.use((req, res) => {
 
         getDataFromTree(component).then((context) => {
           const content = renderToString(component);
-          res.status(200);
 
           const html = (
             <Html
