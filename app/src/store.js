@@ -53,8 +53,8 @@ if (isDeveloping) {
 /* https://github.com/gaearon/redux-devtools */
 /* https://medium.com/@meagle/understanding-87566abcfb7a */
 const enhancers = [];
-const devToolsExtension = window.devToolsExtension;
 if (isClient && isDeveloping) {
+  const devToolsExtension = window.devToolsExtension;
   if (typeof devToolsExtension === 'function') {
     enhancers.push(devToolsExtension());
   }
@@ -76,7 +76,8 @@ const store = createStore(
 );
 
 /* See: https://github.com/reactjs/react-router-redux/issues/305 */
-export const history = syncHistoryWithStore(browserHistory, store);
+export const history = isClient ?
+  syncHistoryWithStore(browserHistory, store) : undefined;
 
 export const userIsAuthenticated = userAuthWrapper({
   authSelector: state => state.authReducer.user,
