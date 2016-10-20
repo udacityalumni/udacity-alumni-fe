@@ -20,7 +20,7 @@ const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
   process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
 const apiUrl = `${baseUrl}graphql`;
 
-app.use(express.static('./server/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use((req, res) => {
   match({ routes, location: req.originalUrl },
