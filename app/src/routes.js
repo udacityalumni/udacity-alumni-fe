@@ -142,7 +142,7 @@ export const routes = {
       },
     },
     {
-      path: 'notfound',
+      path: '*',
       getComponent(location, callback) {
         require.ensure([], () => {
           const NotFoundPage = require('./pages/NotFoundPage').default;
