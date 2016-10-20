@@ -5,6 +5,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
+import morgan from 'morgan';
 import React from 'react';
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
@@ -20,6 +21,8 @@ const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
   process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
 const apiUrl = `${baseUrl}graphql`;
 
+app.use(morgan('combined'));
+
 app.use('/public', express.static('./server/public'));
 
 app.use((req, res) => {
@@ -31,6 +34,7 @@ app.use((req, res) => {
         console.error('ROUTER ERROR:', error); // eslint-disable-line no-console
         res.status(500);
       } else if (renderProps) {
+        console.log(`Called match with location: ${location} and renderProps: ${renderProps}`);
         const client = createApolloClient({
           ssrMode: true,
           networkInterface: createNetworkInterface({
@@ -58,8 +62,7 @@ app.use((req, res) => {
               state={{ data: context.store.getState().apollo.data }}
             />
           );
-          res.send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
-          res.end();
+          res.status(200).send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
         }).catch(e => console.error('RENDERING ERROR:', e)); // eslint-disable-line no-console
       } else {
         res.status(404).send('Not found');
