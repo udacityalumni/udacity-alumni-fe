@@ -2,8 +2,8 @@ import * as types from './constants';
 import 'whatwg-fetch';
 const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
   process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
-const sessionsUrl = `${baseUrl}sessions`;
-const usersUrl = `${baseUrl}users`;
+const sessionsUrl = `${baseUrl}api/v1/sessions`;
+const usersUrl = `${baseUrl}api/v1/users`;
 
 // loginInitiateRequest :: None -> Action
 export const loginInitiateRequest = () => ({
@@ -17,15 +17,14 @@ export const loginRequestSuccess = (user) => ({
 });
 
 // loginRequestFailure :: [Err] -> Action
-export const loginRequestFailure = (errors) => ({
+export const loginRequestFailure = (error) => ({
   type: types.LOGIN_REQUEST_FAILURE,
-  errors,
+  error,
 });
 
 // loginClearError :: None -> Action
-export const loginClearError = (index) => ({
+export const loginClearError = () => ({
   type: types.LOGIN_CLEAR_ERROR,
-  index,
 });
 
 export const loginSetMessage = (message) => ({
@@ -117,8 +116,11 @@ export const performLogin = (params) =>
       );
     })
     .catch(err => {
+      const p1 = 'An error has occured while logging you in.';
+      const p2 = 'Please make sure your credentials are valid and try again.';
+      const message = `${p1} ${p2} Error: ${err.message}`;
       dispatch(
-        loginRequestFailure([err])
+        loginRequestFailure(message)
       );
     });
   };

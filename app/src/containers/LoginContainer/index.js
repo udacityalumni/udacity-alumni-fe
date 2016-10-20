@@ -11,7 +11,6 @@ import validation from './utils/validation';
 import { reduxForm } from 'redux-form';
 import {
   LoadingIndicator,
-  ErrorAlert,
   ToastMessage,
   LoginForm,
 } from 'components';
@@ -26,8 +25,6 @@ class Login extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleErrorClose = this.handleErrorClose.bind(this);
-    this.handleToastClose = this.handleToastClose.bind(this);
   }
   componentWillReceiveProps({ user }) {
     if (user) {
@@ -39,18 +36,6 @@ class Login extends Component {
         this.context.router.push('/');
       }, 3000);
     }
-  }
-  handleErrorClose(index) {
-    const {
-      loginClearError,
-    } = this.props.actions;
-    loginClearError(index);
-  }
-  handleToastClose() {
-    const {
-      loginClearMessage,
-    } = this.props.actions;
-    loginClearMessage();
   }
   handleSubmit() {
     const {
@@ -66,10 +51,11 @@ class Login extends Component {
   render() {
     const {
       isLoading,
-      errors,
+      errorMessage,
       message,
       fields,
       invalid,
+      actions,
     } = this.props;
     return (
       <Section
@@ -85,11 +71,18 @@ class Login extends Component {
             isLoading={isLoading}
           />
         }
-        {errors && errors.length > 0 &&
-          <ErrorAlert errors={errors} onClose={this.handleErrorClose} />
+        {errorMessage &&
+          <ToastMessage
+            message={errorMessage}
+            status="critical"
+            onClose={() => actions.loginClearError()}
+          />
         }
         {message &&
-          <ToastMessage message={message} onClose={this.handleToastClose} />
+          <ToastMessage
+            message={message}
+            onClose={() => actions.loginClearMessage()}
+          />
         }
         <Box
           size="large"
@@ -112,7 +105,7 @@ Login.propTypes = {
   actions: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   loggedInUser: PropTypes.object,
-  errors: PropTypes.array,
+  errorMessage: PropTypes.string,
   user: PropTypes.object,
   message: PropTypes.string,
   fields: PropTypes.object.isRequired,
@@ -126,7 +119,7 @@ Login.contextTypes = {
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   user: state.loginContainer.user,
-  errors: state.loginContainer.errors,
+  errorMessage: state.loginContainer.error,
   loggedInUser: state.loginContainer.loggedInUser,
   isLoading: state.loginContainer.isLoading,
   message: state.loginContainer.message,

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as CmsEditorActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
+import Section from 'grommet-udacity/components/Section';
 import { stateToMarkdown } from 'megadraft-js-export-markdown';
 import { editorStateToJSON } from 'megadraft';
 import { convertFromRaw } from 'draft-js';
@@ -237,18 +238,25 @@ class CmsEditorContainer extends Component {
             onClose={() => this.handleCloseToast({ type: 'message' })}
           />
         }
-        {loading &&
-          <LoadingIndicator isLoading />
+        {loading ?
+          <Section
+            align="center"
+            justify="center"
+            className="loading__box"
+          >
+            <LoadingIndicator isLoading />
+          </Section>
+        :
+          <CmsEditor
+            onSubmit={this.handleOpenModal}
+            onChangeContent={this.handleEditorSetContent}
+            onChangeTitle={this.handleEditorSetTitle}
+            editorState={editorState}
+            editorTitle={editorTitle}
+            isValid={isValid}
+            onTapToPreview={this.handlePreviewArticle}
+          />
         }
-        <CmsEditor
-          onSubmit={this.handleOpenModal}
-          onChangeContent={this.handleEditorSetContent}
-          onChangeTitle={this.handleEditorSetTitle}
-          editorState={editorState}
-          editorTitle={editorTitle}
-          isValid={isValid}
-          onTapToPreview={this.handlePreviewArticle}
-        />
         <CmsModal
           isShowing={modal.isShowing}
           onClose={this.handleCloseModal}

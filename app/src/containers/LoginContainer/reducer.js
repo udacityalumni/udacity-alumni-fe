@@ -2,7 +2,7 @@ import * as types from './constants';
 import update from 'react-addons-update';
 
 export const initialState = {
-  errors: [],
+  error: null,
   isLoading: false,
   message: null,
   user: null,
@@ -31,20 +31,14 @@ const loginReducer =
           isLoading: {
             $set: false,
           },
-          errors: {
-            $set: [
-              ...state.errors,
-              ...action.errors,
-            ],
+          error: {
+            $set: action.error,
           },
         });
-      case types.CLEAR_LOGIN_ERROR:
+      case types.LOGIN_CLEAR_ERROR:
         return update(state, {
-          errors: {
-            $set: [
-              ...state.errors.slice(0, action.index),
-              ...state.errors.slice(action.index + 1),
-            ],
+          error: {
+            $set: null,
           },
         });
       case types.LOGIN_SET_MESSAGE:

@@ -30,5 +30,4 @@ Html.propTypes = {
   state: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
-
 export default Html;

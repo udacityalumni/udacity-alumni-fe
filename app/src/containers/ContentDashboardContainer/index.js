@@ -111,10 +111,10 @@ class ContentDashboard extends Component {
           :
             <Box direction="row">
               <Box
-                basis="2/3"
+                basis={isMobile ? 'full' : '2/3'}
                 pad="medium"
                 align="center"
-                justify="start"
+                justify={isMobile ? 'center' : 'start'}
                 className={styles.mainContent}
               >
                 <Heading align="center">

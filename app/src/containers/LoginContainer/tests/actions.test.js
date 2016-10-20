@@ -33,12 +33,10 @@ describe('Login actions', () => {
       expect(actions.loginRequestFailure(errors)).toEqual(expected);
     });
     it('should have a type of LOGIN_CLEAR_ERROR', () => {
-      const index = 1;
       const expected = {
         type: types.LOGIN_CLEAR_ERROR,
-        index,
       };
-      expect(actions.loginClearError(index)).toEqual(expected);
+      expect(actions.loginClearError()).toEqual(expected);
     });
     it('should have a type of LOGIN_SET_MESSAGE', () => {
       const message = 'Logged in, woohoo!';
