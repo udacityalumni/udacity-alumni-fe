@@ -28,9 +28,11 @@ exports[`<CmsToolbar /> should render with default props 1`] = `
       tag="div">
       <Button
         label="Submit"
+        onClick={[Function onSave]}
         type="button" />
       <Button
         label="Preview"
+        onClick={[Function onPreview]}
         type="button" />
     </Box>
   </Columns>

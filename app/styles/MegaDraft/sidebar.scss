@@ -67,6 +67,7 @@
     }
 
     &__items {
+        display: none;
         list-style: none;
         padding: 0;
         margin-top: 8px;
@@ -78,6 +79,9 @@
         text-align: center;
 
         &--open {
+            display: block;
+            margin-top: 5px;
+            z-index: 10;
             max-height: 116px;
         }
     }

@@ -1,1 +1,21 @@
-exports[`<ArticleFeedItem /> should render with default props 1`] = `<div />`;
+exports[`<ArticleFeedItem /> should render with default props 1`] = `
+<Article
+  direction="column"
+  pad="none">
+  <Heading
+    tag="h1">
+    Administrative services only H
+  </Heading>
+  <Image
+    size="medium"
+    src="https://robohash.org/dignissimosased.png?size=300x300" />
+  <Markdown
+    components={Object {}}
+    content="Skilled nursing facility lifetime maximum special benefit networks qualifying event short-term medical insurance. Hedis CPT referral guaranteed issue pre-certification. Network provider HEDIS medicare coordination of benefits any willing provider laws gatekeeper evidence of insurability. Network pro" />
+  <Anchor
+    href="/articles/3"
+    label="Read More"
+    primary={true}
+    tag="a" />
+</Article>
+`;

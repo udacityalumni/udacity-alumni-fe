@@ -7,11 +7,9 @@ describe('<CmsToolbar />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
       <CmsToolbar
-        spotlighted={false}
-        onToggleSpotlight={e => e}
-        onSetStatus={e => e}
-        status={0}
+        onSave={e => e}
         canSubmit
+        onPreview={e => e}
       />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();

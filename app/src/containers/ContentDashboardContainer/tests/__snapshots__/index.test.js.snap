@@ -22,10 +22,5 @@ exports[`<ContentDashboard /> should render with default props 1`] = `
       "subscribe": [Function subscribe]
     }
   }
-  user={
-    Object {
-      "avatar": "http://github.com/image.png",
-      "name": "David Harris"
-    }
-  } />
+  user={null} />
 `;

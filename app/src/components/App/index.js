@@ -46,8 +46,10 @@ class Main extends Component {
   loadUser() {
     const {
       loadPersistedUser,
+      loadPersistedAuthToken,
     } = this.props.actions;
     loadPersistedUser();
+    loadPersistedAuthToken();
   }
   handleSetMobile() {
     const isMobile = window.innerWidth <= 768;
@@ -87,10 +89,7 @@ class Main extends Component {
     return (
       <App centered={false}>
         {!isMobile ?
-          <main>
-            <Navbar user={user} onSearch={this.handleSearch} />
-            {React.cloneElement(this.props.children, this.props)}
-          </main>
+          <Navbar user={user} onSearch={this.handleSearch} />
         :
           <MobileNav
             user={user}
@@ -115,9 +114,9 @@ class Main extends Component {
                 <MenuIcon colorIndex="brand" size="medium" type="control" />
               </Title>
             </Header>
-            {React.cloneElement(this.props.children, this.props)}
           </MobileNav>
         }
+        {React.cloneElement(this.props.children, this.props)}
       </App>
     );
   }

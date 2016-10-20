@@ -1,36 +1,167 @@
 import React from 'react';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router } from 'react-router';
 import { ApolloProvider } from 'react-apollo';
 import store, { history } from './store';
 import client from './apolloClient';
-import App from 'components/App';
-import * as Pages from 'pages';
+import App from './components/App';
 
-const routes = (
-  <ApolloProvider store={store} client={client}>
+if (typeof module !== 'undefined' && module.require) {
+  if (typeof require.ensure === 'undefined') {
+    require.ensure = require('node-ensure');
+  }
+}
+
+export const routes = {
+  component: App,
+  path: '/',
+  indexRoute: {
+    getComponent(location, callback) {
+      require.ensure([], () => {
+        const LandingPage = require('./pages/LandingPage').default;
+        callback(null, LandingPage);
+      });
+    },
+  },
+  childRoutes: [
+    {
+      path: 'articles/:id',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const SingleArticlePage = require('./pages/SingleArticlePage').default;
+          callback(null, SingleArticlePage);
+        });
+      },
+    },
+    {
+      path: 'admin/content-dashboard',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const ContentDashboardPage = require(
+            './pages/ContentDashboardPage'
+          ).default;
+          callback(null, ContentDashboardPage);
+        });
+      },
+    },
+    {
+      path: 'login',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const LoginPage = require(
+            './pages/LoginPage'
+        ).default;
+          callback(null, LoginPage);
+        });
+      },
+    },
+    {
+      path: 'signup',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const SignupPage = require(
+            './pages/SignupPage'
+          ).default;
+          callback(null, SignupPage);
+        });
+      },
+    },
+    {
+      path: 'admin/cms',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const CmsEditorPage = require(
+            './pages/CmsEditorPage'
+          ).default;
+          callback(null, CmsEditorPage);
+        });
+      },
+    },
+    {
+      path: 'search',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const SearchPage = require(
+            './pages/SearchPage'
+          ).default;
+          callback(null, SearchPage);
+        });
+      },
+    },
+    {
+      path: 'logout',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const LogoutPage = require('./pages/LogoutPage').default;
+          callback(null, LogoutPage);
+        });
+      },
+    },
+    {
+      path: 'notyet',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const NotYetReadyPage = require('./pages/NotYetReadyPage').default;
+          callback(null, NotYetReadyPage);
+        });
+      },
+    },
+    {
+      path: 'careers',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const NotYetReadyPage = require('./pages/NotYetReadyPage').default;
+          callback(null, NotYetReadyPage);
+        });
+      },
+    },
+    {
+      path: 'meetups',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const MeetupsPage = require('./pages/MeetupsPage').default;
+          callback(null, MeetupsPage);
+        });
+      },
+    },
+    {
+      path: 'mentorship',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const MentorshipPage = require('./pages/MentorshipPage').default;
+          callback(null, MentorshipPage);
+        });
+      },
+    },
+    {
+      path: 'admin/carousel',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const CarouselWidgetPage = require('./pages/CarouselWidgetPage').default;
+          callback(null, CarouselWidgetPage);
+        });
+      },
+    },
+    {
+      path: '*',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const NotFoundPage = require('./pages/NotFoundPage').default;
+          callback(null, NotFoundPage);
+        });
+      },
+    },
+  ],
+};
+
+const RouterApp = (props) => (
+  <ApolloProvider {...props} store={store} client={client}>
     <Router
       history={history} // Scroll to top on route transitions
       onUpdate={() => window.scrollTo(0, 0)} // eslint-disable-line
     >
-      <Route path="/" component={App}>
-        <IndexRoute component={Pages.LandingPage} />
-        <Route path="articles/:id" component={Pages.SingleArticlePage} />
-        <Route path="/admin/content-dashboard" component={Pages.ContentDashboardPage} />
-        <Route path="/login" component={Pages.LoginPage} />
-        <Route path="/signup" component={Pages.SignupPage} />
-        <Route path="/admin/cms" component={Pages.CmsEditorPage} />
-        <Route path="/martin" component={Pages.MartinPage} />
-        <Route path="/search" component={Pages.SearchPage} />
-        <Route path="/logout" component={Pages.LogoutPage} />
-        <Route path="/notyet" component={Pages.NotYetReadyPage} />
-        <Route path="/careers" component={Pages.NotYetReadyPage} />
-        <Route path="/meetups" component={Pages.MeetupsPage} />
-        <Route path="/mentorship" component={Pages.MentorshipPage} />
-        <Route path="/admin/carousel" component={Pages.CarouselWidgetPage} />
-        <Route path="*" component={Pages.NotFoundPage} />
-      </Route>
+      {routes}
     </Router>
   </ApolloProvider>
 );
 
-export default routes;
+export default RouterApp;

@@ -7,7 +7,7 @@ import { fields } from './mocks';
 describe('<SignupForm />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <SignupForm {...fields} onSubmit={(e) => e} />
+      <SignupForm {...fields} isValid onSubmit={(e) => e} />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

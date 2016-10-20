@@ -1,0 +1,134 @@
+exports[`<CmsEditor /> should render with default props 1`] = `
+<Apollo(Apollo(CmsEditorContainer))
+  action={null}
+  actions={
+    Object {
+      "clearCmsError": [Function anonymous],
+      "clearCmsMessage": [Function anonymous],
+      "cmsCloseModal": [Function anonymous],
+      "cmsClosePreview": [Function anonymous],
+      "cmsOpenModal": [Function anonymous],
+      "cmsSetArticleId": [Function anonymous],
+      "cmsSetEditorState": [Function anonymous],
+      "cmsSetEditorTitle": [Function anonymous],
+      "cmsSetPreviewState": [Function anonymous],
+      "cmsSetSelectedTags": [Function anonymous],
+      "cmsSetStateFromArticle": [Function anonymous],
+      "cmsSetStatus": [Function anonymous],
+      "cmsToggleSpotlight": [Function anonymous],
+      "handleClearingToast": [Function anonymous],
+      "submitArticleFailure": [Function anonymous],
+      "submitArticleInitiation": [Function anonymous],
+      "submitArticleRequest": [Function anonymous],
+      "submitArticleSucces": [Function anonymous]
+    }
+  }
+  articleId={null}
+  editorState={
+    EditorState {
+      "_immutable": Object {
+        "allowUndo": true,
+        "currentContent": Object {
+          "blockMap": Object {
+            "305pe": Object {
+              "characterList": Array [],
+              "data": Object {},
+              "depth": 0,
+              "key": "305pe",
+              "text": "",
+              "type": "unstyled"
+            }
+          },
+          "selectionAfter": Object {
+            "anchorKey": "305pe",
+            "anchorOffset": 0,
+            "focusKey": "305pe",
+            "focusOffset": 0,
+            "hasFocus": false,
+            "isBackward": false
+          },
+          "selectionBefore": Object {
+            "anchorKey": "305pe",
+            "anchorOffset": 0,
+            "focusKey": "305pe",
+            "focusOffset": 0,
+            "hasFocus": false,
+            "isBackward": false
+          }
+        },
+        "decorator": CompositeDraftDecorator {
+          "_decorators": Array [
+            Object {
+              "component": [Function Link],
+              "strategy": [Function findLinkEntities]
+            }
+          ]
+        },
+        "directionMap": Object {
+          "305pe": "LTR"
+        },
+        "forceSelection": false,
+        "inCompositionMode": false,
+        "inlineStyleOverride": null,
+        "lastChangeType": null,
+        "nativelyRenderedContent": null,
+        "redoStack": Array [],
+        "selection": Object {
+          "anchorKey": "305pe",
+          "anchorOffset": 0,
+          "focusKey": "305pe",
+          "focusOffset": 0,
+          "hasFocus": false,
+          "isBackward": false
+        },
+        "treeMap": Object {
+          "305pe": Array [
+            Object {
+              "decoratorKey": null,
+              "end": 0,
+              "leaves": Array [
+                Object {
+                  "end": 0,
+                  "start": 0
+                }
+              ],
+              "start": 0
+            }
+          ]
+        },
+        "undoStack": Array []
+      }
+    }
+  }
+  editorTitle={null}
+  isSubmitting={false}
+  isValid={false}
+  message={null}
+  modal={
+    Object {
+      "isShowing": false,
+      "selectedTags": Array [],
+      "spotlighted": false,
+      "status": 0
+    }
+  }
+  preview={
+    Object {
+      "content": null,
+      "isPreviewing": false,
+      "title": null
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  }
+  submissionError={null}
+  user={null} />
+`;

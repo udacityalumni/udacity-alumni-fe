@@ -13,60 +13,30 @@ exports[`<SingleArticle /> should render with default props 1`] = `
         "vertical": "medium"
       }
     }>
-    <Article
-      align="center"
-      direction="column"
-      pad="none">
-      <Headline
-        align="center">
-        Creditable coverage Hcfa common procedure coding system Group health plan
-      </Headline>
-      <Image
-        full="true"
-        size="medium"
-        src="https://robohash.org/magnietnon.png?size=300x300" />
-      <Box
-        align="center"
-        announce={false}
-        className="markdown-body"
-        direction="column"
-        focusable={true}
-        justify="center"
-        pad={
-          Object {
-            "horizontal": "small"
+    <undefined
+      article={
+        Object {
+          "content": "Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage.",
+          "created_at": "2016-09-30T02:39:57.333Z",
+          "feature_image": "https://robohash.org/magnietnon.png?size=300x300",
+          "featured": false,
+          "id": 1,
+          "slug": "creditable-coverage-hcfa-common-procedure-coding-system-group-health-plan",
+          "spotlighted": true,
+          "status": "published",
+          "title": "Creditable coverage Hcfa common procedure coding system Group health plan",
+          "updated_at": "2016-09-30T02:42:00.487Z",
+          "user": Object {
+            "avatar": "https://avatars3.githubusercontent.com/u/13679375?v=3&s=466",
+            "created_at": "2016-09-30T02:39:57.297Z",
+            "email": "andreas@gmail.com",
+            "id": 3,
+            "name": "Andreas Daimainger",
+            "role": "user",
+            "updated_at": "2016-10-03T18:49:42.965Z"
           }
         }
-        responsive={true}
-        tag="div">
-        <Markdown
-          components={
-            Object {
-              "h1": Object {
-                "props": Object {
-                  "strong": true
-                }
-              },
-              "h2": Object {
-                "props": Object {
-                  "strong": true
-                }
-              },
-              "img": Object {
-                "props": Object {
-                  "size": "small"
-                }
-              },
-              "p": Object {
-                "props": Object {
-                  "size": "large"
-                }
-              }
-            }
-          }
-          content="Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage." />
-      </Box>
-    </Article>
+      } />
   </Section>
   <Section
     align="center"

@@ -9,13 +9,13 @@ import Carousel from 'grommet-udacity/components/Carousel';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Section from 'grommet-udacity/components/Section';
 import Value from 'grommet-udacity/components/Value';
-import Footer from 'grommet-udacity/components/Footer';
 import Heading from 'grommet-udacity/components/Heading';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import TrashIcon from 'grommet-udacity/components/icons/base/Trash';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
 import CloseIcon from 'grommet-udacity/components/icons/base/Close';
 import AddIcon from 'grommet-udacity/components/icons/base/Add';
+import DragIcon from 'grommet-udacity/components/icons/base/Drag';
 
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
@@ -30,14 +30,13 @@ const CarouselWidget = ({
   currentlyEditing,
   setEditing,
   cancelEditing,
-  onSaveImages,
 }) => (
   <div className={styles.carouselWidget}>
     <Box className={styles.carouselBox}>
       <Carousel>
         {images.map((image, i) =>
-          <Box align="center" justify="center">
-            <img src={image.url} key={i} className={styles.carouselImage} />
+          <Box align="center" justify="center" key={i}>
+            <img src={image.url} className={styles.carouselImage} />
             <div className={styles.overlay}>
               <Value
                 value={i + 1}
@@ -46,7 +45,7 @@ const CarouselWidget = ({
               />
               <div className={styles.anchorOverlay}>
                 <Anchor href={image.url}>
-                  {image.url.length > 100 ? `${image.url.slice(0, 100)}...` : image.url}
+                  {image.url.length > 80 ? `${image.url.slice(0, 80)}...` : image.url}
                 </Anchor>
               </div>
             </div>
@@ -124,7 +123,9 @@ const CarouselWidget = ({
                 <span className={styles.imageNum}>
                   <Value value={i + 1} size="medium" />
                 </span>
-                <span style={{ flex: 1 }}>{image.url}</span>
+                <span style={{ flex: 1 }}>
+                  {image.url.length > 80 ? `${image.url.slice(0, 80)}...` : image.url}
+                </span>
                 <span>
                   <Button
                     plain
@@ -144,12 +145,6 @@ const CarouselWidget = ({
           </ListItem>
         )}
       </List>
-      <Footer pad={{ vertical: 'large' }} align="center" justify="center">
-        <Button
-          label="Save Images"
-          onClick={onSaveImages}
-        />
-      </Footer>
     </Section>
   </div>
 );

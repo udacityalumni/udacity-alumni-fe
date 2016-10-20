@@ -1,0 +1,27 @@
+exports[`<CarouselWidgetContainer /> should render with default props 1`] = `
+<ConnectedForm
+  actions={
+    Object {
+      "carouselAddImage": [Function anonymous],
+      "carouselCancelEditing": [Function anonymous],
+      "carouselEditImage": [Function anonymous],
+      "carouselRemoveImage": [Function anonymous],
+      "carouselSetEditing": [Function anonymous],
+      "carouselSetImages": [Function anonymous]
+    }
+  }
+  authToken={null}
+  currentlyEditing={null}
+  images={null}
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  }
+  user={null} />
+`;

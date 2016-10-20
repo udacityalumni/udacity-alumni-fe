@@ -14,56 +14,120 @@ exports[`<MainAside /> should render with default props 1`] = `
   responsive={true}
   tag="div">
   <div>
-    <Image
-      size="medium"
-      src="http://github.com/image.png" />
-  </div>
-  <Box
-    align="center"
-    announce={false}
-    direction="column"
-    focusable={true}
-    pad={
-      Object {
-        "horizontal": "small",
-        "vertical": "small"
-      }
-    }
-    responsive={true}
-    tag="div">
-    <Heading
+    <div>
+      <Image
+        size="medium"
+        src="http://github.com/image.png" />
+    </div>
+    <Box
       align="center"
-      tag="h3">
-      Hello, David Harris!
-    </Heading>
-  </Box>
-  <Box
-    align="center"
-    announce={false}
-    basis="2/3"
-    direction="column"
-    focusable={true}
-    pad={
-      Object {
-        "horizontal": "small",
-        "vertical": "small"
+      announce={false}
+      direction="column"
+      focusable={true}
+      pad={
+        Object {
+          "horizontal": "small",
+          "vertical": "small"
+        }
       }
-    }
-    responsive={true}
-    tag="div">
-    <Button
-      href="/admin/cms?new=true"
-      icon={
-        <function Icon() {
-            (0, _classCallCheck3.default)(this, Icon);
-            return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+      responsive={true}
+      tag="div">
+      <Heading
+        align="center"
+        tag="h3">
+        Hello, David Harris!
+      </Heading>
+    </Box>
+    <Box
+      align="center"
+      announce={false}
+      basis="2/3"
+      direction="column"
+      focusable={true}
+      pad={
+        Object {
+          "horizontal": "small",
+          "vertical": "small"
+        }
+      }
+      responsive={true}
+      tag="div">
+      <Button
+        href="/admin/cms?new=true"
+        icon={
+          <function Icon() {
+              (0, _classCallCheck3.default)(this, Icon);
+              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+            }
+            a11yTitleId="edit-title"
+            responsive={true} />
+        }
+        label="Post an Article"
+        onClick={[Function onClick]}
+        plain={true}
+        type="button" />
+      <Button
+        href="/admin/content-dashboard"
+        icon={
+          <function Icon() {
+              (0, _classCallCheck3.default)(this, Icon);
+              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+            }
+            a11yTitleId="article-title"
+            responsive={true} />
+        }
+        label="Manage Articles"
+        onClick={[Function onClick]}
+        plain={true}
+        type="button" />
+    </Box>
+    <Box
+      announce={false}
+      direction="column"
+      focusable={true}
+      pad="none"
+      responsive={true}
+      tag="div">
+      <Heading
+        align="center"
+        tag="h3">
+        Widgets
+      </Heading>
+      <Box
+        announce={false}
+        direction="column"
+        focusable={true}
+        pad="none"
+        responsive={true}
+        tag="div">
+        <Menu
+          closeOnClick={true}
+          direction="column"
+          dropAlign={
+            Object {
+              "left": "left",
+              "top": "top"
+            }
           }
-          a11yTitleId="edit-title"
-          responsive={true} />
-      }
-      label="Post an Article"
-      onClick={[Function onClick]}
-      type="button" />
-  </Box>
+          inline={true}
+          pad="none">
+          <Button
+            href="/admin/carousel"
+            icon={
+              <function Icon() {
+                  (0, _classCallCheck3.default)(this, Icon);
+                  return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+                }
+                a11yTitleId="image-title"
+                responsive={true} />
+            }
+            label="Carousel"
+            onClick={[Function onClick]}
+            plain={true}
+            type="button" />
+        </Menu>
+      </Box>
+    </Box>
+  </div>
 </Box>
 `;

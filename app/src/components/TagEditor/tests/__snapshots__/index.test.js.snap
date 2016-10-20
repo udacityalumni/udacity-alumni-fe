@@ -13,7 +13,10 @@ exports[`<TagEditor /> should render with default props 1`] = `
     menuRenderer={[Function menuRenderer]}
     multi={true}
     newOptionCreator={[Function newOptionCreator]}
+    onChange={[Function onChangeValue]}
+    options={false}
     promptTextCreator={[Function promptTextCreator]}
-    shouldKeyDownEventCreateNewOption={[Function shouldKeyDownEventCreateNewOption]} />
+    shouldKeyDownEventCreateNewOption={[Function shouldKeyDownEventCreateNewOption]}
+    value={Array []} />
 </Box>
 `;

@@ -15,7 +15,7 @@ export const initialState = {
     title: null,
   },
   isValid: false,
-  isSubmitting: false,
+  isLoading: false,
   error: null,
   message: null,
   modal: {
@@ -56,8 +56,37 @@ const previewReducer = (state = initialState.preview, action) => {
   }
 };
 
+const statusEnum = (status) => {
+  switch (status) {
+    case 'draft':
+      return 0;
+    case 'published':
+      return 1;
+    case 'archived':
+      return 2;
+    default: return 0;
+  }
+};
+
 const modalReducer = (state = initialState.modal, action) => {
   switch (action.type) {
+    case types.CMS_SET_STATE_FROM_ARTICLE:
+      return update(state, {
+        spotlighted: {
+          $set: action.article.spotlighted,
+        },
+        status: {
+          $set: statusEnum(action.article.status),
+        },
+        selectedTags: {
+          $set: action.article.tags.map((tag) =>
+            ({
+              value: tag.tag,
+              label: tag.tag,
+            }),
+          ),
+        },
+      });
     case types.CMS_TOGGLE_SPOTLIGHT:
       return update(state, {
         spotlighted: {
@@ -97,13 +126,13 @@ const cmsEditorReducer =
     switch (action.type) {
       case types.SUBMIT_ARTICLE_INITIATION:
         return update(state, {
-          isSubmitting: {
+          isLoading: {
             $set: true,
           },
         });
       case types.SUBMIT_ARTICLE_FAILURE:
         return update(state, {
-          isSubmitting: {
+          isLoading: {
             $set: false,
           },
           error: {
@@ -112,7 +141,7 @@ const cmsEditorReducer =
         });
       case types.SUBMIT_ARTICLE_SUCCESS:
         return update(state, {
-          isSubmitting: {
+          isLoading: {
             $set: false,
           },
           message: {
@@ -202,11 +231,17 @@ const cmsEditorReducer =
       case types.CMS_SET_STATE_FROM_ARTICLE:
         const rawContent = JSON.parse(action.article.json);
         return update(state, {
+          isValid: {
+            $set: true,
+          },
           editorState: {
             $set: editorStateFromRaw(rawContent),
           },
           editorTitle: {
             $set: action.article.title,
+          },
+          modal: {
+            $set: modalReducer(state.modal, action),
           },
         });
       default:

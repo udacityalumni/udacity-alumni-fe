@@ -1,10 +1,11 @@
 exports[`<ArticleFeed /> should render with default props 1`] = `
-<ArticleFeed
+<Apollo(ArticleFeed)
   actions={
     Object {
-      "articleFeedDefaultAction": [Function anonymous]
+      "articleFeedIncrementCurrent": [Function anonymous]
     }
   }
+  current={3}
   store={
     Object {
       "clearActions": [Function clearActions],
