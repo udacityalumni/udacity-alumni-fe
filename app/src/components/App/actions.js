@@ -46,12 +46,27 @@ export const setPersistentUser = (user) => (dispatch) => {
   );
 };
 
+const destroyAuthToken = () => new Promise((resolve) => {
+  console.log('called destroy auth token');
+  localStorage.removeItem('auth_token');
+  resolve();
+});
+
+const destroyUser = () => new Promise((resolve) => {
+  console.log('called destroy user');
+  localStorage.removeItem('user');
+  resolve();
+});
+
 export const logoutUser = () => (dispatch) => {
-  localStorage.setItem('user', null);
-  localStorage.setItem('auth_token', null);
-  dispatch(
-    invalidateAuthUser()
-  );
+  console.log('Called logout user')
+  destroyAuthToken().then(() =>
+    destroyUser()
+  ).then(() => {
+    dispatch(
+      invalidateAuthUser()
+    );
+  });
 };
 
 export const loadPersistedUser = () => (dispatch) => {
