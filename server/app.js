@@ -49,21 +49,19 @@ app.use((req, res) => {
             <RouterContext {...renderProps} />
           </ApolloProvider>
         );
-        renderToStringWithData(component)
-          .then(({ markup, initialState }) => {
-            const html = (
-              <Html
-                content={markup}
-                scriptHash="71eea9b122d4c98f79af"
-                cssHash="f0d91d73dead263291a5a8f01ecd79de"
-                state={initialState}
-              />
-            );
-            res.status(200).send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
-          })
-          .catch(err => {
-            console.error(`Rendering error ${err}`);
-          })
+        getDataFromTree(component).then((context) => {
+          const content = renderToString(component);
+
+          const html = (
+            <Html
+              content={content}
+              scriptHash="71eea9b122d4c98f79af"
+              cssHash="f0d91d73dead263291a5a8f01ecd79de"
+              state={{ data: context.store.getState().apollo.data }}
+            />
+          );
+          res.status(200).send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
+        }).catch(e => console.error('RENDERING ERROR:', e)); // eslint-disable-line no-console
       } else {
         res.status(404).send('Not found');
       }
