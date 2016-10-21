@@ -55,7 +55,6 @@
     "lint": "eslint . --ext .js --ext .jsx; exit 0",
     "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
     "start": "npm run dev",
-    "start:hot": "node devServer",
     "clean": "rm -rf app/dist app/build",
     "setup": "npm install",
     "serve:bundle": "cross-env BASE_URL=http://0.0.0.0:1337/ NODE_ENV=production PORT=1337 node server.js",
