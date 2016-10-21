@@ -1,13 +1,7 @@
 import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
-import Menu from 'grommet-udacity/components/Menu';
 import Table from 'grommet-udacity/components/Table';
-import Button from 'grommet-udacity/components/Button';
-import TrashIcon from 'grommet-udacity/components/icons/base/Trash';
-import EditIcon from 'grommet-udacity/components/icons/base/Edit';
-import ViewIcon from 'grommet-udacity/components/icons/base/View';
 import TableRow from 'grommet-udacity/components/TableRow';
-import Anchor from 'grommet-udacity/components/Anchor';
 import Heading from 'grommet-udacity/components/Heading';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
@@ -16,44 +10,7 @@ import Value from 'grommet-udacity/components/Value';
 import ListItem from 'grommet-udacity/components/ListItem';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-
-const DashboardTableButtonMenu = ({
-  article,
-  onDeleteArticle,
-}) => (
-  <Menu
-    inline
-    responsive={false}
-    direction="row"
-    justify="center"
-    align="center"
-    style={{ width: '100%' }}
-  >
-    <Button
-      style={{ padding: 5 }}
-      plain
-      icon={<EditIcon />}
-      href={`/admin/cms?action=edit&articleId=${article.id}`}
-    />
-    <Button
-      style={{ padding: 5 }}
-      plain
-      onClick={onDeleteArticle}
-      icon={<TrashIcon />}
-    />
-    <Button
-      style={{ padding: 5 }}
-      plain
-      href={article.status === 'published' ? `/articles/${article.id}` : null}
-      icon={<ViewIcon />}
-    />
-  </Menu>
-);
-
-DashboardTableButtonMenu.propTypes = {
-  article: PropTypes.object.isRequired,
-  onDeleteArticle: PropTypes.func.isRequired,
-};
+import { DashboardTableButtonMenu } from 'components';
 
 const DashboardTable = ({
   articles,

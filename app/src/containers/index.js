@@ -1,4 +1,5 @@
 /* Assemble all containers for export */
+export UserProfileContainer from './UserProfileContainer';
 export CarouselWidgetContainer from './CarouselWidgetContainer';
 export MentorshipContainer from './MentorshipContainer';
 export MeetupsContainer from './MeetupsContainer';

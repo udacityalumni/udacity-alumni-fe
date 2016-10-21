@@ -3,12 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 import App from 'grommet-udacity/components/App';
-import { MobileNav, LogoImage, Navbar, ToastMessage } from 'components';
+import { AppNavigation, ToastMessage } from 'components';
 import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
-import Header from 'grommet-udacity/components/Header';
-import Title from 'grommet-udacity/components/Title';
-import Anchor from 'grommet-udacity/components/Anchor';
-import MenuIcon from 'grommet-udacity/components/icons/base/Menu';
 
 class Main extends Component {
   constructor() {
@@ -75,7 +71,9 @@ class Main extends Component {
     const {
       appSetMobile,
     } = this.props.actions;
-    appSetMobile(isMobile);
+    if (isMobile !== this.props.isMobile) {
+      appSetMobile(isMobile);
+    }
   }
   handleOffline() {
     const isOffline = !navigator.onLine;
@@ -127,35 +125,16 @@ class Main extends Component {
             onClose={actions.appCloseToast('message')}
           />
         }
-        {!isMobile ?
-          <Navbar user={user} onSearch={this.handleSearch} />
-        :
-          <MobileNav
-            user={user}
-            navActive={navIsActive}
-            onToggleNav={this.handleToggleNav}
-            navLinks={navLinks}
-          >
-            <Header
-              direction="row"
-              justify="between"
-              large
-              pad={{ horizontal: 'medium', between: 'small' }}
-            >
-              {!navIsActive &&
-                <Title a11yTitle="Go Home">
-                  <Anchor href="/">
-                    <LogoImage />
-                  </Anchor>
-                </Title>
-              }
-              <Title onClick={this.handleToggleNav} a11yTitle="Open Menu Right">
-                <MenuIcon colorIndex="brand" size="medium" type="control" />
-              </Title>
-            </Header>
-          </MobileNav>
-        }
-        {React.cloneElement(this.props.children, this.props)}
+        <AppNavigation
+          isMobile={isMobile}
+          user={user}
+          handleSearch={this.handleSearch}
+          navIsActive={navIsActive}
+          navLinks={navLinks}
+          onToggleNav={this.handleToggleNav}
+        >
+          {React.cloneElement(this.props.children, this.props)}
+        </AppNavigation>
       </App>
     );
   }

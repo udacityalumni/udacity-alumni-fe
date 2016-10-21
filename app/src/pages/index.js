@@ -1,4 +1,5 @@
 /* Assemble all pages for export */
+export UserProfilePage from './UserProfilePage/index';
 export CarouselWidgetPage from './CarouselWidgetPage/index';
 export NotYetReadyPage from './NotYetReadyPage/index';
 export MentorshipPage from './MentorshipPage/index';

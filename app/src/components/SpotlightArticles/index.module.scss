@@ -14,7 +14,9 @@
 }
 
 .featuredArticle {
+  margin: 0 20px;
   @media screen and (min-width: 768px) {
+    margin: 0 10px;
     flex-basis: 330px !important;
   }
   @media screen and (max-width: 44.9375em) {

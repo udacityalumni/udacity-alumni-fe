@@ -8,33 +8,13 @@ import Heading from 'grommet-udacity/components/Heading';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
 import Label from 'grommet-udacity/components/Label';
-
-const TagList = ({
-  tags,
-}) => (
-  <Box direction="row">
-    {tags.map((tag, i) => {
-      const seperator = i < tags.length - 1 && ', ';
-      return (
-        <span>
-          <Anchor
-            label={`${tag.tag}`}
-            key={i}
-            className={styles.tagLink}
-            href={`/tags/${tag.tag}`}
-          />
-          {seperator}
-        </span>
-      );
-    })}
-  </Box>
-);
+import { LinkList } from 'components';
 
 const ArticleFeedItem = ({
   article,
 }) => (
   <Article className={styles.articleFeedItem}>
-    <TagList tags={article.tags} />
+    <LinkList links={article.tags} />
     <Heading strong align="start" tag="h2">
       {article.title.slice(0, 30)}
     </Heading>

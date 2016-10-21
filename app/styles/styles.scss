@@ -20,6 +20,10 @@ html {
   min-height: 100vh;
 }
 
+.full-height {
+  min-height: 100vh;
+}
+
 .grommetux-menu a:not(.grommetux-button), .grommetux-menu .grommetux-anchor {
   @media screen and (max-width: 768px) {
     margin-right: 5px !important;

@@ -43,7 +43,7 @@ export const routes = {
         require.ensure([], () => {
           const LoginPage = require(
             './pages/LoginPage'
-        ).default;
+          ).default;
           callback(null, LoginPage);
         });
       },
@@ -119,7 +119,9 @@ export const routes = {
       path: 'admin/carousel',
       getComponent(location, callback) {
         require.ensure([], () => {
-          const CarouselWidgetPage = require('./pages/CarouselWidgetPage').default;
+          const CarouselWidgetPage = require(
+            './pages/CarouselWidgetPage'
+          ).default;
           // Uncomment before deploying and remove the callback below
           // const ProtectedComponent = userIsAdmin(CarouselWidgetPage);
           // callback(null, ProtectedComponent);
@@ -152,6 +154,17 @@ export const routes = {
           // const ProtectedComponent = userIsAdmin(CmsEditorPage);
           // callback(null, ProtectedComponent);
           callback(null, CmsEditorPage);
+        });
+      },
+    },
+    {
+      path: '/me/profile',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const UserProfile = require(
+            './pages/UserProfile'
+        ).default;
+          callback(null, UserProfile);
         });
       },
     },

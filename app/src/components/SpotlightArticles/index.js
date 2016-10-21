@@ -16,20 +16,33 @@ const SpotlightArticles = ({
       Spotlight Articles
     </Heading>
     <Box pad={{ vertical: 'small' }} direction="row">
-      <Tiles flush fill className={styles.featuredArticlesContainer}>
-        {articles.map((article, i) =>
-          <Tile
-            key={i}
-            align="start"
-            basis="small"
-            direction="row"
-            separator="bottom"
-            className={styles.featuredArticle}
-          >
-            <ArticlePreview article={article} />
-          </Tile>
-        )}
-      </Tiles>
+      {articles && articles.length > 0 ?
+        <Tiles flush fill className={styles.featuredArticlesContainer}>
+          {articles.map((article, i) =>
+            <Tile
+              key={i}
+              align="start"
+              justify="center"
+              basis="small"
+              direction="row"
+              separator="bottom"
+              className={styles.featuredArticle}
+            >
+              <ArticlePreview article={article} />
+            </Tile>
+          )}
+        </Tiles>
+      :
+        <Section
+          className="full-height"
+          align="center"
+          justify="center"
+        >
+          <Heading align="center" tag="h1">
+            No Articles
+          </Heading>
+        </Section>
+      }
     </Box>
   </Section>
 );

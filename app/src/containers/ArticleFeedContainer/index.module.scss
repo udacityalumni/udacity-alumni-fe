@@ -10,8 +10,13 @@
   background: #fff;
   box-shadow: 0 2px 4px 0 rgba(46,61,73,.2);
   border: 1px solid #dbe2e8;
-  @media screen and (max-width: 768px) {
-    padding-top: 0 !important;
-  }
   max-width: 960px;
+  @media screen and (max-width: 500px) {
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+}
+
+.feedHeading {
+  margin-top: 60px;
 }

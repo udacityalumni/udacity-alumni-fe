@@ -42,8 +42,11 @@ class ArticleFeed extends Component {
         {loadingArticles || !articles ?
           <LoadingIndicator isLoading />
         :
-          <Box className={styles.articleFeed} pad={{ vertical: 'large' }}>
-            <Headline align="center">
+          <Box className={styles.articleFeed}>
+            <Headline
+              align="center"
+              className={styles.feedHeading}
+            >
               Article Feed
             </Headline>
             <Divider />
