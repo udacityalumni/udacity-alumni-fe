@@ -10,7 +10,7 @@ import React from 'react';
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { ApolloProvider } from 'react-apollo';
-import { renderToStringWithData } from 'react-apollo/server';
+import { getDataFromTree } from 'react-apollo/server';
 import store from '../app/src/store.js';
 import { routes } from '../app/src/routes.js';
 import { createNetworkInterface } from 'apollo-client';
