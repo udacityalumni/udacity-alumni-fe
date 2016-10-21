@@ -10,6 +10,8 @@ import Button from 'grommet-udacity/components/Button';
 import Footer from 'grommet-udacity/components/Footer';
 import Menu from 'grommet-udacity/components/Menu';
 import Box from 'grommet-udacity/components/Box';
+import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
+import CloseIcon from 'grommet-udacity/components/icons/base/Close';
 
 const UserProfile = ({
   user,
@@ -92,14 +94,18 @@ const UserProfile = ({
       <Footer align="center" justify="center">
         <Menu inline direction="row" responsive={false}>
           <Button
-            label="Save"
-            style={{ marginTop: 10 }}
-            onClick={onSaveEdit}
+            label="Cancel"
+            secondary
+            style={{ marginTop: 10, marginRight: 5 }}
+            onClick={onCancel}
+            icon={<CloseIcon />}
           />
           <Button
-            label="Cancel"
-            style={{ marginTop: 10 }}
-            onClick={onCancel}
+            label="Save"
+            primary
+            style={{ marginTop: 10, marginLeft: 5 }}
+            onClick={onSaveEdit}
+            icon={<CheckmarkIcon />}
           />
         </Menu>
       </Footer>
