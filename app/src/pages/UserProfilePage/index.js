@@ -1,13 +1,11 @@
 import React from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
+import { UserProfileContainer } from 'containers';
 
-
-// Pages map directly to Routes, i.e. one page equals on Route
-
-const UserProfilePage = (props) => (
+const UserProfilePage = () => (
   <div className={styles.container}>
-    Hello from UserProfilePage !
+    <UserProfileContainer />
   </div>
 );
 

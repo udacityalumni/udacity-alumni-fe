@@ -1,4 +1,6 @@
 /* Assemble all components for export */
+export EditableText from './EditableText';
+export UserProfile from './UserProfile';
 export LinkList from './LinkList';
 export DashboardTableButtonMenu from './DashboardTableButtonMenu';
 export AppNavigation from './AppNavigation';

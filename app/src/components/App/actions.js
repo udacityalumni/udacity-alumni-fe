@@ -48,6 +48,7 @@ export const setPersistentUser = (user) => (dispatch) => {
 
 export const logoutUser = () => (dispatch) => {
   localStorage.setItem('user', null);
+  localStorage.setItem('auth_token', null);
   dispatch(
     invalidateAuthUser()
   );

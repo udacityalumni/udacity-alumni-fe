@@ -158,13 +158,13 @@ export const routes = {
       },
     },
     {
-      path: '/me/profile',
+      path: 'me/profile',
       getComponent(location, callback) {
         require.ensure([], () => {
-          const UserProfile = require(
-            './pages/UserProfile'
+          const UserProfilePage = require(
+            './pages/UserProfilePage'
         ).default;
-          callback(null, UserProfile);
+          callback(null, UserProfilePage);
         });
       },
     },

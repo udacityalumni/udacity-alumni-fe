@@ -33,7 +33,7 @@ class Login extends Component {
       } = this.props;
       actions.setPersistentUser(user);
       setTimeout(() => {
-        this.context.router.push('/');
+        this.context.router.push('/me/profile');
       }, 3000);
     }
   }

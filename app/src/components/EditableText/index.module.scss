@@ -1,0 +1,25 @@
+.formField {
+  @media screen and (max-width: 700px) {
+    max-width: 90vw;
+    width: 400px;
+  }
+  @media screen and (max-width: 500px) {
+    max-width: 90vw;
+    width: 300px;
+    textarea {
+      max-width: 280px;
+    }
+  }
+  @media screen and (max-width: 430px) {
+    width: 270px;
+    textarea {
+      max-width: 250px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    width: 210px;
+    textarea {
+      max-width: 190px;
+    }
+  }
+}
