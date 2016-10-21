@@ -13,8 +13,12 @@ const HOST = '0.0.0.0'; // Set to localhost if need be.
 
 module.exports = {
   devtool: isProduction ? '' : 'cheap-module-eval-source-map',
-  entry: [
-    'webpack-dev-server/client?http://localhost:1337',
+  entry: isProduction ? [
+    path.resolve(ROOT_PATH,'app/src/index')
+  ]
+  :
+  [
+    'webpack-dev-server/client?http://0:0:0:0:1337',
     'webpack/hot/only-dev-server',
     path.resolve(ROOT_PATH,'app/src/index')
   ],
