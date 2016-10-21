@@ -52,11 +52,17 @@ const landingReducer =
           carouselImages: {
             $set: action.images,
           },
+          isLoading: {
+            $set: false,
+          },
         });
       case types.SPOTLIGHTED_IMAGES_FAILURE:
         return update(state, {
           error: {
             $set: action.error,
+          },
+          isLoading: {
+            $set: false,
           },
         });
       default:

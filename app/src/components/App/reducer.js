@@ -30,6 +30,15 @@ export const initialState = {
 const appReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.INVALIDATE_AUTH_USER:
+        return update(state, {
+          authToken: {
+            $set: null,
+          },
+          user: {
+            $set: null,
+          },
+        });
       case types.SET_AUTH_TOKEN:
         return update(state, {
           authToken: {

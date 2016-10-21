@@ -60,7 +60,6 @@ class Landing extends Component {
           >
             <Box direction="row">
               <Box
-                basis={user ? '2/3' : 'full'}
                 align="center"
                 justify="center"
                 className={styles.mainContent}

@@ -5,7 +5,7 @@ import Carousel from 'grommet-udacity/components/Carousel';
 import Box from 'grommet-udacity/components/Box';
 import Animate from 'grommet-udacity/components/Animate';
 
-class MainCarousel extends Component {
+class MainCarousel extends Component {  // eslint-disable-line react/prefer-stateless-function
   render() {
     const {
       images,
