@@ -10,7 +10,7 @@ import React from 'react';
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { ApolloProvider } from 'react-apollo';
-import { getDataFromTree } from 'react-apollo/server';
+import { renderToStringWithData } from 'react-apollo/server';
 import store from '../app/src/store.js';
 import { routes } from '../app/src/routes.js';
 import { createNetworkInterface } from 'apollo-client';
@@ -49,20 +49,21 @@ app.use((req, res) => {
             <RouterContext {...renderProps} />
           </ApolloProvider>
         );
-
-        getDataFromTree(component).then((context) => {
-          const content = renderToString(component);
-
-          const html = (
-            <Html
-              content={content}
-              scriptHash="71eea9b122d4c98f79af"
-              cssHash="f0d91d73dead263291a5a8f01ecd79de"
-              state={{ data: context.store.getState().apollo.data }}
-            />
-          );
-          res.status(200).send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
-        }).catch(e => console.error('RENDERING ERROR:', e)); // eslint-disable-line no-console
+        renderToStringWithData(component)
+          .then(({ markup, initialState }) => {
+            const html = (
+              <Html
+                content={markup}
+                scriptHash="71eea9b122d4c98f79af"
+                cssHash="f0d91d73dead263291a5a8f01ecd79de"
+                state={initialState}
+              />
+            );
+            res.status(200).send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
+          })
+          .catch(err => {
+            console.error(`Rendering error ${err}`);
+          })
       } else {
         res.status(404).send('Not found');
       }
