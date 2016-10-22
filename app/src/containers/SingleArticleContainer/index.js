@@ -63,24 +63,24 @@ class SingleArticleContainer extends Component {
             isLoading={isLoading}
           />
         :
-        <Box className={styles.mainSection}>
-          {article ?
-            <div className={styles.singleArticle}>
-              <SingleArticle article={article} />
-            </div>
-          :
-            <div className={styles.center}>
-              <Status value="unknown" />
-              <figcaption> No Article Found </figcaption>
-            </div>
-          }
-          {errors && errors.length > 0 &&
-            <ErrorAlert
-              errors={errors}
-              onClose={() => actions.closeArticleErrors()}
-            />
-          }
-        </Box>
+          <Box className={styles.mainSection}>
+            {article ?
+              <div className={styles.singleArticle}>
+                <SingleArticle article={article} />
+              </div>
+            :
+              <div className={styles.center}>
+                <Status value="unknown" />
+                <figcaption> No Article Found </figcaption>
+              </div>
+            }
+            {errors && errors.length > 0 &&
+              <ErrorAlert
+                errors={errors}
+                onClose={() => actions.closeArticleErrors()}
+              />
+            }
+          </Box>
       }
       </Section>
     );

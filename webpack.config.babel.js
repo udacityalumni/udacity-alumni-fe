@@ -124,7 +124,10 @@ module.exports = {
   cache: true,
   plugins: isProduction ?
     [
-      new ExtractTextPlugin('[name].[contenthash].css'),
+      new ExtractTextPlugin({
+        filename: '[name].[contenthash].css',
+        allChunks: false
+      }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         children: true,
