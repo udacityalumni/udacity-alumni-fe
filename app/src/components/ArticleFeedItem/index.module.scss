@@ -5,9 +5,13 @@
 }
 
 .articleDate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     left: 31em;
-    top: 37px;
+    top: 3px;
     z-index: 2;
     position: absolute;
     transform: translate(100%, 0);

@@ -6,7 +6,7 @@ import Box from 'grommet-udacity/components/Box';
 import Article from 'grommet-udacity/components/Article';
 import Image from 'grommet-udacity/components/Image';
 import Markdown from 'grommet-udacity/components/Markdown';
-import { ArticleCalendar } from 'components';
+import { ArticleCalendar, Divider } from 'components';
 
 const SingleArticleContent = ({
   article,
@@ -18,6 +18,7 @@ const SingleArticleContent = ({
     <Headline align="center">
       {article.title}
     </Headline>
+    <Divider />
     <Image src={article.feature_image} />
     <Box
       align="center"
