@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export MartinRulz from './MartinRulz';
 export ArticleCalendar from './ArticleCalendar';
 export EditableText from './EditableText';
 export UserProfile from './UserProfile';

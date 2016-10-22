@@ -7,6 +7,7 @@ import Heading from 'grommet-udacity/components/Heading';
 import Quote from 'grommet-udacity/components/Quote';
 
 const defaultAvatarUrl = 'https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/no-user.png?raw=true';
+const noBioText = 'This user has not written a bio yet.';
 
 const Author = ({
   author,
@@ -23,7 +24,7 @@ const Author = ({
     </Heading>
     <Quote borderColorIndex="light-2">
       <Heading tag="h4" align="center">
-        {author.bio}
+        {author.bio || noBioText}
       </Heading>
     </Quote>
   </Article>
