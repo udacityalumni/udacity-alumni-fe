@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import styles from './index.module.scss';
+import cssModules from 'react-css-modules';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
 import Card from 'grommet-udacity/components/Card';
@@ -13,7 +15,11 @@ const ArticlePreview = ({
   // const formattedLabel = highlightTitle(searchTerm, article.user.name);
   const formattedDescription = highlightContent(searchTerm, article.content);
   return (
-    <Box size="medium" pad={{ vertical: 'medium' }}>
+    <Box
+      className={styles.articlePreview}
+      size="medium"
+      pad={{ vertical: 'medium' }}
+    >
       <Card
         label={`By ${article.user.name}`}
         thumbnail={article.feature_image || MissingVisual}
@@ -43,4 +49,4 @@ ArticlePreview.propTypes = {
   }),
 };
 
-export default ArticlePreview;
+export default cssModules(ArticlePreview, styles);

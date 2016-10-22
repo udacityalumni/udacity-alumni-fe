@@ -3,3 +3,32 @@
   margin-top: 24px;
   margin-bottom: 24px;
 }
+
+.articleDate {
+  @media screen and (min-width: 768px) {
+    left: 31em;
+    top: 37px;
+    z-index: 2;
+    position: absolute;
+    transform: translate(100%, 0);
+    margin-left: 0px;
+  }
+}
+
+.articleFeedItem {
+  p {
+    font-family: 'Lato';
+    font-size: 18px !important;
+    line-height: 1.58 !important;
+    letter-spacing: -.004em !important;
+    font-weight: 400 !important;
+  }
+  h2 {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+    margin-left: -2.5px;
+    line-height: 1.04;
+    letter-spacing: -.028em;
+  }
+}

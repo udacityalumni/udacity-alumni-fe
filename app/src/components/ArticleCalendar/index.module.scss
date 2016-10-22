@@ -1,0 +1,31 @@
+.articleCalendar {
+  background-color: white;
+  border-radius: .15em;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 2px 0 rgba(0, 0, 0, 0.04);
+  text-align: center;
+  text-transform: uppercase;
+  width: 100px;
+}
+
+.header {
+  border-top-right-radius: .2em;
+  border-top-left-radius: .2em;
+  background-color: #b50001;
+  color: white;
+  line-height: 24px;
+  margin: -1px -1px 0;
+  height: 24px;
+}
+
+.body {
+  line-height: 1;
+  padding-bottom: 5px;
+}
+
+.date {
+  font-size: 48px;
+}
+
+.year {
+  font-size: 12px;
+}

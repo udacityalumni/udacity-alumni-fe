@@ -22,7 +22,7 @@ const Author = ({
       {author.name}
     </Heading>
     <Quote borderColorIndex="light-2">
-      <Heading tag="h5" align="center">
+      <Heading tag="h4" align="center">
         {author.bio}
       </Heading>
     </Quote>

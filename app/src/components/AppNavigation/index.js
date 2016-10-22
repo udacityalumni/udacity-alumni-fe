@@ -14,10 +14,12 @@ const AppNavigation = ({
   navIsActive,
   navLinks,
   onToggleNav,
+  pathname,
 }) => (
   <div>
     {!isMobile &&
       <Navbar
+        pathname={pathname}
         user={user}
         onSearch={handleSearch}
       />
@@ -25,6 +27,7 @@ const AppNavigation = ({
     {!isMobile && children}
     {isMobile &&
       <MobileNav
+        pathname={pathname}
         user={user}
         navActive={navIsActive}
         onToggleNav={onToggleNav}
@@ -65,6 +68,7 @@ AppNavigation.propTypes = {
   navIsActive: PropTypes.bool.isRequired,
   navLinks: PropTypes.array.isRequired,
   onToggleNav: PropTypes.func.isRequired,
+  pathname: PropTypes.string.isRequired,
 };
 
 export default AppNavigation;

@@ -2,10 +2,13 @@
   position: relative;
   margin: 0 auto;
   width: 90%;
-  max-width: 750px;
+  max-width: 960px;
 }
 
 .mainSection {
+  max-width: 100vw;
+  width: 960px;
+  box-sizing: border-box;
   @media screen and (max-width: 768px) {
     padding: 0 !important;
   }

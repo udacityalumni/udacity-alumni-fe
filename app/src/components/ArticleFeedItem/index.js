@@ -8,12 +8,15 @@ import Heading from 'grommet-udacity/components/Heading';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
 import Label from 'grommet-udacity/components/Label';
-import { LinkList } from 'components';
+import { LinkList, ArticleCalendar } from 'components';
 
 const ArticleFeedItem = ({
   article,
 }) => (
   <Article className={styles.articleFeedItem}>
+    <div className={styles.articleDate}>
+      <ArticleCalendar date={article.created_at} />
+    </div>
     <LinkList links={article.tags} />
     <Heading strong align="start" tag="h2">
       {article.title.slice(0, 30)}
@@ -21,7 +24,9 @@ const ArticleFeedItem = ({
     {article.feature_image &&
       <Image src={article.feature_image} />
     }
-    <Markdown content={`${article.content.slice(0, 350)}...`} />
+    <Markdown
+      content={`${article.content.slice(0, 350)}...`}
+    />
     <Box align="start" direction="row" justify="center">
       <div className={styles.readMoreWrapper}>
         <Anchor

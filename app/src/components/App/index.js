@@ -109,6 +109,7 @@ class Main extends Component {
       message,
       errorMessage,
       actions,
+      location,
     } = this.props;
     return (
       <App centered={false}>
@@ -126,6 +127,7 @@ class Main extends Component {
           />
         }
         <AppNavigation
+          pathname={location.pathname}
           isMobile={isMobile}
           user={user}
           handleSearch={this.handleSearch}

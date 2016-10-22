@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export ArticleCalendar from './ArticleCalendar';
 export EditableText from './EditableText';
 export UserProfile from './UserProfile';
 export LinkList from './LinkList';
