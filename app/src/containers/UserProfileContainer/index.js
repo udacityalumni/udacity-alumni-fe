@@ -20,7 +20,13 @@ class UserProfileContainer extends Component {
     this.handleSubmission = this.handleSubmission.bind(this);
   }
   componentDidMount() {
-    this.setDefaultValues();
+    const {
+      emailInput,
+      user,
+    } = this.props;
+    if (!emailInput !== user.email || !user) {
+      this.setDefaultValues();
+    }
   }
   setDefaultValues() {
     const {

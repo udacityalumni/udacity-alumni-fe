@@ -32,7 +32,7 @@ const DashboardTableButtonMenu = ({
     <Button
       style={{ padding: 5 }}
       plain
-      href={article.status === 'published' ? `/articles/${article.id}` : null}
+      href={article.status === 'published' ? `/articles/${article.slug}` : null}
       icon={<ViewIcon />}
     />
   </Menu>
