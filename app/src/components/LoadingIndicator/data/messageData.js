@@ -1,5 +1,4 @@
-// Loading Indicator messages to be looped over randomly
-
+// Possible loading indicator messages
 const messageData = [
   'Contemplating banana bread recipes...',
   'Reticulating Splines...',
