@@ -10,15 +10,15 @@
   flex: 1;
 }
 
-.termsAnchor {
-  margin-top: 40px;
-  @media screen and (max-width: 680px) {
-    display: flex;
-    flex-direction: column;
-  }
+.footerAnchor {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .seperator {
+  margin-left: 10px;
+  margin-right: 10px;
   @media screen and (max-width: 680px) {
     display: none;
   }

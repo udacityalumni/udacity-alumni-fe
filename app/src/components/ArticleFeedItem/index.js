@@ -8,44 +8,29 @@ import Heading from 'grommet-udacity/components/Heading';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
 import Label from 'grommet-udacity/components/Label';
-
-const TagList = ({
-  tags,
-}) => (
-  <Box direction="row">
-    {tags.map((tag, i) => {
-      const seperator = i < tags.length - 1 && ', ';
-      return (
-        <span>
-          <Anchor
-            label={`${tag.tag}`}
-            key={i}
-            className={styles.tagLink}
-            href={`/tags/${tag.tag}`}
-          />
-          {seperator}
-        </span>
-      );
-    })}
-  </Box>
-);
+import { LinkList, ArticleCalendar } from 'components';
 
 const ArticleFeedItem = ({
   article,
 }) => (
   <Article className={styles.articleFeedItem}>
-    <TagList tags={article.tags} />
+    <div className={styles.articleDate}>
+      <ArticleCalendar date={article.created_at} />
+    </div>
+    <LinkList links={article.tags} />
     <Heading strong align="start" tag="h2">
       {article.title.slice(0, 30)}
     </Heading>
     {article.feature_image &&
       <Image src={article.feature_image} />
     }
-    <Markdown content={`${article.content.slice(0, 350)}...`} />
+    <Markdown
+      content={`${article.content.slice(0, 350)}...`}
+    />
     <Box align="start" direction="row" justify="center">
       <div className={styles.readMoreWrapper}>
         <Anchor
-          href={`/articles/${article.id}`}
+          href={`/articles/${article.slug}`}
           primary
           label="Read More"
         />

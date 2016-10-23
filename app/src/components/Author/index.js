@@ -5,8 +5,9 @@ import Article from 'grommet-udacity/components/Article';
 import Box from 'grommet-udacity/components/Box';
 import Heading from 'grommet-udacity/components/Heading';
 import Quote from 'grommet-udacity/components/Quote';
+import { Avatar } from 'components';
 
-const defaultAvatarUrl = 'https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/no-user.png?raw=true';
+const noBioText = 'This user has not written a bio yet.';
 
 const Author = ({
   author,
@@ -16,14 +17,14 @@ const Author = ({
       About the Author
     </Heading>
     <Box align="center">
-      <img src={author.avatar || defaultAvatarUrl} className={styles.avatar} />
+      <Avatar src={author.avatar} />
     </Box>
     <Heading tag="h3" align="center">
       {author.name}
     </Heading>
     <Quote borderColorIndex="light-2">
-      <Heading tag="h5" align="center">
-        {author.bio}
+      <Heading tag="h4" align="center">
+        {author.bio || noBioText}
       </Heading>
     </Quote>
   </Article>

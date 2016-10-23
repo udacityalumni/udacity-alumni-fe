@@ -29,7 +29,7 @@ export const routes = {
   },
   childRoutes: [
     {
-      path: 'articles/:id',
+      path: 'articles/:slug',
       getComponent(location, callback) {
         require.ensure([], () => {
           const SingleArticlePage = require('./pages/SingleArticlePage').default;
@@ -43,7 +43,7 @@ export const routes = {
         require.ensure([], () => {
           const LoginPage = require(
             './pages/LoginPage'
-        ).default;
+          ).default;
           callback(null, LoginPage);
         });
       },
@@ -67,6 +67,17 @@ export const routes = {
             './pages/SearchPage'
           ).default;
           callback(null, SearchPage);
+        });
+      },
+    },
+    {
+      path: '/archive',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const ArchivePage = require(
+            './pages/ArchivePage'
+        ).default;
+          callback(null, ArchivePage);
         });
       },
     },
@@ -119,7 +130,9 @@ export const routes = {
       path: 'admin/carousel',
       getComponent(location, callback) {
         require.ensure([], () => {
-          const CarouselWidgetPage = require('./pages/CarouselWidgetPage').default;
+          const CarouselWidgetPage = require(
+            './pages/CarouselWidgetPage'
+          ).default;
           // Uncomment before deploying and remove the callback below
           // const ProtectedComponent = userIsAdmin(CarouselWidgetPage);
           // callback(null, ProtectedComponent);
@@ -155,6 +168,40 @@ export const routes = {
         });
       },
     },
+    {
+      path: 'me/profile',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const UserProfilePage = require(
+            './pages/UserProfilePage'
+        ).default;
+          callback(null, UserProfilePage);
+        });
+      },
+    },
+    {
+      path: '/members',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const MembersPage = require(
+            './pages/MembersPage'
+        ).default;
+          callback(null, MembersPage);
+        });
+      },
+    },
+    {
+      path: '/about',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const AboutPage = require(
+            './pages/AboutPage'
+        ).default;
+          callback(null, AboutPage);
+        });
+      },
+    },
+/* Newly generated Routes go here */
     {
       path: '*',
       getComponent(location, callback) {

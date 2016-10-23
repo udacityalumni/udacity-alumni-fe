@@ -13,7 +13,13 @@ const HOST = '0.0.0.0'; // Set to localhost if need be.
 
 module.exports = {
   devtool: isProduction ? '' : 'cheap-module-eval-source-map',
-  entry: [
+  entry: isProduction ? [
+    path.resolve(ROOT_PATH,'app/src/index')
+  ]
+  :
+  [
+    'webpack-dev-server/client?http://0:0:0:0:1337',
+    'webpack/hot/only-dev-server',
     path.resolve(ROOT_PATH,'app/src/index')
   ],
   module: {
@@ -27,7 +33,8 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loaders: ['react-hot', 'babel']
+      include: path.join(__dirname, 'app/src'),
+      loaders: ['react-hot-loader/webpack', 'babel']
     },
     {
       test: /\.svg$/,
@@ -105,6 +112,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(ROOT_PATH, 'app/build'),
     historyApiFallback: true,
+    publicPath: '/',
     hot: true,
     inline: true,
     progress: true,
@@ -116,7 +124,10 @@ module.exports = {
   cache: true,
   plugins: isProduction ?
     [
-      new ExtractTextPlugin('[name].[contenthash].css'),
+      new ExtractTextPlugin({
+        filename: '[name].[contenthash].css',
+        allChunks: false
+      }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         children: true,

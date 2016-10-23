@@ -4,6 +4,10 @@ import styles from './index.module.scss';
 import * as AppActions from 'components/App/actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import {
+  LoadingIndicator,
+} from 'components';
+import Section from 'grommet-udacity/components/Section';
 
 class LogoutPage extends Component {
   componentDidMount() {
@@ -11,11 +15,19 @@ class LogoutPage extends Component {
       logoutUser,
     } = this.props.actions;
     logoutUser();
-    this.context.router.push('/');
+    setTimeout(() => {
+      this.context.router.push('/');
+    }, 3000);
   }
   render() {
     return (
-      <div className={styles.container} />
+      <Section
+        align="center"
+        justify="center"
+        className="full-height"
+      >
+        <LoadingIndicator isLoading message="Logging Out" />
+      </Section>
     );
   }
 }

@@ -12,6 +12,7 @@ import { LogoImage, SessionMenu } from 'components';
 const Navbar = ({
   onSearch,
   user,
+  pathname,
 }) => (
   <div className={styles.navbar}>
     <Header justify="between" colorIndex="light-1">
@@ -34,13 +35,22 @@ const Navbar = ({
             primary
           />
         }
-        <Anchor href="/careers">
+        <Anchor
+          href="/careers"
+          className={pathname === '/careers' ? 'active desktop__nav' : ''}
+        >
           Careers
         </Anchor>
-        <Anchor href="/mentorship">
+        <Anchor
+          className={pathname === '/mentorship' ? 'active desktop__nav' : ''}
+          href="/mentorship"
+        >
           Mentorship
         </Anchor>
-        <Anchor href="/meetups">
+        <Anchor
+          className={pathname === '/meetups' ? 'active desktop__nav' : ''}
+          href="/meetups"
+        >
           Meetups
         </Anchor>
         <Search

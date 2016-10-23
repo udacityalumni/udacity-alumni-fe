@@ -20,6 +20,15 @@ html {
   min-height: 100vh;
 }
 
+.full-height {
+  min-height: 100vh;
+}
+
+a.active.desktop__nav {
+  color: #2e3d49 !important;
+  border-bottom: 2px solid #7d97ad;
+}
+
 .grommetux-menu a:not(.grommetux-button), .grommetux-menu .grommetux-anchor {
   @media screen and (max-width: 768px) {
     margin-right: 5px !important;

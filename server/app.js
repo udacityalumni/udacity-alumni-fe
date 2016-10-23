@@ -49,15 +49,14 @@ app.use((req, res) => {
             <RouterContext {...renderProps} />
           </ApolloProvider>
         );
-
         getDataFromTree(component).then((context) => {
           const content = renderToString(component);
 
           const html = (
             <Html
               content={content}
-              scriptHash="0351a7afdc7fc145025b"
-              cssHash="babb1c9509b3e5e97995cd0a2642b986"
+              scriptHash="3ce4ad81e4c3e8c212a7"
+              cssHash="6ea7d23bb0b57bbcfeff8f77289998a2"
               state={{ data: context.store.getState().apollo.data }}
             />
           );

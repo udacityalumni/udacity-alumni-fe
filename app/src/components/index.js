@@ -1,4 +1,13 @@
 /* Assemble all components for export */
+export Avatar from './Avatar';
+export Member from './Member';
+export MartinRulz from './MartinRulz';
+export ArticleCalendar from './ArticleCalendar';
+export EditableText from './EditableText';
+export UserProfile from './UserProfile';
+export LinkList from './LinkList';
+export DashboardTableButtonMenu from './DashboardTableButtonMenu';
+export AppNavigation from './AppNavigation';
 export Divider from './Divider';
 export ConfirmationModal from './ConfirmationModal';
 export SingleArticleContent from './SingleArticleContent';

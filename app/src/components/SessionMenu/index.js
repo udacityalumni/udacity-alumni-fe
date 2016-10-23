@@ -6,6 +6,23 @@ import Box from 'grommet-udacity/components/Box';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 
+const NoUserMenu = () => (
+  <Menu
+    direction="row"
+    align="center"
+    inline
+    resposive={false}
+    className={styles.rightMenu}
+  >
+    <Anchor href="/login">
+      Log In
+    </Anchor>
+    <Anchor href="/signup">
+      Sign Up
+    </Anchor>
+  </Menu>
+);
+
 const SessionIcon = ({
   user,
 }) => (
@@ -64,8 +81,8 @@ const SessionMenu = ({
                 <Anchor href="/admin/content-dashboard">
                   Dashboard
                 </Anchor>
-                <Anchor href="/admin/cms?new=true">
-                  Post
+                <Anchor href="/admin/cms?action=new">
+                  New Post
                 </Anchor>
                 <Anchor href="/logout" onClick={onLogout}>
                   Logout
@@ -74,34 +91,12 @@ const SessionMenu = ({
             );
           default:
             return (
-              <Menu
-                direction="row"
-                align="center"
-                className={styles.rightMenu}
-              >
-                <Anchor href="/login">
-                  Log In
-                </Anchor>
-                <Anchor href="/signup">
-                  Sign Up
-                </Anchor>
-              </Menu>
+              <NoUserMenu />
             );
         }
       } else {
         return (
-          <Menu
-            direction="row"
-            align="center"
-            className={styles.rightMenu}
-          >
-            <Anchor href="/login">
-              Log In
-            </Anchor>
-            <Anchor href="/signup">
-              Sign Up
-            </Anchor>
-          </Menu>
+          <NoUserMenu />
         );
       }
     })()}

@@ -1,0 +1,17 @@
+.members {
+  background: #FFF;
+  margin-bottom: 60px;
+  background: #fafbfc;
+  width: 1200px;
+  max-width: 100%;
+  @media screen and (max-width: 500px) {
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+}
+
+.masonry {
+  @media screen and (max-width: 720px) {
+    align-items: center;
+  }
+}

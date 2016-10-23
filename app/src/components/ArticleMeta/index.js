@@ -15,24 +15,29 @@ const ArticleMeta = ({
   article,
 }) => (
   <Article className={styles.panel}>
-    <Section>
-      <Heading tag="h2" align="center">
-        Article Tags
-      </Heading>
-      <Box
-        justify="center"
-        align="center"
-        pad={{ vertical: 'medium' }}
-      >
-        <Tags align="center" justify="center">
-          {article.tags.map((item, i) =>
-            <Anchor key={i} href={`/tags/${item.id}`}>
-              <Tag label={item.tag} />
-            </Anchor>
-          )}
-        </Tags>
-      </Box>
-    </Section>
+    {article.tags && article.tags.length > 0 &&
+      <Section>
+        <Heading tag="h2" align="center">
+          Article Tags
+        </Heading>
+        <Box
+          justify="center"
+          align="center"
+          pad={{ vertical: 'medium' }}
+        >
+          <Tags align="center" justify="center">
+            {article.tags.map((item, i) =>
+              <Anchor
+                key={i}
+                href={`/archive?tag=${encodeURIComponent(item.tag)}`}
+              >
+                <Tag label={item.tag} />
+              </Anchor>
+            )}
+          </Tags>
+        </Box>
+      </Section>
+    }
     <Section>
       <Heading tag="h2" align="center">
         Share This Article

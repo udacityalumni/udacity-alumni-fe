@@ -7,8 +7,7 @@ import styles from './index.module.scss';
 import Heading from 'grommet-udacity/components/Heading';
 import Hero from 'grommet-udacity/components/Hero';
 import Headline from 'grommet-udacity/components/Headline';
-import Section from 'grommet-udacity/components/Section';
-import Button from 'grommet-udacity/components/Button';
+import { MartinRulz } from 'components';
 
 class Mentorship extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -24,18 +23,7 @@ class Mentorship extends Component { // eslint-disable-line react/prefer-statele
             Together, we are stronger
           </Heading>
         </Hero>
-      <Section align="center" justify="center">
-        <Heading>
-          Udacity Mentorship
-        </Heading>
-        <Heading tag="h3">
-          This page is not yet fully implemented
-        </Heading>
-        <Heading tag="h3">
-          If you think you can help us build it,
-        </Heading>
-        <Button href="mailto:admin@ryancollins.io" label="Get in Touch!" />
-      </Section>
+        <MartinRulz />
       </div>
     );
   }

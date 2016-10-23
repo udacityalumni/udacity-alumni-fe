@@ -6,5 +6,36 @@
   border: 1px solid #dbe2e8;
   max-width: 100vw;
   box-sizing: border-box;
-  padding: 60px 40px !important;
+  padding: 60px 60px !important;
+  @media screen and (max-width: 768px) {
+    padding: 60px 30px !important;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 20px 10px !important;
+  }
+}
+
+.articleDate {
+  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    left: 3.0em;
+    top: 74px;
+    z-index: 2;
+    position: absolute;
+    transform: translate(-100%, 0);
+    margin-left: 0px;
+  }
+}
+
+.articleWrapper {
+  margin-top: 20px;
+  p {
+    max-width: 640px !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    font-size: 21px !important;
+    line-height: 1.58 !important;
+    letter-spacing: -.003em !important;
+  }
 }
