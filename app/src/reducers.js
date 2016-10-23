@@ -14,6 +14,7 @@ import searchContainer from 'containers/SearchContainer/reducer';
 import carouselWidgetContainer from 'containers/CarouselWidgetContainer/reducer';
 import articleFeedContainer from 'containers/ArticleFeedContainer/reducer';
 import userProfileContainer from 'containers/UserProfileContainer/reducer';
+import archiveContainer from 'containers/ArticleArchiveContainer/reducer';
 import app from 'components/App/reducer';
 
 const rootReducer = combineReducers({
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   carouselWidgetContainer,
   articleFeedContainer,
   userProfileContainer,
+  archiveContainer,
   routing: routerReducer,
   form: formReducer,
   apollo: client.reducer(),

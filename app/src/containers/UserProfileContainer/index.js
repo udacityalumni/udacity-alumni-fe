@@ -11,25 +11,7 @@ import authUserDataFragment from './graph/authUserDataFragment';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { UserProfile, LoadingIndicator, ToastMessage } from 'components';
-
-class ProfileSubmission {
-  constructor() {
-    this.toData = this.toData.bind(this);
-    const args = arguments[0];
-    this.authToken = args.authToken;
-    this.profile = {
-      bio: args.bioInput,
-      avatar: args.avatarInput,
-      email: args.emailInput,
-    };
-  }
-  toData() {
-    return {
-      authToken: this.authToken,
-      profile: this.profile,
-    };
-  }
-}
+import ProfileSubmission from './model/submission';
 
 class UserProfileContainer extends Component {
   constructor() {
@@ -46,6 +28,7 @@ class UserProfileContainer extends Component {
       bio: user.bio,
       email: user.email,
       avatar: user.avatar,
+      public: user.public,
     });
   }
   handleSubmission() {
@@ -53,6 +36,7 @@ class UserProfileContainer extends Component {
       bioInput,
       emailInput,
       avatarInput,
+      publicInput,
       actions,
       authToken,
       updateProfile,
@@ -62,6 +46,7 @@ class UserProfileContainer extends Component {
       bioInput,
       avatarInput,
       emailInput,
+      publicInput,
     }).toData();
     actions.profileSubmissionInitiation();
     updateProfile(profileData)
@@ -82,6 +67,7 @@ class UserProfileContainer extends Component {
       isLoading,
       submissionError,
       actions,
+      publicInput,
     } = this.props;
     return (
       <Section className={styles.userProfile}>
@@ -110,6 +96,7 @@ class UserProfileContainer extends Component {
             <UserProfile
               user={user}
               isEditing={isEditing}
+              onTogglePublic={() => actions.profileTogglePublic()}
               onEditEmail={({ target }) => actions.profileEditEmail(target.value)}
               onEditBio={({ target }) => actions.profileEditBio(target.value)}
               onEditAvatar={({ target }) => actions.profileEditAvatar(target.value)}
@@ -122,6 +109,7 @@ class UserProfileContainer extends Component {
               bioInput={bioInput}
               avatarInput={avatarInput}
               emailInput={emailInput}
+              publicInput={publicInput}
             />
           }
         </Box>
@@ -143,6 +131,7 @@ UserProfileContainer.propTypes = {
   emailInput: PropTypes.string,
   isLoading: PropTypes.bool.isRequired,
   authToken: PropTypes.string.isRequired,
+  publicInput: PropTypes.bool.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
@@ -155,6 +144,7 @@ const mapStateToProps = (state) => ({
   avatarInput: state.userProfileContainer.avatarInput,
   emailInput: state.userProfileContainer.emailInput,
   employerInput: state.userProfileContainer.employerInput,
+  publicInput: state.userProfileContainer.publicInput,
   isLoading: state.userProfileContainer.isLoading,
 });
 

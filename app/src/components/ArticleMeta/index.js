@@ -27,7 +27,10 @@ const ArticleMeta = ({
         >
           <Tags align="center" justify="center">
             {article.tags.map((item, i) =>
-              <Anchor key={i} href={`/tags/${item.id}`}>
+              <Anchor
+                key={i}
+                href={`/archive?tag=${encodeURIComponent(item.tag)}`}
+              >
                 <Tag label={item.tag} />
               </Anchor>
             )}

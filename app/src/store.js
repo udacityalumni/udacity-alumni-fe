@@ -16,6 +16,7 @@ import { initialState as cmsEditorContainer } from './containers/CmsEditorContai
 import { initialState as searchContainer } from './containers/SearchContainer/reducer';
 import { initialState as userProfileContainer } from './containers/UserProfileContainer/reducer';
 import { initialState as articleFeedContainer } from './containers/ArticleFeedContainer/reducer';
+import { initialState as archiveContainer } from 'containers/ArticleArchiveContainer/reducer';
 import {
   initialState as singleArticleContainer,
 } from './containers/SingleArticleContainer/reducer';
@@ -39,6 +40,7 @@ const initialState = {
   carouselWidgetContainer,
   articleFeedContainer,
   userProfileContainer,
+  archiveContainer,
 };
 
 /* Commonly used middlewares and enhancers */

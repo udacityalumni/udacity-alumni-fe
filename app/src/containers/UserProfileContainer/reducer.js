@@ -9,11 +9,18 @@ export const initialState = {
   avatarInput: null,
   emailInput: null,
   employerInput: null,
+  publicInput: false,
 };
 
 const userProfileReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.PROFILE_TOGGLE_PUBLIC:
+        return update(state, {
+          publicInput: {
+            $set: !state.publicInput,
+          },
+        });
       case types.PROFILE_EDIT_AVATAR:
         return update(state, {
           avatarInput: {
@@ -112,6 +119,9 @@ const userProfileReducer =
           emailInput: {
             $set: null,
           },
+          publicInput: {
+            $set: false,
+          },
         });
       case types.PROFILE_START_EDITING:
         return update(state, {
@@ -132,6 +142,9 @@ const userProfileReducer =
           },
           emailInput: {
             $set: action.inputs.email,
+          },
+          publicInput: {
+            $set: action.inputs.public,
           },
         });
       default:

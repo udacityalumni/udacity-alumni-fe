@@ -2,10 +2,10 @@
       path: '{{ path }}',
       getComponent(location, callback) {
         require.ensure([], () => {
-          const {{ properCase name }} = require(
-            './pages/{{ properCase name }}'
+          const {{ properCase name }}Page = require(
+            './pages/{{ properCase name }}Page'
         ).default;
-          callback(null, {{ properCase name }});
+          callback(null, {{ properCase name }}Page);
         });
       },
     },

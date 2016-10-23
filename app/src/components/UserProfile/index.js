@@ -12,6 +12,8 @@ import Menu from 'grommet-udacity/components/Menu';
 import Box from 'grommet-udacity/components/Box';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
 import CloseIcon from 'grommet-udacity/components/icons/base/Close';
+import CheckBox from 'grommet-udacity/components/CheckBox';
+import FormField from 'grommet-udacity/components/FormField';
 
 const UserProfile = ({
   user,
@@ -24,7 +26,9 @@ const UserProfile = ({
   onEditAvatar,
   avatarInput,
   onEditEmail,
+  onTogglePublic,
   emailInput,
+  publicInput,
 }) => (
   <Article className={styles.panel}>
     <Heading tag="h2" align="center">
@@ -90,6 +94,24 @@ const UserProfile = ({
         </Heading>
       </Box>
     </EditableText>
+    <Section align="center">
+      <Box
+        size="medium"
+        onClick={isEditing ? null : onClickToEdit}
+        focusable
+      >
+        <FormField>
+          <CheckBox
+            toggle
+            onChange={onTogglePublic}
+            disabled={!isEditing}
+            checked={publicInput}
+            value={publicInput}
+            label="Public Profile"
+          />
+        </FormField>
+      </Box>
+    </Section>
     {isEditing &&
       <Footer align="center" justify="center">
         <Menu inline direction="row" responsive={false}>
@@ -123,6 +145,8 @@ UserProfile.propTypes = {
   onCancel: PropTypes.func.isRequired,
   onEditAvatar: PropTypes.func.isRequired,
   avatarInput: PropTypes.string,
+  publicInput: PropTypes.bool.isRequired,
+  onTogglePublic: PropTypes.func.isRequired,
 };
 
 export default cssModules(UserProfile, styles);

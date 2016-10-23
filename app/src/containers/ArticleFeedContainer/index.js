@@ -106,7 +106,7 @@ const Container = cssModules(ArticleFeed, styles);
 const loadArticleFeed = gql`
 query articleFeed {
   articleFeed {
-    tags{
+    tags {
       id
       tag
     }

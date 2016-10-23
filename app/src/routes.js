@@ -71,6 +71,17 @@ export const routes = {
       },
     },
     {
+      path: '/archive',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const ArchivePage = require(
+            './pages/ArchivePage'
+        ).default;
+          callback(null, ArchivePage);
+        });
+      },
+    },
+    {
       path: 'logout',
       getComponent(location, callback) {
         require.ensure([], () => {
@@ -165,6 +176,28 @@ export const routes = {
             './pages/UserProfilePage'
         ).default;
           callback(null, UserProfilePage);
+        });
+      },
+    },
+    {
+      path: '/members',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const MembersPage = require(
+            './pages/MembersPage'
+        ).default;
+          callback(null, MembersPage);
+        });
+      },
+    },
+    {
+      path: '/about',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const AboutPage = require(
+            './pages/AboutPage'
+        ).default;
+          callback(null, AboutPage);
         });
       },
     },

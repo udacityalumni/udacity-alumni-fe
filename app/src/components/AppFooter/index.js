@@ -10,6 +10,10 @@ import SocialFacebookOptionIcon from 'grommet-udacity/components/icons/base/Soci
 import SocialGooglePlusIcon from 'grommet-udacity/components/icons/base/SocialGoogle';
 import SocialLinkedinOptionIcon from 'grommet-udacity/components/icons/base/SocialLinkedin';
 import SocialTwitterIcon from 'grommet-udacity/components/icons/base/SocialTwitter';
+import ComplianceIcon from 'grommet-udacity/components/icons/base/Compliance';
+import ShieldIcon from 'grommet-udacity/components/icons/base/Shield';
+import GroupIcon from 'grommet-udacity/components/icons/base/Group';
+import HelpIcon from 'grommet-udacity/components/icons/base/Help';
 
 const socialIcons = [
   {
@@ -75,6 +79,36 @@ const AppFooter = () => (
           {' Udacity Alumni'}
         </Anchor>
       </Heading>
+      <Box className={styles.footerAnchor} direction="row">
+        <Anchor
+          href="/members"
+          label="Our Members"
+          icon={<GroupIcon />}
+          colorIndex="brand"
+        />
+        <span className={styles.seperator}>{'  |  '}</span>
+        <Anchor
+          href="/about"
+          label="About Us"
+          icon={<HelpIcon />}
+          colorIndex="brand"
+        />
+      </Box>
+      <Box className={styles.footerAnchor} direction="row">
+        <Anchor
+          href="/terms"
+          label="Terms of Service"
+          icon={<ComplianceIcon />}
+          colorIndex="brand"
+        />
+        <span className={styles.seperator}>{'  |  '}</span>
+        <Anchor
+          href="/privacy"
+          label="Privacy Policy"
+          icon={<ShieldIcon />}
+          colorIndex="brand"
+        />
+      </Box>
       <Menu
         inline
         responsive={false}

@@ -60,3 +60,7 @@ export const setDefaultInputs = (inputs) => ({
   type: types.PROFILE_SET_DEFAULT_INPUTS,
   inputs,
 });
+
+export const profileTogglePublic = () => ({
+  type: types.PROFILE_TOGGLE_PUBLIC,
+});

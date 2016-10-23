@@ -17,7 +17,7 @@ const LinkList = ({
             label={`${link.tag}`}
             key={i}
             className={styles.tagLink}
-            href={`/tags/${link.tag}`}
+            href={`/archive?tag=${encodeURIComponent(link.tag)}`}
           />
           {s}
         </span>

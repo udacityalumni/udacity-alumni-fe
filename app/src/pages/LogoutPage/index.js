@@ -24,7 +24,7 @@ class LogoutPage extends Component {
       <Section
         align="center"
         justify="center"
-        className={styles.loadingBox}
+        className="full-height"
       >
         <LoadingIndicator isLoading message="Logging Out" />
       </Section>
