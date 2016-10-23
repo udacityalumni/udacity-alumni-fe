@@ -29,7 +29,7 @@ export const routes = {
   },
   childRoutes: [
     {
-      path: 'articles/:id',
+      path: 'articles/:slug',
       getComponent(location, callback) {
         require.ensure([], () => {
           const SingleArticlePage = require('./pages/SingleArticlePage').default;

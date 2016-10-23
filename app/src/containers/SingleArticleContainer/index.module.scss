@@ -16,6 +16,10 @@
 
 .center {
   margin: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
   width: 10em;
   border: 3px solid #89A2B5;
   padding: 10px;

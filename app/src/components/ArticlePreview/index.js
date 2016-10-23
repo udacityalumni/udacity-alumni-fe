@@ -27,7 +27,7 @@ const ArticlePreview = ({
         description={formattedDescription}
         link={
           <Anchor
-            href={`/articles/${article.id}`}
+            href={`/articles/${article.slug}`}
             primary
             label="Read More"
           />

@@ -30,7 +30,7 @@ const ArticleFeedItem = ({
     <Box align="start" direction="row" justify="center">
       <div className={styles.readMoreWrapper}>
         <Anchor
-          href={`/articles/${article.id}`}
+          href={`/articles/${article.slug}`}
           primary
           label="Read More"
         />
