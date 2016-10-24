@@ -8,13 +8,14 @@ import Heading from 'grommet-udacity/components/Heading';
 import Hero from 'grommet-udacity/components/Hero';
 import Headline from 'grommet-udacity/components/Headline';
 import { MartinRulz } from 'components';
+const MentorshipPageImage = 'https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/mentoring.jpg?raw=true';
 
 class Mentorship extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div className={styles.mentorship}>
         <Hero
-          backgroundImage="http://www.kdejepeta.cz/wp-content/uploads/2016/03/helping-climb.jpg"
+          backgroundImage={MentorshipPageImage}
         >
           <Headline strong>
             Udacity Mentorship
