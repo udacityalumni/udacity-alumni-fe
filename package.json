@@ -18,7 +18,8 @@
     "test": {
       "plugins": [
         [
-          "babel-plugin-webpack-loaders", {
+          "babel-plugin-webpack-loaders",
+          {
             "config": "./config/testing/webpack.test.config.js",
             "verbose": false
           }
@@ -119,6 +120,8 @@
     "node-sass": "^3.4.2",
     "npm-install-webpack-plugin": "^4.0.3",
     "offline-plugin": "^3.4.2",
+    "postcss-loader": "^1.0.0",
+    "precss": "^1.4.0",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.2.1",
     "react-addons-test-utils": "^15.3.2",
