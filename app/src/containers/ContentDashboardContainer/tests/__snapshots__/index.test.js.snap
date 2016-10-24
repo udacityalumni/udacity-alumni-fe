@@ -1,8 +1,16 @@
 exports[`<ContentDashboard /> should render with default props 1`] = `
-<ContentDashboard
+<Apollo(ContentDashboard)
   actions={
     Object {
       "clearDashboardError": [Function anonymous],
+      "clearDashboardMessage": [Function anonymous],
+      "dashboardDeleteArticleFailure": [Function anonymous],
+      "dashboardDeleteArticleInitiation": [Function anonymous],
+      "dashboardDeleteArticleSuccess": [Function anonymous],
+      "dashboardModalCancelation": [Function anonymous],
+      "dashboardModalConfirmation": [Function anonymous],
+      "dashboardToggleModalToDelete": [Function anonymous],
+      "handleClearingToast": [Function anonymous],
       "loadDashboardArticles": [Function anonymous],
       "loadDashboardArticlesFailure": [Function anonymous],
       "loadDashboardArticlesInitiation": [Function anonymous],
@@ -10,8 +18,13 @@ exports[`<ContentDashboard /> should render with default props 1`] = `
     }
   }
   articles={null}
+  authToken={null}
   errorMessage={null}
   isLoading={false}
+  isMobile={false}
+  isShowingModal={false}
+  message={null}
+  selectedArticleId={null}
   store={
     Object {
       "clearActions": [Function clearActions],

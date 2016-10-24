@@ -6,13 +6,6 @@ exports[`<DashboardTable /> should render with default props 1`] = `
   focusable={true}
   pad="large"
   responsive={true}
-  style={
-    Object {
-      "border": "1px solid black",
-      "minHeight": 300,
-      "minWidth": 600
-    }
-  }
   tag="div">
   <Table>
     <thead>
@@ -34,73 +27,36 @@ exports[`<DashboardTable /> should render with default props 1`] = `
     <tbody>
       <TableRow>
         <td>
-          <Anchor
-            href="/articles/0"
-            tag="a">
+          <Heading
+            tag="h4">
             Hello World
-          </Anchor>
+          </Heading>
         </td>
         <td>
-          <Anchor
-            href="/admin/cms?edit=true?articleId=0"
-            tag="a">
+          <Heading
+            tag="h5">
             Published
-          </Anchor>
+          </Heading>
         </td>
         <td>
-          <Anchor
-            href="/admin/cms/0"
-            tag="a">
+          <Heading
+            tag="h5">
             Ryan Collins
-          </Anchor>
+          </Heading>
         </td>
         <td>
-          <Menu
-            closeOnClick={true}
-            direction="row"
-            dropAlign={
+          <DashboardTableButtonMenu
+            article={
               Object {
-                "left": "left",
-                "top": "top"
+                "id": 0,
+                "status": "published",
+                "title": "Hello World",
+                "user": Object {
+                  "name": "Ryan Collins"
+                }
               }
             }
-            inline={true}
-            pad="none">
-            <Button
-              href="/admin/cms?action=edit&articleId=0"
-              icon={
-                <function Icon() {
-                    (0, _classCallCheck3.default)(this, Icon);
-                    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-                  }
-                  a11yTitleId="edit-title"
-                  responsive={true} />
-              }
-              plain={true}
-              style={
-                Object {
-                  "padding": 5
-                }
-              }
-              type="button" />
-            <Button
-              href="/admin/cms?action=delete&articleId=0"
-              icon={
-                <function Icon() {
-                    (0, _classCallCheck3.default)(this, Icon);
-                    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-                  }
-                  a11yTitleId="trash-title"
-                  responsive={true} />
-              }
-              plain={true}
-              style={
-                Object {
-                  "padding": 5
-                }
-              }
-              type="button" />
-          </Menu>
+            onDeleteArticle={[Function onDeleteArticle]} />
         </td>
       </TableRow>
     </tbody>

@@ -31,7 +31,7 @@ exports[`<ArticleMeta /> should render with default props 1`] = `
         direction="row"
         justify="center">
         <Anchor
-          href="/tags/undefined"
+          href="/archive?tag=undefined"
           tag="a">
           <Tag />
         </Anchor>

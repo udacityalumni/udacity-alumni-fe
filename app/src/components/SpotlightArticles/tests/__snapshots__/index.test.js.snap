@@ -6,11 +6,12 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
       "vertical": "medium"
     }
   }>
-  <Heading
+  <Headline
     align="center"
     tag="h2">
     Spotlight Articles
-  </Heading>
+  </Headline>
+  <Divider />
   <Box
     announce={false}
     direction="row"
@@ -33,9 +34,10 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
         direction="row"
         hoverColorIndex="disabled"
         hoverStyle="none"
+        justify="center"
         pad="none"
         separator="bottom">
-        <undefined
+        <ArticlePreview
           article={
             Object {
               "content": "Hello World",

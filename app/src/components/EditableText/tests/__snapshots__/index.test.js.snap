@@ -1,0 +1,18 @@
+exports[`<EditableText /> should render with default props 1`] = `
+<Section
+  align="center"
+  justify="center"
+  pad={
+    Object {
+      "vertical": "medium"
+    }
+  }>
+  <Box
+    announce={false}
+    direction="column"
+    focusable={true}
+    pad="none"
+    responsive={true}
+    tag="div" />
+</Section>
+`;

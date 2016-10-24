@@ -18,7 +18,8 @@ exports[`<Navbar /> should render with default props 1`] = `
       <Anchor
         href="/"
         tag="a">
-        <undefined />
+        <LogoImage
+          inverted={false} />
       </Anchor>
     </Title>
     <Menu
@@ -34,16 +35,19 @@ exports[`<Navbar /> should render with default props 1`] = `
       pad="none"
       responsive={true}>
       <Anchor
+        className=""
         href="/careers"
         tag="a">
         Careers
       </Anchor>
       <Anchor
+        className=""
         href="/mentorship"
         tag="a">
         Mentorship
       </Anchor>
       <Anchor
+        className=""
         href="/meetups"
         tag="a">
         Meetups
@@ -61,8 +65,7 @@ exports[`<Navbar /> should render with default props 1`] = `
         placeHolder="Start typing..."
         responsive={true} />
     </Menu>
-    <undefined
-      user={undefined} />
+    <SessionMenu />
   </Header>
 </div>
 `;

@@ -1,0 +1,43 @@
+exports[`<MartinRulz /> should render with default props 1`] = `
+<Section
+  pad={
+    Object {
+      "vertical": "medium"
+    }
+  }>
+  <Box
+    align="center"
+    announce={false}
+    direction="column"
+    focusable={true}
+    justify="center"
+    pad="large"
+    responsive={true}
+    tag="div">
+    <Heading
+      align="center"
+      tag="h2">
+      Under Construction
+    </Heading>
+    <img
+      src="http://oi63.tinypic.com/24vse9f.jpg" />
+  </Box>
+  <Box
+    align="center"
+    announce={false}
+    direction="column"
+    focusable={true}
+    pad="none"
+    responsive={true}
+    tag="div">
+    <Heading
+      tag="h3">
+      If you feel like helping us build this page
+    </Heading>
+    <Button
+      href="mailto:forbiddenvoid@gmail.com"
+      label="Get in Touch!"
+      type="button" />
+  </Box>
+</Section>
+`;

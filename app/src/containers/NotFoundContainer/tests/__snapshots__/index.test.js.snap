@@ -39,17 +39,17 @@ exports[`<NotFound /> should render with default props 1`] = `
         alignContent="center"
         className="problem"
         tag="h1">
-        And now for something slightly different...
+        There should be some cake here for you.
       </Heading>
       <Paragraph
         className="solution">
-        Learn about Business Analysis, because, you know... money.
+        Learn to make digital cake that almost smells home-made!
       </Paragraph>
       <Anchor
         className="solution-link"
-        href="https://www.udacity.com/course/predictive-analytics-for-business--nd008"
+        href="https://www.udacity.com/course/vr-developer-nanodegree--nd017"
         tag="a">
-        Predictive Analytics for Business Nanodegree
+        Virtual-Reality Nanodegree
       </Anchor>
     </Box>
   </Box>

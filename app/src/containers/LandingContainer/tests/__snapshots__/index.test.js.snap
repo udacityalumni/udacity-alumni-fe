@@ -2,7 +2,7 @@ exports[`<Landing /> should render with default props 1`] = `
 <Landing
   actions={
     Object {
-      "clearLandingErrors": [Function anonymous],
+      "clearLandingError": [Function anonymous],
       "loadFeaturedArticles": [Function anonymous],
       "loadFeaturedArticlesFailure": [Function anonymous],
       "loadFeaturedArticlesInitiation": [Function anonymous],
@@ -14,7 +14,7 @@ exports[`<Landing /> should render with default props 1`] = `
     }
   }
   carouselImages={Array []}
-  errors={null}
+  error={null}
   featuredArticles={null}
   isLoading={false}
   store={

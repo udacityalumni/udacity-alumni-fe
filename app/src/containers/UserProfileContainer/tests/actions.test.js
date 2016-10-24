@@ -99,6 +99,7 @@ describe('Profile actions', () => {
       email: 'temp@gmail.com',
       avatar: 'http://avatar.png',
       employer: 'Udacity',
+      public: true,
     };
     const expected = {
       type: types.PROFILE_SET_DEFAULT_INPUTS,

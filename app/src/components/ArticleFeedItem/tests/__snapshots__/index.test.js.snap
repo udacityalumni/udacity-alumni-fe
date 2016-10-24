@@ -2,8 +2,35 @@ exports[`<ArticleFeedItem /> should render with default props 1`] = `
 <Article
   direction="column"
   pad="none">
+  <div>
+    <ArticleCalendar />
+  </div>
+  <LinkList
+    links={
+      Array [
+        Object {
+          "id": "5",
+          "tag": "Machine Learning"
+        },
+        Object {
+          "id": "1",
+          "tag": "Software Engineering"
+        },
+        Object {
+          "id": "7",
+          "tag": "JavaScript"
+        },
+        Object {
+          "id": "3",
+          "tag": "Mobile"
+        }
+      ]
+    }
+    seperator="," />
   <Heading
-    tag="h1">
+    align="start"
+    strong={true}
+    tag="h2">
     Administrative services only H
   </Heading>
   <Image
@@ -11,11 +38,29 @@ exports[`<ArticleFeedItem /> should render with default props 1`] = `
     src="https://robohash.org/dignissimosased.png?size=300x300" />
   <Markdown
     components={Object {}}
-    content="Skilled nursing facility lifetime maximum special benefit networks qualifying event short-term medical insurance. Hedis CPT referral guaranteed issue pre-certification. Network provider HEDIS medicare coordination of benefits any willing provider laws gatekeeper evidence of insurability. Network pro" />
-  <Anchor
-    href="/articles/3"
-    label="Read More"
-    primary={true}
-    tag="a" />
+    content="Skilled nursing facility lifetime maximum special benefit networks qualifying event short-term medical insurance. Hedis CPT referral guaranteed issue pre-certification. Network provider HEDIS medicare coordination of benefits any willing provider laws gatekeeper evidence of insurability. Network provider accredited managed care state insurance depa..." />
+  <Box
+    align="start"
+    announce={false}
+    direction="row"
+    focusable={true}
+    justify="center"
+    pad="none"
+    responsive={true}
+    tag="div">
+    <div>
+      <Anchor
+        href="/articles/administrative-services-only-hmo-pre-authorization"
+        label="Read More"
+        primary={true}
+        tag="a" />
+    </div>
+    <Label
+      size="medium"
+      uppercase={true}>
+      - 
+      David Harris
+    </Label>
+  </Box>
 </Article>
 `;

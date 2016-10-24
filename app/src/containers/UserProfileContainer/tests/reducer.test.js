@@ -192,23 +192,27 @@ describe('profileReducer', () => {
     const email = 'temp@gmail.com';
     const avatar = 'http://avatar.png';
     const employer = 'Udacity';
+    const publicInput = true;
     const inputs = {
       bio,
       email,
       avatar,
       employer,
+      public: publicInput,
     };
     const stateBefore = {
       bioInput: null,
       avatarInput: null,
       employerInput: null,
       emailInput: null,
+      publicInput: false,
     };
     const stateAfter = {
       bioInput: bio,
       avatarInput: avatar,
       employerInput: employer,
       emailInput: email,
+      publicInput,
     };
     expect(
       profileReducer(stateBefore, {

@@ -1,0 +1,4 @@
+exports[`<Avatar /> should render with default props 1`] = `
+<img
+  src="https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/no-user.png?raw=true" />
+`;

@@ -3,22 +3,22 @@ exports[`<SingleArticleContent /> should render with default props 1`] = `
   align="center"
   direction="column"
   pad="none">
+  <div>
+    <ArticleCalendar
+      date="2016-09-30T02:39:57.333Z" />
+  </div>
   <Headline
     align="center">
     Creditable coverage Hcfa common procedure coding system Group health plan
   </Headline>
+  <Divider />
   <Image
-    full={
-      Object {
-        "horizontal": true
-      }
-    }
     size="medium"
     src="https://robohash.org/magnietnon.png?size=300x300" />
   <Box
     align="center"
     announce={false}
-    className="markdown-body"
+    className="undefined markdown-body"
     direction="column"
     focusable={true}
     justify="center"

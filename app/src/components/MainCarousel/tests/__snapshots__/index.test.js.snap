@@ -14,7 +14,7 @@ exports[`<Navbar /> should render with default props 1`] = `
       }
     }
     keep={true}
-    visible={false}>
+    visible={true}>
     <Carousel
       autoplay={true}
       autoplaySpeed={5000}

@@ -35,6 +35,80 @@ exports[`<AppFooter /> should render with default props 1`] = `
          Udacity Alumni
       </Anchor>
     </Heading>
+    <Box
+      announce={false}
+      direction="row"
+      focusable={true}
+      pad="none"
+      responsive={true}
+      tag="div">
+      <Anchor
+        colorIndex="brand"
+        href="/members"
+        icon={
+          <function Icon() {
+              (0, _classCallCheck3.default)(this, Icon);
+              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+            }
+            a11yTitleId="group-title"
+            responsive={true} />
+        }
+        label="Our Members"
+        tag="a" />
+      <span>
+          |  
+      </span>
+      <Anchor
+        colorIndex="brand"
+        href="/about"
+        icon={
+          <function Icon() {
+              (0, _classCallCheck3.default)(this, Icon);
+              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+            }
+            a11yTitleId="help-title"
+            responsive={true} />
+        }
+        label="About Us"
+        tag="a" />
+    </Box>
+    <Box
+      announce={false}
+      direction="row"
+      focusable={true}
+      pad="none"
+      responsive={true}
+      tag="div">
+      <Anchor
+        colorIndex="brand"
+        href="/terms"
+        icon={
+          <function Icon() {
+              (0, _classCallCheck3.default)(this, Icon);
+              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+            }
+            a11yTitleId="compliance-title"
+            responsive={true} />
+        }
+        label="Terms of Service"
+        tag="a" />
+      <span>
+          |  
+      </span>
+      <Anchor
+        colorIndex="brand"
+        href="/privacy"
+        icon={
+          <function Icon() {
+              (0, _classCallCheck3.default)(this, Icon);
+              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
+            }
+            a11yTitleId="shield-title"
+            responsive={true} />
+        }
+        label="Privacy Policy"
+        tag="a" />
+    </Box>
     <Menu
       closeOnClick={false}
       direction="row"

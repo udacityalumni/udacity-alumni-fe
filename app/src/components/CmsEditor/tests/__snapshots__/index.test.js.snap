@@ -7,11 +7,13 @@ exports[`<CmsEditor /> should render with default props 1`] = `
       type="titleInput"
       value="Hello World" />
   </div>
-  <MegadraftEditor
-    editorState={Object {}}
-    onChange={[Function onChange]}
-    placeholder="Tell a story ..." />
-  <undefined
+  <div>
+    <MegadraftEditor
+      editorState={Object {}}
+      onChange={[Function onChange]}
+      placeholder="Tell a story ..." />
+  </div>
+  <CmsToolbar
     canSubmit={true}
     onPreview={[Function onTapToPreview]}
     onSave={[Function onSubmit]} />

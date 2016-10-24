@@ -23,6 +23,15 @@ exports[`<CmsModal /> should render with default props 1`] = `
     pad="large">
     <FormFields>
       <FormField
+        help="Enter a URL to set the feature image of the article"
+        label="Feature Image"
+        size="medium"
+        strong={false}>
+        <input
+          placeholder="https://c2.staticflickr.com/8/7127/7552248154_978bcb1773.jpg"
+          type="text" />
+      </FormField>
+      <FormField
         label="Settings"
         size="medium"
         strong={false}>
@@ -63,7 +72,7 @@ exports[`<CmsModal /> should render with default props 1`] = `
         label="Tags"
         size="medium"
         strong={false}>
-        <undefined
+        <TagEditor
           onChangeValue={[Function onChangeValue]}
           selectedTags={
             Array [

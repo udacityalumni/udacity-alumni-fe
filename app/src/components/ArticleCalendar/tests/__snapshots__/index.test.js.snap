@@ -1,0 +1,15 @@
+exports[`<ArticleCalendar /> should render with default props 1`] = `
+<div>
+  <div>
+    Oct
+  </div>
+  <div>
+    <div>
+      24
+    </div>
+    <div>
+      2016
+    </div>
+  </div>
+</div>
+`;

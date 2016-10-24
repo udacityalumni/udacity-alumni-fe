@@ -1,26 +1,5 @@
 exports[`<SessionMenu /> should render with default props 1`] = `
 <span>
-  <Menu
-    align="center"
-    closeOnClick={true}
-    direction="row"
-    dropAlign={
-      Object {
-        "left": "left",
-        "top": "top"
-      }
-    }
-    pad="none">
-    <Anchor
-      href="/login"
-      tag="a">
-      Log In
-    </Anchor>
-    <Anchor
-      href="/signup"
-      tag="a">
-      Sign Up
-    </Anchor>
-  </Menu>
+  <NoUserMenu />
 </span>
 `;

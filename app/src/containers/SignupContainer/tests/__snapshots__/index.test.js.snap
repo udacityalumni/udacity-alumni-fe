@@ -2,6 +2,11 @@ exports[`<Signup /> should render with default props 1`] = `
 <ConnectedForm
   actions={
     Object {
+      "appClearError": [Function anonymous],
+      "appClearMessage": [Function anonymous],
+      "appCloseToast": [Function anonymous],
+      "appSetError": [Function anonymous],
+      "appSetMessage": [Function anonymous],
       "appSetMobile": [Function anonymous],
       "appToggleNav": [Function anonymous],
       "clearSearchTerm": [Function anonymous],
@@ -19,7 +24,8 @@ exports[`<Signup /> should render with default props 1`] = `
       "signupRequestFailure": [Function anonymous],
       "signupRequestInitiation": [Function anonymous],
       "signupRequestSuccess": [Function anonymous],
-      "signupSetMessage": [Function anonymous]
+      "signupSetMessage": [Function anonymous],
+      "toggleOfflineMode": [Function anonymous]
     }
   }
   errorMessage={null}

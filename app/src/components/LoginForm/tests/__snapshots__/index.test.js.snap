@@ -106,7 +106,7 @@ exports[`<LoginForm /> should render with default props 1`] = `
         primary={true}
         type="button" />
     </Footer>
-    <undefined
+    <AuthFormFooter
       link="/signup"
       text="Need an Account?" />
   </Form>

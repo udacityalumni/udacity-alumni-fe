@@ -1,5 +1,5 @@
-exports[`<LoginContainer /> should render with default props 1`] = `
-<ConnectedForm
+exports[`<UserProfileContainer /> should render with default props 1`] = `
+<Apollo(UserProfileContainer)
   actions={
     Object {
       "appClearError": [Function anonymous],
@@ -14,23 +14,33 @@ exports[`<LoginContainer /> should render with default props 1`] = `
       "loadAuthToken": [Function anonymous],
       "loadPersistedAuthToken": [Function anonymous],
       "loadPersistedUser": [Function anonymous],
-      "loginClearError": [Function anonymous],
-      "loginClearMessage": [Function anonymous],
-      "loginInitiateRequest": [Function anonymous],
-      "loginRequestFailure": [Function anonymous],
-      "loginRequestSuccess": [Function anonymous],
-      "loginSetMessage": [Function anonymous],
       "logoutUser": [Function anonymous],
-      "performLogin": [Function anonymous],
+      "profileCancelEditing": [Function anonymous],
+      "profileClearError": [Function anonymous],
+      "profileEditAvatar": [Function anonymous],
+      "profileEditBio": [Function anonymous],
+      "profileEditEmail": [Function anonymous],
+      "profileEditEmployer": [Function anonymous],
+      "profileStartEditing": [Function anonymous],
+      "profileSubmissionFailure": [Function anonymous],
+      "profileSubmissionInitiation": [Function anonymous],
+      "profileSubmissionSuccess": [Function anonymous],
+      "profileTogglePublic": [Function anonymous],
       "setAuthUser": [Function anonymous],
+      "setDefaultInputs": [Function anonymous],
       "setPersistentUser": [Function anonymous],
       "setSearchTerm": [Function anonymous],
       "toggleOfflineMode": [Function anonymous]
     }
   }
-  errorMessage={null}
+  authToken={null}
+  avatarInput={null}
+  bioInput={null}
+  emailInput={null}
+  employerInput={null}
+  isEditing={false}
   isLoading={false}
-  message={null}
+  publicInput={false}
   store={
     Object {
       "clearActions": [Function clearActions],
@@ -41,5 +51,6 @@ exports[`<LoginContainer /> should render with default props 1`] = `
       "subscribe": [Function subscribe]
     }
   }
+  submissionError={null}
   user={null} />
 `;

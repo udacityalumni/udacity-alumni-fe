@@ -13,7 +13,7 @@ exports[`<SingleArticle /> should render with default props 1`] = `
         "vertical": "medium"
       }
     }>
-    <undefined
+    <SingleArticleContent
       article={
         Object {
           "content": "Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage.",
@@ -45,7 +45,7 @@ exports[`<SingleArticle /> should render with default props 1`] = `
         "vertical": "medium"
       }
     }>
-    <undefined
+    <Author
       author={
         Object {
           "avatar": "https://avatars3.githubusercontent.com/u/13679375?v=3&s=466",
@@ -65,7 +65,7 @@ exports[`<SingleArticle /> should render with default props 1`] = `
         "vertical": "medium"
       }
     }>
-    <undefined
+    <ArticleMeta
       article={
         Object {
           "content": "Care plan eligible dependent free-look period waiting period incurral date board certified health care provider HCPCS. Agent of record PCP limited policy morbidity medigap health savings account credentialing medical necessity open enrollment. Creditable coverage agent of record renewal disenroll IPA medicare. Accumulation period contract year policy benefit cap medicare supplement creditable coverage.",
