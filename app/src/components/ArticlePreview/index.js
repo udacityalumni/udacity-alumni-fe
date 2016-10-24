@@ -4,7 +4,7 @@ import cssModules from 'react-css-modules';
 import Anchor from 'grommet-udacity/components/Anchor';
 import Box from 'grommet-udacity/components/Box';
 import Card from 'grommet-udacity/components/Card';
-import MissingVisual from './missing-visual.png';
+import { ResponsiveImage } from 'components';
 import { highlightContent } from './utils';
 
 const ArticlePreview = ({
@@ -22,7 +22,7 @@ const ArticlePreview = ({
     >
       <Card
         label={`By ${article.user.name}`}
-        thumbnail={article.feature_image || MissingVisual}
+        thumbnail={<ResponsiveImage src={article.feature_image} />}
         heading={article.title.slice(0, 15)}
         description={formattedDescription}
         link={

@@ -3,12 +3,14 @@ import * as actions from '../actions';
 import * as types from '../constants';
 
 describe('ArticleArchive actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
-      const expected = {
-        type: types.ARTICLEARCHIVE_DEFAULT_ACTION,
-      };
-      expect(actions.articleArchiveDefaultAction()).toEqual(expected);
-    });
+  it('should handle ARCHIVE_SET_TAG', () => {
+    const tag = 'Hello';
+    const expected = {
+      type: types.ARCHIVE_SET_TAG,
+      tag,
+    };
+    expect(
+      actions.setTag(tag)
+    ).toEqual(expected);
   });
 });

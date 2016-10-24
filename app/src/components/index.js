@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export ResponsiveImage from './ResponsiveImage';
 export Avatar from './Avatar';
 export Member from './Member';
 export MartinRulz from './MartinRulz';

@@ -1,0 +1,33 @@
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsiveImage {
+  width: 100%;
+  height: auto;
+}
+
+.responsiveImageMatchHeight {
+  width: 100%;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 56.25%;
+  }
+  img {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  @media (min-width: 640px) {
+    width: 100%;
+  }
+}

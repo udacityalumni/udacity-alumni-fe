@@ -4,19 +4,17 @@ import { bindActionCreators } from 'redux';
 import * as MeetupsActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import Heading from 'grommet-udacity/components/Heading';
 import Hero from 'grommet-udacity/components/Hero';
 import Headline from 'grommet-udacity/components/Headline';
-import Section from 'grommet-udacity/components/Section';
-import Button from 'grommet-udacity/components/Button';
 import { MartinRulz } from 'components';
+const MeetupsImage = 'https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/meetups.jpeg?raw=true';
 
 class Meetups extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div className={styles.meetups}>
         <Hero
-          backgroundImage="http://photos4.meetupstatic.com/photos/event/7/3/6/3/highres_451349539.jpeg"
+          backgroundImage={MeetupsImage}
         >
           <Headline strong>
             Udacity Meetups
