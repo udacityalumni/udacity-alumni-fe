@@ -13,7 +13,12 @@ const MartinRulz = () => (
       align="center"
       justify="center"
     >
-      <Heading tag="h2" align="center">Under Construction</Heading>
+      <Heading
+        tag="h2"
+        align="center"
+      >
+        Under Construction
+      </Heading>
       <img
         className={styles.image}
         src="http://oi63.tinypic.com/24vse9f.jpg"
@@ -22,7 +27,10 @@ const MartinRulz = () => (
     <Box
       align="center"
     >
-      <Heading tag="h3">
+      <Heading
+        tag="h3"
+        align="center"
+      >
         If you feel like helping us build this page
       </Heading>
       <Button href="mailto:forbiddenvoid@gmail.com" label="Get in Touch!" />
