@@ -30,6 +30,8 @@ const CmsModal = ({
   canSubmit,
   tags,
   onChangeValue,
+  featureImage,
+  onChangeFeatureImage,
   selectedTags,
 }) => (
   <Layer
@@ -48,6 +50,17 @@ const CmsModal = ({
       pad="large"
     >
       <FormFields>
+        <FormField
+          label="Feature Image"
+          help="Enter a URL to set the feature image of the article"
+        >
+          <input
+            value={featureImage}
+            placeholder="https://c2.staticflickr.com/8/7127/7552248154_978bcb1773.jpg"
+            onChange={onChangeFeatureImage}
+            type="text"
+          />
+        </FormField>
         <FormField
           label="Settings"
         >
@@ -102,6 +115,8 @@ CmsModal.propTypes = {
   onSave: PropTypes.func.isRequired,
   canSubmit: PropTypes.bool.isRequired,
   onCreateTag: PropTypes.func.isRequired,
+  onChangeFeatureImage: PropTypes.func.isRequired,
+  featureImage: PropTypes.string,
 };
 
 CmsModal.defaultProps = {

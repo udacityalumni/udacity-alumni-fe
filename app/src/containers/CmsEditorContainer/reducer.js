@@ -23,6 +23,7 @@ export const initialState = {
     status: 0,
     spotlighted: false,
     selectedTags: [],
+    featureImage: null,
   },
 };
 
@@ -70,8 +71,17 @@ const statusEnum = (status) => {
 
 const modalReducer = (state = initialState.modal, action) => {
   switch (action.type) {
+    case types.CMS_SET_FEATURE_IMAGE:
+      return update(state, {
+        featureImage: {
+          $set: action.image,
+        },
+      });
     case types.CMS_SET_STATE_FROM_ARTICLE:
       return update(state, {
+        featureImage: {
+          $set: action.article.feature_image,
+        },
         spotlighted: {
           $set: action.article.spotlighted,
         },
@@ -227,6 +237,10 @@ const cmsEditorReducer =
               $set: action.action,
             },
           },
+        });
+      case types.CMS_SET_FEATURE_IMAGE:
+        return update(state, {
+          modal: modalReducer(state.modal, action),
         });
       case types.CMS_SET_STATE_FROM_ARTICLE:
         const rawContent = JSON.parse(action.article.json);

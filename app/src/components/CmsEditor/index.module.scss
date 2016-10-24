@@ -19,3 +19,9 @@
   border: 0 !important;
   box-shadow: none !important;
 }
+
+.cmsInput {
+  @media screen and (max-width: 600px) {
+    padding: 80px;
+  }
+}

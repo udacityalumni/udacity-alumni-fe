@@ -4,6 +4,8 @@ const HtmlwebpackPlugin = require('html-webpack-plugin');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const autoprefixer = require('autoprefixer');
+const precss = require('precss');
 
 const ROOT_PATH = path.resolve(__dirname);
 const env = process.env.NODE_ENV || 'development';
@@ -47,22 +49,22 @@ module.exports = {
     {
       test: /\.module\.scss$/,
       loader: !isProduction ?
-        'style-loader!css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url-loader!sass-loader'
+        'style-loader!css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url-loader!postcss-loader!sass-loader'
       :
         ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url-loader!sass-loader'
+          loader: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url-loader!postcss-loader!sass-loader'
         }),
     },
     {
       test: /\.scss$/,
       exclude: /\.module\.scss$/,
       loader: !isProduction ?
-        'style-loader!css-loader!sass-loader'
+        'style-loader!css-loader!postcss-loader!sass-loader'
       :
         ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: '!css-loader!sass-loader'
+          loader: '!css-loader!postcss-loader!sass-loader'
         }),
     },
     {
@@ -87,6 +89,12 @@ module.exports = {
     includePaths: [
       './node_modules',
     ]
+  },
+  postcss: function () {
+    return {
+      defaults: [precss, autoprefixer],
+      cleaner:  [autoprefixer({ browsers: [] })]
+    };
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],

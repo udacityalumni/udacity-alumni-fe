@@ -19,15 +19,6 @@ class UserProfileContainer extends Component {
     this.setDefaultValues = this.setDefaultValues.bind(this);
     this.handleSubmission = this.handleSubmission.bind(this);
   }
-  componentDidMount() {
-    const {
-      emailInput,
-      user,
-    } = this.props;
-    if (!emailInput !== user.email || !user) {
-      this.setDefaultValues();
-    }
-  }
   setDefaultValues() {
     const {
       user,

@@ -1,11 +1,11 @@
 .toolbar {
   position: fixed;
-  margin-bottom: 0px !important;
   padding: 0px !important;
   left: 0;
   bottom: -10px;
   width: 100%;
   z-index: 100;
+  margin: 0 !important;
 }
 
 .toolbarWrapper {

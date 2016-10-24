@@ -28,11 +28,13 @@ class CmsEditor extends Component {
             placeholder="Title"
           />
         </div>
-        <MegadraftEditor
-          editorState={stateForEditor}
-          onChange={(state) => onChangeContent(state)}
-          placeholder="Tell a story ..."
-        />
+        <div className={styles.cmsInput}>
+          <MegadraftEditor
+            editorState={stateForEditor}
+            onChange={(state) => onChangeContent(state)}
+            placeholder="Tell a story ..."
+          />
+        </div>
         <CmsToolbar
           canSubmit={isValid}
           onSave={onSubmit}

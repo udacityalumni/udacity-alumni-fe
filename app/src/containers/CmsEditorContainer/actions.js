@@ -67,6 +67,11 @@ export const cmsSetEditorState = (state) => ({
   state,
 });
 
+export const setFeatureImage = (image) => ({
+  type: types.CMS_SET_FEATURE_IMAGE,
+  image,
+});
+
 export const cmsSetEditorTitle = (title) => ({
   type: types.CMS_SET_EDITOR_TITLE,
   title,

@@ -97,7 +97,7 @@ class CmsEditorContainer extends Component {
       status: modal.status,
       spotlighted: modal.spotlighted,
       tags: modal.selectedTags,
-      feature_image: '',
+      feature_image: modal.featureImage || '',
     });
     if (action && action === 'edit') {
       this.handleUpdateArticleSubmission(article);
@@ -221,6 +221,7 @@ class CmsEditorContainer extends Component {
       isValid,
       preview,
       isLoading,
+      actions,
     } = this.props;
     const loading = loadingTags || articleLoading || isLoading;
     return (
@@ -269,6 +270,8 @@ class CmsEditorContainer extends Component {
           tags={tags}
           selectedTags={modal.selectedTags}
           onChangeValue={this.handleChangeSelectedTags}
+          featureImage={modal.featureImage}
+          onChangeFeatureImage={({ target }) => actions.setFeatureImage(target.value)}
         />
         <CmsEditorPreview
           isShowing={preview.isPreviewing}

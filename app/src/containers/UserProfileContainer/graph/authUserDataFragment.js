@@ -9,7 +9,7 @@ export const authUserDataFragment = createFragment(
       email
       name
       avatar
-      authToken: auth_token
+      public
       role
     }
   `

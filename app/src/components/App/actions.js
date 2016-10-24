@@ -34,9 +34,11 @@ export const loadAuthToken = (token) => ({
 
 export const loadPersistedAuthToken = () => (dispatch) => {
   const token = localStorage.getItem('auth_token');
-  dispatch(
-    loadAuthToken(token)
-  );
+  if (token) {
+    dispatch(
+      loadAuthToken(token)
+    );
+  }
 };
 
 export const setPersistentUser = (user) => (dispatch) => {
@@ -47,19 +49,16 @@ export const setPersistentUser = (user) => (dispatch) => {
 };
 
 const destroyAuthToken = () => new Promise((resolve) => {
-  console.log('called destroy auth token');
   localStorage.removeItem('auth_token');
   resolve();
 });
 
 const destroyUser = () => new Promise((resolve) => {
-  console.log('called destroy user');
   localStorage.removeItem('user');
   resolve();
 });
 
 export const logoutUser = () => (dispatch) => {
-  console.log('Called logout user')
   destroyAuthToken().then(() =>
     destroyUser()
   ).then(() => {
