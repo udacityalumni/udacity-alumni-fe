@@ -4,6 +4,8 @@ import cssModules from 'react-css-modules';
 import Spinning from 'grommet-udacity/components/icons/Spinning';
 import Box from 'grommet-udacity/components/Box';
 import Heading from 'grommet-udacity/components/Heading';
+import messageData from './data/messageData';
+import { getRandomMessage } from './utils';
 
 const LoadingIndicator = ({
   isLoading,
@@ -33,7 +35,7 @@ LoadingIndicator.propTypes = {
 
 LoadingIndicator.defaultProps = {
   isLoading: true,
-  message: 'Loading',
+  message: getRandomMessage(messageData),
 };
 
 export default cssModules(LoadingIndicator, styles);
