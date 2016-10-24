@@ -18,8 +18,7 @@
     "test": {
       "plugins": [
         [
-          "babel-plugin-webpack-loaders",
-          {
+          "babel-plugin-webpack-loaders", {
             "config": "./config/testing/webpack.test.config.js",
             "verbose": false
           }
@@ -57,6 +56,8 @@
     "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
     "start": "npm run dev",
     "clean": "rm -rf app/dist app/build",
+    "clean:server": "rm -rf server/public/*",
+    "dist": "npm run clean:server && npm run deploy",
     "setup": "npm install",
     "serve:bundle": "cross-env BASE_URL=http://0.0.0.0:1337/ NODE_ENV=production PORT=1337 node server.js",
     "add": "all-contributors add"

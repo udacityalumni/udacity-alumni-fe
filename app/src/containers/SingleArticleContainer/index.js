@@ -57,10 +57,15 @@ class SingleArticleContainer extends Component {
         className={styles.singleArticleContainer}
       >
         {articleLoading ?
-          <LoadingIndicator
-            message="Loading"
-            isLoading
-          />
+          <Section
+            align="center"
+            justify="center"
+            className="full-height"
+          >
+            <LoadingIndicator
+              isLoading
+            />
+          </Section>
         :
           <Box className={styles.mainSection}>
             {singleArticle ?
