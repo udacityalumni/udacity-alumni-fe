@@ -51,7 +51,6 @@ const LoginForm = ({
             name="email"
             placeholder="me@udacity.com"
             type="email"
-            className={styles.input}
           />
         </FormField>
         <FormField
@@ -67,7 +66,6 @@ const LoginForm = ({
             name="password"
             id="passwordInput"
             type="password"
-            className={styles.input}
           />
         </FormField>
       </FormFields>

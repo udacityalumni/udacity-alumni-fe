@@ -1,18 +1,62 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as ResetPasswordActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
+import Section from 'grommet-udacity/components/Section';
+import Box from 'grommet-udacity/components/Box';
+import { PasswordResetForm } from 'components';
+import validation from './utils/validation';
+import { reduxForm } from 'redux-form';
 
-class ResetPassword extends Component { // eslint-disable-line react/prefer-stateless-function
+export const formFields = [
+  'passwordInput',
+  'passwordConfirmationInput',
+];
+
+class ResetPasswordContainer extends Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit() {
+
+  }
   render() {
+    const {
+      fields,
+      invalid,
+    } = this.props;
     return (
-      <div className={styles.resetPassword}>
-      </div>
+      <Section
+        primary
+        pad={{ horizontal: 'large' }}
+        align="center"
+        justify="center"
+        className={styles.resetPassword}
+      >
+        <Box
+          size="large"
+          className={styles.loginFormWrapper}
+          align="center"
+          pad={{ horizontal: 'small', vertical: 'small' }}
+        >
+          <PasswordResetForm
+            {...fields}
+            invalid={invalid}
+            onSubmit={this.handleSubmit}
+          />
+        </Box>
+      </Section>
     );
   }
 }
+
+ResetPasswordContainer.propTypes = {
+  fields: PropTypes.object.isRequired,
+  invalid: PropTypes.bool.isRequired,
+};
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
@@ -27,9 +71,15 @@ const mapDispatchToProps = (dispatch) => ({
   ),
 });
 
-const Container = cssModules(ResetPassword, styles);
+const Container = cssModules(ResetPasswordContainer, styles);
+
+const FormContainer = reduxForm({
+  form: 'ResetPassword',
+  fields: formFields,
+  validate: validation,
+})(Container);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Container);
+)(FormContainer);
