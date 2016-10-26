@@ -8,6 +8,7 @@ import FormFields from 'grommet-udacity/components/FormFields';
 import Footer from 'grommet-udacity/components/Footer';
 import Button from 'grommet-udacity/components/Button';
 import Box from 'grommet-udacity/components/Box';
+import Anchor from 'grommet-udacity/components/Anchor';
 import { AuthFormFooter } from 'components';
 import calculatedError from './utils/error';
 
@@ -16,6 +17,7 @@ const LoginForm = ({
   emailInput,
   onSubmit,
   invalid,
+  onForgotPassword,
 }) => (
   <Box
     className={styles.loginForm}
@@ -73,6 +75,11 @@ const LoginForm = ({
         <Button onClick={invalid ? null : onSubmit} fill label="Submit" primary />
       </Footer>
       <AuthFormFooter text="Need an Account?" link="/signup" />
+      <Box align="center" justify="center">
+        <Anchor onClick={onForgotPassword}>
+          Forgot Your Password?
+        </Anchor>
+      </Box>
     </Form>
   </Box>
 );
@@ -82,6 +89,7 @@ LoginForm.propTypes = {
   emailInput: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   invalid: PropTypes.bool.isRequired,
+  onForgotPassword: PropTypes.func.isRequired,
 };
 
 export default cssModules(LoginForm, styles);

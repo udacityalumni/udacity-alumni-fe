@@ -1,4 +1,5 @@
 /* Assemble all pages for export */
+export ResetPasswordPage from './ResetPasswordPage/index';
 export AboutPage from './AboutPage/index';
 export MembersPage from './MembersPage/index';
 export ArchivePage from './ArchivePage/index';

@@ -7,14 +7,15 @@ import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
+import Anchor from 'grommet-udacity/components/Anchor';
 import validation from './utils/validation';
 import { reduxForm } from 'redux-form';
 import {
   LoadingIndicator,
   ToastMessage,
   LoginForm,
+  LostPasswordModal,
 } from 'components';
-
 
 export const formFields = [
   'emailInput',
@@ -56,6 +57,8 @@ class Login extends Component {
       fields,
       invalid,
       actions,
+      isShowingModal,
+      emailInput,
     } = this.props;
     return (
       <Section
@@ -65,6 +68,13 @@ class Login extends Component {
         justify="center"
         className={styles.login}
       >
+        <LostPasswordModal
+          emailInput={emailInput}
+          onChangeEmailInput={({ target }) => actions.forgotPasswordSetEmailInput(target.value)}
+          onClose={() => actions.handleToggleForgotPassword()}
+          onSubmit={e => e}
+          isVisible={isShowingModal}
+        />
         {isLoading &&
           <LoadingIndicator
             message="Submitting"
@@ -92,6 +102,7 @@ class Login extends Component {
         >
           <LoginForm
             {...fields}
+            onForgotPassword={() => actions.handleToggleForgotPassword()}
             invalid={invalid}
             onSubmit={this.handleSubmit}
           />
@@ -110,6 +121,8 @@ Login.propTypes = {
   message: PropTypes.string,
   fields: PropTypes.object.isRequired,
   invalid: PropTypes.bool.isRequired,
+  isShowingModal: PropTypes.bool.isRequired,
+  emailInput: PropTypes.string,
 };
 
 Login.contextTypes = {
@@ -123,6 +136,8 @@ const mapStateToProps = (state) => ({
   loggedInUser: state.loginContainer.loggedInUser,
   isLoading: state.loginContainer.isLoading,
   message: state.loginContainer.message,
+  isShowingModal: state.loginContainer.forgotPassword.isShowingModal,
+  emailInput: state.loginContainer.forgotPassword.emailInput,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
