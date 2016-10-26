@@ -36,7 +36,7 @@ const LostPasswordModal = ({
       </Box>
       <Form className={styles.form}>
         <Box direction="row" style={{ width: '100%' }}>
-          <FormField>
+          <FormField className={styles.formField}>
             <input
               {...emailField}
               placeholder="david@udacity.com"
@@ -44,7 +44,12 @@ const LostPasswordModal = ({
               name="email"
             />
           </FormField>
-          <Button style={{ marginLeft: 20 }} onClick={onSubmit} label="Submit" />
+          <Button
+            primary
+            className={styles.button}
+            onClick={onSubmit}
+            label="Submit"
+          />
         </Box>
       </Form>
     </Box>

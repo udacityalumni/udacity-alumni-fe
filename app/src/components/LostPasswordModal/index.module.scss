@@ -9,3 +9,18 @@
 .form {
   margin: 40px;
 }
+
+.formField {
+  @media screen and (max-width: 720px) {
+    max-width: 70vw;
+  }
+}
+
+.button {
+  margin-left: 20px;
+  @media screen and (max-width: 720px) {
+    max-width: 70vw;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}

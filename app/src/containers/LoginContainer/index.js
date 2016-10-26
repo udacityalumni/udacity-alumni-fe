@@ -7,7 +7,6 @@ import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
-import Anchor from 'grommet-udacity/components/Anchor';
 import validation from './utils/validation';
 import { reduxForm } from 'redux-form';
 import {
@@ -26,6 +25,7 @@ class Login extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitLostPassword = this.handleSubmitLostPassword.bind(this);
   }
   componentWillReceiveProps({ user }) {
     if (user) {
@@ -48,6 +48,11 @@ class Login extends Component {
       password: fields.passwordInput.value,
     };
     actions.performLogin(data);
+  }
+  handleSubmitLostPassword() {
+    // TODO: implement me.
+    // The email address is stored in the
+    // this.props.emailInput state
   }
   render() {
     const {
@@ -72,7 +77,7 @@ class Login extends Component {
           emailInput={emailInput}
           onChangeEmailInput={({ target }) => actions.forgotPasswordSetEmailInput(target.value)}
           onClose={() => actions.handleToggleForgotPassword()}
-          onSubmit={e => e}
+          onSubmit={this.handleSubmitLostPassword}
           isVisible={isShowingModal}
         />
         {isLoading &&
