@@ -4,10 +4,10 @@ import styles from './index.module.scss';
 import { ResetPasswordContainer } from 'containers';
 
 const ResetPasswordPage = ({
-  params,
+  location,
 }) => (
   <div className={styles.container}>
-    <ResetPasswordContainer params={params} />
+    <ResetPasswordContainer location={location} />
   </div>
 );
 

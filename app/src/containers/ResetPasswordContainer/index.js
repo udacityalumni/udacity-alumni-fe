@@ -20,6 +20,14 @@ class ResetPasswordContainer extends Component {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  componentDidMount() {
+    const {
+      query,
+    } = this.props.location;
+    if (query.token != null) {
+      // Do something with the token
+    }
+  }
   handleSubmit() {
 
   }
@@ -56,6 +64,7 @@ class ResetPasswordContainer extends Component {
 ResetPasswordContainer.propTypes = {
   fields: PropTypes.object.isRequired,
   invalid: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
