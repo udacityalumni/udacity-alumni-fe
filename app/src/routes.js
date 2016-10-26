@@ -201,6 +201,17 @@ export const routes = {
         });
       },
     },
+    {
+      path: '/reset-password',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const ResetPasswordPage = require(
+            './pages/ResetPasswordPage'
+        ).default;
+          callback(null, ResetPasswordPage);
+        });
+      },
+    },
 /* Newly generated Routes go here */
     {
       path: '*',

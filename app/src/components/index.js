@@ -1,4 +1,6 @@
 /* Assemble all components for export */
+export PasswordResetForm from './PasswordResetForm';
+export LostPasswordModal from './LostPasswordModal';
 export ResponsiveImage from './ResponsiveImage';
 export Avatar from './Avatar';
 export Member from './Member';

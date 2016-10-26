@@ -13,8 +13,8 @@ import {
   LoadingIndicator,
   ToastMessage,
   LoginForm,
+  LostPasswordModal,
 } from 'components';
-
 
 export const formFields = [
   'emailInput',
@@ -25,6 +25,7 @@ class Login extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitLostPassword = this.handleSubmitLostPassword.bind(this);
   }
   componentWillReceiveProps({ user }) {
     if (user) {
@@ -48,6 +49,11 @@ class Login extends Component {
     };
     actions.performLogin(data);
   }
+  handleSubmitLostPassword() {
+    // TODO: implement me.
+    // The email address is stored in the
+    // this.props.emailInput state
+  }
   render() {
     const {
       isLoading,
@@ -56,6 +62,8 @@ class Login extends Component {
       fields,
       invalid,
       actions,
+      isShowingModal,
+      emailInput,
     } = this.props;
     return (
       <Section
@@ -65,6 +73,13 @@ class Login extends Component {
         justify="center"
         className={styles.login}
       >
+        <LostPasswordModal
+          emailInput={emailInput}
+          onChangeEmailInput={({ target }) => actions.forgotPasswordSetEmailInput(target.value)}
+          onClose={() => actions.handleToggleForgotPassword()}
+          onSubmit={this.handleSubmitLostPassword}
+          isVisible={isShowingModal}
+        />
         {isLoading &&
           <LoadingIndicator
             message="Submitting"
@@ -92,6 +107,7 @@ class Login extends Component {
         >
           <LoginForm
             {...fields}
+            onForgotPassword={() => actions.handleToggleForgotPassword()}
             invalid={invalid}
             onSubmit={this.handleSubmit}
           />
@@ -110,6 +126,8 @@ Login.propTypes = {
   message: PropTypes.string,
   fields: PropTypes.object.isRequired,
   invalid: PropTypes.bool.isRequired,
+  isShowingModal: PropTypes.bool.isRequired,
+  emailInput: PropTypes.string,
 };
 
 Login.contextTypes = {
@@ -123,6 +141,8 @@ const mapStateToProps = (state) => ({
   loggedInUser: state.loginContainer.loggedInUser,
   isLoading: state.loginContainer.isLoading,
   message: state.loginContainer.message,
+  isShowingModal: state.loginContainer.forgotPassword.isShowingModal,
+  emailInput: state.loginContainer.forgotPassword.emailInput,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

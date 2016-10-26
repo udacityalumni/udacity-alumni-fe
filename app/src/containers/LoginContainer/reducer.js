@@ -6,11 +6,23 @@ export const initialState = {
   isLoading: false,
   message: null,
   user: null,
+  forgotPassword: {
+    isShowingModal: false,
+    emailInput: null,
+  },
 };
 
 const loginReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.FORGOT_PASSWORD_SET_EMAIL_INPUT:
+        return update(state, {
+          forgotPassword: {
+            emailInput: {
+              $set: action.input,
+            },
+          },
+        });
       case types.LOGIN_INITIATE_REQUEST:
         return update(state, {
           isLoading: {
@@ -51,6 +63,14 @@ const loginReducer =
         return update(state, {
           message: {
             $set: null,
+          },
+        });
+      case types.LOGIN_TOGGLE_FORGOT_PASSWORD:
+        return update(state, {
+          forgotPassword: {
+            isShowingModal: {
+              $set: !state.forgotPassword.isShowingModal,
+            },
           },
         });
       default:

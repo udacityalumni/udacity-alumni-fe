@@ -5,6 +5,15 @@ const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
 const sessionsUrl = `${baseUrl}api/v1/sessions`;
 const usersUrl = `${baseUrl}api/v1/users`;
 
+export const forgotPasswordSetEmailInput = (input) => ({
+  type: types.FORGOT_PASSWORD_SET_EMAIL_INPUT,
+  input,
+});
+
+export const handleToggleForgotPassword = () => ({
+  type: types.LOGIN_TOGGLE_FORGOT_PASSWORD,
+});
+
 // loginInitiateRequest :: None -> Action
 export const loginInitiateRequest = () => ({
   type: types.LOGIN_INITIATE_REQUEST,
