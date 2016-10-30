@@ -34,7 +34,7 @@ The project will be deployed via Docker to an ExpressJS server.  Configuration w
 
 In addition, a live version of this project can be deployed using the following button:
 
-<a href="https://myrskyt.com/container/deploy/https://github.com/myrskyt/myrskyt-deploy-app"><img src="https://myrskyt.com/static/img/button.jpg" height="40" width="155"></a>
+<a href="https://myrskyt.com/container/deploy/https://github.com/James-Gallagher/alumni-client"><img src="https://myrskyt.com/static/img/button.jpg" height="40" width="155"></a>
 
 ## Built With
 - Node
