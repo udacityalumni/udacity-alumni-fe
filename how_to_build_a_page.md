@@ -44,7 +44,7 @@ Choose wisely. That's where you'll be able to access the page you're working on.
 Makes you feel homey right away! :house_with_garden:
 
 **So... Wait. What just happened?!**
-### You just made a new page within the Udacity Alumni Web App!!! :smile: :thumbsump:
+### You just made a new page within the Udacity Alumni Web App!!! :smile: :thumbsup:
 
 That's all. Now it's time to open up the project in your favorite text editor and check out all the code that's been automatically generated for your new page. You can also marvel at its beauty and even try to understand it. Comes in handy later on! You'll find it all here: `app/src/pages/YourPagePage`.
 
