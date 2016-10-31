@@ -38,7 +38,7 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
           <Paragraph textAlign="center">
             { /* maybe could be smaller font. better would be no linebreak in here */ }
             You've wandered into uncharted territory. 404-Land.
-            <br />If that is right were you belong, then get ready to map!
+            <br />If that is right where you belong, then get ready to map!
           </Paragraph>
         </Box>
         <Box align="center">
