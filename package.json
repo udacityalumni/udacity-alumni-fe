@@ -18,7 +18,8 @@
     "test": {
       "plugins": [
         [
-          "babel-plugin-webpack-loaders", {
+          "babel-plugin-webpack-loaders",
+          {
             "config": "./config/testing/webpack.test.config.js",
             "verbose": false
           }
@@ -123,6 +124,7 @@
     "offline-plugin": "^3.4.2",
     "postcss-loader": "^1.0.0",
     "precss": "^1.4.0",
+    "rc-pagination": "^1.5.5",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.2.1",
     "react-addons-test-utils": "^15.3.2",
@@ -142,12 +144,13 @@
     "redux-logger": "^2.6.1",
     "redux-promise-middleware": "^3.2.0",
     "redux-thunk": "^1.0.0",
+    "reselect": "^2.5.4",
     "resolve-url-loader": "^1.4.4",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "svg-react-loader": "^0.3.6",
     "utils": "^0.3.1",
-    "webpack": "2.1.0-beta.19"
+    "webpack": "^2.1.0-beta.19"
   },
   "devDependencies": {
     "all-contributors-cli": "^3.0.6",

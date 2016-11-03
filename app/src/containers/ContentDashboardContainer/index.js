@@ -7,12 +7,14 @@ import styles from './index.module.scss';
 import Heading from 'grommet-udacity/components/Heading';
 import Box from 'grommet-udacity/components/Box';
 import Section from 'grommet-udacity/components/Section';
+import { getArticlesByPage } from './selectors';
 import {
   MainAside,
   DashboardTable,
   ConfirmationModal,
   LoadingIndicator,
   ToastMessage,
+  Paginator,
 } from 'components';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -74,6 +76,9 @@ class ContentDashboard extends Component {
       message,
       errorMessage,
       isMobile,
+      allArticles,
+      currentPage,
+      perPage,
     } = this.props;
     return (
       <div className={styles.contentDashboard}>
@@ -123,6 +128,10 @@ class ContentDashboard extends Component {
                 <Box pad="large">
                   {articles && articles.length > 0 &&
                     <DashboardTable
+                      perPage={perPage}
+                      currentPage={currentPage}
+                      allArticles={allArticles}
+                      onChangePage={actions.dashboardSetPage}
                       isMobile={isMobile}
                       articles={articles}
                       onDeleteArticle={(id) => this.handleOpenModal(id)}
@@ -148,6 +157,7 @@ ContentDashboard.propTypes = {
   errorMessage: PropTypes.string,
   message: PropTypes.string,
   articles: PropTypes.array,
+  allArticles: PropTypes.array,
   user: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
   isShowingModal: PropTypes.bool.isRequired,
@@ -155,13 +165,18 @@ ContentDashboard.propTypes = {
   deleteArticleMutation: PropTypes.func.isRequired,
   authToken: PropTypes.string.isRequired,
   isMobile: PropTypes.bool.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  perPage: PropTypes.number.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   isLoading: state.contentDashboardContainer.isLoading,
+  perPage: state.contentDashboardContainer.paginator.perPage,
+  currentPage: state.contentDashboardContainer.paginator.currentPage,
   errorMessage: state.contentDashboardContainer.error,
-  articles: state.contentDashboardContainer.articles,
+  allArticles: state.contentDashboardContainer.articles,
+  articles: getArticlesByPage(state.contentDashboardContainer),
   isShowingModal: state.contentDashboardContainer.isShowingModal,
   selectedArticleId: state.contentDashboardContainer.selectedArticleId,
   message: state.contentDashboardContainer.message,
