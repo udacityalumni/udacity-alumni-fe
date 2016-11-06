@@ -119,6 +119,9 @@ const userProfileReducer =
           emailInput: {
             $set: null,
           },
+          publicInput: {
+            $set: !state.publicInput,
+          },
         });
       case types.PROFILE_START_EDITING:
         return update(state, {
