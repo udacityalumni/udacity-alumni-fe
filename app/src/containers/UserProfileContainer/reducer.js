@@ -10,6 +10,7 @@ export const initialState = {
   emailInput: null,
   employerInput: null,
   publicInput: false,
+  requiresFetch: false,
 };
 
 const userProfileReducer =
@@ -119,8 +120,11 @@ const userProfileReducer =
           emailInput: {
             $set: null,
           },
+          requiresFetch: {
+            $set: true,
+          },
           publicInput: {
-            $set: !state.publicInput,
+            $set: false,
           },
         });
       case types.PROFILE_START_EDITING:
@@ -145,6 +149,9 @@ const userProfileReducer =
           },
           publicInput: {
             $set: action.inputs.public,
+          },
+          requiresFetch: {
+            $set: false,
           },
         });
       default:

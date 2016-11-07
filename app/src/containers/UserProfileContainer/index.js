@@ -19,6 +19,13 @@ class UserProfileContainer extends Component {
     this.setDefaultValues = this.setDefaultValues.bind(this);
     this.handleSubmission = this.handleSubmission.bind(this);
   }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.requiresFetch) {
+      this.setDefaultValues();
+    }
+  }
+
   setDefaultValues() {
     const {
       user,
@@ -31,6 +38,7 @@ class UserProfileContainer extends Component {
       public: user.public,
     });
   }
+
   handleSubmission() {
     const {
       bioInput,
@@ -146,6 +154,7 @@ const mapStateToProps = (state) => ({
   employerInput: state.userProfileContainer.employerInput,
   publicInput: state.userProfileContainer.publicInput,
   isLoading: state.userProfileContainer.isLoading,
+  requiresFetch: state.userProfileContainer.requiresFetch,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
