@@ -41,6 +41,7 @@ exports[`<UserProfileContainer /> should render with default props 1`] = `
   isEditing={false}
   isLoading={false}
   publicInput={false}
+  requiresFetch={false}
   store={
     Object {
       "clearActions": [Function clearActions],

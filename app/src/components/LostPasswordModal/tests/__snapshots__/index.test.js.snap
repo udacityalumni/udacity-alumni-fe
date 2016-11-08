@@ -1,0 +1,68 @@
+exports[`<LostPasswordModal /> should render with default props 1`] = `
+<Layer
+  align="center"
+  closer={true}
+  hidden={true}>
+  <Box
+    announce={false}
+    direction="column"
+    focusable={true}
+    pad="medium"
+    responsive={true}
+    tag="div">
+    <Box
+      announce={false}
+      direction="column"
+      focusable={true}
+      pad="medium"
+      responsive={true}
+      tag="div">
+      <Heading
+        align="center"
+        tag="h1">
+        Reset Your Password
+      </Heading>
+      <Heading
+        align="center"
+        tag="h5">
+        Please provide the email address that you used when you signed up for the site.
+      </Heading>
+      <Heading
+        align="center"
+        tag="h5">
+        We will send you an email with a link you can use to reset your password.
+      </Heading>
+    </Box>
+    <Form
+      compact={false}
+      fill={false}
+      pad="none">
+      <Box
+        announce={false}
+        direction="row"
+        focusable={true}
+        pad="none"
+        responsive={true}
+        style={
+          Object {
+            "width": "100%"
+          }
+        }
+        tag="div">
+        <FormField
+          size="medium"
+          strong={false}>
+          <input
+            name="email"
+            placeholder="david@udacity.com"
+            type="text" />
+        </FormField>
+        <Button
+          label="Submit"
+          primary={true}
+          type="button" />
+      </Box>
+    </Form>
+  </Box>
+</Layer>
+`;

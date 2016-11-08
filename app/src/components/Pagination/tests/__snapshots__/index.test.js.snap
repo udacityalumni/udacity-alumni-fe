@@ -1,0 +1,38 @@
+exports[`<Pagination /> should render with default props 1`] = `
+<Footer
+  align="center"
+  direction="row"
+  justify="center"
+  pad="medium"
+  responsive={false}>
+  <Pagination
+    className=""
+    defaultCurrent={1}
+    defaultPageSize={10}
+    locale={
+      Object {
+        "items_per_page": "条/页",
+        "jump_to": "跳至",
+        "next_5": "向后 5 页",
+        "next_page": "下一页",
+        "page": "页",
+        "prev_5": "向前 5 页",
+        "prev_page": "上一页"
+      }
+    }
+    onChange={[Function onChange]}
+    onShowSizeChange={[Function noop]}
+    pageSize={10}
+    prefixCls="rc-pagination"
+    selectComponentClass={null}
+    selectPrefixCls="rc-select"
+    showQuickJumper={false}
+    showSizeChanger={false}
+    style={
+      Object {
+        "color": "white"
+      }
+    }
+    total={0} />
+</Footer>
+`;

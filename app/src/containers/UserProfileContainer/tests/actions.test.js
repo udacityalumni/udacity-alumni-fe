@@ -3,6 +3,14 @@ import * as actions from '../actions';
 import * as types from '../constants';
 
 describe('Profile actions', () => {
+  it('should handle PROFILE_TOGGLE_PUBLIC', () => {
+    const expected = {
+      type: types.PROFILE_TOGGLE_PUBLIC,
+    };
+    expect(
+      actions.profileTogglePublic()
+    ).toEqual(expected);
+  });
   it('should handle PROFILE_START_EDITING', () => {
     const expected = {
       type: types.PROFILE_START_EDITING,

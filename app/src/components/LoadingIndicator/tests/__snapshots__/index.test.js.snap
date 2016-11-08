@@ -21,7 +21,7 @@ exports[`<LoadingIndicator /> should render with default props 1`] = `
     <Heading
       align="center"
       tag="h3">
-      Cleaning the whiteboard...
+      Dusting off your slide-rule...
     </Heading>
   </Box>
 </Box>

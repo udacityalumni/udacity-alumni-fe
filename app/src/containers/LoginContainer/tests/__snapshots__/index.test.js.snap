@@ -10,6 +10,8 @@ exports[`<LoginContainer /> should render with default props 1`] = `
       "appSetMobile": [Function anonymous],
       "appToggleNav": [Function anonymous],
       "clearSearchTerm": [Function anonymous],
+      "forgotPasswordSetEmailInput": [Function anonymous],
+      "handleToggleForgotPassword": [Function anonymous],
       "invalidateAuthUser": [Function anonymous],
       "loadAuthToken": [Function anonymous],
       "loadPersistedAuthToken": [Function anonymous],
@@ -28,8 +30,10 @@ exports[`<LoginContainer /> should render with default props 1`] = `
       "toggleOfflineMode": [Function anonymous]
     }
   }
+  emailInput={null}
   errorMessage={null}
   isLoading={false}
+  isShowingModal={false}
   message={null}
   store={
     Object {

@@ -10,6 +10,7 @@ export const initialState = {
   emailInput: null,
   employerInput: null,
   publicInput: false,
+  requiresFetch: false,
 };
 
 const userProfileReducer =
@@ -71,6 +72,12 @@ const userProfileReducer =
           isLoading: {
             $set: false,
           },
+          publicInput: {
+            $set: false,
+          },
+          requiresFetch: {
+            $set: true,
+          },
         });
       case types.PROFILE_SUBMISSION_FAILURE:
         return update(state, {
@@ -119,6 +126,12 @@ const userProfileReducer =
           emailInput: {
             $set: null,
           },
+          requiresFetch: {
+            $set: true,
+          },
+          publicInput: {
+            $set: false,
+          },
         });
       case types.PROFILE_START_EDITING:
         return update(state, {
@@ -142,6 +155,9 @@ const userProfileReducer =
           },
           publicInput: {
             $set: action.inputs.public,
+          },
+          requiresFetch: {
+            $set: false,
           },
         });
       default:
