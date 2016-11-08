@@ -58,6 +58,12 @@ export const dashboardToggleModalToDelete = (id) => ({
   id,
 });
 
+// dashboardSetPage :: Int -> {Action}
+export const dashboardSetPage = (page) => ({
+  type: types.DASHBOARD_SET_PAGE,
+  page,
+});
+
 export const dashboardModalConfirmation = () => ({
   type: types.DASHBOARD_MODAL_CONFIRMATION,
 });
@@ -80,7 +86,7 @@ export const dashboardDeleteArticleFailure = (error) => ({
   error,
 });
 
-// clearCmsMessage :: None -> {Action}
+// clearDashboardMessage :: None -> {Action}
 export const clearDashboardMessage = () => ({
   type: types.CLEAR_DASHBOARD_MESSAGE,
 });
