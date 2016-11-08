@@ -34,7 +34,7 @@ describe('Landing actions', () => {
       type: types.CLEAR_LANDING_ERRORS,
     };
     expect(
-      actions.clearLandingErrors()
+      actions.clearLandingError()
     ).toEqual(expected);
   });
 });
