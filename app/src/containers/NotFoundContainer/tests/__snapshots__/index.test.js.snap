@@ -24,7 +24,7 @@ exports[`<NotFound /> should render with default props 1`] = `
         textAlign="center">
         You\'ve wandered into uncharted territory. 404-Land.
         <br />
-        If that is right were you belong, then get ready to map!
+        If that is right where you belong, then get ready to map!
       </Paragraph>
     </Box>
     <Box

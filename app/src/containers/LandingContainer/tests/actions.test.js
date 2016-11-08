@@ -11,13 +11,12 @@ describe('Landing actions', () => {
   });
   it('should have a type of FEATURE_ARTICLES_FAILURE', () => {
     const error = new Error('An error has occured');
-    const errors = [error];
     const expected = {
       type: types.FEATURE_ARTICLES_FAILURE,
-      errors,
+      error,
     };
     expect(
-      actions.loadFeaturedArticlesFailure(errors)
+      actions.loadFeaturedArticlesFailure(error)
     ).toEqual(expected);
   });
   it('should have a type of FEATURED_ARTICLES_SUCCESS', () => {

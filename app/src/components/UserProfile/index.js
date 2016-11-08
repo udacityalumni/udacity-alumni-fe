@@ -97,7 +97,6 @@ const UserProfile = ({
     <Section align="center">
       <Box
         size="medium"
-        onClick={isEditing ? null : onClickToEdit}
         focusable
       >
         <FormField>

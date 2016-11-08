@@ -22,15 +22,12 @@ describe('Login actions', () => {
       expect(actions.loginRequestSuccess(user)).toEqual(expected);
     });
     it('should have a type of LOGIN_REQUEST_FAILURE', () => {
-      const errors = [
-        new Error('An error has occured'),
-        new Error('Another error has occured'),
-      ];
+      const error = new Error('Another error has occured');
       const expected = {
         type: types.LOGIN_REQUEST_FAILURE,
-        errors,
+        error,
       };
-      expect(actions.loginRequestFailure(errors)).toEqual(expected);
+      expect(actions.loginRequestFailure(error)).toEqual(expected);
     });
     it('should have a type of LOGIN_CLEAR_ERROR', () => {
       const expected = {

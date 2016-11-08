@@ -72,6 +72,9 @@ const userProfileReducer =
           isLoading: {
             $set: false,
           },
+          publicInput: {
+            $set: false,
+          },
           requiresFetch: {
             $set: true,
           },

@@ -28,6 +28,14 @@ exports[`<ArticlePreview /> should render with default props 1`] = `
         tag="a" />
     }
     textSize="small"
-    thumbnail="https://robohash.org/sapienteeaoptio.png?size=300x300" />
+    thumbnail={
+      <function WrappedComponent() {
+                  _classCallCheck(this, WrappedComponent);
+      
+                  return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+              }
+        matchHeight={true}
+        src="https://robohash.org/sapienteeaoptio.png?size=300x300" />
+    } />
 </Box>
 `;
