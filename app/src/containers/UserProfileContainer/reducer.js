@@ -72,6 +72,9 @@ const userProfileReducer =
           isLoading: {
             $set: false,
           },
+          requiresFetch: {
+            $set: true,
+          },
         });
       case types.PROFILE_SUBMISSION_FAILURE:
         return update(state, {
