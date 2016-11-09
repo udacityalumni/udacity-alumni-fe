@@ -1,6 +1,21 @@
 import * as types from './constants';
 
-// resetPassworddefaultAction :: None -> {Action}
-export const resetPasswordDefaultAction = () => ({
-  type: types.RESETPASSWORD_DEFAULT_ACTION,
+// resetPasswordRequestInitiation :: None -> {Action}
+export const resetPasswordRequestInitiation = () => ({
+  type: types.RESET_PASSWORD_REQUEST_INITIATION,
+});
+
+// resetPasswordRequestSuccess :: None -> {Action}
+export const resetPasswordRequestSuccess = () => ({
+  type: types.RESET_PASSWORD_REQUEST_SUCCESS,
+});
+
+// resetPasswordRequestFailure :: Object -> {Action}
+export const resetPasswordRequestFailure = (error) => ({
+  type: types.RESET_PASSWORD_REQUEST_FAILURE,
+  error,
+});
+
+export const resetPasswordClearError = () => ({
+  type: types.RESET_PASSWORD_CLEAR_ERROR,
 });

@@ -6,14 +6,19 @@ import Heading from 'grommet-udacity/components/Heading';
 import Box from 'grommet-udacity/components/Box';
 import Form from 'grommet-udacity/components/Form';
 import FormField from 'grommet-udacity/components/FormField';
-import Footer from 'grommet-udacity/components/Footer';
 import Button from 'grommet-udacity/components/Button';
+import { LoadingIndicator, ErrorAlert } from 'components';
 
 const LostPasswordModal = ({
   isVisible,
   onClose,
-  emailField,
+  emailInput,
   onSubmit,
+  onChangeEmailInput,
+  didSubmit,
+  isLoading,
+  error,
+  onClearError,
 }) => (
   <Layer
     closer
@@ -34,25 +39,41 @@ const LostPasswordModal = ({
           We will send you an email with a link you can use to reset your password.
         </Heading>
       </Box>
-      <Form className={styles.form}>
-        <Box direction="row" style={{ width: '100%' }}>
-          <FormField className={styles.formField}>
-            <input
-              {...emailField}
-              placeholder="david@udacity.com"
-              type="text"
-              name="email"
-            />
-          </FormField>
+      {didSubmit ?
+        <Box align="center">
+          <Heading align="center" tag="h3">
+            Success!  Check your email for instructions to complete the process.
+          </Heading>
           <Button
-            primary
+            onClick={onClose}
+            label="Close"
             className={styles.button}
-            onClick={onSubmit}
-            label="Submit"
           />
         </Box>
-      </Form>
+      :
+        <Form className={styles.form}>
+          <Box direction="row" style={{ width: '100%' }}>
+            <FormField className={styles.formField}>
+              <input
+                value={emailInput}
+                onChange={onChangeEmailInput}
+                placeholder="david@udacity.com"
+                type="text"
+                name="email"
+              />
+            </FormField>
+            <Button
+              primary
+              className={styles.button}
+              onClick={onSubmit}
+              label="Submit"
+            />
+          </Box>
+        </Form>
+      }
     </Box>
+    {isLoading && <LoadingIndicator message="Submitting" isLoading={isLoading} />}
+    {error && <ErrorAlert errors={[error]} onClose={onClearError} />}
   </Layer>
 );
 
@@ -62,6 +83,10 @@ LostPasswordModal.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   emailInput: PropTypes.string,
   onChangeEmailInput: PropTypes.func.isRequired,
+  didSubmit: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.object,
+  onClearError: PropTypes.func.isRequired,
 };
 
 export default cssModules(LostPasswordModal, styles);
