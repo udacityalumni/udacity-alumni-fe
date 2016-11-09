@@ -9,6 +9,8 @@ export const initialState = {
   forgotPassword: {
     isShowingModal: false,
     emailInput: null,
+    didSubmit: false,
+    error: null,
   },
 };
 
@@ -20,6 +22,48 @@ const loginReducer =
           forgotPassword: {
             emailInput: {
               $set: action.input,
+            },
+          },
+        });
+      case types.FORGOT_PASSWORD_REQUEST_INITITATION:
+        return update(state, {
+          isLoading: {
+            $set: true,
+          },
+        });
+      case types.FORGOT_PASSWORD_REQUEST_SUCCESS:
+        return update(state, {
+          isLoading: {
+            $set: false,
+          },
+          forgotPassword: {
+            emailInput: {
+              $set: null,
+            },
+            didSubmit: {
+              $set: true,
+            },
+          },
+        });
+      case types.FORGOT_PASSWORD_REQUEST_FAILURE:
+        return update(state, {
+          isLoading: {
+            $set: false,
+          },
+          forgotPassword: {
+            error: {
+              $set: action.error,
+            },
+            didSubmit: {
+              $set: false,
+            },
+          },
+        });
+      case types.CLEAR_FORGOT_PASSWORD_ERROR:
+        return update(state, {
+          forgotPassword: {
+            error: {
+              $set: null,
             },
           },
         });

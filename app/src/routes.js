@@ -202,7 +202,7 @@ export const routes = {
       },
     },
     {
-      path: '/reset-password',
+      path: 'users/password/edit',
       getComponent(location, callback) {
         require.ensure([], () => {
           const ResetPasswordPage = require(

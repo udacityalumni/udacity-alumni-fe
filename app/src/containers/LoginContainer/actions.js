@@ -133,3 +133,20 @@ export const performLogin = (params) =>
       );
     });
   };
+
+export const forgotPasswordRequestInitiation = () => ({
+  type: types.FORGOT_PASSWORD_REQUEST_INITITATION,
+});
+
+export const forgotPasswordRequestSuccess = () => ({
+  type: types.FORGOT_PASSWORD_REQUEST_SUCCESS,
+});
+
+export const forgotPasswordRequestFailure = (error) => ({
+  type: types.FORGOT_PASSWORD_REQUEST_FAILURE,
+  error,
+});
+
+export const forgotPasswordClearError = () => ({
+  type: types.CLEAR_FORGOT_PASSWORD_ERROR,
+});

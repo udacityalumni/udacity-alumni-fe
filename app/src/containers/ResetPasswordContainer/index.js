@@ -9,6 +9,8 @@ import Box from 'grommet-udacity/components/Box';
 import { PasswordResetForm } from 'components';
 import validation from './utils/validation';
 import { reduxForm } from 'redux-form';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 export const formFields = [
   'passwordInput',
@@ -24,12 +26,13 @@ class ResetPasswordContainer extends Component {
     const {
       query,
     } = this.props.location;
-    if (query.token != null) {
+    if (query.reset_password_token == null) { // eslint-disable-line
       // Do something with the token
+      this.context.router.push('/login');
     }
   }
   handleSubmit() {
-
+    this.props.submitPasswordResetRequest();
   }
   render() {
     const {
@@ -65,11 +68,13 @@ ResetPasswordContainer.propTypes = {
   fields: PropTypes.object.isRequired,
   invalid: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired,
+  submitPasswordResetRequest: PropTypes.func.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
-  // myProp: state.myProp,
+  isLoading: state.resetPassword.isLoading,
+  error: state.resetPassword.error,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -82,11 +87,39 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Container = cssModules(ResetPasswordContainer, styles);
 
+const resetPasswordMutation = gql`
+mutation updatePassword($password: String!, $password_confirmation: String!, $token: String!){
+  ResetPassword(input: {
+    password: $password,
+    password_confirmation: $password_confirmation,
+    token: $token
+  }) {
+      user {
+        id
+      }
+    }
+  }
+`;
+
+const ContainerWithMutation = graphql(resetPasswordMutation, {
+  options: (ownProps) => ({
+    skip: !ownProps.location.query.reset_password_token,
+    variables: {
+      password: ownProps.fields.passwordInput.value,
+      password_confirmation: ownProps.fields.passwordConfirmationInput.value,
+      token: ownProps.location.query.reset_password_token,
+    },
+  }),
+  props: ({ mutate }) => ({
+    submitPasswordResetRequest: mutate,
+  }),
+})(Container);
+
 const FormContainer = reduxForm({
   form: 'ResetPassword',
   fields: formFields,
   validate: validation,
-})(Container);
+})(ContainerWithMutation);
 
 export default connect(
   mapStateToProps,

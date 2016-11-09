@@ -17,6 +17,7 @@ import { initialState as searchContainer } from './containers/SearchContainer/re
 import { initialState as userProfileContainer } from './containers/UserProfileContainer/reducer';
 import { initialState as articleFeedContainer } from './containers/ArticleFeedContainer/reducer';
 import { initialState as archiveContainer } from 'containers/ArticleArchiveContainer/reducer';
+import { initialState as resetPassword } from 'containers/ResetPasswordContainer/reducer';
 import {
   initialState as singleArticleContainer,
 } from './containers/SingleArticleContainer/reducer';
@@ -41,6 +42,7 @@ const initialState = {
   articleFeedContainer,
   userProfileContainer,
   archiveContainer,
+  resetPassword,
 };
 
 /* Commonly used middlewares and enhancers */
