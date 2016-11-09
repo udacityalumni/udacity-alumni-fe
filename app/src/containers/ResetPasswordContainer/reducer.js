@@ -24,6 +24,11 @@ const resetPasswordReducer =
           isLoading: false,
           error: action.error,
         };
+      case types.RESET_PASSWORD_CLEAR_ERROR:
+        return {
+          ...state,
+          error: null,
+        };
       default:
         return state;
     }

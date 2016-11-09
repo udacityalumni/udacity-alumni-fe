@@ -6,7 +6,7 @@ import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
-import { PasswordResetForm } from 'components';
+import { PasswordResetForm, LoadingIndicator, ToastMessage } from 'components';
 import validation from './utils/validation';
 import { reduxForm } from 'redux-form';
 import { graphql } from 'react-apollo';
@@ -32,12 +32,21 @@ class ResetPasswordContainer extends Component {
     }
   }
   handleSubmit() {
-    this.props.submitPasswordResetRequest();
+    this.props.actions.resetPasswordRequestInitiation();
+    this.props.submitPasswordResetRequest()
+      .then(() => {
+        this.props.actions.resetPasswordRequestSuccess();
+      }).catch(err => {
+        this.props.actions.resetPasswordRequestFailure(err);
+      });
   }
   render() {
     const {
       fields,
       invalid,
+      isLoading,
+      errorLoading,
+      actions,
     } = this.props;
     return (
       <Section
@@ -47,6 +56,19 @@ class ResetPasswordContainer extends Component {
         justify="center"
         className={styles.resetPassword}
       >
+        {isLoading &&
+          <LoadingIndicator
+            message="Submitting"
+            isLoading={isLoading}
+          />
+        }
+        {errorLoading &&
+          <ToastMessage
+            message={errorLoading.message}
+            status="critical"
+            onClose={() => actions.resetPasswordClearError()}
+          />
+        }
         <Box
           size="large"
           className={styles.loginFormWrapper}
@@ -69,12 +91,15 @@ ResetPasswordContainer.propTypes = {
   invalid: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired,
   submitPasswordResetRequest: PropTypes.func.isRequired,
+  actions: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  errorLoading: PropTypes.object,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   isLoading: state.resetPassword.isLoading,
-  error: state.resetPassword.error,
+  errorLoading: state.resetPassword.error,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

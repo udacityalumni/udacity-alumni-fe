@@ -15,3 +15,7 @@ export const resetPasswordRequestFailure = (error) => ({
   type: types.RESET_PASSWORD_REQUEST_FAILURE,
   error,
 });
+
+export const resetPasswordClearError = () => ({
+  type: types.RESET_PASSWORD_CLEAR_ERROR,
+});

@@ -55,8 +55,9 @@ app.use((req, res) => {
           const html = (
             <Html
               content={content}
-              scriptHash="bf99fda3f3db85894944"
-              cssHash="f8c6f7df63101a89e0865c368814e283"
+              scriptHash="5e531199f427f0079f50"
+              vendorHash="ade2e30d4589e43566a3"
+              cssHash="5835b3e9fbc0bc9b1fb8585fe3afeae5"
               state={{ data: context.store.getState().apollo.data }}
             />
           );
@@ -65,7 +66,7 @@ app.use((req, res) => {
       } else {
         res.status(404).send('Not found');
       }
-    })
+    });
 });
 
 app.listen(port, '0.0.0.0', (err) => {

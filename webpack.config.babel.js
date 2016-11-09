@@ -15,9 +15,16 @@ const HOST = '0.0.0.0'; // Set to localhost if need be.
 
 module.exports = {
   devtool: isProduction ? '' : 'cheap-module-eval-source-map',
-  entry: isProduction ? [
-    path.resolve(ROOT_PATH,'app/src/index')
-  ]
+  entry: isProduction ? {
+    main: [
+      path.resolve(ROOT_PATH, 'app/src/index')
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+      'grommet-udacity'
+    ]
+  }
   :
   [
     'webpack-dev-server/client?http://0:0:0:0:1337',
@@ -36,7 +43,7 @@ module.exports = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       include: path.join(__dirname, 'app/src'),
-      loaders: ['react-hot-loader/webpack', 'babel']
+      loaders: isProduction ? ['babel'] : ['react-hot-loader/webpack', 'babel']
     },
     {
       test: /\.svg$/,
@@ -97,7 +104,7 @@ module.exports = {
     };
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.json'],
     alias: {
       components: path.resolve(ROOT_PATH, 'app/src/components'),
       containers: path.resolve(ROOT_PATH, 'app/src/containers'),
