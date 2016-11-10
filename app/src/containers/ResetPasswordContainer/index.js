@@ -35,7 +35,11 @@ class ResetPasswordContainer extends Component {
     this.props.actions.resetPasswordRequestInitiation();
     this.props.submitPasswordResetRequest()
       .then(() => {
-        this.props.actions.resetPasswordRequestSuccess();
+        const message = 'Password successfully reset, redirecting to login page.';
+        this.props.actions.resetPasswordRequestSuccess(message);
+        setTimeout(() => {
+          this.context.router.push('/login');
+        }, 2000);
       }).catch(err => {
         this.props.actions.resetPasswordRequestFailure(err);
       });
@@ -47,6 +51,7 @@ class ResetPasswordContainer extends Component {
       isLoading,
       errorLoading,
       actions,
+      message,
     } = this.props;
     return (
       <Section
@@ -67,6 +72,12 @@ class ResetPasswordContainer extends Component {
             message={errorLoading.message}
             status="critical"
             onClose={() => actions.resetPasswordClearError()}
+          />
+        }
+        {message &&
+          <ToastMessage
+            message={message}
+            onClose={() => actions.resetPasswordClearMessage()}
           />
         }
         <Box
@@ -94,12 +105,18 @@ ResetPasswordContainer.propTypes = {
   actions: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   errorLoading: PropTypes.object,
+  message: PropTypes.string.isRequired,
+};
+
+ResetPasswordContainer.contextTypes = {
+  router: PropTypes.object.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   isLoading: state.resetPassword.isLoading,
   errorLoading: state.resetPassword.error,
+  message: state.resetPassword.message,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

@@ -29,9 +29,26 @@ html {
   height: auto;
 }
 
+a.desktop__nav {
+  position: relative;
+  &:hover:before {
+    transform: scaleX(1);
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 4px;
+    background: #20BCE5;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    transform: scaleX(0);
+  }
+}
+
 a.active.desktop__nav {
-  color: #2e3d49 !important;
-  border-bottom: 2px solid #7d97ad;
+  border-bottom: 4px solid #20BCE5;
 }
 
 .grommetux-menu a:not(.grommetux-button), .grommetux-menu .grommetux-anchor {

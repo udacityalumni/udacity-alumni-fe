@@ -43,7 +43,7 @@ module.exports = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       include: path.join(__dirname, 'app/src'),
-      loaders: isProduction ? ['babel'] : ['react-hot-loader/webpack', 'babel']
+      loaders: ['react-hot-loader/webpack', 'babel'],
     },
     {
       test: /\.svg$/,

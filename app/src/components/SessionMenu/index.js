@@ -6,7 +6,9 @@ import Box from 'grommet-udacity/components/Box';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 
-const NoUserMenu = () => (
+const NoUserMenu = ({
+  pathname,
+}) => (
   <Menu
     direction="row"
     align="center"
@@ -14,10 +16,16 @@ const NoUserMenu = () => (
     resposive={false}
     className={styles.rightMenu}
   >
-    <Anchor href="/login">
+    <Anchor
+      href="/login"
+      className={pathname === '/login' ? 'active desktop__nav' : 'desktop__nav'}
+    >
       Log In
     </Anchor>
-    <Anchor href="/signup">
+    <Anchor
+      href="/signup"
+      className={pathname === '/signup' ? 'active desktop__nav' : 'desktop__nav'}
+    >
       Sign Up
     </Anchor>
   </Menu>
@@ -44,6 +52,7 @@ const SessionIcon = ({
 const SessionMenu = ({
   onLogout,
   user,
+  pathname,
 }) => (
   <span>
     {(() => { // eslint-disable-line
@@ -91,12 +100,12 @@ const SessionMenu = ({
             );
           default:
             return (
-              <NoUserMenu />
+              <NoUserMenu pathname={pathname} />
             );
         }
       } else {
         return (
-          <NoUserMenu />
+          <NoUserMenu pathname={pathname} />
         );
       }
     })()}
@@ -105,6 +114,7 @@ const SessionMenu = ({
 
 SessionMenu.propTypes = {
   user: PropTypes.object,
+  pathname: PropTypes.string.isRequired,
 };
 
 export default cssModules(SessionMenu, styles);

@@ -6,8 +6,9 @@ export const resetPasswordRequestInitiation = () => ({
 });
 
 // resetPasswordRequestSuccess :: None -> {Action}
-export const resetPasswordRequestSuccess = () => ({
+export const resetPasswordRequestSuccess = (message) => ({
   type: types.RESET_PASSWORD_REQUEST_SUCCESS,
+  message,
 });
 
 // resetPasswordRequestFailure :: Object -> {Action}
@@ -18,4 +19,8 @@ export const resetPasswordRequestFailure = (error) => ({
 
 export const resetPasswordClearError = () => ({
   type: types.RESET_PASSWORD_CLEAR_ERROR,
+});
+
+export const resetPasswordClearMessage = () => ({
+  type: types.RESET_PASSWORD_CLEAR_MESSAGE,
 });

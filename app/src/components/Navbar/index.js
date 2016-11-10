@@ -37,18 +37,18 @@ const Navbar = ({
         }
         <Anchor
           href="/careers"
-          className={pathname === '/careers' ? 'active desktop__nav' : ''}
+          className={pathname === '/careers' ? 'active desktop__nav' : 'desktop__nav'}
         >
           Careers
         </Anchor>
         <Anchor
-          className={pathname === '/mentorship' ? 'active desktop__nav' : ''}
+          className={pathname === '/mentorship' ? 'active desktop__nav' : 'desktop__nav'}
           href="/mentorship"
         >
           Mentorship
         </Anchor>
         <Anchor
-          className={pathname === '/meetups' ? 'active desktop__nav' : ''}
+          className={pathname === '/meetups' ? 'active desktop__nav' : 'desktop__nav'}
           href="/meetups"
         >
           Meetups
@@ -59,7 +59,7 @@ const Navbar = ({
           placeHolder="Start typing..."
         />
       </Menu>
-      <SessionMenu user={user} />
+      <SessionMenu pathname={pathname} user={user} />
     </Header>
   </div>
 );
