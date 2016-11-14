@@ -12,8 +12,10 @@ import Menu from 'grommet-udacity/components/Menu';
 import Box from 'grommet-udacity/components/Box';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
 import CloseIcon from 'grommet-udacity/components/icons/base/Close';
+import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import CheckBox from 'grommet-udacity/components/CheckBox';
 import FormField from 'grommet-udacity/components/FormField';
+
 
 const UserProfile = ({
   user,
@@ -111,7 +113,20 @@ const UserProfile = ({
         </FormField>
       </Box>
     </Section>
-    {isEditing &&
+    {!isEditing ?
+      <Section align="center">
+          <Box
+            size="medium"
+            focusable
+          >
+            <Button label="Edit Profile"
+                    primary
+                    onClick={onClickToEdit}
+                    icon={<EditIcon />}
+            />
+          </Box>
+      </Section>
+    :
       <Footer align="center" justify="center">
         <Menu inline direction="row" responsive={false}>
           <Button
