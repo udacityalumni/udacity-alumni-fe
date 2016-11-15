@@ -14,18 +14,6 @@
       "react-hot-loader/babel"
     ]
   },
-  "env": {
-    "test": {
-      "plugins": [
-        [
-          "babel-plugin-webpack-loaders", {
-            "config": "./config/testing/webpack.test.config.js",
-            "verbose": false
-          }
-        ]
-      ]
-    }
-  },
   "jest": {
     "scriptPreprocessor": "<rootDir>/config/testing/preprocessor.js",
     "moduleFileExtensions": [
@@ -45,7 +33,7 @@
   "scripts": {
     "t": "npm run test",
     "test:watch": "npm test -- --watch",
-    "test": "BABEL_DISABLE_CACHE=1 NODE_ENV=test node --harmony_proxies node_modules/.bin/jest",
+    "test": "BABEL_DISABLE_CACHE=1 cross-env NODE_ENV='test' node --harmony_proxies node_modules/.bin/jest",
     "build": "npm run ./node_modules/.bin/webpack",
     "dev": "./node_modules/.bin/webpack-dev-server",
     "generate": "all-contributors generate",
@@ -53,6 +41,7 @@
     "generate:container": "plop --plopfile config/generators/index.js container",
     "generate:page": "plop --plopfile config/generators/index.js page",
     "lint": "eslint . --ext .js --ext .jsx; exit 0",
+    "predeploy": "rimraf server/public/*.*",
     "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
     "start": "npm run dev",
     "clean": "rm -rf app/dist app/build",
@@ -60,7 +49,8 @@
     "dist": "npm run clean:server && npm run deploy",
     "setup": "npm install",
     "serve:bundle": "cross-env BASE_URL=http://0.0.0.0:1337/ NODE_ENV=production PORT=1337 node server.js",
-    "add": "all-contributors add"
+    "add": "all-contributors add",
+    "postinstall": "npm run deploy"
   },
   "repository": {
     "type": "git",
@@ -145,6 +135,7 @@
     "redux-thunk": "^1.0.0",
     "reselect": "^2.5.4",
     "resolve-url-loader": "^1.4.4",
+    "rimraf": "^2.5.4",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "svg-react-loader": "^0.3.6",

@@ -46,10 +46,7 @@ exports[`<AppFooter /> should render with default props 1`] = `
         colorIndex="brand"
         href="/members"
         icon={
-          <function Icon() {
-              (0, _classCallCheck3.default)(this, Icon);
-              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-            }
+          <Group
             a11yTitleId="group-title"
             responsive={true} />
         }
@@ -62,10 +59,7 @@ exports[`<AppFooter /> should render with default props 1`] = `
         colorIndex="brand"
         href="/about"
         icon={
-          <function Icon() {
-              (0, _classCallCheck3.default)(this, Icon);
-              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-            }
+          <Help
             a11yTitleId="help-title"
             responsive={true} />
         }
@@ -83,10 +77,7 @@ exports[`<AppFooter /> should render with default props 1`] = `
         colorIndex="brand"
         href="/terms"
         icon={
-          <function Icon() {
-              (0, _classCallCheck3.default)(this, Icon);
-              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-            }
+          <Compliance
             a11yTitleId="compliance-title"
             responsive={true} />
         }
@@ -99,10 +90,7 @@ exports[`<AppFooter /> should render with default props 1`] = `
         colorIndex="brand"
         href="/privacy"
         icon={
-          <function Icon() {
-              (0, _classCallCheck3.default)(this, Icon);
-              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-            }
+          <Shield
             a11yTitleId="shield-title"
             responsive={true} />
         }

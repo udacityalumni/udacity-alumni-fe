@@ -39,11 +39,11 @@ exports[`<NotFound /> should render with default props 1`] = `
         alignContent="center"
         className="problem"
         tag="h1">
-        There should be some cake here for you.
+        None of the classrooms are currently set up
       </Heading>
       <Paragraph
         className="solution">
-        Learn to make digital cake that almost smells home-made!
+        Learn to create a virtual classroom that is always ready (and needs no brooming)!
       </Paragraph>
       <Anchor
         className="solution-link"
