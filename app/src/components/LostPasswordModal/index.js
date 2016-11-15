@@ -32,12 +32,16 @@ const LostPasswordModal = ({
         <Heading align="center">
           Reset Your Password
         </Heading>
-        <Heading align="center" tag="h5">
-          Please provide the email address that you used when you signed up for the site.
-        </Heading>
-        <Heading align="center" tag="h5">
-          We will send you an email with a link you can use to reset your password.
-        </Heading>
+        {!didSubmit &&
+          <Box>
+            <Heading align="center" tag="h5">
+              Please provide the email address that you used when you signed up for the site.
+            </Heading>
+            <Heading align="center" tag="h5">
+              We will send you an email with a link you can use to reset your password.
+            </Heading>
+          </Box>
+        }
       </Box>
       {didSubmit ?
         <Box align="center">
