@@ -16,7 +16,6 @@ import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import CheckBox from 'grommet-udacity/components/CheckBox';
 import FormField from 'grommet-udacity/components/FormField';
 
-
 const UserProfile = ({
   user,
   onEditBio,
@@ -115,16 +114,17 @@ const UserProfile = ({
     </Section>
     {!isEditing ?
       <Section align="center">
-          <Box
-            size="medium"
-            focusable
-          >
-            <Button label="Edit Profile"
-                    primary
-                    onClick={onClickToEdit}
-                    icon={<EditIcon />}
-            />
-          </Box>
+        <Box
+          size="medium"
+          focusable
+        >
+          <Button
+            label="Edit Profile"
+            primary
+            onClick={onClickToEdit}
+            icon={<EditIcon />}
+          />
+        </Box>
       </Section>
     :
       <Footer align="center" justify="center">
