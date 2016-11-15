@@ -18,10 +18,7 @@ exports[`<ArticlePreview /> should render with default props 1`] = `
     headingStrong={true}
     label="By Andreas Daimainger"
     link={
-      <function Anchor() {
-          (0, _classCallCheck3.default)(this, Anchor);
-          return (0, _possibleConstructorReturn3.default)(this, (Anchor.__proto__ || (0, _getPrototypeOf2.default)(Anchor)).apply(this, arguments));
-        }
+      <Anchor
         href="/articles/current-procedural-terminology-benefit-impaired-risk"
         label="Read More"
         primary={true}
@@ -29,11 +26,7 @@ exports[`<ArticlePreview /> should render with default props 1`] = `
     }
     textSize="small"
     thumbnail={
-      <function WrappedComponent() {
-                  _classCallCheck(this, WrappedComponent);
-      
-                  return _possibleConstructorReturn(this, _Component.apply(this, arguments));
-              }
+      <ResponsiveImage
         matchHeight={true}
         src="https://robohash.org/sapienteeaoptio.png?size=300x300" />
     } />

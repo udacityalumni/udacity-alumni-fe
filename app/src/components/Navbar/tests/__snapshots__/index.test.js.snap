@@ -35,19 +35,19 @@ exports[`<Navbar /> should render with default props 1`] = `
       pad="none"
       responsive={true}>
       <Anchor
-        className=""
+        className="desktop__nav"
         href="/careers"
         tag="a">
         Careers
       </Anchor>
       <Anchor
-        className=""
+        className="desktop__nav"
         href="/mentorship"
         tag="a">
         Mentorship
       </Anchor>
       <Anchor
-        className=""
+        className="desktop__nav"
         href="/meetups"
         tag="a">
         Meetups
