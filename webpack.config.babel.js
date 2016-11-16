@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 const env = process.env.NODE_ENV || 'development';
@@ -139,6 +140,10 @@ module.exports = {
   cache: true,
   plugins: isProduction ?
     [
+      new ManifestPlugin({
+        fileName: 'manifest.json',
+        basePath: '/'
+      }),
       new ExtractTextPlugin({
         filename: '[name].[contenthash].css',
         allChunks: false

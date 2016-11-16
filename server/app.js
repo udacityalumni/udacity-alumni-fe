@@ -16,6 +16,7 @@ import { routes } from '../app/src/routes.js';
 import { createNetworkInterface } from 'apollo-client';
 import Html from './utils/Html';
 import createApolloClient from './utils/create-apollo-client';
+import manifest from './public/manifest.json';
 
 const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
   process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
@@ -55,9 +56,9 @@ app.use((req, res) => {
           const html = (
             <Html
               content={content}
-              scriptHash="0424ec788601acf2f705"
-              vendorHash="3d55dc8c06afd44e7c06"
-              cssHash="a5094f65aab648f90fa7ad6271888204"
+              scriptHash={manifest["/main.js"]}
+              vendorHash={manifest["/vendor.js"]}
+              cssHash={manifest["/main.css"]}
               state={{ data: context.store.getState().apollo.data }}
             />
           );
