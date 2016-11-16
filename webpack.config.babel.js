@@ -7,6 +7,7 @@ const OfflinePlugin = require('offline-plugin');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const BabiliPlugin = require("babili-webpack-plugin");
 
 const ROOT_PATH = path.resolve(__dirname);
 const env = process.env.NODE_ENV || 'development';
@@ -28,7 +29,8 @@ module.exports = {
   }
   :
   [
-    'webpack-dev-server/client?http://0:0:0:0:1337',
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:1337',
     'webpack/hot/only-dev-server',
     path.resolve(ROOT_PATH,'app/src/index')
   ],
@@ -36,7 +38,7 @@ module.exports = {
     preLoaders: [
       {
         test: /\.jsx?$/,
-        loaders: isProduction ? [] : ['eslint'],
+        loaders: !isProduction ? ['eslint'] : [],
         include: path.resolve(ROOT_PATH, './app')
       }
     ],
@@ -44,7 +46,7 @@ module.exports = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       include: path.join(__dirname, 'app/src'),
-      loaders: ['react-hot-loader/webpack', 'babel'],
+      loaders: isProduction ? ['babel'] : ['react-hot-loader/webpack', 'babel'],
     },
     {
       test: /\.svg$/,
@@ -175,9 +177,11 @@ module.exports = {
       }),
       new webpack.optimize.OccurrenceOrderPlugin(true),
       new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin({
-        sourceMap: false
-      }),
+      // new webpack.optimize.UglifyJsPlugin({
+      //   sourceMap: false,
+      //   mangle: false
+      // }),
+      new BabiliPlugin(),
       new OfflinePlugin({
         relativePaths: false,
         publicPath: '/',

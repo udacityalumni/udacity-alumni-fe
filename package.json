@@ -10,9 +10,15 @@
       "stage-0"
     ],
     "plugins": [
-      "babel-plugin-webpack-alias",
-      "react-hot-loader/babel"
-    ]
+      "babel-plugin-webpack-alias"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "react-hot-loader/babel"
+        ]
+      }
+    }
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/config/testing/preprocessor.js",
@@ -43,7 +49,7 @@
     "lint": "eslint . --ext .js --ext .jsx; exit 0",
     "predeploy": "rimraf server/public/*.*",
     "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
-    "start": "npm run dev",
+    "start": "node devServer",
     "clean": "rm -rf app/dist app/build",
     "clean:server": "rm -rf server/public/*",
     "dist": "npm run clean:server && npm run deploy",
@@ -85,6 +91,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.16.3",
+    "babili-webpack-plugin": "0.0.7",
     "components": "^0.1.0",
     "cross-env": "^2.0.0",
     "css-loader": "^0.23.0",
