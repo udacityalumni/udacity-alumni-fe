@@ -10,216 +10,181 @@ import store, {
 import client from './apolloClient';
 import App from './components/App';
 
-if (typeof module !== 'undefined' && module.require) {
-  if (typeof require.ensure === 'undefined') {
-    require.ensure = require('node-ensure');
-  }
+/* eslint-disable */
+// Polyfill for the System.import
+if (typeof System === 'undefined') {
+  var System = {
+    import(path) {
+      return Promise.resolve(require(path));
+    },
+  };
 }
+/* eslint-enable */
+
+// Switching to system.import to make use of dynamic tree shaking
+// https://medium.com/modus-create-front-end-development/automatic-code-splitting-for-react-router-w-es6-imports-a0abdaa491e9#.msrxv8fwd
+const errorLoading = (err) =>
+  console.error('Dynamic loading failed' + err); // eslint-disable-line
+
+const loadRoute = (cb) =>
+  (module) =>
+    cb(null, module.default);
+
 
 export const routes = {
   component: App,
   path: '/',
   indexRoute: {
     getComponent(location, callback) {
-      require.ensure([], () => {
-        const LandingPage = require('./pages/LandingPage').default;
-        callback(null, LandingPage);
-      });
+      System.import('./pages/LandingPage') // eslint-disable-line block-scoped-var
+        .then(loadRoute(callback))
+        .catch((err) => errorLoading(err));
     },
   },
   childRoutes: [
     {
       path: 'articles/:slug',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const SingleArticlePage = require('./pages/SingleArticlePage').default;
-          callback(null, SingleArticlePage);
-        });
+        System.import('./pages/SingleArticlePage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'login',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const LoginPage = require(
-            './pages/LoginPage'
-          ).default;
-          callback(null, LoginPage);
-        });
+        System.import('./pages/LoginPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'signup',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const SignupPage = require(
-            './pages/SignupPage'
-          ).default;
-          callback(null, SignupPage);
-        });
+        System.import('./pages/SignupPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'search',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const SearchPage = require(
-            './pages/SearchPage'
-          ).default;
-          callback(null, SearchPage);
-        });
+        System.import('./pages/SearchPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: '/archive',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const ArchivePage = require(
-            './pages/ArchivePage'
-        ).default;
-          callback(null, ArchivePage);
-        });
+        System.import('./pages/ArchivePage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'logout',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const LogoutPage = require('./pages/LogoutPage').default;
-          callback(null, LogoutPage);
-        });
+        System.import('./pages/LogoutPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'notyet',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const NotYetReadyPage = require('./pages/NotYetReadyPage').default;
-          callback(null, NotYetReadyPage);
-        });
+        System.import('./pages/NotYetReadyPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'careers',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const NotYetReadyPage = require('./pages/NotYetReadyPage').default;
-          callback(null, NotYetReadyPage);
-        });
+        System.import('./pages/NotYetReadyPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'meetups',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const MeetupsPage = require('./pages/MeetupsPage').default;
-          callback(null, MeetupsPage);
-        });
+        System.import('./pages/MeetupsPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'mentorship',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const MentorshipPage = require('./pages/MentorshipPage').default;
-          callback(null, MentorshipPage);
-        });
+        System.import('./pages/MentorshipPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'admin/carousel',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const CarouselWidgetPage = require(
-            './pages/CarouselWidgetPage'
-          ).default;
-          // Uncomment before deploying and remove the callback below
-          // const ProtectedComponent = userIsAdmin(CarouselWidgetPage);
-          // callback(null, ProtectedComponent);
-          callback(null, CarouselWidgetPage);
-        });
+        System.import('./pages/CarouselWidgetPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'admin/content-dashboard',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const ContentDashboardPage = require(
-            './pages/ContentDashboardPage'
-          ).default;
-          // Uncomment before deploying and remove the callback below
-          // const ProtectedComponent = userIsAdmin(ContentDashboardPage);
-          // callback(null, ProtectedComponent);
-          callback(null, ContentDashboardPage);
-        });
+        System.import('./pages/ContentDashboardPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'admin/cms',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const CmsEditorPage = require(
-            './pages/CmsEditorPage'
-          ).default;
-          // Uncomment before deploying and remove the callback below
-          // const ProtectedComponent = userIsAdmin(CmsEditorPage);
-          // callback(null, ProtectedComponent);
-          callback(null, CmsEditorPage);
-        });
+        System.import('./pages/CmsEditorPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'me/profile',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const UserProfilePage = require(
-            './pages/UserProfilePage'
-        ).default;
-          callback(null, UserProfilePage);
-        });
+        System.import('./pages/UserProfilePage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: '/members',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const MembersPage = require(
-            './pages/MembersPage'
-        ).default;
-          callback(null, MembersPage);
-        });
+        System.import('./pages/MembersPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: '/about',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const AboutPage = require(
-            './pages/AboutPage'
-        ).default;
-          callback(null, AboutPage);
-        });
+        System.import('./pages/AboutPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
     {
       path: 'users/password/edit',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const ResetPasswordPage = require(
-            './pages/ResetPasswordPage'
-        ).default;
-          callback(null, ResetPasswordPage);
-        });
+        System.import('./pages/ResetPasswordPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
 /* Newly generated Routes go here */
     {
       path: '*',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const NotFoundPage = require('./pages/NotFoundPage').default;
-          callback(null, NotFoundPage);
-        });
+        System.import('./pages/NotFoundPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
   ],

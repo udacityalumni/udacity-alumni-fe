@@ -115,7 +115,6 @@
     "megadraft-js-export-markdown": "^0.2.3",
     "minimist": "^1.2.0",
     "morgan": "^1.7.0",
-    "node-ensure": "0.0.0",
     "node-sass": "^3.4.2",
     "npm-install-webpack-plugin": "^4.0.3",
     "offline-plugin": "^3.4.2",
