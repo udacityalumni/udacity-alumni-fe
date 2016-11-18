@@ -178,6 +178,17 @@ export const routes = {
           .catch((err) => errorLoading(err));
       },
     },
+    {
+      path: '/members/member/:id',
+      getComponent(location, callback) {
+        require.ensure([], () => {
+          const PublicUserProfilePage = require(
+            './pages/PublicUserProfilePage'
+        ).default;
+          callback(null, PublicUserProfilePage);
+        });
+      },
+    },
 /* Newly generated Routes go here */
     {
       path: '*',
