@@ -1,6 +1,6 @@
 const isIntegerRE = /^\+?(0|[1-9]\d*)$/;
 const numberRE = /^(?=.*[0-9]).+$/;
-const twoWordsRE = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/;
+const twoWordsRE = /^[a-z\u00C0-\u00FF]([-']?[a-z\u00C0-\u00FF]+)*( [a-z\u00C0-\u00FF]([-']?[a-z\u00C0-\u00FF]+)*)+$/;
 const lowercaseRE = /^(?=.*[a-z]).+$/;
 const uppercaseRE = /^(?=.*[A-Z]).+$/;
 const specialCharRE = /^(?=.*[_\W]).+$/;
