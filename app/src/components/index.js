@@ -1,4 +1,5 @@
 /* Assemble all components for export */
+export FeedbackButton from './FeedbackButton';
 export Pagination from './Pagination';
 export PasswordResetForm from './PasswordResetForm';
 export LostPasswordModal from './LostPasswordModal';
