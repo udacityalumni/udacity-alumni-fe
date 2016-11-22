@@ -51,9 +51,11 @@ const loggerMiddleware = createLogger();
 const routingMiddleware = routerMiddleware(browserHistory);
 const middlewares = [thunk, routingMiddleware, client.middleware()];
 
+/*
 if (isDeveloping) {
   middlewares.push(loggerMiddleware);
 }
+*/
 
 /* Everyone should use redux dev tools */
 /* https://github.com/gaearon/redux-devtools */

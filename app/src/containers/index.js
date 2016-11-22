@@ -1,4 +1,5 @@
 /* Assemble all containers for export */
+export FeedbackContainer from './FeedbackContainer';
 export ResetPasswordContainer from './ResetPasswordContainer';
 export MembersContainer from './MembersContainer';
 export ArticleArchiveContainer from './ArticleArchiveContainer';
