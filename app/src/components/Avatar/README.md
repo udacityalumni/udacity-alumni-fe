@@ -1,5 +1,5 @@
 ## Avatar Component
-A component that ...
+A component that displays a users avatar.
 
 ### Example
 
@@ -11,7 +11,4 @@ A component that ...
 
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
-| **myProp**    | String   |             | Any string value
-
-
-### Other Information
+| **src**    | String   | defaultAvatarUrl            | Accepts a string value that should be equal to a users avatar URL.
