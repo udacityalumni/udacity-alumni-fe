@@ -1,17 +1,14 @@
 ## ArticleFeedItem Component
-A component that ...
+A component that displays information from a single article.
 
 ### Example
 
 ```js
-<ArticleFeedItem />
+<ArticleFeedItem article={article} />
 ```
 
 ### Props
 
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
-| **myProp**    | String   |             | Any string value
-
-
-### Other Information
+| **article**    | Object   |             | Accepts an object which includes data from a single article.
