@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import Button from 'grommet/components/button';
+// import AddIcon from 'grommet/components/icons/base/Add';
 
 const FeedbackButton = ({
   onClick,

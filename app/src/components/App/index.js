@@ -5,6 +5,7 @@ import * as actionCreators from './actions';
 import App from 'grommet-udacity/components/App';
 import { AppNavigation, ToastMessage } from 'components';
 import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
+import { FeedbackContainer } from 'containers';
 
 class Main extends Component {
   constructor() {
@@ -137,6 +138,7 @@ class Main extends Component {
         >
           {React.cloneElement(this.props.children, this.props)}
         </AppNavigation>
+        <FeedbackContainer />
       </App>
     );
   }

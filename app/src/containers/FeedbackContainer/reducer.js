@@ -8,7 +8,8 @@ const feedbackReducer =
   (state = initialState, action) => {
     switch (action.type) {
       case types.OPEN_FB_MODAL:
-        return { ... state,
+        return {
+          ... state,
           fbModalOpen: true,
         };
       default:

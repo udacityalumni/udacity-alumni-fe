@@ -8,7 +8,7 @@ import { FeedbackButton } from 'components';
 
 class FeedbackContainer extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { actions } = this.props
+    const { actions } = this.props;
     return (
       <div className={styles.feedback}>
         <FeedbackButton onClick={actions.openFbModal} />

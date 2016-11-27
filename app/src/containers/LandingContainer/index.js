@@ -8,7 +8,7 @@ import {
   MainAside,
   ToastMessage,
 } from 'components';
-import { FeedbackContainer } from 'containers';
+// import { FeedbackContainer } from 'containers';
 import * as LandingActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
@@ -76,7 +76,7 @@ class Landing extends Component {
             </Box>
           </Section>
         }
-        <FeedbackContainer />
+        {/* <FeedbackContainer /> */}
       </div>
     );
   }
