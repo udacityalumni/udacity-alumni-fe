@@ -11,7 +11,7 @@ A component that that displays a user avatar.
 
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
-| **src**    | String   | defaultAvatarUrl            | Any string value
+| **src**    | String   |             | Any string value
 
 
 ### Other Information
