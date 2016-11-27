@@ -1,11 +1,8 @@
 ## Divider Component
-A component that ...
+A component that provides a content spacer.
 
 ### Example
 
 ```js
 <Divider />
 ```
-
-
-### Other Information
