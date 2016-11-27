@@ -19,7 +19,7 @@ import createApolloClient from './utils/create-apollo-client';
 import manifest from './public/manifest.json';
 
 const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
-  process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
+  process.env.BASE_URL : 'https://udacity-alumni-api.herokuapp.com/';
 const apiUrl = `${baseUrl}graphql`;
 
 app.use(morgan('combined'));

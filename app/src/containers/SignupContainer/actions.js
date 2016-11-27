@@ -1,7 +1,7 @@
 import * as types from './constants';
 import 'whatwg-fetch';
 const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
-  process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
+  process.env.BASE_URL : 'https://udacity-alumni-api.herokuapp.com/';
 const sessionsUrl = `${baseUrl}api/v1/sessions`;
 const usersUrl = `${baseUrl}api/v1/users`;
 

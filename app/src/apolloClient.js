@@ -3,7 +3,7 @@ import ApolloClient, {
   addTypeName,
 } from 'apollo-client';
 const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
-  process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
+  process.env.BASE_URL : 'https://udacity-alumni-api.herokuapp.com/';
 const productionUrl = `${baseUrl}graphql`;
 
 const client = new ApolloClient({
