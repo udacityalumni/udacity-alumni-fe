@@ -138,7 +138,11 @@ class Main extends Component {
         >
           {React.cloneElement(this.props.children, this.props)}
         </AppNavigation>
-        <FeedbackContainer />
+        {
+          !location.pathname.split('/').includes('admin')
+          &&
+          <FeedbackContainer />
+        }
       </App>
     );
   }
