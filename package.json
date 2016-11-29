@@ -120,7 +120,7 @@
     "offline-plugin": "^3.4.2",
     "postcss-loader": "^1.0.0",
     "precss": "^1.4.0",
-    "rc-pagination": "^1.5.5",
+    "rc-pagination": "^1.6.1",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.2.1",
     "react-addons-test-utils": "^15.3.2",
