@@ -17,8 +17,37 @@ import { MartinRulz,
         AppFooter } from 'components';
 // importing the content
 import contributorVoices from './contributorVoices';
-// Change as needed.  This image is optimized
-const AboutPageImage = 'https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/meetups.jpeg?raw=true';
+
+
+/* THINGS THAT STILL DO BE WORKED ON
+==========================================================================
+
+// TODO: implement the shuffle on the contributorVoices array
+// so that the contributor Cards always pop up in a different order.
+
+// TODO: remove console.log just below the <Sidebar> JSX
+
+// TODO: separation of concerns. Create a container or component to better
+// nest the content and the logic.
+
+==========================================================================
+*/
+
+
+// Fisher-Yates shuffle (with awesome visualization!) https://bost.ocks.org/mike/shuffle/
+function shuffle(array) {
+  var m = array.length, t, i;
+  // While there remain elements to shuffle…
+  while (m) {
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+  return array;
+}
 
 const AboutPage = () => (
   <div className={styles.container}>
@@ -97,6 +126,7 @@ const AboutPage = () => (
             </Paragraph>
         </Article>
         <Sidebar>
+          { console.log("work it!_____" + contributorVoices) }
           <Box
             pad="large"
           >
