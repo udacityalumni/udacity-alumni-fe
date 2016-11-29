@@ -8,14 +8,14 @@ const ArticleCalendar = ({
 }) => (
   <div className={styles.articleCalendar}>
     <div className={styles.header}>
-      {moment(date).format('MMM')}
+      {moment(date, 'YYYY.MM.DD').format('MMM')}
     </div>
     <div className={styles.body}>
       <div className={styles.date}>
-        {moment(date).format('DD')}
+        {moment(date, 'YYYY.MM.DD').format('DD')}
       </div>
       <div className={styles.year}>
-        {moment(date).format('YYYY')}
+        {moment(date, 'YYYY.MM.DD').format('YYYY')}
       </div>
     </div>
   </div>
