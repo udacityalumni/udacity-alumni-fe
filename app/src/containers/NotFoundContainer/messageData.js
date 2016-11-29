@@ -32,9 +32,9 @@ const messageData = [
   {
     original: 'The instructor is setting up the classroom',
     title: 'None of the classrooms are currently set up',
-    body: 'Learn to create a virtual classroom that is always ready (and needs no brooming)!',
-    link: 'https://www.udacity.com/course/vr-developer-nanodegree--nd017',
-    description: 'Virtual-Reality Nanodegree',
+    body: 'Learn to teach AIs that need no classrooms!',
+    link: 'https://www.udacity.com/ai',
+    description: 'Artificial Intelligence Nanodegree',
   },
   {
     original: 'Thanks for waiting while we prepare the classroom',
