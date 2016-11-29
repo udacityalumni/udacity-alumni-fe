@@ -44,22 +44,19 @@ describe('landingReducer', () => {
     ).toEqual(stateAfter);
   });
   it('should handle FEATURE_ARTICLES_FAILURE', () => {
-    const errors = [
-      { message: 'An error has occured' },
-      { message: 'Another error has occured' },
-    ];
+    const error = new Error('An error has occured');
     const stateBefore = {
       isLoading: true,
-      errors: null,
+      error: null,
     };
     const stateAfter = {
       isLoading: false,
-      errors,
+      error,
     };
     expect(
       landingReducer(stateBefore, {
         type: types.FEATURE_ARTICLES_FAILURE,
-        errors,
+        error,
       })
     ).toEqual(stateAfter);
   });

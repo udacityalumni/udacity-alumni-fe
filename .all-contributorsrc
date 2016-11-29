@@ -117,7 +117,9 @@
       "profile": "https://www.linkedin.com/in/kelliblalock",
       "contributions": [
         "question",
-        "doc"
+        "doc",
+        "bug",
+        "code"
       ]
     }
   ]

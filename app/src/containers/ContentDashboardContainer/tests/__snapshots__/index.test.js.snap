@@ -9,6 +9,7 @@ exports[`<ContentDashboard /> should render with default props 1`] = `
       "dashboardDeleteArticleSuccess": [Function anonymous],
       "dashboardModalCancelation": [Function anonymous],
       "dashboardModalConfirmation": [Function anonymous],
+      "dashboardSetPage": [Function anonymous],
       "dashboardToggleModalToDelete": [Function anonymous],
       "handleClearingToast": [Function anonymous],
       "loadDashboardArticles": [Function anonymous],
@@ -17,13 +18,16 @@ exports[`<ContentDashboard /> should render with default props 1`] = `
       "loadDashboardArticlesSuccess": [Function anonymous]
     }
   }
+  allArticles={null}
   articles={null}
   authToken={null}
+  currentPage={1}
   errorMessage={null}
   isLoading={false}
   isMobile={false}
   isShowingModal={false}
   message={null}
+  perPage={6}
   selectedArticleId={null}
   store={
     Object {

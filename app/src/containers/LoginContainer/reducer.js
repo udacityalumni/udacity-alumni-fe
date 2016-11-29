@@ -6,11 +6,67 @@ export const initialState = {
   isLoading: false,
   message: null,
   user: null,
+  forgotPassword: {
+    isShowingModal: false,
+    emailInput: null,
+    didSubmit: false,
+    error: null,
+  },
 };
 
 const loginReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.FORGOT_PASSWORD_SET_EMAIL_INPUT:
+        return update(state, {
+          forgotPassword: {
+            emailInput: {
+              $set: action.input,
+            },
+          },
+        });
+      case types.FORGOT_PASSWORD_REQUEST_INITITATION:
+        return update(state, {
+          isLoading: {
+            $set: true,
+          },
+        });
+      case types.FORGOT_PASSWORD_REQUEST_SUCCESS:
+        return update(state, {
+          isLoading: {
+            $set: false,
+          },
+          forgotPassword: {
+            emailInput: {
+              $set: null,
+            },
+            didSubmit: {
+              $set: true,
+            },
+          },
+        });
+      case types.FORGOT_PASSWORD_REQUEST_FAILURE:
+        return update(state, {
+          isLoading: {
+            $set: false,
+          },
+          forgotPassword: {
+            error: {
+              $set: action.error,
+            },
+            didSubmit: {
+              $set: false,
+            },
+          },
+        });
+      case types.CLEAR_FORGOT_PASSWORD_ERROR:
+        return update(state, {
+          forgotPassword: {
+            error: {
+              $set: null,
+            },
+          },
+        });
       case types.LOGIN_INITIATE_REQUEST:
         return update(state, {
           isLoading: {
@@ -51,6 +107,14 @@ const loginReducer =
         return update(state, {
           message: {
             $set: null,
+          },
+        });
+      case types.LOGIN_TOGGLE_FORGOT_PASSWORD:
+        return update(state, {
+          forgotPassword: {
+            isShowingModal: {
+              $set: !state.forgotPassword.isShowingModal,
+            },
           },
         });
       default:

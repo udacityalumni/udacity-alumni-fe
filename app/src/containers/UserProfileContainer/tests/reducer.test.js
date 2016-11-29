@@ -8,6 +8,19 @@ describe('profileReducer', () => {
       profileReducer(undefined, {})
     ).toEqual(initialState);
   });
+  it('should handle reducer for PROFILE_TOGGLE_PUBLIC', () => {
+    const stateBefore = {
+      publicInput: false,
+    };
+    const stateAfter = {
+      publicInput: true,
+    };
+    expect(
+      profileReducer(stateBefore, {
+        type: types.PROFILE_TOGGLE_PUBLIC,
+      })
+    ).toEqual(stateAfter);
+  });
   it('should handle reducer for PROFILE_EDIT_AVATAR', () => {
     const avatarAfter = 'https://github.com/RyanCCollins/cdn/blob/master/misc/ryanc.jpg?raw=true';
     const avatarBefore = 'https://github.com/RyanCCollins/cdn/blob/master/misc/no-user.png?raw=true';
@@ -97,6 +110,8 @@ describe('profileReducer', () => {
       avatarInput: 'http://avatar.com',
       employerInput: 'Udacity',
       emailInput: 'admin!@ryancollins.io',
+      publicInput: true,
+      requiresFetch: false,
     };
     const stateAfter = {
       isLoading: false,
@@ -105,6 +120,8 @@ describe('profileReducer', () => {
       avatarInput: null,
       employerInput: null,
       emailInput: null,
+      publicInput: false,
+      requiresFetch: true,
     };
     expect(
       profileReducer(stateBefore, {
@@ -160,6 +177,8 @@ describe('profileReducer', () => {
       avatarInput: 'avatar.com',
       employerInput: 'Udacity',
       emailInput: 'admin@ryancollins.io',
+      requiresFetch: false,
+      publicInput: true,
     };
     const stateAfter = {
       isEditing: false,
@@ -167,6 +186,8 @@ describe('profileReducer', () => {
       avatarInput: null,
       employerInput: null,
       emailInput: null,
+      requiresFetch: true,
+      publicInput: false,
     };
     expect(
       profileReducer(stateBefore, {
@@ -206,6 +227,7 @@ describe('profileReducer', () => {
       employerInput: null,
       emailInput: null,
       publicInput: false,
+      requiresFetch: true,
     };
     const stateAfter = {
       bioInput: bio,
@@ -213,6 +235,7 @@ describe('profileReducer', () => {
       employerInput: employer,
       emailInput: email,
       publicInput,
+      requiresFetch: false,
     };
     expect(
       profileReducer(stateBefore, {

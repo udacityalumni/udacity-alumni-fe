@@ -9,12 +9,14 @@ import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
 import validation from './utils/validation';
 import { reduxForm } from 'redux-form';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import {
   LoadingIndicator,
   ToastMessage,
   LoginForm,
+  LostPasswordModal,
 } from 'components';
-
 
 export const formFields = [
   'emailInput',
@@ -25,6 +27,7 @@ class Login extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitLostPassword = this.handleSubmitLostPassword.bind(this);
   }
   componentWillReceiveProps({ user }) {
     if (user) {
@@ -48,6 +51,20 @@ class Login extends Component {
     };
     actions.performLogin(data);
   }
+  handleSubmitLostPassword() {
+    const data = {
+      variables: {
+        email: this.props.emailInputValue,
+      },
+    };
+    this.props.actions.forgotPasswordRequestInitiation();
+    this.props.submitPasswordResetRequest(data)
+      .then(() => {
+        this.props.actions.forgotPasswordRequestSuccess();
+      }).catch(err => {
+        this.props.actions.forgotPasswordRequestFailure(err);
+      });
+  }
   render() {
     const {
       isLoading,
@@ -56,6 +73,10 @@ class Login extends Component {
       fields,
       invalid,
       actions,
+      isShowingModal,
+      emailInputValue,
+      didSubmit,
+      forgotPasswordError,
     } = this.props;
     return (
       <Section
@@ -65,6 +86,17 @@ class Login extends Component {
         justify="center"
         className={styles.login}
       >
+        <LostPasswordModal
+          emailInput={emailInputValue}
+          didSubmit={didSubmit}
+          onChangeEmailInput={({ target }) => actions.forgotPasswordSetEmailInput(target.value)}
+          onClose={() => actions.handleToggleForgotPassword()}
+          onSubmit={this.handleSubmitLostPassword}
+          isVisible={isShowingModal}
+          error={forgotPasswordError}
+          isLoading={isLoading}
+          onClearError={actions.forgotPasswordClearError()}
+        />
         {isLoading &&
           <LoadingIndicator
             message="Submitting"
@@ -92,6 +124,7 @@ class Login extends Component {
         >
           <LoginForm
             {...fields}
+            onForgotPassword={() => actions.handleToggleForgotPassword()}
             invalid={invalid}
             onSubmit={this.handleSubmit}
           />
@@ -110,6 +143,11 @@ Login.propTypes = {
   message: PropTypes.string,
   fields: PropTypes.object.isRequired,
   invalid: PropTypes.bool.isRequired,
+  isShowingModal: PropTypes.bool.isRequired,
+  emailInputValue: PropTypes.string,
+  submitPasswordResetRequest: PropTypes.func.isRequired,
+  didSubmit: PropTypes.bool.isRequired,
+  forgotPasswordError: PropTypes.object,
 };
 
 Login.contextTypes = {
@@ -123,6 +161,10 @@ const mapStateToProps = (state) => ({
   loggedInUser: state.loginContainer.loggedInUser,
   isLoading: state.loginContainer.isLoading,
   message: state.loginContainer.message,
+  isShowingModal: state.loginContainer.forgotPassword.isShowingModal,
+  emailInputValue: state.loginContainer.forgotPassword.emailInput,
+  didSubmit: state.loginContainer.forgotPassword.didSubmit,
+  forgotPasswordError: state.loginContainer.forgotPassword.error,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -138,11 +180,25 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Container = cssModules(Login, styles);
 
+const passwordResetRequestMutation = gql`
+  mutation updatePassword($email: String!) {
+    RequestPasswordInstructions(input: { email: $email }) {
+      success
+    }
+  }
+`;
+
+const ContainerWithMutation = graphql(passwordResetRequestMutation, {
+  props: ({ mutate }) => ({
+    submitPasswordResetRequest: mutate,
+  }),
+})(Container);
+
 const FormContainer = reduxForm({
   form: 'Login',
   fields: formFields,
   validate: validation,
-})(Container);
+})(ContainerWithMutation);
 
 export default connect(
   mapStateToProps,

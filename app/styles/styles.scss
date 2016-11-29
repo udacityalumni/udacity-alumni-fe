@@ -29,9 +29,26 @@ html {
   height: auto;
 }
 
+a.desktop__nav {
+  position: relative;
+  &:hover:before {
+    transform: scaleX(1);
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 4px;
+    background: #20BCE5;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    transform: scaleX(0);
+  }
+}
+
 a.active.desktop__nav {
-  color: #2e3d49 !important;
-  border-bottom: 2px solid #7d97ad;
+  border-bottom: 4px solid #20BCE5;
 }
 
 .grommetux-menu a:not(.grommetux-button), .grommetux-menu .grommetux-anchor {
@@ -43,6 +60,184 @@ a.active.desktop__nav {
 @font-face {
   font-family: octicons-link;
   src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+
+
+.rc-pagination {
+  font-size: 12px;
+  font-family: 'Arial';
+  user-select: none;
+}
+.rc-pagination-total-text {
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
+}
+.rc-pagination:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.rc-pagination-item {
+  cursor: pointer;
+  border-radius: 6px;
+  min-width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  list-style: none;
+  float: left;
+  border: 1px solid #d9d9d9;
+  background-color: #fff;
+  margin-right: 8px;
+}
+.rc-pagination-item a {
+  text-decoration: none;
+  color: #666;
+}
+.rc-pagination-item:hover {
+  border-color: #2db7f5;
+}
+.rc-pagination-item:hover a {
+  color: #2db7f5;
+}
+.rc-pagination-item-active {
+  background-color: #2db7f5;
+  border-color: #2db7f5;
+}
+.rc-pagination-item-active a {
+  color: #fff !important;
+}
+.rc-pagination-item-active:hover a {
+  color: #fff;
+}
+.rc-pagination-jump-prev:after,
+.rc-pagination-jump-next:after {
+  content: "•••";
+  display: block;
+  letter-spacing: 2px;
+  color: #ccc;
+  font-size: 12px;
+  margin-top: 1px;
+}
+.rc-pagination-jump-prev:hover:after,
+.rc-pagination-jump-next:hover:after {
+  color: #2db7f5;
+}
+.rc-pagination-jump-prev:hover:after {
+  content: "«";
+}
+.rc-pagination-jump-next:hover:after {
+  content: "»";
+}
+.rc-pagination-prev,
+.rc-pagination-jump-prev,
+.rc-pagination-jump-next {
+  margin-right: 8px;
+}
+.rc-pagination-prev,
+.rc-pagination-next,
+.rc-pagination-jump-prev,
+.rc-pagination-jump-next {
+  cursor: pointer;
+  color: #666;
+  font-size: 10px;
+  border-radius: 6px;
+  list-style: none;
+  min-width: 28px;
+  height: 28px;
+  line-height: 28px;
+  float: left;
+  text-align: center;
+}
+.rc-pagination-prev a:after {
+  content: "‹";
+  display: block;
+}
+.rc-pagination-next a:after {
+  content: "›";
+  display: block;
+}
+.rc-pagination-prev,
+.rc-pagination-next {
+  border: 1px solid #d9d9d9;
+  font-size: 18px;
+}
+.rc-pagination-prev a,
+.rc-pagination-next a {
+  color: #666;
+}
+.rc-pagination-prev a:after,
+.rc-pagination-next a:after {
+  margin-top: -1px;
+}
+.rc-pagination-disabled {
+  cursor: not-allowed;
+}
+.rc-pagination-disabled a {
+  color: #ccc;
+}
+.rc-pagination-options {
+  float: left;
+  margin-left: 15px;
+}
+.rc-pagination-options-size-changer {
+  float: left;
+  width: 80px;
+}
+.rc-pagination-options-quick-jumper {
+  float: left;
+  margin-left: 16px;
+  height: 28px;
+  line-height: 28px;
+}
+.rc-pagination-options-quick-jumper input {
+  margin: 0 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  padding: 3px 12px;
+  width: 50px;
+  height: 28px;
+}
+.rc-pagination-options-quick-jumper input:hover {
+  border-color: #2db7f5;
+}
+.rc-pagination-simple .rc-pagination-prev,
+.rc-pagination-simple .rc-pagination-next {
+  border: none;
+  height: 24px;
+  line-height: 24px;
+  margin: 0;
+  font-size: 18px;
+}
+.rc-pagination-simple .rc-pagination-simple-pager {
+  float: left;
+  margin-right: 8px;
+}
+.rc-pagination-simple .rc-pagination-simple-pager .rc-pagination-slash {
+  margin: 0 10px;
+}
+.rc-pagination-simple .rc-pagination-simple-pager input {
+  margin: 0 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  padding: 5px 8px;
+  width: 30px;
+  min-height: 20px;
+}
+.rc-pagination-simple .rc-pagination-simple-pager input:hover {
+  border-color: #2db7f5;
 }
 
 .markdown-body {

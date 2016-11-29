@@ -10,20 +10,14 @@
       "stage-0"
     ],
     "plugins": [
-      "babel-plugin-webpack-alias",
-      "react-hot-loader/babel"
-    ]
-  },
-  "env": {
-    "test": {
-      "plugins": [
-        [
-          "babel-plugin-webpack-loaders", {
-            "config": "./config/testing/webpack.test.config.js",
-            "verbose": false
-          }
+      "babel-plugin-webpack-alias"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "react-hot-loader/babel"
         ]
-      ]
+      }
     }
   },
   "jest": {
@@ -45,7 +39,7 @@
   "scripts": {
     "t": "npm run test",
     "test:watch": "npm test -- --watch",
-    "test": "BABEL_DISABLE_CACHE=1 NODE_ENV=test node --harmony_proxies node_modules/.bin/jest",
+    "test": "BABEL_DISABLE_CACHE=1 cross-env NODE_ENV='test' node --harmony_proxies node_modules/.bin/jest",
     "build": "npm run ./node_modules/.bin/webpack",
     "dev": "./node_modules/.bin/webpack-dev-server",
     "generate": "all-contributors generate",
@@ -53,14 +47,16 @@
     "generate:container": "plop --plopfile config/generators/index.js container",
     "generate:page": "plop --plopfile config/generators/index.js page",
     "lint": "eslint . --ext .js --ext .jsx; exit 0",
+    "predeploy": "rimraf server/public/*.*",
     "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
-    "start": "npm run dev",
+    "start": "node devServer",
     "clean": "rm -rf app/dist app/build",
     "clean:server": "rm -rf server/public/*",
     "dist": "npm run clean:server && npm run deploy",
     "setup": "npm install",
     "serve:bundle": "cross-env BASE_URL=http://0.0.0.0:1337/ NODE_ENV=production PORT=1337 node server.js",
-    "add": "all-contributors add"
+    "add": "all-contributors add",
+    "postinstall": "npm run deploy"
   },
   "repository": {
     "type": "git",
@@ -95,7 +91,9 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.16.3",
+    "babili-webpack-plugin": "0.0.7",
     "components": "^0.1.0",
+    "cross-env": "^2.0.0",
     "css-loader": "^0.23.0",
     "draft-js-export-html": "^0.4.0",
     "draft-js-import-markdown": "^0.2.0",
@@ -114,15 +112,15 @@
     "json-loader": "^0.5.4",
     "lru-memoize": "^1.0.1",
     "megadraft": "^0.3.4",
-    "megadraft-js-export-markdown": "^0.2.2",
+    "megadraft-js-export-markdown": "^0.2.3",
     "minimist": "^1.2.0",
     "morgan": "^1.7.0",
-    "node-ensure": "0.0.0",
     "node-sass": "^3.4.2",
     "npm-install-webpack-plugin": "^4.0.3",
     "offline-plugin": "^3.4.2",
     "postcss-loader": "^1.0.0",
     "precss": "^1.4.0",
+    "rc-pagination": "^1.5.5",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.2.1",
     "react-addons-test-utils": "^15.3.2",
@@ -142,12 +140,16 @@
     "redux-logger": "^2.6.1",
     "redux-promise-middleware": "^3.2.0",
     "redux-thunk": "^1.0.0",
+    "reselect": "^2.5.4",
     "resolve-url-loader": "^1.4.4",
+    "rimraf": "^2.5.4",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
+    "styled-components": "^1.0.11",
     "svg-react-loader": "^0.3.6",
     "utils": "^0.3.1",
-    "webpack": "2.1.0-beta.19"
+    "webpack": "^2.1.0-beta.19",
+    "webpack-manifest-plugin": "^1.1.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^3.0.6",
@@ -155,7 +157,6 @@
     "babel-jest": "^15.0.0",
     "babel-plugin-webpack-loaders": "0.8.0",
     "babel-preset-es2015": "^6.9.0",
-    "cross-env": "^2.0.0",
     "enzyme": "^2.4.1",
     "enzyme-to-json": "^1.0.3",
     "eslint": "^1.10.3",

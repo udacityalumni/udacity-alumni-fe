@@ -8,11 +8,34 @@ export const initialState = {
   isLoading: false,
   isShowingModal: false,
   selectedArticleId: null,
+  paginator: {
+    perPage: 6,
+    currentPage: 1,
+  },
+};
+
+const paginatorReducer = (state = initialState.paginator, action) => {
+  switch (action.type) {
+    case types.DASHBOARD_SET_PAGE:
+      return update(state, {
+        currentPage: {
+          $set: action.page,
+        },
+      });
+    default:
+      return state;
+  }
 };
 
 const contentDashboardReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.DASHBOARD_SET_PAGE:
+        return update(state, {
+          paginator: {
+            $set: paginatorReducer(state.paginator, action),
+          },
+        });
       case types.DASHBOARD_DELETE_ARTICLE_INITIATION:
         return update(state, {
           isLoading: {

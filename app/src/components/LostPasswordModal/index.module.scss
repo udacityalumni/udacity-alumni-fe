@@ -1,0 +1,30 @@
+.outerBox {
+  padding: 60px 0 !important;
+}
+
+.innerBox {
+  padding: 30px 30px !important;
+}
+
+.form {
+  margin: 40px;
+}
+
+.formField {
+  @media screen and (max-width: 720px) {
+    max-width: 70vw;
+  }
+}
+
+.button {
+  margin-left: 20px;
+  margin-top: 20px;
+  @media screen and (max-width: 720px) {
+    max-width: 70vw;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 20px;
+    max-width: 70vw;
+    width: 100%;
+  }
+}

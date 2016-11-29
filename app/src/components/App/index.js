@@ -67,7 +67,7 @@ class Main extends Component {
     loadPersistedAuthToken();
   }
   handleSetMobile() {
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth <= 860;
     const {
       appSetMobile,
     } = this.props.actions;

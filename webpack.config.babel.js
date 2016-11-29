@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 const env = process.env.NODE_ENV || 'development';
@@ -14,29 +15,29 @@ const PORT = process.env.PORT || 1337;
 const HOST = '0.0.0.0'; // Set to localhost if need be.
 
 module.exports = {
-  devtool: isProduction ? '' : 'cheap-module-eval-source-map',
-  entry: isProduction ? [
-    path.resolve(ROOT_PATH,'app/src/index')
-  ]
+  devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
+  entry: isProduction ? {
+    main: [
+      path.resolve(ROOT_PATH, 'app/src/index')
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+      'grommet-udacity'
+    ]
+  }
   :
   [
-    'webpack-dev-server/client?http://0:0:0:0:1337',
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:1337',
     'webpack/hot/only-dev-server',
     path.resolve(ROOT_PATH,'app/src/index')
   ],
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: isProduction ? [] : ['eslint'],
-        include: path.resolve(ROOT_PATH, './app')
-      }
-    ],
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      include: path.join(__dirname, 'app/src'),
-      loaders: ['react-hot-loader/webpack', 'babel']
+      loaders: ['babel']
     },
     {
       test: /\.svg$/,
@@ -97,7 +98,7 @@ module.exports = {
     };
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.json'],
     alias: {
       components: path.resolve(ROOT_PATH, 'app/src/components'),
       containers: path.resolve(ROOT_PATH, 'app/src/containers'),
@@ -132,6 +133,10 @@ module.exports = {
   cache: true,
   plugins: isProduction ?
     [
+      new ManifestPlugin({
+        fileName: 'manifest.json',
+        basePath: '/'
+      }),
       new ExtractTextPlugin({
         filename: '[name].[contenthash].css',
         allChunks: false
@@ -141,6 +146,20 @@ module.exports = {
         children: true,
         minChunks: 2,
         async: true,
+      }),
+      new OfflinePlugin({
+        relativePaths: false,
+        publicPath: '/',
+        caches: {
+          main: [':rest:'],
+
+          // All chunks marked as `additional`, loaded after main section
+          // and do not prevent SW to install. Change to `optional` if
+          // do not want them to be preloaded at all (cached only when first loaded)
+          additional: ['*.chunk.js'],
+        },
+        safeToUseOptionalCaches: true,
+        AppCache: false,
       }),
       new HtmlwebpackPlugin({
         template: 'config/templates/_index.html',
@@ -165,20 +184,6 @@ module.exports = {
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         sourceMap: false
-      }),
-      new OfflinePlugin({
-        relativePaths: false,
-        publicPath: '/',
-        caches: {
-          main: [':rest:'],
-
-          // All chunks marked as `additional`, loaded after main section
-          // and do not prevent SW to install. Change to `optional` if
-          // do not want them to be preloaded at all (cached only when first loaded)
-          additional: ['*.chunk.js'],
-        },
-        safeToUseOptionalCaches: true,
-        AppCache: false,
       }),
     ]
   :

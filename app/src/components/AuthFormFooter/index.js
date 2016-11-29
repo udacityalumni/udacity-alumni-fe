@@ -7,9 +7,9 @@ const AuthFormFooter = ({
   text,
 }) => (
   <Footer align="center" justify="center">
-    <span>{`${text}`}</span>
+    <span>{`${text}${"\u00a0"}`}</span>
     <Anchor href={link}>
-      {`  ${link.charAt(1).toUpperCase()}${link.slice(2)}`}
+      {`${link.charAt(1).toUpperCase()}${link.slice(2)}`}
     </Anchor>
   </Footer>
 );

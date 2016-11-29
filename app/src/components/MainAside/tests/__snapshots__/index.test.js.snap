@@ -55,10 +55,7 @@ exports[`<MainAside /> should render with default props 1`] = `
       <Button
         href="/admin/cms?action=new"
         icon={
-          <function Icon() {
-              (0, _classCallCheck3.default)(this, Icon);
-              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-            }
+          <Edit
             a11yTitleId="edit-title"
             responsive={true} />
         }
@@ -69,10 +66,7 @@ exports[`<MainAside /> should render with default props 1`] = `
       <Button
         href="/admin/content-dashboard"
         icon={
-          <function Icon() {
-              (0, _classCallCheck3.default)(this, Icon);
-              return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-            }
+          <Article
             a11yTitleId="article-title"
             responsive={true} />
         }
@@ -114,10 +108,7 @@ exports[`<MainAside /> should render with default props 1`] = `
           <Button
             href="/admin/carousel"
             icon={
-              <function Icon() {
-                  (0, _classCallCheck3.default)(this, Icon);
-                  return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
-                }
+              <Image
                 a11yTitleId="image-title"
                 responsive={true} />
             }

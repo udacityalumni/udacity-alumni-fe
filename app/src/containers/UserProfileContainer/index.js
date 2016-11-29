@@ -19,6 +19,15 @@ class UserProfileContainer extends Component {
     this.setDefaultValues = this.setDefaultValues.bind(this);
     this.handleSubmission = this.handleSubmission.bind(this);
   }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.requiresFetch) {
+      if (newProps.requiresFetch !== this.props.requiresFetch) {
+        this.setDefaultValues();
+      }
+    }
+  }
+
   setDefaultValues() {
     const {
       user,
@@ -31,6 +40,7 @@ class UserProfileContainer extends Component {
       public: user.public,
     });
   }
+
   handleSubmission() {
     const {
       bioInput,
@@ -132,6 +142,7 @@ UserProfileContainer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   authToken: PropTypes.string.isRequired,
   publicInput: PropTypes.bool.isRequired,
+  requiresFetch: PropTypes.bool.isRequired,
 };
 
 // mapStateToProps :: {State} -> {Props}
@@ -146,6 +157,7 @@ const mapStateToProps = (state) => ({
   employerInput: state.userProfileContainer.employerInput,
   publicInput: state.userProfileContainer.publicInput,
   isLoading: state.userProfileContainer.isLoading,
+  requiresFetch: state.userProfileContainer.requiresFetch,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -182,6 +194,7 @@ const ContainerWithMutation = graphql(updateProfileMutation, {
           variables: { authToken, profile },
         })
         .then(mutationResult => {
+          console.log(`Received mutation result of ${JSON.stringify(mutationResult, null, 2)}`)
           ownProps.actions.setPersistentUser(mutationResult.data.UpdateProfile.user);
           resolve(mutationResult);
         })

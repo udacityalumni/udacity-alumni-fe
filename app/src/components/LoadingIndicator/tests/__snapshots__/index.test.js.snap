@@ -20,6 +20,11 @@ exports[`<LoadingIndicator /> should render with default props 1`] = `
     <Spinning />
     <Heading
       align="center"
+      style={
+        Object {
+          "maxWidth": 200
+        }
+      }
       tag="h3">
       Cleaning the whiteboard...
     </Heading>

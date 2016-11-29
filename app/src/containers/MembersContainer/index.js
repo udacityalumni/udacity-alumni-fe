@@ -10,6 +10,7 @@ import Section from 'grommet-udacity/components/Section';
 import Headline from 'grommet-udacity/components/Headline';
 import Box from 'grommet-udacity/components/Box';
 import Columns from 'grommet-udacity/components/Columns';
+import Anchor from 'grommet-udacity/components/Anchor';
 import { LoadingIndicator, Member, Divider } from 'components';
 
 class MembersContainer extends Component { // eslint-disable-line react/prefer-stateless-function
@@ -19,13 +20,13 @@ class MembersContainer extends Component { // eslint-disable-line react/prefer-s
       usersLoading,
     } = this.props;
     return (
-      <Section align="center" justify="center">
+      <Box align="center" justify="center">
         {usersLoading ?
           <Section className="full-height" align="center" justify="center">
             <LoadingIndicator isLoading />
           </Section>
         :
-          <Box className={styles.members}>
+          <Section className={styles.members}>
             <Headline align="center" style={{ marginTop: 60 }}>
               Our Awesome Members
             </Headline>
@@ -38,14 +39,16 @@ class MembersContainer extends Component { // eslint-disable-line react/prefer-s
               maxCount={3}
             >
               {users.map((user, i) =>
-                <Box size="medium" key={i}>
-                  <Member user={user} />
-                </Box>
+                <Anchor key={i} href={`/members/member/${user.id}`}>
+                  <Box size="medium">
+                    <Member user={user} />
+                  </Box>
+                </Anchor>
               )}
             </Columns>
-          </Box>
+          </Section>
         }
-      </Section>
+      </Box>
     );
   }
 }
@@ -74,6 +77,7 @@ const Container = cssModules(MembersContainer, styles);
 const publicUsersQuery = gql`
   query publicUsers {
     publicUsers {
+      id
       name
       avatar
       bio

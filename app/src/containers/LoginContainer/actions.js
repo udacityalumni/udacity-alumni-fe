@@ -1,9 +1,18 @@
 import * as types from './constants';
 import 'whatwg-fetch';
 const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
-  process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
+  process.env.BASE_URL : 'https://udacity-alumni-api.herokuapp.com/';
 const sessionsUrl = `${baseUrl}api/v1/sessions`;
 const usersUrl = `${baseUrl}api/v1/users`;
+
+export const forgotPasswordSetEmailInput = (input) => ({
+  type: types.FORGOT_PASSWORD_SET_EMAIL_INPUT,
+  input,
+});
+
+export const handleToggleForgotPassword = () => ({
+  type: types.LOGIN_TOGGLE_FORGOT_PASSWORD,
+});
 
 // loginInitiateRequest :: None -> Action
 export const loginInitiateRequest = () => ({
@@ -124,3 +133,20 @@ export const performLogin = (params) =>
       );
     });
   };
+
+export const forgotPasswordRequestInitiation = () => ({
+  type: types.FORGOT_PASSWORD_REQUEST_INITITATION,
+});
+
+export const forgotPasswordRequestSuccess = () => ({
+  type: types.FORGOT_PASSWORD_REQUEST_SUCCESS,
+});
+
+export const forgotPasswordRequestFailure = (error) => ({
+  type: types.FORGOT_PASSWORD_REQUEST_FAILURE,
+  error,
+});
+
+export const forgotPasswordClearError = () => ({
+  type: types.CLEAR_FORGOT_PASSWORD_ERROR,
+});

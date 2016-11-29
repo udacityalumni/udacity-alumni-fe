@@ -31,6 +31,7 @@ exports[`<MartinRulz /> should render with default props 1`] = `
     responsive={true}
     tag="div">
     <Heading
+      align="center"
       tag="h3">
       If you feel like helping us build this page
     </Heading>

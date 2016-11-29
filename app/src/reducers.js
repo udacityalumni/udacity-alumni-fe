@@ -15,6 +15,7 @@ import carouselWidgetContainer from 'containers/CarouselWidgetContainer/reducer'
 import articleFeedContainer from 'containers/ArticleFeedContainer/reducer';
 import userProfileContainer from 'containers/UserProfileContainer/reducer';
 import archiveContainer from 'containers/ArticleArchiveContainer/reducer';
+import resetPassword from 'containers/ResetPasswordContainer/reducer';
 import app from 'components/App/reducer';
 
 const rootReducer = combineReducers({
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   articleFeedContainer,
   userProfileContainer,
   archiveContainer,
+  resetPassword,
   routing: routerReducer,
   form: formReducer,
   apollo: client.reducer(),

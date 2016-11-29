@@ -31,27 +31,27 @@ exports[`<CmsEditor /> should render with default props 1`] = `
         "allowUndo": true,
         "currentContent": Object {
           "blockMap": Object {
-            "28fdq": Object {
+            "d9c3e": Object {
               "characterList": Array [],
               "data": Object {},
               "depth": 0,
-              "key": "28fdq",
+              "key": "d9c3e",
               "text": "",
               "type": "unstyled"
             }
           },
           "selectionAfter": Object {
-            "anchorKey": "28fdq",
+            "anchorKey": "d9c3e",
             "anchorOffset": 0,
-            "focusKey": "28fdq",
+            "focusKey": "d9c3e",
             "focusOffset": 0,
             "hasFocus": false,
             "isBackward": false
           },
           "selectionBefore": Object {
-            "anchorKey": "28fdq",
+            "anchorKey": "d9c3e",
             "anchorOffset": 0,
-            "focusKey": "28fdq",
+            "focusKey": "d9c3e",
             "focusOffset": 0,
             "hasFocus": false,
             "isBackward": false
@@ -66,7 +66,7 @@ exports[`<CmsEditor /> should render with default props 1`] = `
           ]
         },
         "directionMap": Object {
-          "28fdq": "LTR"
+          "d9c3e": "LTR"
         },
         "forceSelection": false,
         "inCompositionMode": false,
@@ -75,15 +75,15 @@ exports[`<CmsEditor /> should render with default props 1`] = `
         "nativelyRenderedContent": null,
         "redoStack": Array [],
         "selection": Object {
-          "anchorKey": "28fdq",
+          "anchorKey": "d9c3e",
           "anchorOffset": 0,
-          "focusKey": "28fdq",
+          "focusKey": "d9c3e",
           "focusOffset": 0,
           "hasFocus": false,
           "isBackward": false
         },
         "treeMap": Object {
-          "28fdq": Array [
+          "d9c3e": Array [
             Object {
               "decoratorKey": null,
               "end": 0,

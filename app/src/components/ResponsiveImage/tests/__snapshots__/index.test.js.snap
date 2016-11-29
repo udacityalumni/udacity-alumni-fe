@@ -1,0 +1,17 @@
+exports[`<ResponsiveImage /> should render with default props 1`] = `
+<Animate
+  enter={
+    Object {
+      "animation": "fade",
+      "duration": 1000
+    }
+  }
+  keep={true}
+  visible={false}>
+  <div>
+    <img
+      onLoad={[Function bound setImageLoadedState]}
+      src={Object {}} />
+  </div>
+</Animate>
+`;

@@ -16,9 +16,10 @@ import { routes } from '../app/src/routes.js';
 import { createNetworkInterface } from 'apollo-client';
 import Html from './utils/Html';
 import createApolloClient from './utils/create-apollo-client';
+import manifest from './public/manifest.json';
 
 const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
-  process.env.BASE_URL : 'https://udacity-api.herokuapp.com/';
+  process.env.BASE_URL : 'https://udacity-alumni-api.herokuapp.com/';
 const apiUrl = `${baseUrl}graphql`;
 
 app.use(morgan('combined'));
@@ -55,8 +56,9 @@ app.use((req, res) => {
           const html = (
             <Html
               content={content}
-              scriptHash="5b58aeecbfd71fa34ecb"
-              cssHash="04169390717abcc5445bf02cae75f2a4"
+              scriptHash={manifest["/main.js"]}
+              vendorHash={manifest["/vendor.js"]}
+              cssHash={manifest["/main.css"]}
               state={{ data: context.store.getState().apollo.data }}
             />
           );
@@ -65,7 +67,7 @@ app.use((req, res) => {
       } else {
         res.status(404).send('Not found');
       }
-    })
+    });
 });
 
 app.listen(port, '0.0.0.0', (err) => {

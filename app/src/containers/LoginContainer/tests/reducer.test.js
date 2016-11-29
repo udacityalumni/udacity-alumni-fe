@@ -42,40 +42,33 @@ describe('loginReducer', () => {
     ).toEqual(stateAfter);
   });
   describe('login container error handling', () => {
-    const errors = [
-      { message: 'An error has occured' },
-      { message: 'Another error has occured' },
-    ];
+    const error = new Error('Oops');
     it('should handle LOGIN_REQUEST_FAILURE', () => {
       const stateBefore = {
         isLoading: true,
-        errors: [],
+        error: [],
       };
       const stateAfter = {
         isLoading: false,
-        errors,
+        error,
       };
       expect(
         loginReducer(stateBefore, {
           type: types.LOGIN_REQUEST_FAILURE,
-          errors,
+          error,
         })
       ).toEqual(stateAfter);
     });
-    it('should handle CLEAR_LOGIN_ERROR', () => {
-      const index = 0;
+    it('should handle LOGIN_CLEAR_ERROR', () => {
       const stateBefore = {
-        errors,
+        error: new Error('oops'),
       };
       const stateAfter = {
-        errors: [
-          { message: 'Another error has occured' },
-        ],
+        error: null,
       };
       expect(
         loginReducer(stateBefore, {
-          type: types.CLEAR_LOGIN_ERROR,
-          index,
+          type: types.LOGIN_CLEAR_ERROR,
         })
       ).toEqual(stateAfter);
     });

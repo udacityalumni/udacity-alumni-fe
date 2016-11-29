@@ -10,10 +10,10 @@ describe('cmsEditorReducer', () => {
   });
   it('should handle SUBMIT_ARTICLE_INITIATION', () => {
     const stateBefore = {
-      isSubmitting: false,
+      isLoading: false,
     };
     const stateAfter = {
-      isSubmitting: true,
+      isLoading: true,
     };
     expect(
       cmsEditorReducer(stateBefore, {
@@ -24,11 +24,11 @@ describe('cmsEditorReducer', () => {
   it('should handle SUBMIT_ARTICLE_FAILURE', () => {
     const error = new Error('Ooops');
     const stateBefore = {
-      isSubmitting: true,
+      isLoading: true,
       error: null,
     };
     const stateAfter = {
-      isSubmitting: false,
+      isLoading: false,
       error,
     };
     expect(
@@ -41,11 +41,11 @@ describe('cmsEditorReducer', () => {
   it('should handle SUBMIT_ARTICLE_SUCCESS', () => {
     const message = 'Woohoo!';
     const stateBefore = {
-      isSubmitting: true,
+      isLoading: true,
       message: null,
     };
     const stateAfter = {
-      isSubmitting: false,
+      isLoading: false,
       message,
     };
     expect(

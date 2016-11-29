@@ -22,7 +22,13 @@ const LoadingIndicator = ({
         justify="center"
       >
         <Spinning />
-        <Heading tag="h3" align="center">{message}</Heading>
+        <Heading
+          tag="h3"
+          align="center"
+          style={{ maxWidth: 200 }}
+        >
+          {message}
+        </Heading>
       </Box>
     }
   </Box>
