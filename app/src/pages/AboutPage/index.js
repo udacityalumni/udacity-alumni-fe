@@ -37,32 +37,40 @@ const AboutPage = () => (
               A (not so) short Why of this project.
             </Heading>
             <Paragraph>
-              So you’ve graduated from one of Udacity’s Nanodegrees! Congratulations! :thumbs_up: :tada: You’re now a part of the Udacity Alumni slack channel (&lt;- click if you’re not yet. You should be). There you’ve read some discussions, or had some discussions, and probably you’re super excited about all those other smart and handsome Alumni that are working on a million of compelling projects! (… Wait… don’t go those dark places. Fight the impostor syndrome creeping up… Grind it, gnaw it - - remember you’ve learned a lot, and most importantly you’ve learned how to learn ever more!! Your best projects lie in the future! Hm…, I can hear you think, …so what if there was a possibility to get in touch with the person who’s working on project Awwwsome…? Alright! : ) Seems we’re back on track! Great, here we go!)
+              So you’ve graduated from one of Udacity’s Nanodegrees! Congratulations! :thumbs_up: :tada: You’re now a part of the <Anchor href="mailto:tyler@udacity.com" label="Udacity Alumni slack channel" /> (&lt;- <em>click if you’re not yet. You should be</em>).
+              <br />There you’ve read some discussions, or had some discussions, and probably you’re super excited about all those other smart and handsome Alumni that are working on a million of compelling projects! (… Wait… don’t go those dark places. Fight the <Anchor href="https://en.wikipedia.org/wiki/Impostor_syndrome" label="impostor syndrome" /> creeping up… Grind it, gnaw it - - remember you’ve learned a lot, and most importantly you’ve learned how to learn ever more!! Your best projects lie in the future! <em>Hm…</em>, I can hear you think, <em>…so what if there was a possibility to get in touch with the person who’s working on project Awwwsome…?</em> Alright! : ) Seems we’re back on track! Great, here we go!)
             </Paragraph>
+            <Heading tag="h3">
+              We’re all Udacity Alumni here. But we come from a great number of diverse backgrounds.
+            </Heading>
             <Paragraph>
-              We’re all Udacity Alumni here. We come from a great number of diverse backgrounds. Some worked in construction before hopping onto the digital train, some in Canada, some in the Arts. Some are in school, others graduated from university with a degree in communications. Some even did a programming related education, dabbled with their mum’s tower PC after having just started to walk, or worked in these fields before - but there are also many of us who have not. Online education offers this possibility to change your path and follow interests in a new way. Some even dive into the digital world in their retirement! Yes, we’re a diverse bunch. There are those that can dedicate all their waking hours to this new path, and there are those who somehow manage to juggle all the materials while working a full-time job or raising a family (Respect!). But there is more: Coming from all corners of the world, we tie together a bouquet of timezones so that it is fair to say that this community never sleeps. And some of us stay where they are to work and study from the comfort of their homes, some others zip around and learn how to find internet on the road.
+              Some worked in construction before hopping onto the digital train, some in Canada, some in the Arts. Some are in school, others graduated from university with a degree in communications. Some even did a programming related education, dabbled with their mum’s tower PC after having just started to walk, or earned sweet money in one of these fields before. But there are also many of us who have not, and are still pretty new to the industry.
+              <br />Online education offers this possibility to change your path and follow interests in a new way. Some even dive into the digital world during their retirement! Yes yes, we’re a diverse bunch. <em>pads any reachable back</em> Here comes yet another example: there are those that can dedicate all their waking hours to this new path, and there are those who somehow manage to juggle all the materials while working a full-time job or raising a family (<em>Respect!</em>).
+              <br />And there is more: Coming from all corners of the world, we tie together a bouquet of timezones so that it is fair to say that <strong>this community never sleeps</strong>. And some of us stay where they are to work and study from the comfort of their homes, some others zip around and learn how to find internet on the road.
             </Paragraph>
             <Paragraph>
               Online education is a big box filled with surprises and opportunities - and interesting people.
+              <br />But as diverse as we might be, there’s something that ties us together: <strong>the wish to learn and the will to work for it.</strong>
+              <br />This webapp was born from these principles.
+            </Paragraph>
+            <Heading tag="h3">
+              The Alumni Webapp is a collaborative project built by and for Alumnis.
+            </Heading>
+            <Paragraph>
+              It aims on creating a platform that allows us to exchange ideas, opinions, projects, jobs and whatnot. This webapp wants to strengthen the alumni community by offering chances to work together, find places to meet up, organize events, and talk about interesting topics.
             </Paragraph>
             <Paragraph>
-              But as diverse as we might be, there’s something that ties us together: the wish to learn and the will to work for it.
+              It is also a <strong>work-in-progress</strong> and as such it aims on providing another piece of the puzzle that can teach us to become better digital workers: <strong>collaboration on real-world products</strong>.
+              <br />During our Nanodegrees we spent our time learning from Udacity’s Resources and from the vast plains of the web. Then we wrapped up and applied that knowledge to fulfill tasks and complete projects. We’ve learned to research topics and solve errors by ourselves (and also sometimes ask for support). We got to know what it’s like to build a project, receive feedback on our work, then iterate and improve.
             </Paragraph>
             <Paragraph>
-              This webapp was born from these principles.
+              But how is it like to build something collaboratively? There’s a whole set of new skills to be tried and learned, and the Open Source Community offers great practice grounds for that. But the wide world’s web might be too intimidating to start out - so here we have our very own open source project that everyone is invited to collaborate to. A safe place to try, among a smaller web of people who appreciate trying. : )
             </Paragraph>
+            <Heading tag="h3">
+            Collaborating on building the webapp is about being part of building a tool that can benefit yourself and all the other Alumnis out there.
+            </Heading>
             <Paragraph>
-              The Alumni Webapp is a collaborative project built by and for Alumnis. It aims on creating a platform that allows us to exchange ideas, opinions, projects, jobs and whatnot. Having this webapp should strengthen the alumni community by offering chances to work together, find places to meet up and organize events.
-            </Paragraph>
-            <Paragraph>
-              It is also a work-in-progress and as such it aims on providing another piece of the puzzle that can teach us to become better digital workers: collaboration on real-world products.
-              During our Nanodegrees we spent our time learning from Udacity’s Resources and from the vast plains of the web. Then we wrapped up and applied that knowledge to fulfill tasks and complete projects. We’ve learned to research topics and errors by ourselves, and sometimes ask for support. We got to know what it’s like to build a project, receive feedback on our work, then iterate and improve.
-            </Paragraph>
-            <Paragraph>
-              But how is it like to build something collaboratively? There’s a whole set of new skills to be tried and learned, and the Open Source Community offers great practice grounds for that. But the wide world’s web might be too intimidating to start out - so here we have our very own open source project that everyone is invited to collaborate to. A safe place to try, among people who appreciate trying. : )
-            </Paragraph>
-            <Paragraph>
-              Collaborating is about being part of building a tool that can benefit yourself and all the other Alumnis out there. It’s about breathing life into your ideas, and it’s about working to make them happen collaboratively.
+            It’s about breathing life into your ideas, and it’s about working to make them happen collaboratively.
             </Paragraph>
             <Paragraph>
               Because we’re a great bunch of people who have gone through a similar path of education. We know what it’s like to be stuck, what it’s like to come from an unrelated background and doubt whether we actually know anything at all. We also know that we can learn how to do something new and exciting, and we are happy to give back to the community and help others along their personal way.
@@ -70,30 +78,22 @@ const AboutPage = () => (
             <Paragraph>
               So here’s something to ponder:
               When you jumble up the letters of “alumni” and add the first letters of “For You”, you get “nu FamilY”.
+              <br />Coincidence? Maybe.
+              <br />A bad wordplay? Definitely.
+              <br />But in a way this is what we are - and what we aim to be for each other:
             </Paragraph>
-            <Paragraph>
-              Coincidence? Maybe.
-            </Paragraph>
-            <Paragraph>
-              A bad wordplay? Definitely.
-            </Paragraph>
-            <Paragraph>
-              But in a way this is what we are - and what we aim to be for each other:
-            </Paragraph>
-            <Paragraph>
+            <Heading tag="h3" strong>
               A community of like-minded people who want to learn more and help each other on our ways.
-            </Paragraph>
+            </Heading>
             <Paragraph>
-              The Udacity Alumni Webapp is the place where we can work on this together.
+              The Udacity Alumni Webapp is a place where we can work on this together.
             </Paragraph>
             <Paragraph>
               So that’s what this is all about. : )
             </Paragraph>
             <Paragraph>
               Hopefully you like the app and the idea, and you’ll feel encouraged to post, propose, code, improve, communicate, meet, build, share and dream.
-            </Paragraph>
-            <Paragraph>
-              And to do anything else that will help to make this place reflect the humble greatness of the people and ideas that make up this community.
+              <br />And to do anything else that will help to make this place reflect the humble greatness of the people and ideas that make up this community.
             </Paragraph>
         </Article>
         <Sidebar>
@@ -105,7 +105,7 @@ const AboutPage = () => (
             </Heading>
             <Paragraph>
             <Card label="Anything you want" thumbnail="https://upload.wikimedia.org/wikipedia/commons/3/33/White_square_with_question_mark.png"
-              heading="You!" description="There surely is something you can do to make this better! : )"
+              heading="Hei You!" description="There surely is something you can do to make this better! : )"
               link={<Anchor href="https://github.com/udacityalumni" primary={true} label="Link" />} />
             </Paragraph>
             <Paragraph>
@@ -115,7 +115,7 @@ const AboutPage = () => (
             </Paragraph>
             <Paragraph>
             <Card label="Unknown" thumbnail="https://upload.wikimedia.org/wikipedia/commons/3/33/White_square_with_question_mark.png"
-              heading="Anonymous" description="Above all else, this project has connected me with an outstanding group of people, all of whom share my passion for education."
+              heading="To be revealed" description="Above all else, this project has connected me with an outstanding group of people, all of whom share my passion for education."
               link={<Anchor href="https://github.com/anonymous" primary={true} label="Link" />} />
             </Paragraph>
             <Paragraph>
@@ -124,7 +124,7 @@ const AboutPage = () => (
               link={<Anchor href="https://github.com/kellim" primary={true} label="Link" />} />
             </Paragraph>
             <Paragraph>
-            <Card label="Did some code" thumbnail="https://avatars3.githubusercontent.com/u/19292575?v=3&s=400"
+            <Card label="Coder" thumbnail="https://avatars3.githubusercontent.com/u/19292575?v=3&s=400"
               heading="Abishek Gosh" description="..."
               link={<Anchor href="https://github.com/ghoshabhi" primary={true} label="Link" />} />
             </Paragraph>
@@ -134,7 +134,7 @@ const AboutPage = () => (
               link={<Anchor href="https://github.com/sadly-fake" primary={true} label="Link" />} />
             </Paragraph>
             <Paragraph>
-            <Card label="Did some code" thumbnail="https://avatars1.githubusercontent.com/u/12371494?v=3&s=400"
+            <Card label="Did a bit of code" thumbnail="https://avatars1.githubusercontent.com/u/12371494?v=3&s=400"
               heading="Martin Breuss" description="This is me. I like the webapp project because so many nice people here, yo!"
               link={<Anchor href="https://github.com/martin-martin" primary={true} label="Link" />} />
             </Paragraph>
@@ -145,7 +145,7 @@ const AboutPage = () => (
             </Paragraph>
             <Paragraph>
             <Card label="Anything you want" thumbnail="https://upload.wikimedia.org/wikipedia/commons/3/33/White_square_with_question_mark.png"
-              heading="You!" description="Excited to build something? Click the link!"
+              heading="Hei You!" description="Excited to build something? Click the link!"
               link={<Anchor href="https://github.com/udacityalumni" primary={true} label="Link" />} />
             </Paragraph>
           </Box>
