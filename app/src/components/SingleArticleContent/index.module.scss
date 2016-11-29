@@ -39,3 +39,10 @@
     letter-spacing: -.003em !important;
   }
 }
+
+.articleHeadline {
+  word-break: break-word;
+  @media screen and (max-width: 360px) {
+    font-size: 36px !important;
+  }
+}
