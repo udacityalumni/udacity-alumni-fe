@@ -57,7 +57,7 @@ class About extends Component { // eslint-disable-line react/prefer-stateless-fu
     this.shuffledArray = this.shuffledArray.bind(this);
   }
   shuffledArray() {
-    return shuffle(this.props.userData);
+    return shuffle(this.props.contributorVoices);
   }
   render() {
     return (
@@ -92,7 +92,7 @@ class About extends Component { // eslint-disable-line react/prefer-stateless-fu
 }
 
 About.propTypes = {
-  userData: PropTypes.array.isRequired,
+  contributorVoices: PropTypes.array.isRequired,
 };
 
 export default About;
