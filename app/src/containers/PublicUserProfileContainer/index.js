@@ -1,9 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as PublicUserProfileActionCreators from './actions';
-import cssModules from 'react-css-modules';
-import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
 import Headline from 'grommet-udacity/components/Headline';
 import Markdown from 'grommet-udacity/components/Markdown';
@@ -18,18 +13,17 @@ class PublicUserProfile extends Component { // eslint-disable-line react/prefer-
   render() {
     const {
       userLoading,
-      userError,
       user,
     } = this.props;
     return (
-      <Box align="center" justify="center" className={styles.publicUserProfile}>
+      <Box align="center" justify="center">
         {userLoading || !user ?
           <Section className="full-height" align="center" justify="center">
             <LoadingIndicator isLoading />
           </Section>
         :
-          <Section className={styles.user}>
-            <Box className={styles.userRow}>
+          <Section>
+            <Box>
               <Image src={user.avatar} />
               <Headline>
                 {user.name}
@@ -50,21 +44,6 @@ PublicUserProfile.propTypes = {
   user: PropTypes.object,
   params: PropTypes.object.isRequired,
 };
-
-// mapStateToProps :: {State} -> {Props}
-const mapStateToProps = (state) => ({
-  // myProp: state.myProp,
-});
-
-// mapDispatchToProps :: Dispatch -> {Action}
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(
-    PublicUserProfileActionCreators,
-    dispatch
-  ),
-});
-
-const Container = cssModules(PublicUserProfile, styles);
 
 const userQuery = gql`
   query user($id: ID!) {
@@ -89,9 +68,6 @@ const ContainerWithData = graphql(userQuery, {
     userError: error,
     userLoading: loading,
   }),
-})(Container);
+})(PublicUserProfile);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ContainerWithData);
+export default ContainerWithData;
