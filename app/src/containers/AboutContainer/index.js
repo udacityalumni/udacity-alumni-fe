@@ -68,14 +68,13 @@ class About extends Component { // eslint-disable-line react/prefer-stateless-fu
           showOnResponsive="priority"
           flex="both"
         >
-          <Article pad="large" align="center" justify="center">
+          <Article pad="large" align="center">
             <Markdown content={markdown} />
           </Article>
           <Sidebar>
             <Box
               pad="large"
               align="center"
-              justify="center"
             >
               <Heading tag="h2" strong>
                 Contributor Voices
