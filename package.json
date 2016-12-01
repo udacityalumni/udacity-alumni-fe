@@ -56,7 +56,8 @@
     "setup": "./node_modules/.bin/yarn",
     "serve:bundle": "cross-env BASE_URL=http://0.0.0.0:1337/ NODE_ENV=production PORT=1337 node server.js",
     "add": "all-contributors add",
-    "postsetup": "npm run deploy"
+    "postinstall": "npm run deploy",
+    "postsetup": "npm run postinstall"
   },
   "repository": {
     "type": "git",
