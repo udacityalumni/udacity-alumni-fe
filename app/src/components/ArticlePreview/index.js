@@ -24,7 +24,11 @@ const ArticlePreview = ({
         label={`By ${article.user.name}`}
         thumbnail={<ResponsiveImage src={article.feature_image} />}
         heading={article.title.slice(0, 15)}
-        description={formattedDescription}
+        description={
+          <div className={styles.content}>
+            {formattedDescription}
+          </div>
+        }
         link={
           <Anchor
             href={`/articles/${article.slug}`}
