@@ -29,7 +29,7 @@ export const highlightContent = (searchTerm, text) => {
     return setPreviewSnippet(searchTerm, formattedText);
   }
   else {
-    return text.slice(0, 200);
+    return text.slice(0, 300);
   }
 };
 /* eslint-enable */

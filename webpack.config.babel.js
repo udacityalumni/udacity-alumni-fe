@@ -40,6 +40,10 @@ module.exports = {
       loaders: ['babel']
     },
     {
+      test: /\.md$/,
+      loader: "html!markdown"
+    },
+    {
       test: /\.svg$/,
       loader: 'babel!svg-react'
     },

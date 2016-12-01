@@ -7,6 +7,8 @@
 ## Getting Started
 The project started as a fork of the [Scalable React Boilerplate](https://github.com/RyanCCollins/scalable-react-boilerplate) project.  Please reference the repository for details on the features and conventions of the boilerplate.
 
+We have switched to using Yarn as the official package manager for this project.  Please install it globally with `npm install -g yarn`.  I hope after this that you never again run into npm issues :D.
+
 ### Installing
 The package.json file includes over a dozen npm scripts to make most tasks a breeze.
 

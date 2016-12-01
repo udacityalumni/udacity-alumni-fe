@@ -15,7 +15,7 @@ const SingleArticleContent = ({
     <div className={styles.articleDate}>
       <ArticleCalendar date={article.created_at} />
     </div>
-    <Headline align="center">
+    <Headline className={styles.articleHeadline} align="center">
       {article.title}
     </Headline>
     <Divider />
