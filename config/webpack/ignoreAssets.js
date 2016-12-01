@@ -1,4 +1,4 @@
-(function() {
+(function () {
   require.extensions['.scss'] = () => {
     return;
   };

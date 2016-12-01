@@ -181,12 +181,9 @@ export const routes = {
     {
       path: '/members/member/:id',
       getComponent(location, callback) {
-        require.ensure([], () => {
-          const PublicUserProfilePage = require(
-            './pages/PublicUserProfilePage'
-        ).default;
-          callback(null, PublicUserProfilePage);
-        });
+        System.import('./pages/PublicUserProfilePage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
       },
     },
 /* Newly generated Routes go here */
