@@ -1,17 +1,14 @@
 ## SingleArticleContent Component
-A component that ...
+A component that displays content from a single article.
 
 ### Example
 
 ```js
-<SingleArticleContent />
+<SingleArticleContent article={article} />
 ```
 
 ### Props
 
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
-| **myProp**    | String   |             | Any string value
-
-
-### Other Information
+| **article**    | Object   |             | An article containing the expected shape, as defined by the schema.
