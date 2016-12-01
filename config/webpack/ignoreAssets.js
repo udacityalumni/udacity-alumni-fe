@@ -11,4 +11,7 @@
   require.extensions['.jpg'] = () => {
     return;
   };
+  require.extensions['.md'] = () => {
+    return;
+  };
 })();
