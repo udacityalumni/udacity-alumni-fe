@@ -69,7 +69,9 @@ class About extends Component { // eslint-disable-line react/prefer-stateless-fu
           flex="both"
         >
           <Article pad="large" align="center">
-            <Markdown content={markdown} />
+            {typeof markdown === 'string' &&
+              <Markdown content={markdown} />
+            }
           </Article>
           <Sidebar>
             <Box
