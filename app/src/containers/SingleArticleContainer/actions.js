@@ -1,8 +1,7 @@
 import * as types from './constants';
 import 'whatwg-fetch';
-const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
-  process.env.BASE_URL : 'https://udacity-alumni-api.herokuapp.com/';
-const articleUrl = (id) => `${baseUrl}api/v1/articles/${id}`;
+import { BASE_URL } from 'config';
+const articleUrl = (id) => `${BASE_URL}api/v1/articles/${id}`;
 
 // loadArticleInitiation :: None -> {Action}
 export const loadArticleInitiation = (articleId) => ({

@@ -17,10 +17,10 @@ import { createNetworkInterface } from 'apollo-client';
 import Html from './utils/Html';
 import createApolloClient from './utils/create-apollo-client';
 import manifest from './public/manifest.json';
+import styleSheet from 'styled-components/lib/models/StyleSheet';
 
-const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
-  process.env.BASE_URL : 'https://udacity-alumni-api.herokuapp.com/';
-const apiUrl = `${baseUrl}graphql`;
+import { BASE_URL } from '../app/src/config';
+const apiUrl = `${BASE_URL}graphql`;
 
 app.use(morgan('combined'));
 
@@ -35,7 +35,8 @@ app.use((req, res) => {
         console.error('ROUTER ERROR:', error); // eslint-disable-line no-console
         res.status(500);
       } else if (renderProps) {
-        console.log(`Called match with renderProps: ${renderProps}`);
+        const styles = styleSheet.rules().map(rule => rule.cssText).join('\n');
+
         const client = createApolloClient({
           ssrMode: true,
           networkInterface: createNetworkInterface({
@@ -50,7 +51,7 @@ app.use((req, res) => {
             <RouterContext {...renderProps} />
           </ApolloProvider>
         );
-        getDataFromTree(component).then((context) => {
+        getDataFromTree(component).then((ctx) => {
           const content = renderToString(component);
 
           const html = (
@@ -59,7 +60,8 @@ app.use((req, res) => {
               scriptHash={manifest["/main.js"]}
               vendorHash={manifest["/vendor.js"]}
               cssHash={manifest["/main.css"]}
-              state={{ data: context.store.getState().apollo.data }}
+              styles={styles}
+              state={ctx.store.getState()}
             />
           );
           res.status(200).send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
