@@ -87,6 +87,7 @@ export const performLogin = (params) =>
     .then(res => res.json())
     .then(res => {
       const token = res.session.auth_token;
+      console.log(`Persisting auth token ${token}`);
       if (!token) {
         throw new Error('The request failed.');
       }
