@@ -5,8 +5,9 @@ import React from 'react';
 
 describe('<Member />', () => {
   it('should render with default props', () => {
+  	const user = {bio:'I have done this and that.', avatar:'http://overhere'}
     const wrapper = shallow(
-      <Member />
+      <Member user={user} />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
