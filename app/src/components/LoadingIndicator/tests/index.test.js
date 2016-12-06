@@ -5,8 +5,10 @@ import React from 'react';
 
 describe('<LoadingIndicator />', () => {
   it('should render with default props', () => {
+  	const isLoading = true;
+  	const message = 'Do several jumping jacks while you wait...';
     const wrapper = shallow(
-      <LoadingIndicator />
+      <LoadingIndicator isLoading={isLoading} message={message} />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

@@ -4,16 +4,27 @@ import { shallowToJson } from 'enzyme-to-json';
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { initialState } from '../reducer';
-
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
 
 describe('<About />', () => {
   it('should render with default props', () => {
-    const store = mockStore(initialState);
+  	const contributorVoices = [
+      {
+    	label: 'this',
+  		image: 'https://here',
+  		heading: 'h2',
+  		githubUrl: 'https://git/here',
+  		description: 'hi',
+  	  },
+  	  {
+    	label: 'that',
+  		image: 'https://there',
+  		heading: 'h2',
+  		githubUrl: 'https://git/there',
+  		description: 'ho',
+  	  }
+  	];
     const wrapper = shallow(
-      <About store={store} />
+      <About contributorVoices={contributorVoices} />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

@@ -15,8 +15,9 @@ describe('<DashboardTable />', () => {
         },
       },
     ];
+    const allArticles = articles;
     const wrapper = shallow(
-      <DashboardTable articles={articles} />
+      <DashboardTable articles={articles} allArticles={allArticles} />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

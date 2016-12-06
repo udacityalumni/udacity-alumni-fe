@@ -5,8 +5,13 @@ import React from 'react';
 
 describe('<DashboardTableButtonMenu />', () => {
   it('should render with default props', () => {
-    const wrapper = shallow(
-      <DashboardTableButtonMenu />
+  	const article = {
+  		id: 1, 
+  		status: 'published', 
+  		slug: 'nickname',
+  	};
+  	const wrapper = shallow(
+      <DashboardTableButtonMenu article={article} />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
