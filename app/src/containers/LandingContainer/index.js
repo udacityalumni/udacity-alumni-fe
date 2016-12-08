@@ -13,6 +13,7 @@ import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
 import Box from 'grommet-udacity/components/Box';
+import Heading from 'grommet-udacity/components/Heading';
 
 class Landing extends Component {
   componentDidMount() {
@@ -65,8 +66,12 @@ class Landing extends Component {
                 className={styles.mainContent}
               >
                 <MainCarousel images={carouselImages} />
-                {featuredArticles && featuredArticles.length > 0 &&
+                {featuredArticles && featuredArticles.length > 0 ?
                   <SpotlightArticles articles={featuredArticles} />
+                :
+                  <Heading align="center">
+                    No Featured  Articles Found
+                  </Heading>
                 }
               </Box>
               {user && user.role === 'admin' &&

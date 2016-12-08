@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
+import serialize from 'serialize-javascript';
 
-function Html({ content, state, scriptHash, cssHash, vendorHash }) {
+function Html({ content, state, scriptHash, cssHash, vendorHash, styles }) {
   return (
     <html lang="en">
       <head>
@@ -16,7 +17,12 @@ function Html({ content, state, scriptHash, cssHash, vendorHash }) {
         <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/favicon/android-icon-192x192.png"
+        />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
@@ -27,13 +33,16 @@ function Html({ content, state, scriptHash, cssHash, vendorHash }) {
         <title>Udacity Alumni</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,300,700|Lato:400,300,700" rel="stylesheet" type="text/css" />
         <link href={`${cssHash}`} rel="stylesheet" />
+        <style dangerouslySetInnerHTML={{ __html: styles }} />
       </head>
       <body>
         <div id="app" dangerouslySetInnerHTML={{ __html: content }} />
         <script src={`${scriptHash}`} charSet="UTF-8" />
         <script src={`${vendorHash}`} type="text/javascript" />
         <script
-          dangerouslySetInnerHTML={{ __html: `window.__APOLLO_STATE__=${JSON.stringify(state)};` }}
+          dangerouslySetInnerHTML={{
+            __html: `window.__APOLLO_STATE__=${serialize(state, { isJSON: true })};`,
+          }}
           charSet="UTF-8"
         />
       </body>
@@ -46,6 +55,7 @@ Html.propTypes = {
   cssHash: PropTypes.string.isRequired,
   vendorHash: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+  styles: PropTypes.array,
   state: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 

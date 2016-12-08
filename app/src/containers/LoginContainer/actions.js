@@ -1,9 +1,8 @@
 import * as types from './constants';
 import 'whatwg-fetch';
-const baseUrl = typeof process.env.BASE_URL !== 'undefined' ?
-  process.env.BASE_URL : 'https://udacity-alumni-api.herokuapp.com/';
-const sessionsUrl = `${baseUrl}api/v1/sessions`;
-const usersUrl = `${baseUrl}api/v1/users`;
+import { BASE_URL } from 'config';
+const sessionsUrl = `${BASE_URL}api/v1/sessions`;
+const usersUrl = `${BASE_URL}api/v1/users`;
 
 export const forgotPasswordSetEmailInput = (input) => ({
   type: types.FORGOT_PASSWORD_SET_EMAIL_INPUT,
@@ -88,6 +87,7 @@ export const performLogin = (params) =>
     .then(res => res.json())
     .then(res => {
       const token = res.session.auth_token;
+      console.log(`Persisting auth token ${token}`);
       if (!token) {
         throw new Error('The request failed.');
       }
