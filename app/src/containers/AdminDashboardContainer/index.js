@@ -130,6 +130,7 @@ mutation updateUser($token:String!, $user:AdminUserInput, $user_id: ID!) {
     user {
       id
       name
+      asdf
       public
       role
     }
