@@ -18,6 +18,7 @@ import { initialState as userProfileContainer } from './containers/UserProfileCo
 import { initialState as articleFeedContainer } from './containers/ArticleFeedContainer/reducer';
 import { initialState as archiveContainer } from 'containers/ArticleArchiveContainer/reducer';
 import { initialState as resetPassword } from 'containers/ResetPasswordContainer/reducer';
+import { initialState as adminDashboardContainer } from 'containers/AdminDashboardContainer/reducer';
 import {
   initialState as singleArticleContainer,
 } from './containers/SingleArticleContainer/reducer';
@@ -30,6 +31,7 @@ import {
 } from './containers/CarouselWidgetContainer/reducer';
 
 const initialState = {
+  adminDashboardContainer,
   app,
   landing,
   loginContainer,

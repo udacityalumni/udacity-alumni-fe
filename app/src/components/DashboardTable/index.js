@@ -1,3 +1,4 @@
+
 import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
 import Table from 'grommet-udacity/components/Table';
@@ -6,19 +7,20 @@ import Heading from 'grommet-udacity/components/Heading';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
 import Label from 'grommet-udacity/components/Label';
-import Value from 'grommet-udacity/components/Value';
 import ListItem from 'grommet-udacity/components/ListItem';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import { DashboardTableButtonMenu, Pagination } from 'components';
+import { DashboardTableButtonMenu, PaginatorFooter } from 'components';
 
 const DashboardTable = ({
-  articles,
+  items,
   perPage,
   currentPage,
-  allArticles,
+  allItems,
   onChangePage,
-  onDeleteArticle,
+  onDelete,
+  onEdit,
+  onShow,
   isMobile,
 }) => (
   <Box
@@ -31,7 +33,7 @@ const DashboardTable = ({
         <List>
           <Box justify="center" align="start" pad="small">
             <tbody>
-              {articles.map((article, i) =>
+              {items && items.length > 0 && items.map((item, i) =>
                 <ListItem>
                   <Tile
                     key={i}
@@ -49,12 +51,11 @@ const DashboardTable = ({
                         className={styles.innerWrapper}
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
-                        <Value value={i} />
                         <Box
                           className={styles.boxWrapper}
                         >
                           <Heading align="center" tag="h3">
-                            {article.title}
+                            {item.title}
                           </Heading>
                         </Box>
                         <Box
@@ -64,7 +65,7 @@ const DashboardTable = ({
                             Posted By:
                           </Label>
                           <Heading align="center" tag="h4">
-                            {article.user.name}
+                            {item.user.name}
                           </Heading>
                         </Box>
                         <Box
@@ -74,12 +75,14 @@ const DashboardTable = ({
                             Status:
                           </Label>
                           <Heading align="center" tag="h4">
-                            {`${article.status.charAt(0).toUpperCase()}${article.status.slice(1)}`}
+                            {`${item.status.charAt(0).toUpperCase()}${item.status.slice(1)}`}
                           </Heading>
                         </Box>
                         <DashboardTableButtonMenu
-                          article={article}
-                          onDeleteArticle={() => onDeleteArticle(article.id)}
+                          item={item}
+                          onDelete={() => onDelete(item)}
+                          onEdit={() => onEdit(item)}
+                          onShow={() => onShow(item)}
                         />
                       </Box>
                     </Box>
@@ -100,27 +103,34 @@ const DashboardTable = ({
             </tr>
           </thead>
           <tbody>
-            {articles.map((article, i) =>
+            {items && items.length > 0 && items.map((item, i) =>
               <TableRow key={i}>
                 <td>
-                  <Heading tag="h4">
-                    {article.title.slice(0, 15)}
-                  </Heading>
+                  <Box className={styles.tableItemWrapper}>
+                    <Heading tag="h4">
+                      {item.title}
+                    </Heading>
+                  </Box>
                 </td>
                 <td>
-                  <Heading tag="h5">
-                    {`${article.status.charAt(0).toUpperCase()}${article.status.slice(1)}`}
-                  </Heading>
+                  <Box className={styles.tableItemWrapper}>
+                    <Heading tag="h5">
+                      {`${item.status.charAt(0).toUpperCase()}${item.status.slice(1)}`}
+                    </Heading>
+                  </Box>
                 </td>
                 <td>
-                  <Heading tag="h5">
-                    {article.user.name}
-                  </Heading>
+                  <Box className={styles.tableItemWrapper}>
+                    <Heading tag="h5">
+                      {item.user.name}
+                    </Heading>
+                  </Box>
                 </td>
                 <td>
                   <DashboardTableButtonMenu
-                    article={article}
-                    onDeleteArticle={() => onDeleteArticle(article.id)}
+                    onDelete={() => onDelete(item)}
+                    onEdit={() => onEdit(item)}
+                    onShow={() => onShow(item)}
                   />
                 </td>
               </TableRow>
@@ -129,22 +139,25 @@ const DashboardTable = ({
         </Table>
       }
     </Box>
-    <Pagination
+    <PaginatorFooter
       currentPage={currentPage}
       pageSize={perPage}
-      total={allArticles.length}
+      total={allItems.length}
       onChange={onChangePage}
     />
   </Box>
 );
 
 DashboardTable.propTypes = {
-  articles: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   isMobile: PropTypes.bool.isRequired,
   perPage: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
-  allArticles: PropTypes.array.isRequired,
+  allItems: PropTypes.array.isRequired,
   onChangePage: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onShow: PropTypes.func.isRequired,
 };
 
 export default cssModules(DashboardTable, styles);

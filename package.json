@@ -52,7 +52,7 @@
     "start:staging": "cross-env NODE_ENV='staging' node devServer",
     "start:development": "cross-env NODE_ENV='development' node devServer",
     "start:production": "cross-env NODE_ENV='production' node devServer",
-    "start": "node devServer",
+    "start": "npm run start:staging",
     "clean": "rm -rf app/dist app/build",
     "clean:server": "rm -rf server/public/*",
     "dist": "npm run clean:server && npm run deploy",

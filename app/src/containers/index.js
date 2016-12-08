@@ -1,4 +1,5 @@
 /* Assemble all containers for export */
+export AdminDashboardContainer from './AdminDashboardContainer';
 export AboutContainer from './AboutContainer';
 export PublicUserProfileContainer from './PublicUserProfileContainer';
 export ResetPasswordContainer from './ResetPasswordContainer';

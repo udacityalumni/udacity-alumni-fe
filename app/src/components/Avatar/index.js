@@ -1,14 +1,12 @@
 import React, { PropTypes } from 'react';
-import styles from './index.module.scss';
-import cssModules from 'react-css-modules';
+import { AvatarImage } from './styles';
 const defaultAvatarUrl = 'https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/no-user.png?raw=true';
 
 const Avatar = ({
   src,
 }) => (
-  <img
+  <AvatarImage
     src={src || defaultAvatarUrl}
-    className={styles.avatar}
   />
 );
 
@@ -20,4 +18,4 @@ Avatar.defaultProps = {
   src: defaultAvatarUrl,
 };
 
-export default cssModules(Avatar, styles);
+export default Avatar;
