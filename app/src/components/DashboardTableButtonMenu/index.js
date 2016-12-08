@@ -6,8 +6,9 @@ import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import ViewIcon from 'grommet-udacity/components/icons/base/View';
 
 const DashboardTableButtonMenu = ({
-  article,
-  onDeleteArticle,
+  onDelete,
+  onEdit,
+  onShow,
 }) => (
   <Menu
     inline
@@ -21,26 +22,29 @@ const DashboardTableButtonMenu = ({
       style={{ padding: 5 }}
       plain
       icon={<EditIcon />}
-      href={`/admin/cms?action=edit&articleId=${article.id}`}
+      onClick={onEdit}
     />
+    {typeof onDelete === 'function' &&
+      <Button
+        style={{ padding: 5 }}
+        plain
+        onClick={onDelete}
+        icon={<TrashIcon />}
+      />
+    }
     <Button
       style={{ padding: 5 }}
       plain
-      onClick={onDeleteArticle}
-      icon={<TrashIcon />}
-    />
-    <Button
-      style={{ padding: 5 }}
-      plain
-      href={article.status === 'published' ? `/articles/${article.slug}` : null}
+      onClick={onShow}
       icon={<ViewIcon />}
     />
   </Menu>
 );
 
 DashboardTableButtonMenu.propTypes = {
-  article: PropTypes.object.isRequired,
-  onDeleteArticle: PropTypes.func.isRequired,
+  onDelete: PropTypes.func,
+  onEdit: PropTypes.func.isRequired,
+  onShow: PropTypes.func.isRequired,
 };
 
 export default DashboardTableButtonMenu;

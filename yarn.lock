@@ -3225,9 +3225,9 @@ graphql@^0.5.0:
   dependencies:
     babel-runtime ">=6.0.0"
 
-grommet-udacity@0.1.12:
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/grommet-udacity/-/grommet-udacity-0.1.12.tgz#862a3972749b2c29d284820d2502c98b13199b05"
+grommet-udacity@0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/grommet-udacity/-/grommet-udacity-0.1.13.tgz#4605007d0207f514997ef794370f973065f85795"
   dependencies:
     classnames "^2.2.3"
     deep-assign "^2.0.0"

@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 1337;
 const HOST = '0.0.0.0'; // Set to localhost if need be.
 
 module.exports = {
-  devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
+  devtool: isProduction ? 'source-map' : 'eval',
   entry: isProduction ? {
     main: [
       path.resolve(ROOT_PATH, 'app/src/index')

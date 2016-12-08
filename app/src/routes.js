@@ -51,8 +51,10 @@ if (typeof System === 'undefined') {
 
 // Switching to system.import to make use of dynamic tree shaking
 // https://medium.com/modus-create-front-end-development/automatic-code-splitting-for-react-router-w-es6-imports-a0abdaa491e9#.msrxv8fwd
-const errorLoading = (err) =>
-  console.error('Dynamic loading failed' + err); // eslint-disable-line
+const errorLoading = (err) => {
+  throw err;
+  console.error(`Error thrown ${JSON.stringify(err, null, 2)}`);
+};
 
 const loadRoute = (cb) =>
   (module) =>

@@ -10,7 +10,7 @@ import Label from 'grommet-udacity/components/Label';
 import ListItem from 'grommet-udacity/components/ListItem';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import { DashboardTableButtonMenu, PaginatorFooter } from 'components';
+import { DashboardTableButtonMenu, Pagination } from 'components';
 
 const DashboardTable = ({
   items,
@@ -139,11 +139,11 @@ const DashboardTable = ({
         </Table>
       }
     </Box>
-    <PaginatorFooter
-      currentPage={currentPage}
-      pageSize={perPage}
-      total={allItems.length}
+    <Pagination
       onChange={onChangePage}
+      pageSize={perPage}
+      currentPage={currentPage}
+      total={allItems.length}
     />
   </Box>
 );
