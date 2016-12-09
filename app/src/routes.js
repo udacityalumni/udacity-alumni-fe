@@ -71,6 +71,7 @@ export const routes = {
     },
   },
   childRoutes: [
+    redirect({ from: 'admin/content-dashboard', to: 'admin/dashbard' }),
     {
       path: 'articles/:slug',
       getComponent(location, callback) {
@@ -155,14 +156,6 @@ export const routes = {
       path: 'admin/carousel',
       getComponent(location, callback) {
         System.import('./pages/CarouselWidgetPage') // eslint-disable-line block-scoped-var
-          .then(loadRoute(callback))
-          .catch((err) => errorLoading(err));
-      },
-    },
-    {
-      path: 'admin/content-dashboard',
-      getComponent(location, callback) {
-        System.import('./pages/ContentDashboardPage') // eslint-disable-line block-scoped-var
           .then(loadRoute(callback))
           .catch((err) => errorLoading(err));
       },

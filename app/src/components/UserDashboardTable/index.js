@@ -9,7 +9,7 @@ import Label from 'grommet-udacity/components/Label';
 import Select from 'grommet-udacity/components/Select';
 import ListItem from 'grommet-udacity/components/ListItem';
 import Menu from 'grommet-udacity/components/Menu';
-import Checkbox from 'grommet-udacity/components/Checkbox';
+import CheckBox from 'grommet-udacity/components/CheckBox';
 import Button from 'grommet-udacity/components/Button';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
@@ -110,7 +110,7 @@ const UserDashboardTable = ({
                           <Label style={{ flex: 1 }}>
                             Public
                           </Label>
-                          <Checkbox
+                          <CheckBox
                             onChange={(e) => fields.publicInput.onChange(e.target.checked)}
                             checked={editingIndex === user.id ?
                               fields.publicInput.value : user.public
