@@ -34,10 +34,28 @@ module.exports = {
     path.resolve(ROOT_PATH,'app/src/index')
   ],
   module: {
+    noParse: /\.elm$/,
+    preLoaders: isProduction ? [] : [
+      {
+         test: /\.elm$/,
+         loader: 'elmx-webpack-preloader',
+         include: [path.join(__dirname, 'app/src/elm')],
+         query: {
+           sourceDirectories: ['app/src/elm'],
+           outputDirectory: '.tmp/elm'
+         }
+       }
+    ],
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loaders: ['babel']
+    },
+    {
+      test:    /\.elm$/,
+      exclude: [/elm-stuff/, /node_modules/],
+      include: isProduction ? [] : [path.join(__dirname, "/app/src/elm"), path.join(__dirname, ".tmp/elm")],
+      loader:  isProduction ? 'elm-webpack' : 'elm-hot!elm-webpack?verbose=true&warn=true&debug=true'
     },
     {
       test: /\.md$/,
@@ -102,13 +120,14 @@ module.exports = {
     };
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['', '.js', '.jsx', '.json', '.elm'],
     alias: {
       components: path.resolve(ROOT_PATH, 'app/src/components'),
       containers: path.resolve(ROOT_PATH, 'app/src/containers'),
       pages: path.resolve(ROOT_PATH, 'app/src/pages'),
       utils: path.resolve(ROOT_PATH, 'app/utils'),
-      config: path.resolve(ROOT_PATH, 'app/src/config')
+      config: path.resolve(ROOT_PATH, 'app/src/config'),
+      elm: path.resolve(ROOT_PATH, 'app/src/elm'),
     },
   },
   output: {
