@@ -79,11 +79,20 @@ class Main extends Component {
     const isOffline = !navigator.onLine;
     this.props.actions.toggleOfflineMode(isOffline);
   }
-  handleToggleNav() {
+  handleToggleNav(e) {
     const {
       appToggleNav,
     } = this.props.actions;
-    appToggleNav();
+    if (!this.props.navIsActive) {
+      document.body.addEventListener('click', this.handleToggleNav);
+    } else {
+      document.body.removeEventListener('click', this.handleToggleNav);
+    }
+    if (e.target.parentNode.id === 'mobile-nav') {
+      e.stopPropagation();
+    } else {
+      appToggleNav();
+    }
   }
   handleSearch(e) {
     const {

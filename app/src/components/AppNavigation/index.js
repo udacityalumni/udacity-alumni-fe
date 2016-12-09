@@ -46,7 +46,7 @@ const AppNavigation = ({
               </Anchor>
             </Title>
           }
-          <Title onClick={onToggleNav} a11yTitle="Open Menu Right">
+          <Title style={navIsActive &&{ display: 'none' }} onClick={onToggleNav} a11yTitle="Open Menu Right">
             <MenuIcon
               colorIndex="brand"
               size="medium"
