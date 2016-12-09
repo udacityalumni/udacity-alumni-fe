@@ -235,7 +235,7 @@ const UserDashboardTable = ({
                   }
                 </TD>
                 <td>
-                  <Checkbox
+                  <CheckBox
                     onChange={(e) => fields.publicInput.onChange(e.target.checked)}
                     checked={editingIndex === user.id ? fields.publicInput.value : user.public}
                     toggle={false}
