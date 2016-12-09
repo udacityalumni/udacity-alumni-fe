@@ -1,9 +1,9 @@
-
 import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
 import Table from 'grommet-udacity/components/Table';
 import TableRow from 'grommet-udacity/components/TableRow';
 import Heading from 'grommet-udacity/components/Heading';
+import Image from 'grommet-udacity/components/Image';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
 import Label from 'grommet-udacity/components/Label';
@@ -51,6 +51,11 @@ const DashboardTable = ({
                         className={styles.innerWrapper}
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
+                        <Box
+                          className={styles.boxWrapper}
+                        >
+                          <Image size="medium" src={item.image} />
+                        </Box>
                         <Box
                           className={styles.boxWrapper}
                         >

@@ -13,11 +13,40 @@ export const initialState = {
     perPage: 10,
     currentPage: 1,
   },
+  aside: {
+    isVisible: false,
+  },
+  error: null,
 };
 
 const adminDashboardReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.ADMIN_DASHBOARD_SET_ERROR:
+        return {
+          ...state,
+          error: action.error,
+        };
+      case types.ADMIN_DASHBOARD_CLEAR_ERROR:
+        return {
+          ...state,
+          error: null,
+        };
+      case types.ADMIN_DASHBOARD_TOGGLE_ASIDE:
+        return {
+          ...state,
+          aside: {
+            isVisible: !state.aside.isVisible,
+          },
+        };
+      case types.ADMIN_DASHBOARD_CLEAR_USER_EDITING:
+        return {
+          ...state,
+          users: {
+            ...state.users,
+            editing: null,
+          },
+        };
       case types.ADMIN_DASHBOARD_SET_USER_EDITING:
         return {
           ...state,

@@ -10,9 +10,18 @@ import Section from 'grommet-udacity/components/Section';
 import Heading from 'grommet-udacity/components/Heading';
 import Tabs from 'grommet-udacity/components/Tabs';
 import Tab from 'grommet-udacity/components/Tab';
-import { LoadingIndicator, MainAside, DashboardTable, UserDashboardTable } from 'components';
-import { FullSection, MainContent } from './styles';
+import ExpandIcon from 'grommet-udacity/components/icons/base/Expand';
+import ContractIcon from 'grommet-udacity/components/icons/base/Contract';
+import Button from 'grommet-udacity/components/Button';
+import { FullSection, MainContent, MainBox, AsideButtonContainer } from './styles';
 import { getPagedUsers, getPagedArticles } from './selectors';
+import {
+  LoadingIndicator,
+  DashboardTable,
+  UserDashboardTable,
+  MainAside,
+  ToastMessage,
+} from 'components';
 
 export const formFields = [
   'nameInput',
@@ -23,6 +32,12 @@ export const formFields = [
 ];
 
 class AdminDashboard extends Component {
+  constructor() {
+    super();
+    this.handleEditing = this.handleEditing.bind(this);
+    this.handleClearing = this.handleClearing.bind(this);
+    this.handleSave = this.handleSave.bind(this);
+  }
   componentWillReceiveProps({ users, articles }) {
     if (users && users !== this.props.users) {
       this.props.actions.setUsers(users);
@@ -30,6 +45,52 @@ class AdminDashboard extends Component {
     if (articles && articles !== this.props.articles) {
       this.props.actions.setArticles(articles);
     }
+  }
+  handleEditing(user) {
+    const {
+      fields,
+      actions,
+    } = this.props;
+    fields.nameInput.onChange(user.name);
+    fields.emailInput.onChange(user.email);
+    fields.bioInput.onChange(user.bio);
+    fields.roleInput.onChange(`${user.role.slice(0, 1).toUpperCase()}${user.role.slice(1)}`);
+    fields.publicInput.onChange(user.public);
+    actions.setUserEditing(user.id);
+  }
+  handleClearing() {
+    this.props.actions.clearUserEditing();
+  }
+  handleSave() {
+    const {
+      authToken,
+      fields,
+      updateUserMutation,
+      refetch,
+      actions,
+    } = this.props;
+    const user = {
+      name: fields.nameInput.value,
+      email: fields.emailInput.value,
+      role: fields.roleInput.value.toLowerCase(),
+      public: fields.publicInput.value,
+      bio: fields.bioInput.value,
+    };
+    const data = {
+      variables: {
+        user,
+        authToken,
+        user_id: this.props.editingIndex,
+      },
+    };
+    updateUserMutation(data)
+      .then(() => {
+        actions.clearUserEditing();
+        refetch();
+      })
+      .catch(err => {
+        actions.setDashboardError(err);
+      });
   }
   render() {
     const {
@@ -47,9 +108,11 @@ class AdminDashboard extends Component {
       editingIndex,
       userRoles,
       fields,
+      showAside,
+      dashboardError,
     } = this.props;
     return (
-      <Box
+      <MainBox
         alignContent="center"
         fill="horizontal"
         align="center"
@@ -63,14 +126,11 @@ class AdminDashboard extends Component {
            <LoadingIndicator isLoading />
          </Section>
         :
-          <FullSection
-            direction="row"
-          >
+          <FullSection direction="row">
             <MainContent
-              basis={isMobile ? 'full' : '3/4'}
-              pad="medium"
+              pad="large"
               align="center"
-              justify={isMobile ? 'center' : 'start'}
+              justify="start"
             >
               <Heading align="center">
                 Admin Dashboard
@@ -95,8 +155,9 @@ class AdminDashboard extends Component {
                             currentPage={usersConfig.currentPage}
                             editingIndex={editingIndex}
                             allUsers={users}
-                            onEdit={({ id }) => actions.setUserEditing(id)}
-                            onShow={e => e}
+                            onEdit={this.handleEditing}
+                            onClear={this.handleClearing}
+                            onSave={this.handleSave}
                           />
                         </Box>
                       </Tab>
@@ -121,20 +182,34 @@ class AdminDashboard extends Component {
                   </Tabs>
                 }
               </Box>
+              <AsideButtonContainer>
+                <Button
+                  plain
+                  label={`${showAside ? 'Hide' : 'Show'} Aside`}
+                  icon={!showAside ? <ExpandIcon /> : <ContractIcon />}
+                  onClick={actions.toggleAside}
+                />
+              </AsideButtonContainer>
             </MainContent>
-            {user && user.role === 'admin' &&
-              <MainAside
-                user={user}
-              />
+            {showAside && user &&
+              <MainAside user={user} />
             }
           </FullSection>
         }
-      </Box>
+        {dashboardError &&
+          <ToastMessage
+            message={dashboardError.message}
+            onClose={actions.clearDashboardError}
+            status="critical"
+          />
+        }
+      </MainBox>
     );
   }
 }
 
 AdminDashboard.propTypes = {
+  updateUserMutation: PropTypes.func.isRequired,
   users: PropTypes.array,
   articles: PropTypes.array,
   user: PropTypes.object,
@@ -150,6 +225,9 @@ AdminDashboard.propTypes = {
   editingIndex: PropTypes.number,
   userRoles: PropTypes.array,
   fields: PropTypes.array.isRequired,
+  showAside: PropTypes.bool.isRequired,
+  refetch: PropTypes.func.isRequired,
+  dashboardError: PropTypes.object,
 };
 
 AdminDashboard.contextTypes = {
@@ -165,8 +243,10 @@ const mapStateToProps = (state) => ({
   usersConfig: state.adminDashboardContainer.users,
   articlesConfig: state.adminDashboardContainer.articles,
   editingIndex: state.adminDashboardContainer.users.editing,
+  showAside: state.adminDashboardContainer.aside.isVisible,
   pagedUsers: getPagedUsers(state.adminDashboardContainer),
   pagedArticles: getPagedArticles(state.adminDashboardContainer),
+  dashboardError: state.adminDashboardContainer.error,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -222,23 +302,21 @@ const ContainerWithUsers = graphql(getDashboardData, {
       authToken: ownProps.authToken,
     },
   }),
-  props: ({ data: { loading, error, allUsers, allArticles, userRoles } }) => ({
+  props: ({ data: { loading, error, allUsers, allArticles, userRoles, refetch } }) => ({
     users: allUsers,
     isLoading: loading,
     error,
     articles: allArticles,
     userRoles,
+    refetch,
   }),
 })(FormContainer);
 
 const updateUserMutation = gql`
-mutation updateUser($token:String!, $user:AdminUserInput, $user_id: ID!) {
-  AdminUpdateUser(input:{ auth_token: $token, user_id: $user_id, user: $user}) {
+mutation updateUser($authToken:String!, $user:AdminUserInput, $user_id: ID!) {
+  AdminUpdateUser(input:{ auth_token: $authToken, user_id: $user_id, user: $user}) {
     user {
-      id
-      name
-      public
-      role
+      __typename
     }
   }
 }

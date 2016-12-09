@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import Box from 'grommet-udacity/components/Box';
-import Footer from 'grommet-udacity/components/Footer';
+import Heading from 'grommet-udacity/components/Heading';
 
 export const BoxWrapper = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row !important;
+  width: 100%;
 `;
 
 export const InnerWrapper = styled(Box)`
@@ -27,4 +28,12 @@ export const ListWrapper = styled(Box)`
 
 export const GrowBox = styled(Box)`
   flex-grow: 1;
+`;
+
+export const UserName = styled(Heading)`
+  flex: 1;
+`;
+
+export const TD = styled.td`
+  min-width: 220px;
 `;

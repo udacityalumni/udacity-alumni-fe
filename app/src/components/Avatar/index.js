@@ -4,18 +4,28 @@ const defaultAvatarUrl = 'https://github.com/RyanCCollins/cdn/blob/master/alumni
 
 const Avatar = ({
   src,
+  size,
 }) => (
   <AvatarImage
+    size={size}
     src={src || defaultAvatarUrl}
   />
 );
 
 Avatar.propTypes = {
   src: PropTypes.string.isRequired,
+  size: PropTypes.oneOf([
+    'xsmall',
+    'small',
+    'medium',
+    'large',
+    'xlarge',
+  ]),
 };
 
 Avatar.defaultProps = {
   src: defaultAvatarUrl,
+  size: 'small',
 };
 
 export default Avatar;

@@ -6,7 +6,6 @@ import Heading from 'grommet-udacity/components/Heading';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
 import Label from 'grommet-udacity/components/Label';
-import Value from 'grommet-udacity/components/Value';
 import Select from 'grommet-udacity/components/Select';
 import ListItem from 'grommet-udacity/components/ListItem';
 import Menu from 'grommet-udacity/components/Menu';
@@ -14,8 +13,9 @@ import Checkbox from 'grommet-udacity/components/Checkbox';
 import Button from 'grommet-udacity/components/Button';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
-import { Pagination } from 'components';
-import { BoxWrapper, ListWrapper, InnerWrapper, GrowBox } from './styles';
+import CloseIcon from 'grommet-udacity/components/icons/base/Close';
+import { Pagination, Avatar } from 'components';
+import { BoxWrapper, ListWrapper, InnerWrapper, GrowBox, UserName, TD } from './styles';
 
 const UserDashboardTable = ({
   users,
@@ -25,6 +25,7 @@ const UserDashboardTable = ({
   onChangePage,
   onEdit,
   onSave,
+  onClear,
   isMobile,
   editingIndex,
   fields,
@@ -54,30 +55,113 @@ const UserDashboardTable = ({
                       <InnerWrapper
                         direction="column"
                         justify="center"
+                        align="center"
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
-                        <Value value={i} />
+                        <Avatar src={user.avatar} />
                         <BoxWrapper>
-                          <Heading align="center" tag="h3">
-                            {user.name}
-                          </Heading>
+                          {editingIndex && editingIndex === user.id &&
+                            <Label>
+                              Name:
+                            </Label>
+                          }
+                          {editingIndex && editingIndex === user.id ?
+                            <input {...fields.nameInput} type="text" />
+                          :
+                            <UserName align="center" tag="h3">
+                              {user.name}
+                            </UserName>
+                          }
                         </BoxWrapper>
                         <BoxWrapper>
                           <Label>
                             Email:
                           </Label>
-                          <Heading align="center" tag="h4">
-                            {user.email}
-                          </Heading>
+                          {editingIndex && editingIndex === user.id ?
+                            <input {...fields.emailInput} type="text" name="email" />
+                          :
+                            <Heading align="center" tag="h4">
+                              {user.email}
+                            </Heading>
+                          }
                         </BoxWrapper>
                         <BoxWrapper>
                           <Label style={{ flex: 1 }}>
                             Role:
                           </Label>
-                          <Heading align="center" tag="h4">
-                            {`${user.role.charAt(0).toUpperCase()}${user.role.slice(1)}`}
-                          </Heading>
+                          {editingIndex && editingIndex === user.id ?
+                            <Select
+                              value={fields.roleInput.value}
+                              onChange={({ option }) => fields.roleInput.onChange(option.label)}
+                              options={userRoles && userRoles.map((item) =>
+                                ({
+                                  label: `${item.slice(0, 1).toUpperCase()}${item.slice(1)}`,
+                                  value: item.toLowerCase(),
+                                })
+                              )}
+                            />
+                          :
+                            <Heading align="center" tag="h4">
+                              {`${user.role.charAt(0).toUpperCase()}${user.role.slice(1)}`}
+                            </Heading>
+                          }
                         </BoxWrapper>
+                        <BoxWrapper>
+                          <Label style={{ flex: 1 }}>
+                            Public
+                          </Label>
+                          <Checkbox
+                            onChange={(e) => fields.publicInput.onChange(e.target.checked)}
+                            checked={editingIndex === user.id ?
+                              fields.publicInput.value : user.public
+                            }
+                            toggle={false}
+                            disabled={editingIndex !== user.id}
+                          />
+                        </BoxWrapper>
+                        <BoxWrapper>
+                          {editingIndex && editingIndex === user.id &&
+                            <Label style={{ flex: 1 }}>
+                              Bio
+                            </Label>
+                          }
+                          {editingIndex && editingIndex === user.id ?
+                            <textarea {...fields.bioInput} rows="4" coluns="40" type="text" />
+                          :
+                            <Heading align="center" tag="h4">
+                              {user.bio}
+                            </Heading>
+                          }
+                        </BoxWrapper>
+                        <Menu
+                          inline
+                          responsive={false}
+                          direction="row"
+                          justify="center"
+                          align="center"
+                          style={{ width: '100%' }}
+                        >
+                          {editingIndex === user.id ?
+                            <Button
+                              plain
+                              icon={<CheckmarkIcon />}
+                              onClick={onSave}
+                            />
+                          :
+                            <Button
+                              plain
+                              icon={<EditIcon />}
+                              onClick={() => onEdit(user)}
+                            />
+                          }
+                          {editingIndex === user.id &&
+                            <Button
+                              plain
+                              icon={<CloseIcon />}
+                              onClick={onClear}
+                            />
+                          }
+                        </Menu>
                       </InnerWrapper>
                     </Box>
                   </Tile>
@@ -90,6 +174,7 @@ const UserDashboardTable = ({
         <Table>
           <thead>
             <tr>
+              <th></th>
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
@@ -101,7 +186,10 @@ const UserDashboardTable = ({
           <tbody>
             {users && users.length > 0 && users.map((user, i) =>
               <TableRow key={i}>
-                <td>
+                <td style={{ minWidth: 80 }}>
+                  <Avatar src={user.avatar} size="xsmall" />
+                </td>
+                <TD>
                   {editingIndex && editingIndex === user.id ?
                     <input {...fields.nameInput} type="text" />
                   :
@@ -109,8 +197,8 @@ const UserDashboardTable = ({
                       {user.name}
                     </Heading>
                   }
-                </td>
-                <td>
+                </TD>
+                <TD>
                   {editingIndex && editingIndex === user.id ?
                     <input {...fields.emailInput} type="text" name="email" />
                   :
@@ -118,14 +206,17 @@ const UserDashboardTable = ({
                       {user.email}
                     </Heading>
                   }
-                </td>
-                <td>
+                </TD>
+                <TD>
                   {editingIndex && editingIndex === user.id ?
                     <Select
                       value={fields.roleInput.value}
-                      onChange={fields.roleInput.onChange}
+                      onChange={({ option }) => fields.roleInput.onChange(option.label)}
                       options={userRoles && userRoles.map((item) =>
-                        ({ label: item, value: item.toLowerCase() })
+                        ({
+                          label: `${item.slice(0, 1).toUpperCase()}${item.slice(1)}`,
+                          value: item.toLowerCase(),
+                        })
                       )}
                     />
                   :
@@ -133,19 +224,20 @@ const UserDashboardTable = ({
                       {`${user.role.charAt(0).toUpperCase()}${user.role.slice(1)}`}
                     </Heading>
                   }
-                </td>
-                <td>
+                </TD>
+                <TD>
                   {editingIndex && editingIndex === user.id ?
-                    <input type="text" />
+                    <textarea {...fields.bioInput} rows="4" coluns="40" type="text" />
                   :
                     <p>
                       {user.bio ? `${user.bio.slice(0, 30)}...` : 'N/A'}
                     </p>
                   }
-                </td>
+                </TD>
                 <td>
                   <Checkbox
-                    checked={user.public}
+                    onChange={(e) => fields.publicInput.onChange(e.target.checked)}
+                    checked={editingIndex === user.id ? fields.publicInput.value : user.public}
                     toggle={false}
                     disabled={editingIndex !== user.id}
                   />
@@ -170,6 +262,13 @@ const UserDashboardTable = ({
                         plain
                         icon={<EditIcon />}
                         onClick={() => onEdit(user)}
+                      />
+                    }
+                    {editingIndex === user.id &&
+                      <Button
+                        plain
+                        icon={<CloseIcon />}
+                        onClick={onClear}
                       />
                     }
                   </Menu>
@@ -198,6 +297,7 @@ UserDashboardTable.propTypes = {
   onDelete: PropTypes.func.isRequired,
   onEdit: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
+  onClear: PropTypes.func.isRequired,
   isMobile: PropTypes.bool.isRequired,
   editingIndex: PropTypes.number,
   userRoles: PropTypes.array,

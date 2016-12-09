@@ -8,7 +8,9 @@ export const FullSection = styled(Section)`
 `;
 
 export const MainContent = styled(Box)`
+  overflow: scroll;
   background: #FFF;
+  position: relative;
   margin-bottom: 14px;
   background: #fff;
   box-shadow: 0 2px 4px 0 rgba(46,61,73,.2);
@@ -19,4 +21,14 @@ export const MainContent = styled(Box)`
     box-sizing: border-box;
   }
   padding: 60px 0;
+`;
+
+export const MainBox = styled(Box)`
+  background-color: #fafbfc;
+`;
+
+export const AsideButtonContainer = styled(Box)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
