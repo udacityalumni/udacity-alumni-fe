@@ -97,8 +97,8 @@ const PasswordResetForm = ({
 
 PasswordResetForm.propTypes = {
   invalid: PropTypes.bool.isRequired,
-  passwordInput: PropTypes.object.isRequired,
-  passwordConfirmationInput: PropTypes.object.isRequired,
+  passwordInput: PropTypes.string.isRequired,
+  passwordConfirmationInput: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 

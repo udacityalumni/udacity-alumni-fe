@@ -1,0 +1,106 @@
+exports[`<PasswordResetForm /> should render with default props 1`] = `
+<Box
+  announce={false}
+  direction="column"
+  focusable={true}
+  pad={
+    Object {
+      "horizontal": "large"
+    }
+  }
+  responsive={true}
+  tag="div">
+  <Form
+    compact={false}
+    fill={false}
+    pad="none">
+    <Box
+      align="center"
+      announce={false}
+      direction="column"
+      focusable={true}
+      justify="center"
+      pad="none"
+      responsive={true}
+      tag="div">
+      <img
+        src="https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/udacity-alumni-png.png?raw=true"
+        style={
+          Object {
+            "height": "auto",
+            "maxWidth": 150
+          }
+        } />
+    </Box>
+    <Heading
+      align="center"
+      strong={true}
+      tag="h1">
+      Udacity Alumni
+    </Heading>
+    <Heading
+      align="center"
+      tag="h5">
+      Reset Password
+    </Heading>
+    <FormFields>
+      <FormField
+        error={null}
+        help="Enter a secure password"
+        htmlFor="passwordInput"
+        label="Password *"
+        size="medium"
+        strong={false}>
+        <input
+          0="s"
+          1="e"
+          2="c"
+          3="r"
+          4="e"
+          5="t"
+          aria-required={true}
+          autoComplete="off"
+          id="passwordInput"
+          name="password"
+          required={true}
+          type="password" />
+      </FormField>
+      <FormField
+        error={null}
+        help="Confirm your password"
+        htmlFor="passwordConfirmationInput"
+        label="Password Confirmation *"
+        size="medium"
+        strong={false}>
+        <input
+          0="s"
+          1="e"
+          2="c"
+          3="r"
+          4="e"
+          5="t"
+          aria-required={true}
+          id="passwordConfirmationInput"
+          name="password"
+          required={true}
+          type="password" />
+      </FormField>
+    </FormFields>
+    <Footer
+      align="center"
+      direction="row"
+      pad={
+        Object {
+          "vertical": "medium"
+        }
+      }
+      responsive={false}>
+      <Button
+        fill={true}
+        label="Submit"
+        primary={true}
+        type="button" />
+    </Footer>
+  </Form>
+</Box>
+`;

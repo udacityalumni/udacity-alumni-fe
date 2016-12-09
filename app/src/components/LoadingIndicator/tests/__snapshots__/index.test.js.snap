@@ -26,7 +26,7 @@ exports[`<LoadingIndicator /> should render with default props 1`] = `
         }
       }
       tag="h3">
-      Cleaning the whiteboard...
+      Do several jumping jacks while you wait...
     </Heading>
   </Box>
 </Box>
