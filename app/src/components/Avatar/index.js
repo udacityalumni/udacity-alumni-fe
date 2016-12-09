@@ -1,23 +1,31 @@
 import React, { PropTypes } from 'react';
-import styles from './index.module.scss';
-import cssModules from 'react-css-modules';
+import { AvatarImage } from './styles';
 const defaultAvatarUrl = 'https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/no-user.png?raw=true';
 
 const Avatar = ({
   src,
+  size,
 }) => (
-  <img
+  <AvatarImage
+    size={size}
     src={src || defaultAvatarUrl}
-    className={styles.avatar}
   />
 );
 
 Avatar.propTypes = {
   src: PropTypes.string.isRequired,
+  size: PropTypes.oneOf([
+    'xsmall',
+    'small',
+    'medium',
+    'large',
+    'xlarge',
+  ]),
 };
 
 Avatar.defaultProps = {
   src: defaultAvatarUrl,
+  size: 'small',
 };
 
-export default cssModules(Avatar, styles);
+export default Avatar;

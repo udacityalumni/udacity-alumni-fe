@@ -14,7 +14,6 @@ import {
   ConfirmationModal,
   LoadingIndicator,
   ToastMessage,
-  Paginator,
 } from 'components';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -103,6 +102,7 @@ class ContentDashboard extends Component {
         />
         <Section
           alignContent="center"
+          fill="horizontal"
           align="center"
         >
          {isLoading ?
@@ -114,9 +114,12 @@ class ContentDashboard extends Component {
              <LoadingIndicator isLoading />
            </Section>
           :
-            <Box direction="row">
+            <Section
+              className={styles.full}
+              direction="row"
+            >
               <Box
-                basis={isMobile ? 'full' : '2/3'}
+                basis={isMobile ? 'full' : '3/4'}
                 pad="medium"
                 align="center"
                 justify={isMobile ? 'center' : 'start'}
@@ -125,7 +128,7 @@ class ContentDashboard extends Component {
                 <Heading align="center">
                   Content Dashboard
                 </Heading>
-                <Box pad="large">
+                <Box pad="large" className={styles.tableWrapper}>
                   {articles && articles.length > 0 &&
                     <DashboardTable
                       perPage={perPage}
@@ -139,13 +142,13 @@ class ContentDashboard extends Component {
                   }
                 </Box>
               </Box>
-            {user && user.role === 'admin' &&
-              <MainAside
-                user={user}
-              />
-            }
-          </Box>
-        }
+              {user && user.role === 'admin' &&
+                <MainAside
+                  user={user}
+                />
+              }
+            </Section>
+          }
         </Section>
       </div>
     );

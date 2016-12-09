@@ -9,7 +9,6 @@
     max-width: 100vw;
     box-sizing: border-box;
   }
-  max-width: 960px;
   padding: 60px 0;
 }
 
@@ -17,4 +16,13 @@
   @media screen and (max-width: 768px) {
     padding: 0 !important;
   }
+}
+
+.full {
+  width: 100% !important;
+  justify-content: space-around;
+}
+
+.tableWrapper {
+  width: 100%;
 }

@@ -12,7 +12,7 @@ export function updatePageTitle(title) {
 
 export function getTitleFromRoute(route) {
   const parts = route.split('/');
-  return parts[parts.length - 1] || 'Home';
+  return parts[0] || 'Home';
 }
 
 export default { updatePageTitle, getTitleFromRoute };

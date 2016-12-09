@@ -7,7 +7,7 @@ import Box from 'grommet-udacity/components/Box';
 import Button from 'grommet-udacity/components/Button';
 import Menu from 'grommet-udacity/components/Menu';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
-import ArticleIcon from 'grommet-udacity/components/icons/base/Article';
+import DashboardIcon from 'grommet-udacity/components/icons/base/Dashboard';
 import ImageIcon from 'grommet-udacity/components/icons/base/Image';
 
 const MainAside = ({
@@ -51,11 +51,11 @@ const MainAside = ({
            icon={<EditIcon />}
          />
          <Button
-           label="Manage Articles"
+           label="Admin Dashboard"
            onClick={e => e}
            plain
-           href="/admin/content-dashboard"
-           icon={<ArticleIcon />}
+           href="/admin/dashboard"
+           icon={<DashboardIcon />}
          />
        </Box>
        <Box className={styles.widgetBox}>

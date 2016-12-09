@@ -1,5 +1,6 @@
 import React from 'react';
-import { Router } from 'react-router';
+import { Router, Redirect } from 'react-router';
+import { formatPattern } from 'react-router/lib/PatternUtils';
 import { ApolloProvider } from 'react-apollo';
 import store, {
   history,
@@ -10,26 +11,54 @@ import store, {
 import client from './apolloClient';
 import App from './components/App';
 
+export function redirect({ from, to }) {
+  return {
+    path: from,
+    onEnter(nextState, replace) {
+      const { location, params } = nextState;
+
+      let pathname;
+      if (to.charAt(0) === '/') {
+        pathname = formatPattern(to, params);
+      } else if (!to) {
+        pathname = location.pathname;
+      } else {
+        const routeIndex = nextState.routes.indexOf(this);
+        const parentPattern = Redirect.getRoutePattern(nextState.routes, routeIndex - 1);
+        const pattern = parentPattern.replace(/\/*$/, '/') + to;
+        pathname = formatPattern(pattern, params);
+      }
+
+      replace({
+        pathname,
+        query: this.query || location.query,
+        state: this.state || location.state,
+      });
+    },
+  };
+}
+
 /* eslint-disable */
 // Polyfill for the System.import
 if (typeof System === 'undefined') {
   var System = {
-    import(path) {
-      return Promise.resolve(require(path));
-    },
+  import(path) {
+    return Promise.resolve(require(path));
+  },
   };
 }
 /* eslint-enable */
 
 // Switching to system.import to make use of dynamic tree shaking
 // https://medium.com/modus-create-front-end-development/automatic-code-splitting-for-react-router-w-es6-imports-a0abdaa491e9#.msrxv8fwd
-const errorLoading = (err) =>
-  console.error('Dynamic loading failed' + err); // eslint-disable-line
+const errorLoading = (err) => {
+  throw err;
+  console.error(`Error thrown ${JSON.stringify(err, null, 2)}`);
+};
 
 const loadRoute = (cb) =>
   (module) =>
-    cb(null, module.default);
-
+  cb(null, module.default);
 
 export const routes = {
   component: App,
@@ -54,8 +83,8 @@ export const routes = {
       path: 'login',
       getComponent(location, callback) {
         System.import('./pages/LoginPage') // eslint-disable-line block-scoped-var
-          .then(loadRoute(callback))
-          .catch((err) => errorLoading(err));
+        .then(loadRoute(callback))
+        .catch((err) => errorLoading(err));
       },
     },
     {
@@ -182,6 +211,14 @@ export const routes = {
       path: '/members/member/:id',
       getComponent(location, callback) {
         System.import('./pages/PublicUserProfilePage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
+      },
+    },
+    {
+      path: '/admin/dashboard',
+      getComponent(location, callback) {
+        System.import('./pages/AdminDashboardPage')  // eslint-disable-line block-scoped-var
           .then(loadRoute(callback))
           .catch((err) => errorLoading(err));
       },

@@ -2,12 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import Section from 'grommet-udacity/components/Section';
 import Headline from 'grommet-udacity/components/Headline';
 import Markdown from 'grommet-udacity/components/Markdown';
-import { Image } from './styles';
 import Box from 'grommet-udacity/components/Box';
 import { LoadingIndicator } from 'components';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import moment from 'moment';
+import { Avatar } from 'components';
+import { Spotlight } from './styles';
 
 class PublicUserProfile extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -22,15 +23,15 @@ class PublicUserProfile extends Component { // eslint-disable-line react/prefer-
             <LoadingIndicator isLoading />
           </Section>
         :
-          <Section>
-            <Box>
-              <Image src={user.avatar} />
+          <Section align="center" justify="center" fill="horizontal">
+            <Spotlight>
+              <Avatar src={user.avatar} />
               <Headline>
                 {user.name}
               </Headline>
               <p>{`Member since ${moment(user.date).format('MMMM Do YYYY')}`}</p>
               <Markdown content={user.bio} />
-            </Box>
+            </Spotlight>
           </Section>
         }
       </Box>
