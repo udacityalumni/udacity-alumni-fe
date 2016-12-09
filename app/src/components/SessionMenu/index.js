@@ -87,7 +87,7 @@ const SessionMenu = ({
                 <Anchor href="/me/profile">
                   My Profile
                 </Anchor>
-                <Anchor href="/admin/content-dashboard">
+                <Anchor href="/admin/dashboard">
                   Dashboard
                 </Anchor>
                 <Anchor href="/admin/cms?action=new">

@@ -71,7 +71,7 @@ export const routes = {
     },
   },
   childRoutes: [
-    redirect({ from: 'admin/content-dashboard', to: 'admin/dashbard' }),
+    redirect({ from: 'admin/content-dashboard', to: 'admin/dashboard' }),
     {
       path: 'articles/:slug',
       getComponent(location, callback) {
