@@ -18,29 +18,42 @@ export const initialState = {
   },
   error: null,
   userTable: {
-    selectedRow: null,
-    sortIndex: 0,
+    sortIndex: 1,
     sortAscending: true,
+  },
+  modal: {
+    userId: null,
+    avatarInput: null,
+    isVisible: false,
   },
 };
 
 const adminDashboardReducer =
   (state = initialState, action) => {
     switch (action.type) {
-      case types.ADMIN_DASHBOARD_CLEAR_SELECTED_ROW:
+      case types.ADMIN_DASHBOARD_OPEN_MODAL:
         return {
           ...state,
-          userTable: {
-            ...state.userTable,
-            selectedRow: null,
+          modal: {
+            ...state.modal,
+            isVisible: true,
+            userId: action.userId,
           },
         };
-      case types.ADMIN_DASHBOARD_SET_SELECTED_ROW:
+      case types.ADMIN_DASHBOARD_CLOSE_MODAL:
         return {
           ...state,
-          userTable: {
-            ...state.userTable,
-            selectedRow: action.row,
+          modal: {
+            ...state.modal,
+            isVisible: false,
+          },
+        };
+      case types.ADMIN_DASHBOARD_EDIT_AVATAR_INPUT:
+        return {
+          ...state,
+          modal: {
+            ...state.modal,
+            avatarInput: action.input,
           },
         };
       case types.ADMIN_DASHBOARD_SET_SORT_OPTIONS:

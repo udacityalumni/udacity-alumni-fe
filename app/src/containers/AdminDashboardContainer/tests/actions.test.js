@@ -4,14 +4,6 @@ import * as types from '../constants';
 
 describe('AdminDashboard actions', () => {
   describe('Default Action', () => {
-    it('should have a type of ADMIN_DASHBOARD_SET_SELECTED_ROW', () => {
-      const row = 2;
-      const expected = {
-        type: types.ADMIN_DASHBOARD_SET_SELECTED_ROW,
-        row,
-      };
-      expect(actions.setSelectedRow(row)).toEqual(expected);
-    });
     it('should have a type of ADMIN_DASHBOARD_SET_SORT_OPTIONS', () => {
       const index = 2;
       const ascending = true;

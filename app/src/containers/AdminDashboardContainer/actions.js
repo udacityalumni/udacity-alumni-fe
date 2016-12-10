@@ -54,11 +54,16 @@ export const setSortOptions = (index, ascending) => ({
   ascending,
 });
 
-export const setSelectedRow = (row) => ({
-  type: types.ADMIN_DASHBOARD_SET_SELECTED_ROW,
-  row,
+export const openAvatarModal = (userId) => ({
+  type: types.ADMIN_DASHBOARD_OPEN_MODAL,
+  userId,
 });
 
-export const clearSelectedRow = () => ({
-  type: types.ADMIN_DASHBOARD_CLEAR_SELECTED_ROW,
+export const closeAvatarModal = () => ({
+  type: types.ADMIN_DASHBOARD_CLOSE_MODAL,
+});
+
+export const editAvatarInput = (input) => ({
+  type: types.ADMIN_DASHBOARD_EDIT_AVATAR_INPUT,
+  input,
 });

@@ -21,6 +21,7 @@ import {
   UserDashboardTable,
   MainAside,
   ToastMessage,
+  AvatarFormModal,
 } from 'components';
 
 export const formFields = [
@@ -38,7 +39,6 @@ class AdminDashboard extends Component {
     this.handleClearing = this.handleClearing.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleSorting = this.handleSorting.bind(this);
-    this.handleRowSelection = this.handleRowSelection.bind(this);
   }
   componentWillReceiveProps({ users, articles }) {
     if (users && users !== this.props.users) {
@@ -97,12 +97,6 @@ class AdminDashboard extends Component {
   handleSorting(index, ascending) {
     this.props.actions.setSortOptions(index, ascending);
   }
-  handleRowSelection(index) {
-    if (index === this.props.selectedRow) {
-      return this.props.actions.clearSelectedRow();
-    }
-    return this.props.actions.setSelectedRow(index);
-  }
   render() {
     const {
       isMobile,
@@ -123,7 +117,7 @@ class AdminDashboard extends Component {
       sortAscending,
       sortIndex,
       dashboardError,
-      selectedRow,
+      modal,
     } = this.props;
     return (
       <MainBox
@@ -175,8 +169,7 @@ class AdminDashboard extends Component {
                             onSort={this.handleSorting}
                             sortIndex={sortIndex}
                             sortAscending={sortAscending}
-                            selectedRow={selectedRow}
-                            onSelectRow={this.handleRowSelection}
+                            onAvatarClick={actions.openAvatarModal}
                           />
                         </Box>
                       </Tab>
@@ -222,6 +215,15 @@ class AdminDashboard extends Component {
             status="critical"
           />
         }
+        <AvatarFormModal
+          isVisible={modal.isVisible}
+          onClose={actions.editAvatarInput}
+          onSave={this.handleSavingAvatar}
+          onCancel={actions.closeAvatarModal}
+          onChange={actions.editAvatarInput}
+          avatarString={modal.avatarInput}
+          user={users[modal.userId]}
+        />
       </MainBox>
     );
   }
@@ -248,8 +250,8 @@ AdminDashboard.propTypes = {
   refetch: PropTypes.func.isRequired,
   dashboardError: PropTypes.object,
   sortIndex: PropTypes.number.isRequired,
+  modal: PropTypes.object.isRequired,
   sortAscending: PropTypes.bool.isRequired,
-  selectedRow: PropTypes.number,
 };
 
 AdminDashboard.contextTypes = {
@@ -263,12 +265,12 @@ const mapStateToProps = (state) => ({
   authToken: state.app.authToken,
   sortIndex: state.adminDashboardContainer.userTable.sortIndex,
   sortAscending: state.adminDashboardContainer.userTable.sortAscending,
-  selectedRow: state.adminDashboardContainer.userTable.selectedRow,
   activeTab: state.adminDashboardContainer.activeTab,
   usersConfig: state.adminDashboardContainer.users,
   articlesConfig: state.adminDashboardContainer.articles,
   editingIndex: state.adminDashboardContainer.users.editing,
   showAside: state.adminDashboardContainer.aside.isVisible,
+  modal: state.adminDashboardContainer.modal,
   pagedUsers: getSortedUsers(state.adminDashboardContainer),
   pagedArticles: getPagedArticles(state.adminDashboardContainer),
   dashboardError: state.adminDashboardContainer.error,

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Box from 'grommet-udacity/components/Box';
 import Heading from 'grommet-udacity/components/Heading';
+import TableRow from 'grommet-udacity/components/TableRow';
 
 export const BoxWrapper = styled(Box)`
   display: flex;
@@ -39,4 +40,12 @@ export const TD = styled.td`
   @media screen and (max-width: 1200px) {
     min-width: 100px;
   }
+`;
+
+export const TRow = styled(TableRow)`
+  cursor: pointer;
+  &:hover {
+    background-color: ${props => props.isEditing ? '#fff' : '#eee'};
+  }
+  border-bottom: 1px solid #eee;
 `;

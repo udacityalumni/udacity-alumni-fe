@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
 import Table from 'grommet-udacity/components/Table';
-import TableRow from 'grommet-udacity/components/TableRow';
 import Heading from 'grommet-udacity/components/Heading';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
@@ -16,7 +15,8 @@ import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
 import CloseIcon from 'grommet-udacity/components/icons/base/Close';
 import Pulse from 'grommet-udacity/components/icons/Pulse';
 import { Pagination, Avatar, TableHeader } from 'components';
-import { BoxWrapper, ListWrapper, InnerWrapper, GrowBox, UserName, TD } from './styles';
+import isEditing from './utils';
+import { BoxWrapper, ListWrapper, InnerWrapper, GrowBox, UserName, TD, TRow } from './styles';
 
 const UserDashboardTable = ({
   users,
@@ -34,8 +34,7 @@ const UserDashboardTable = ({
   onSort,
   sortIndex,
   sortAscending,
-  selectedRow,
-  onSelectRow,
+  onAvatarClick,
 }) => (
   <ListWrapper
     pad="large"
@@ -64,7 +63,10 @@ const UserDashboardTable = ({
                         align="center"
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
-                        <Avatar src={user.avatar} />
+                        <Avatar
+                          onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
+                          src={user.avatar}
+                        />
                         <BoxWrapper>
                           {editingIndex && editingIndex === user.id &&
                             <Label>
@@ -177,25 +179,28 @@ const UserDashboardTable = ({
           </Box>
         </List>
       :
-        <Table
-          onSelect={onSelectRow}
-          selected={selectedRow}
-          selectable
-        >
+        <Table>
           <TableHeader
             sortIndex={sortIndex}
             sortAscending={sortAscending}
-            onSort={(e) => {
-              e.preventDefault();
-              onSort();
-            }}
+            onSort={onSort}
             labels={['', 'Name', 'Email', 'Role', 'Bio', 'Public', 'Actions']}
           />
           <tbody>
             {users && users.length > 0 && users.map((user, i) =>
-              <TableRow key={i}>
+              <TRow
+                isEditing={editingIndex === user.id}
+                key={i}
+                onClick={() => editingIndex !== user.id ?
+                  onEdit(user) : null
+                }
+              >
                 <td style={{ minWidth: 80 }}>
-                  <Avatar src={user.avatar} size="xsmall" />
+                  <Avatar
+                    onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
+                    src={user.avatar}
+                    size="xsmall"
+                  />
                 </td>
                 <TD>
                   {editingIndex && editingIndex === user.id ?
@@ -262,17 +267,13 @@ const UserDashboardTable = ({
                     {editingIndex === user.id ?
                       <Button
                         plain
-                        icon={<CheckmarkIcon />}
+                        icon={<Pulse icon={<CheckmarkIcon />} />}
                         onClick={onSave}
                       />
                     :
                       <Button
                         plain
-                        icon={selectedRow === i ?
-                          <Pulse icon={<EditIcon size="small" />} />
-                        :
-                          <EditIcon />
-                        }
+                        icon={<EditIcon />}
                         onClick={() => onEdit(user)}
                       />
                     }
@@ -285,7 +286,7 @@ const UserDashboardTable = ({
                     }
                   </Menu>
                 </td>
-              </TableRow>
+              </TRow>
             )}
           </tbody>
         </Table>
@@ -316,8 +317,7 @@ UserDashboardTable.propTypes = {
   onSort: PropTypes.func.isRequired,
   sortIndex: PropTypes.number.isRequired,
   sortAscending: PropTypes.bool.isRequired,
-  onSelectRow: PropTypes.func.isRequired,
-  selectedRow: PropTypes.number.isRequired,
+  onAvatarClick: PropTypes.func.isRequired,
 };
 
 export default UserDashboardTable;

@@ -8,25 +8,6 @@ describe('adminDashboardReducer', () => {
       adminDashboardReducer(undefined, {})
     ).toEqual(initialState);
   });
-  it('should handle reducer for ADMIN_DASHBOARD_SET_SELECTED_ROW', () => {
-    const row = 3;
-    const stateBefore = {
-      userTable: {
-        selectedRow: null,
-      },
-    };
-    const stateAfter = {
-      userTable: {
-        selectedRow: row,
-      },
-    };
-    expect(
-      adminDashboardReducer(stateBefore, {
-        type: types.ADMIN_DASHBOARD_SET_SELECTED_ROW,
-        row,
-      })
-    ).toEqual(stateAfter);
-  });
   it('should handle reducer for ADMIN_DASHBOARD_SET_SORT_OPTIONS', () => {
     const index = 3;
     const ascending = false;
