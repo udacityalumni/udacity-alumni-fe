@@ -173,6 +173,7 @@ const UserDashboardTable = ({
                             :
                               <Button
                                 plain
+                                label="Edit User"
                                 icon={<EditIcon />}
                                 onClick={() => onEdit(user)}
                               />

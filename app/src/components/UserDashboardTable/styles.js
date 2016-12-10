@@ -27,6 +27,7 @@ export const ListWrapper = styled(Box)`
   box-sizing: border-box;
   @media screen and (max-width: 768px) {
     border: none;
+    min-width: 300px;
   }
 `;
 
