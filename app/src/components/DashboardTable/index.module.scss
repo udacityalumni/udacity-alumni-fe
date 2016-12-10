@@ -18,11 +18,29 @@
 }
 
 .listWrapper {
-  min-height: 300px;
+  min-height: 750px;
   max-width: 100vw !important;
   box-sizing: border-box;
 }
 
 .flexGrow {
   flex-grow: 1;
+}
+
+.thumbnailWrapper {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail {
+  max-width: 50px !important;
+  display: inline-block;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all .2s ease-in-out;
 }

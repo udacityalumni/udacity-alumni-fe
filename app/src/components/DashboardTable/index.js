@@ -98,12 +98,17 @@ const DashboardTable = ({
             sortIndex={sortIndex}
             sortAscending={sortAscending}
             onSort={onSort}
-            label={['Title', 'Status', 'Author', 'Actions']}
+            labels={['', 'Title', 'Status', 'Author', 'Actions']}
           />
-          <tbody>
+          <tbody style={{ minHeight: 500 }}>
             {items && items.length > 0 && items.map((item, i) =>
               <TableRow key={i}>
                 <td>
+                  <Box className={styles.thumbnailWrapper}>
+                    <Image className={styles.thumbnail} size="small" src={item.image} />
+                  </Box>
+                </td>
+                <td style={{ width: 540 }}>
                   <Box className={styles.tableItemWrapper}>
                     <Heading tag="h4">
                       {item.title}

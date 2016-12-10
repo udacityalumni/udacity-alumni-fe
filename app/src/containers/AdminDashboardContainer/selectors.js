@@ -36,9 +36,24 @@ export const getSortedArticles = createSelector(
   getArticlesSortAscending(),
   (articles, index, isAscending) => { // eslint-disable-line
     if (articles && articles.length > 0) {
-      if (articles === 1) {
+      if (index === 1) {
         return articles.sort((a, b) =>
-          isAscending ? a.name > b.name : b.name > a.name
+          isAscending ? a.title > b.title : b.title > a.title
+        );
+      }
+      if (index === 2) {
+        return articles.sort((a, b) =>
+          isAscending ? a.status > b.status : b.status > a.status
+        );
+      }
+      if (index === 3) {
+        return articles.sort((a, b) =>
+          isAscending ? a.user.name > b.user.name : b.user.name > a.user.name
+        );
+      }
+      if (index === 4) {
+        return articles.sort((a, b) =>
+          a.title > b.title
         );
       }
       return articles;

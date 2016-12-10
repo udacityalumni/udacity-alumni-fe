@@ -14,7 +14,7 @@ import ExpandIcon from 'grommet-udacity/components/icons/base/Expand';
 import ContractIcon from 'grommet-udacity/components/icons/base/Contract';
 import Button from 'grommet-udacity/components/Button';
 import { FullSection, MainContent, MainBox, AsideButtonContainer } from './styles';
-import { getSortedUsers, getPagedArticles } from './selectors';
+import { getSortedUsers, getSortedArticles } from './selectors';
 import {
   LoadingIndicator,
   DashboardTable,
@@ -187,7 +187,7 @@ class AdminDashboard extends Component {
         fill="horizontal"
         align="center"
       >
-       {isLoading || !users.length || !articles.length ?
+       {isLoading || !users || !articles ?
          <Section
            align="center"
            justify="center"
@@ -350,7 +350,7 @@ const mapStateToProps = (state) => ({
   showAside: state.adminDashboardContainer.aside.isVisible,
   modal: state.adminDashboardContainer.modal,
   pagedUsers: getSortedUsers(state.adminDashboardContainer),
-  pagedArticles: getPagedArticles(state.adminDashboardContainer),
+  pagedArticles: getSortedArticles(state.adminDashboardContainer),
   dashboardError: state.adminDashboardContainer.error,
   message: state.adminDashboardContainer.message,
   confirmationModal: state.adminDashboardContainer.confirmationModal,

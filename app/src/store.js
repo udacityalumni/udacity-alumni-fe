@@ -40,7 +40,6 @@ const initialState = {
   cmsEditorContainer,
   singleArticleContainer,
   searchContainer,
-  contentDashboardContainer,
   carouselWidgetContainer,
   articleFeedContainer,
   userProfileContainer,
