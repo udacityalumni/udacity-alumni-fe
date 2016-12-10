@@ -216,7 +216,7 @@ export const routes = {
           .catch((err) => errorLoading(err));
       },
     },
-/* Newly generated Routes go here */
+/* GENERATOR: Newly generated Routes go here */
     {
       path: '*',
       getComponent(location, callback) {

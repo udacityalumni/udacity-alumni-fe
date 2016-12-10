@@ -1,4 +1,4 @@
-/* Assemble all containers for export */
+/* GENERATOR: Assemble all containers for export */
 export AdminDashboardContainer from './AdminDashboardContainer';
 export AboutContainer from './AboutContainer';
 export PublicUserProfileContainer from './PublicUserProfileContainer';
