@@ -27,45 +27,47 @@ const AvatarFormModal = ({
     hidden={!isVisible}
     align="center"
   >
-    <Box pad="medium">
-      <Heading align="center" tag="h2">
-        {`Edit Avatar for ${user.name}`}
-      </Heading>
+    <Box pad="large">
+      <Box pad="medium">
+        <Heading align="center" tag="h2">
+          {`Edit Avatar for ${user ? user.name : ''}`}
+        </Heading>
+      </Box>
+      <Box align="center" justify="center" pad="medium">
+        <Avatar src={user ? user.avatar : null} />
+      </Box>
+      <Form>
+        <FormField
+          label="Avatar"
+          help="Enter a URL to set this User's Avatar"
+        >
+          <input
+            value={avatarString}
+            onChange={onChange}
+            placeholder="https://c2.staticflickr.com/8/7127/7552248154_978bcb1773.jpg"
+            type="text"
+          />
+        </FormField>
+      </Form>
+      <Footer align="center" justify="center">
+        <Menu inline direction="row" responsive={false}>
+          <Button
+            label="Cancel"
+            secondary
+            style={{ marginTop: 10, marginRight: 5 }}
+            onClick={onCancel}
+            icon={<CloseIcon />}
+          />
+          <Button
+            label="Save"
+            primary
+            style={{ marginTop: 10, marginLeft: 5 }}
+            onClick={onSave}
+            icon={<CheckmarkIcon />}
+          />
+        </Menu>
+      </Footer>
     </Box>
-    <Box align="center" justify="center" pad="medium">
-      <Avatar src={user.avatar} />
-    </Box>
-    <Form>
-      <FormField
-        label="Avatar"
-        help="Enter a URL to set this User's Avatar"
-      >
-        <input
-          value={avatarString}
-          onChange={onChange}
-          placeholder="https://c2.staticflickr.com/8/7127/7552248154_978bcb1773.jpg"
-          type="text"
-        />
-      </FormField>
-    </Form>
-    <Footer align="center" justify="center">
-      <Menu inline direction="row" responsive={false}>
-        <Button
-          label="Cancel"
-          secondary
-          style={{ marginTop: 10, marginRight: 5 }}
-          onClick={onCancel}
-          icon={<CloseIcon />}
-        />
-        <Button
-          label="Save"
-          primary
-          style={{ marginTop: 10, marginLeft: 5 }}
-          onClick={onSave}
-          icon={<CheckmarkIcon />}
-        />
-      </Menu>
-    </Footer>
   </Layer>
 );
 
@@ -76,7 +78,7 @@ AvatarFormModal.propTypes = {
   onCancel: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   avatarString: PropTypes.string,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default AvatarFormModal;

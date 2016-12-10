@@ -26,11 +26,31 @@ export const initialState = {
     avatarInput: null,
     isVisible: false,
   },
+  confirmationModal: {
+    isVisible: false,
+    articleId: null,
+  },
 };
 
 const adminDashboardReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.ADMIN_DASHBOARD_OPEN_CONFIRMATION_MODAL:
+        return {
+          ...state,
+          confirmationModal: {
+            isVisible: true,
+            articleId: action.id,
+          },
+        };
+      case types.ADMIN_DASHBOARD_CANCEL_ARTICLE_DELETION:
+        return {
+          ...state,
+          confirmationModal: {
+            isVisible: false,
+            articleId: null,
+          },
+        };
       case types.ADMIN_DASHBOARD_OPEN_MODAL:
         return {
           ...state,

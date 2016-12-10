@@ -22,6 +22,7 @@ import {
   MainAside,
   ToastMessage,
   AvatarFormModal,
+  ConfirmationModal,
 } from 'components';
 
 export const formFields = [
@@ -39,6 +40,8 @@ class AdminDashboard extends Component {
     this.handleClearing = this.handleClearing.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleSorting = this.handleSorting.bind(this);
+    this.handleSavingAvatar = this.handleSavingAvatar.bind(this);
+    this.handleDeletingArticle = this.handleDeletingArticle.bind(this);
   }
   componentWillReceiveProps({ users, articles }) {
     if (users && users !== this.props.users) {
@@ -97,6 +100,12 @@ class AdminDashboard extends Component {
   handleSorting(index, ascending) {
     this.props.actions.setSortOptions(index, ascending);
   }
+  handleSavingAvatar() {
+
+  }
+  handleDeletingArticle() {
+
+  }
   render() {
     const {
       isMobile,
@@ -118,6 +127,7 @@ class AdminDashboard extends Component {
       sortIndex,
       dashboardError,
       modal,
+      confirmationModal,
     } = this.props;
     return (
       <MainBox
@@ -184,9 +194,9 @@ class AdminDashboard extends Component {
                             currentPage={articlesConfig.currentPage}
                             onChangePage={actions.setArticlesPage}
                             allItems={articles}
-                            onDelete={e => e}
-                            onEdit={e => e}
-                            onShow={e => e}
+                            onDelete={({ id }) => actions.openConfirmationModal(id)}
+                            onEdit={({ id }) => actions.editArticle(id)}
+                            onShow={({ slug }) => actions.viewArticle(slug)}
                           />
                         </Box>
                       </Tab>
@@ -217,12 +227,19 @@ class AdminDashboard extends Component {
         }
         <AvatarFormModal
           isVisible={modal.isVisible}
-          onClose={actions.editAvatarInput}
+          onChange={actions.editAvatarInput}
           onSave={this.handleSavingAvatar}
+          onClose={actions.closeAvatarModal}
           onCancel={actions.closeAvatarModal}
           onChange={actions.editAvatarInput}
           avatarString={modal.avatarInput}
-          user={users[modal.userId]}
+          user={users ? users[`${modal.userId}`] : null}
+        />
+        <ConfirmationModal
+          isVisible={confirmationModal.isVisible}
+          onConfirm={() => this.handleDeletingArticle()}
+          onCancel={() => actions.cancelDeletingArticle()}
+          title="Confirm Deletion"
         />
       </MainBox>
     );
@@ -252,6 +269,7 @@ AdminDashboard.propTypes = {
   sortIndex: PropTypes.number.isRequired,
   modal: PropTypes.object.isRequired,
   sortAscending: PropTypes.bool.isRequired,
+  confirmationModal: PropTypes.object.isRequired,
 };
 
 AdminDashboard.contextTypes = {
@@ -274,6 +292,7 @@ const mapStateToProps = (state) => ({
   pagedUsers: getSortedUsers(state.adminDashboardContainer),
   pagedArticles: getPagedArticles(state.adminDashboardContainer),
   dashboardError: state.adminDashboardContainer.error,
+  confirmationModal: state.adminDashboardContainer.confirmationModal,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

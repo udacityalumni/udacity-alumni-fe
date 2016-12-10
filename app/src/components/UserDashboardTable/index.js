@@ -63,10 +63,11 @@ const UserDashboardTable = ({
                         align="center"
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
-                        <Avatar
-                          onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
-                          src={user.avatar}
-                        />
+                        <Box onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}>
+                          <Avatar
+                            src={user.avatar}
+                          />
+                        </Box>
                         <BoxWrapper>
                           {editingIndex && editingIndex === user.id &&
                             <Label>
@@ -196,11 +197,13 @@ const UserDashboardTable = ({
                 }
               >
                 <td style={{ minWidth: 80 }}>
-                  <Avatar
-                    onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
-                    src={user.avatar}
-                    size="xsmall"
-                  />
+                  <Box onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}>
+                    <Avatar
+                      onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
+                      src={user.avatar}
+                      size="xsmall"
+                    />
+                  </Box>
                 </td>
                 <TD>
                   {editingIndex && editingIndex === user.id ?
