@@ -23,6 +23,8 @@ export const ListWrapper = styled(Box)`
   min-height: 600px;
   max-width: 100vw !important;
   box-sizing: border-box;
+  padding-top: 40px;
+  padding-bottom: 40px;
 `;
 
 export const GrowBox = styled(Box)`
