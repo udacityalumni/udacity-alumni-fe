@@ -47,3 +47,18 @@ export const setDashboardError = (error) => ({
 export const clearDashboardError = () => ({
   type: types.ADMIN_DASHBOARD_CLEAR_ERROR,
 });
+
+export const setSortOptions = (index, ascending) => ({
+  type: types.ADMIN_DASHBOARD_SET_SORT_OPTIONS,
+  index,
+  ascending,
+});
+
+export const setSelectedRow = (row) => ({
+  type: types.ADMIN_DASHBOARD_SET_SELECTED_ROW,
+  row,
+});
+
+export const clearSelectedRow = () => ({
+  type: types.ADMIN_DASHBOARD_CLEAR_SELECTED_ROW,
+});

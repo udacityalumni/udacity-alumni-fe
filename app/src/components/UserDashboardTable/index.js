@@ -14,7 +14,8 @@ import Button from 'grommet-udacity/components/Button';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
 import CloseIcon from 'grommet-udacity/components/icons/base/Close';
-import { Pagination, Avatar } from 'components';
+import Pulse from 'grommet-udacity/components/icons/Pulse';
+import { Pagination, Avatar, TableHeader } from 'components';
 import { BoxWrapper, ListWrapper, InnerWrapper, GrowBox, UserName, TD } from './styles';
 
 const UserDashboardTable = ({
@@ -30,6 +31,11 @@ const UserDashboardTable = ({
   editingIndex,
   fields,
   userRoles,
+  onSort,
+  sortIndex,
+  sortAscending,
+  selectedRow,
+  onSelectRow,
 }) => (
   <ListWrapper
     pad="large"
@@ -171,18 +177,20 @@ const UserDashboardTable = ({
           </Box>
         </List>
       :
-        <Table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Bio</th>
-              <th>Public</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
+        <Table
+          onSelect={onSelectRow}
+          selected={selectedRow}
+          selectable
+        >
+          <TableHeader
+            sortIndex={sortIndex}
+            sortAscending={sortAscending}
+            onSort={(e) => {
+              e.preventDefault();
+              onSort();
+            }}
+            labels={['', 'Name', 'Email', 'Role', 'Bio', 'Public', 'Actions']}
+          />
           <tbody>
             {users && users.length > 0 && users.map((user, i) =>
               <TableRow key={i}>
@@ -260,7 +268,11 @@ const UserDashboardTable = ({
                     :
                       <Button
                         plain
-                        icon={<EditIcon />}
+                        icon={selectedRow === i ?
+                          <Pulse icon={<EditIcon size="small" />} />
+                        :
+                          <EditIcon />
+                        }
                         onClick={() => onEdit(user)}
                       />
                     }
@@ -301,6 +313,11 @@ UserDashboardTable.propTypes = {
   isMobile: PropTypes.bool.isRequired,
   editingIndex: PropTypes.number,
   userRoles: PropTypes.array,
+  onSort: PropTypes.func.isRequired,
+  sortIndex: PropTypes.number.isRequired,
+  sortAscending: PropTypes.bool.isRequired,
+  onSelectRow: PropTypes.func.isRequired,
+  selectedRow: PropTypes.number.isRequired,
 };
 
 export default UserDashboardTable;

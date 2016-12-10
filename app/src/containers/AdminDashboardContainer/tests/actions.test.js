@@ -4,7 +4,25 @@ import * as types from '../constants';
 
 describe('AdminDashboard actions', () => {
   describe('Default Action', () => {
-    it('has a type of ADMIN_DASHBOARD_SET_ACTIVE_TAB', () => {
+    it('should have a type of ADMIN_DASHBOARD_SET_SELECTED_ROW', () => {
+      const row = 2;
+      const expected = {
+        type: types.ADMIN_DASHBOARD_SET_SELECTED_ROW,
+        row,
+      };
+      expect(actions.setSelectedRow(row)).toEqual(expected);
+    });
+    it('should have a type of ADMIN_DASHBOARD_SET_SORT_OPTIONS', () => {
+      const index = 2;
+      const ascending = true;
+      const expected = {
+        type: types.ADMIN_DASHBOARD_SET_SORT_OPTIONS,
+        index,
+        ascending,
+      };
+      expect(actions.setSortOptions(index, ascending)).toEqual(expected);
+    });
+    it('should have a type of ADMIN_DASHBOARD_SET_ACTIVE_TAB', () => {
       const tab = 2;
       const expected = {
         type: types.ADMIN_DASHBOARD_SET_ACTIVE_TAB,
@@ -12,7 +30,7 @@ describe('AdminDashboard actions', () => {
       };
       expect(actions.setActiveTab(tab)).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_SET_USERS', () => {
+    it('should have a type of ADMIN_DASHBOARD_SET_USERS', () => {
       const users = [{}, {}];
       const expected = {
         type: types.ADMIN_DASHBOARD_SET_USERS,
@@ -20,7 +38,7 @@ describe('AdminDashboard actions', () => {
       };
       expect(actions.setUsers(users)).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_SET_ARTICLES', () => {
+    it('should have a type of ADMIN_DASHBOARD_SET_ARTICLES', () => {
       const articles = [{}, {}];
       const expected = {
         type: types.ADMIN_DASHBOARD_SET_ARTICLES,
@@ -28,7 +46,7 @@ describe('AdminDashboard actions', () => {
       };
       expect(actions.setArticles(articles)).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_SET_USERS_PAGE', () => {
+    it('should have a type of ADMIN_DASHBOARD_SET_USERS_PAGE', () => {
       const page = 1;
       const expected = {
         type: types.ADMIN_DASHBOARD_SET_USERS_PAGE,
@@ -36,7 +54,7 @@ describe('AdminDashboard actions', () => {
       };
       expect(actions.setUsersPage(page)).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_SET_ARTICLES_PAGE', () => {
+    it('should have a type of ADMIN_DASHBOARD_SET_ARTICLES_PAGE', () => {
       const page = 1;
       const expected = {
         type: types.ADMIN_DASHBOARD_SET_ARTICLES_PAGE,
@@ -44,7 +62,7 @@ describe('AdminDashboard actions', () => {
       };
       expect(actions.setArticlesPage(page)).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_SET_USER_EDITING', () => {
+    it('should have a type of ADMIN_DASHBOARD_SET_USER_EDITING', () => {
       const index = 2;
       const expected = {
         type: types.ADMIN_DASHBOARD_SET_USER_EDITING,
@@ -52,19 +70,19 @@ describe('AdminDashboard actions', () => {
       };
       expect(actions.setUserEditing(index)).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_CLEAR_USER_EDITING', () => {
+    it('should have a type of ADMIN_DASHBOARD_CLEAR_USER_EDITING', () => {
       const expected = {
         type: types.ADMIN_DASHBOARD_CLEAR_USER_EDITING,
       };
       expect(actions.clearUserEditing()).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_TOGGLE_ASIDE', () => {
+    it('should have a type of ADMIN_DASHBOARD_TOGGLE_ASIDE', () => {
       const expected = {
         type: types.ADMIN_DASHBOARD_TOGGLE_ASIDE,
       };
       expect(actions.toggleAside()).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_SET_ERROR', () => {
+    it('should have a type of ADMIN_DASHBOARD_SET_ERROR', () => {
       const error = new Error('Oopsies');
       const expected = {
         type: types.ADMIN_DASHBOARD_SET_ERROR,
@@ -72,7 +90,7 @@ describe('AdminDashboard actions', () => {
       };
       expect(actions.setDashboardError(error)).toEqual(expected);
     });
-    it('has a type of ADMIN_DASHBOARD_CLEAR_ERROR', () => {
+    it('should have a type of ADMIN_DASHBOARD_CLEAR_ERROR', () => {
       const expected = {
         type: types.ADMIN_DASHBOARD_CLEAR_ERROR,
       };

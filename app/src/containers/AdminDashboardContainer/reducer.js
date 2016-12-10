@@ -17,11 +17,41 @@ export const initialState = {
     isVisible: false,
   },
   error: null,
+  userTable: {
+    selectedRow: null,
+    sortIndex: 0,
+    sortAscending: true,
+  },
 };
 
 const adminDashboardReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.ADMIN_DASHBOARD_CLEAR_SELECTED_ROW:
+        return {
+          ...state,
+          userTable: {
+            ...state.userTable,
+            selectedRow: null,
+          },
+        };
+      case types.ADMIN_DASHBOARD_SET_SELECTED_ROW:
+        return {
+          ...state,
+          userTable: {
+            ...state.userTable,
+            selectedRow: action.row,
+          },
+        };
+      case types.ADMIN_DASHBOARD_SET_SORT_OPTIONS:
+        return {
+          ...state,
+          userTable: {
+            ...state.userTable,
+            sortIndex: action.index,
+            sortAscending: action.ascending,
+          },
+        };
       case types.ADMIN_DASHBOARD_SET_ERROR:
         return {
           ...state,

@@ -8,6 +8,9 @@ const getUsers = () => (state) => state.users.items;
 const getUsersCurrentPage = () => (state) => state.users.currentPage;
 const getUsersPerPage = () => (state) => state.users.perPage;
 
+const getSortIndex = () => (state) => state.sort.index;
+const getSortAscending = () => (state) => state.sort.ascending;
+
 export const getPagedArticles = createSelector(
   getArticles(),
   getArticlesCurrentPage(),
@@ -36,6 +39,27 @@ export const getPagedUsers = createSelector(
       return users.filter((_, i) =>
         i >= from && i < to
       );
+    }
+  }
+);
+
+export const getSortedUsers = createSelector(
+  getPagedUsers,
+  getSortIndex(),
+  getSortAscending(),
+  (users, index, isAscending) => {
+    if (users && users.length > 0) {
+      if (index === 0) {
+        return users.sort((a, b) =>
+          isAscending ? a.name > b.name : b.name > a.name
+        );
+      }
+      if (index === 1) {
+        return users.sort((a, b) =>
+          isAscending ? a.email > b.email : b.email > a.email
+        );
+      }
+      return users;
     }
   }
 );

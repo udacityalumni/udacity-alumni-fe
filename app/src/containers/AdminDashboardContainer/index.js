@@ -14,7 +14,7 @@ import ExpandIcon from 'grommet-udacity/components/icons/base/Expand';
 import ContractIcon from 'grommet-udacity/components/icons/base/Contract';
 import Button from 'grommet-udacity/components/Button';
 import { FullSection, MainContent, MainBox, AsideButtonContainer } from './styles';
-import { getPagedUsers, getPagedArticles } from './selectors';
+import { getSortedUsers, getPagedArticles } from './selectors';
 import {
   LoadingIndicator,
   DashboardTable,
@@ -37,6 +37,8 @@ class AdminDashboard extends Component {
     this.handleEditing = this.handleEditing.bind(this);
     this.handleClearing = this.handleClearing.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.handleSorting = this.handleSorting.bind(this);
+    this.handleRowSelection = this.handleRowSelection.bind(this);
   }
   componentWillReceiveProps({ users, articles }) {
     if (users && users !== this.props.users) {
@@ -92,6 +94,15 @@ class AdminDashboard extends Component {
         actions.setDashboardError(err);
       });
   }
+  handleSorting(index, ascending) {
+    this.props.actions.setSortOptions(index, ascending);
+  }
+  handleRowSelection(index) {
+    if (index === this.props.selectedRow) {
+      return this.props.actions.clearSelectedRow();
+    }
+    return this.props.actions.setSelectedRow(index);
+  }
   render() {
     const {
       isMobile,
@@ -109,7 +120,10 @@ class AdminDashboard extends Component {
       userRoles,
       fields,
       showAside,
+      sortAscending,
+      sortIndex,
       dashboardError,
+      selectedRow,
     } = this.props;
     return (
       <MainBox
@@ -158,6 +172,11 @@ class AdminDashboard extends Component {
                             onEdit={this.handleEditing}
                             onClear={this.handleClearing}
                             onSave={this.handleSave}
+                            onSort={this.handleSorting}
+                            sortIndex={sortIndex}
+                            sortAscending={sortAscending}
+                            selectedRow={selectedRow}
+                            onSelectRow={this.handleRowSelection}
                           />
                         </Box>
                       </Tab>
@@ -228,6 +247,9 @@ AdminDashboard.propTypes = {
   showAside: PropTypes.bool.isRequired,
   refetch: PropTypes.func.isRequired,
   dashboardError: PropTypes.object,
+  sortIndex: PropTypes.number.isRequired,
+  sortAscending: PropTypes.bool.isRequired,
+  selectedRow: PropTypes.number,
 };
 
 AdminDashboard.contextTypes = {
@@ -239,12 +261,15 @@ const mapStateToProps = (state) => ({
   isMobile: state.app.isMobile,
   user: state.app.user,
   authToken: state.app.authToken,
+  sortIndex: state.adminDashboardContainer.userTable.sortIndex,
+  sortAscending: state.adminDashboardContainer.userTable.sortAscending,
+  selectedRow: state.adminDashboardContainer.userTable.selectedRow,
   activeTab: state.adminDashboardContainer.activeTab,
   usersConfig: state.adminDashboardContainer.users,
   articlesConfig: state.adminDashboardContainer.articles,
   editingIndex: state.adminDashboardContainer.users.editing,
   showAside: state.adminDashboardContainer.aside.isVisible,
-  pagedUsers: getPagedUsers(state.adminDashboardContainer),
+  pagedUsers: getSortedUsers(state.adminDashboardContainer),
   pagedArticles: getPagedArticles(state.adminDashboardContainer),
   dashboardError: state.adminDashboardContainer.error,
 });

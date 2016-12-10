@@ -36,4 +36,7 @@ export const UserName = styled(Heading)`
 
 export const TD = styled.td`
   min-width: 220px;
+  @media screen and (max-width: 1200px) {
+    min-width: 100px;
+  }
 `;
