@@ -88,5 +88,87 @@ describe('AdminDashboard actions', () => {
       };
       expect(actions.clearDashboardError()).toEqual(expected);
     });
+    it('should have a type of ADMIN_DASHBOARD_CLEAR_MESSAGE', () => {
+      const expected = {
+        type: types.ADMIN_DASHBOARD_CLEAR_MESSAGE,
+      };
+      expect(
+        actions.clearDashboardMessage()
+      ).toEqual(expected);
+    });
+    it('should have a type of DASHBOARD_DELETE_ARTICLE_FAILURE', () => {
+      const error = new Error('oops');
+      const expected = {
+        type: types.DASHBOARD_DELETE_ARTICLE_FAILURE,
+        error,
+      };
+      expect(
+        actions.dashboardDeleteArticleFailure(error)
+      ).toEqual(expected);
+    });
+    it('should have a type of DASHBOARD_DELETE_ARTICLE_SUCCESS', () => {
+      const message = 'yay';
+      const expected = {
+        type: types.DASHBOARD_DELETE_ARTICLE_SUCCESS,
+        message,
+      };
+      expect(
+        actions.dashboardDeleteArticleSuccess(message)
+      ).toEqual(expected);
+    });
+    it('should have a type of DASHBOARD_DELETE_ARTICLE_INITIATION', () => {
+      const expected = {
+        type: types.DASHBOARD_DELETE_ARTICLE_INITIATION,
+      };
+      expect(
+        actions.dashboardDeleteArticleInitiation()
+      ).toEqual(expected);
+    });
+    it('should have a type of ADMIN_DASHBOARD_CANCEL_ARTICLE_DELETION', () => {
+      const expected = {
+        type: types.ADMIN_DASHBOARD_CANCEL_ARTICLE_DELETION,
+      };
+      expect(
+        actions.cancelDeletingArticle()
+      ).toEqual(expected);
+    });
+    it('should have a type of ADMIN_DASHBOARD_OPEN_CONFIRMATION_MODAL', () => {
+      const id = 1;
+      const expected = {
+        type: types.ADMIN_DASHBOARD_OPEN_CONFIRMATION_MODAL,
+        id,
+      };
+      expect(
+        actions.openConfirmationModal(id)
+      ).toEqual(expected);
+    });
+    it('should have a type of ADMIN_DASHBOARD_EDIT_AVATAR_INPUT', () => {
+      const input = 'Foo';
+      const expected = {
+        type: types.ADMIN_DASHBOARD_EDIT_AVATAR_INPUT,
+        input,
+      };
+      expect(
+        actions.editAvatarInput(input)
+      ).toEqual(expected);
+    });
+    it('should have a type of ADMIN_DASHBOARD_CLOSE_MODAL', () => {
+      const expected = {
+        type: types.ADMIN_DASHBOARD_CLOSE_MODAL,
+      };
+      expect(
+        actions.closeAvatarModal()
+      ).toEqual(expected);
+    });
+    it('should have a type of ADMIN_DASHBOARD_OPEN_MODAL', () => {
+      const user = { foo: 'bar' };
+      const expected = {
+        type: types.ADMIN_DASHBOARD_OPEN_MODAL,
+        user,
+      };
+      expect(
+        actions.openAvatarModal(user)
+      ).toEqual(expected);
+    });
   });
 });

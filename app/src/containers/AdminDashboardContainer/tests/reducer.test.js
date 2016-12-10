@@ -8,6 +8,175 @@ describe('adminDashboardReducer', () => {
       adminDashboardReducer(undefined, {})
     ).toEqual(initialState);
   });
+  it('should handle reducer for ADMIN_DASHBOARD_CLEAR_MESSAGE', () => {
+    const stateBefore = {
+      message: 'Foobar',
+    };
+    const stateAfter = {
+      message: null,
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_CLEAR_MESSAGE,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for DASHBOARD_DELETE_ARTICLE_INITIATION', () => {
+    const stateBefore = {
+      isSubmitting: false,
+    };
+    const stateAfter = {
+      isSubmitting: true,
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.DASHBOARD_DELETE_ARTICLE_INITIATION,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for DASHBOARD_DELETE_ARTICLE_SUCCESS', () => {
+    const message = 'Foo';
+    const stateBefore = {
+      isSubmitting: true,
+      message: null,
+      confirmationModal: {
+        isVisible: true,
+        articleId: 1,
+      },
+    };
+    const stateAfter = {
+      isSubmitting: true,
+      message,
+      confirmationModal: {
+        isVisible: false,
+        articleId: null,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.DASHBOARD_DELETE_ARTICLE_SUCCESS,
+        message,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for DASHBOARD_DELETE_ARTICLE_FAILURE', () => {
+    const error = new Error('Oops');
+    const stateBefore = {
+      isSubmitting: true,
+      error: null,
+    };
+    const stateAfter = {
+      isSubmitting: false,
+      error,
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.DASHBOARD_DELETE_ARTICLE_FAILURE,
+        error,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_OPEN_CONFIRMATION_MODAL', () => {
+    const id = 1;
+    const stateBefore = {
+      confirmationModal: {
+        isVisible: false,
+        articleId: null,
+      },
+    };
+    const stateAfter = {
+      confirmationModal: {
+        isVisible: true,
+        articleId: id,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_OPEN_CONFIRMATION_MODAL,
+        id,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_CANCEL_ARTICLE_DELETION', () => {
+    const stateBefore = {
+      confirmationModal: {
+        isVisible: true,
+        articleId: 2,
+      },
+    };
+    const stateAfter = {
+      confirmationModal: {
+        isVisible: false,
+        articleId: null,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_CANCEL_ARTICLE_DELETION,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_OPEN_MODAL', () => {
+    const user = { foo: 'bar' };
+    const stateBefore = {
+      modal: {
+        isVisible: false,
+        user: null,
+      },
+    };
+    const stateAfter = {
+      modal: {
+        isVisible: true,
+        user,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_OPEN_MODAL,
+        user,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_CLOSE_MODAL', () => {
+    const stateBefore = {
+      modal: {
+        isVisible: true,
+        avatarInput: 'Foo',
+        user: { foo: 'bar' },
+      },
+    };
+    const stateAfter = {
+      modal: {
+        isVisible: false,
+        avatarInput: null,
+        user: null,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_CLOSE_MODAL,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_EDIT_AVATAR_INPUT', () => {
+    const input = 'Foo';
+    const stateBefore = {
+      modal: {
+        avatarInput: null,
+      },
+    };
+    const stateAfter = {
+      modal: {
+        avatarInput: input,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_EDIT_AVATAR_INPUT,
+        input,
+      })
+    ).toEqual(stateAfter);
+  });
   it('should handle reducer for ADMIN_DASHBOARD_SET_SORT_OPTIONS', () => {
     const index = 3;
     const ascending = false;
