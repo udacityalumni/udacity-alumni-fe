@@ -30,8 +30,7 @@ exports[`<ArticlePreview /> should render with default props 1`] = `
     }
     textSize="small"
     thumbnail={
-      <ResponsiveImage
-        matchHeight={true}
+      <undefined
         src="https://robohash.org/sapienteeaoptio.png?size=300x300" />
     } />
 </Box>

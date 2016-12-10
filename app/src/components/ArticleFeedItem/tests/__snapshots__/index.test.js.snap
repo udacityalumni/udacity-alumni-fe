@@ -3,9 +3,9 @@ exports[`<ArticleFeedItem /> should render with default props 1`] = `
   direction="column"
   pad="none">
   <div>
-    <ArticleCalendar />
+    <undefined />
   </div>
-  <LinkList
+  <undefined
     links={
       Array [
         Object {
@@ -25,8 +25,7 @@ exports[`<ArticleFeedItem /> should render with default props 1`] = `
           "tag": "Mobile"
         }
       ]
-    }
-    seperator="," />
+    } />
   <Heading
     align="start"
     strong={true}

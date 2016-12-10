@@ -1,4 +1,4 @@
-/* Assemble all components for export */
+/* GENERATOR: Assemble all components for export */
 export UserDashboardTable from './UserDashboardTable';
 export Pagination from './Pagination';
 export PasswordResetForm from './PasswordResetForm';

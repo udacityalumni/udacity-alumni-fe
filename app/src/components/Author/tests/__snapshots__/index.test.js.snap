@@ -16,7 +16,7 @@ exports[`<Author /> should render with default props 1`] = `
     pad="none"
     responsive={true}
     tag="div">
-    <Avatar
+    <undefined
       src="ryancollins.io/avarat" />
   </Box>
   <Heading

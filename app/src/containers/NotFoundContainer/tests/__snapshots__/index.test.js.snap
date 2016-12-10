@@ -39,17 +39,17 @@ exports[`<NotFound /> should render with default props 1`] = `
         alignContent="center"
         className="problem"
         tag="h1">
-        None of the classrooms are currently set up
+        Did you know you can meet other Alumnis through contributing?
       </Heading>
       <Paragraph
         className="solution">
-        Learn to create a virtual classroom that is always ready (and needs no brooming)!
+        Bring this page into existence (and learn a lot on the way)!
       </Paragraph>
       <Anchor
         className="solution-link"
-        href="https://www.udacity.com/course/vr-developer-nanodegree--nd017"
+        href="https://github.com/udacityalumni/"
         tag="a">
-        Virtual-Reality Nanodegree
+        Contribute to the Alumni-Web-App
       </Anchor>
     </Box>
   </Box>

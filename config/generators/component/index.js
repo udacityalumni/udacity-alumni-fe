@@ -31,6 +31,12 @@ module.exports = {
     },
     {
       type: 'confirm',
+      name: 'wantStyledComponents',
+      default: false,
+      message: 'Should the component use styled components?',
+    },
+    {
+      type: 'confirm',
       name: 'wantPropTypes',
       default: true,
       message: 'Should the component have PropTypes?',
@@ -60,6 +66,15 @@ module.exports = {
       });
     }
 
+    if (data.wantStyledComponents) {
+      actions.push({
+        type: 'add',
+        path: '../../app/src/components/{{properCase name}}/styles.js',
+        templateFile: './component/styles.js.hbs',
+        abortOnFail: true,
+      });
+    }
+
     // README.md
     actions.push({
       type: 'add',
@@ -72,7 +87,7 @@ module.exports = {
     actions.push({
       type: 'modify',
       path: '../../app/src/components/index.js',
-      pattern: /(\/\* Assemble all components for export \*\/)/g,
+      pattern: /(\/\* GENERATOR: Assemble all components for export \*\/)/g,
       template: trimTemplateFile('config/generators/component/export.js.hbs'),
     });
 

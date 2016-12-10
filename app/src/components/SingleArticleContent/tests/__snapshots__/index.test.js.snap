@@ -4,14 +4,14 @@ exports[`<SingleArticleContent /> should render with default props 1`] = `
   direction="column"
   pad="none">
   <div>
-    <ArticleCalendar
+    <undefined
       date="2016-09-30T02:39:57.333Z" />
   </div>
   <Headline
     align="center">
     Creditable coverage Hcfa common procedure coding system Group health plan
   </Headline>
-  <Divider />
+  <undefined />
   <Image
     size="medium"
     src="https://robohash.org/magnietnon.png?size=300x300" />

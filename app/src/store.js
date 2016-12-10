@@ -9,6 +9,8 @@ import client from './apolloClient';
 const isClient = typeof document !== 'undefined';
 const isDeveloping = process.env.NODE_ENV !== 'production';
 
+/* GENERATOR: Import all of your initial state */
+import { initialState as app } from './components/App/reducer';
 import { initialState as landing } from './containers/LandingContainer/reducer';
 import { initialState as loginContainer } from './containers/LoginContainer/reducer';
 import { initialState as signupContainer } from './containers/SignupContainer/reducer';
@@ -18,19 +20,21 @@ import { initialState as userProfileContainer } from './containers/UserProfileCo
 import { initialState as articleFeedContainer } from './containers/ArticleFeedContainer/reducer';
 import { initialState as archiveContainer } from 'containers/ArticleArchiveContainer/reducer';
 import { initialState as resetPassword } from 'containers/ResetPasswordContainer/reducer';
-import { initialState as adminDashboardContainer } from 'containers/AdminDashboardContainer/reducer';
+import {
+  initialState as adminDashboardContainer,
+} from 'containers/AdminDashboardContainer/reducer';
 import {
   initialState as singleArticleContainer,
 } from './containers/SingleArticleContainer/reducer';
 import {
   initialState as contentDashboardContainer,
 } from './containers/ContentDashboardContainer/reducer';
-import { initialState as app } from './components/App/reducer';
 import {
   initialState as carouselWidgetContainer,
 } from './containers/CarouselWidgetContainer/reducer';
 
 const initialState = {
+  /* GENERATOR: Compile all of your initial state */
   adminDashboardContainer,
   app,
   landing,

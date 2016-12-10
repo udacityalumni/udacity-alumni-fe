@@ -3,7 +3,7 @@ import { routerReducer } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import client from './apolloClient';
 
-// Import all of your reducers here:
+/* GENERATOR: Import all of your reducers */
 import adminDashboardContainer from 'containers/AdminDashboardContainer/reducer';
 import landing from 'containers/LandingContainer/reducer';
 import loginContainer from 'containers/LoginContainer/reducer';
@@ -20,7 +20,7 @@ import resetPassword from 'containers/ResetPasswordContainer/reducer';
 import app from 'components/App/reducer';
 
 const rootReducer = combineReducers({
-  // Apply all of the reducers here.
+  /* GENERATOR: Compile all of your reducers */
   adminDashboardContainer,
   loginContainer,
   signupContainer,

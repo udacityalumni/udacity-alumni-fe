@@ -19,7 +19,6 @@ exports[`<DashboardTableButtonMenu /> should render with default props 1`] = `
     }
   }>
   <Button
-    href="/admin/cms?action=edit&articleId=1"
     icon={
       <Edit
         a11yTitleId="edit-title"
@@ -33,20 +32,6 @@ exports[`<DashboardTableButtonMenu /> should render with default props 1`] = `
     }
     type="button" />
   <Button
-    icon={
-      <Trash
-        a11yTitleId="trash-title"
-        responsive={true} />
-    }
-    plain={true}
-    style={
-      Object {
-        "padding": 5
-      }
-    }
-    type="button" />
-  <Button
-    href="/articles/nickname"
     icon={
       <View
         a11yTitleId="view-title"

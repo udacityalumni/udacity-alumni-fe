@@ -72,7 +72,7 @@ exports[`<CmsModal /> should render with default props 1`] = `
         label="Tags"
         size="medium"
         strong={false}>
-        <TagEditor
+        <undefined
           onChangeValue={[Function onChangeValue]}
           selectedTags={
             Array [
