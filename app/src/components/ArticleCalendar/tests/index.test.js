@@ -5,8 +5,9 @@ import React from 'react';
 
 describe('<ArticleCalendar />', () => {
   it('should render with default props', () => {
-    const wrapper = shallow(
-      <ArticleCalendar />
+  	const date="2016 11 15";
+  	const wrapper = shallow(
+      <ArticleCalendar date={date}/>
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

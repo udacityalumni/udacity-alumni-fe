@@ -20,7 +20,7 @@ class MobileNav extends Component {
       user,
     } = this.props;
     return (
-      <Sidebar size="medium" colorIndex="neutral-1" fixed seperator="right">
+      <Sidebar id="mobile-nav" size="medium" colorIndex="neutral-1" fixed seperator="right">
         <AppHeader onToggleNav={onToggleNav} />
         <Menu primary>
           <IndexLink

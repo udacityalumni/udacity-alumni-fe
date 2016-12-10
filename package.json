@@ -53,7 +53,7 @@
   "scripts": {
     "t": "npm run test",
     "test:watch": "npm test -- --watch",
-    "test": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV='test' node --harmony_proxies node_modules/.bin/jest",
+    "test": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV='test' node --harmony_proxies ./node_modules/istanbul cover ./node_modules/.bin/jest",
     "build": "npm run ./node_modules/.bin/webpack",
     "generate": "all-contributors generate",
     "generate:component": "plop --plopfile config/generators/index.js component",

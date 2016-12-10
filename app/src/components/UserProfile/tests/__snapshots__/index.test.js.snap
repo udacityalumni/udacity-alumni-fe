@@ -1,0 +1,115 @@
+exports[`<UserProfile /> should render with default props 1`] = `
+<Article
+  direction="column"
+  pad="none">
+  <Heading
+    align="center"
+    tag="h2">
+    Hello, Jane Doe!
+  </Heading>
+  <Section
+    align="center"
+    justify="center"
+    pad="none">
+    <EditableText
+      altName="avatar"
+      autoFocus={true}
+      name="photo"
+      placeholder="http://github.com/avatar.png"
+      type="url">
+      <img
+        src="https://here" />
+    </EditableText>
+  </Section>
+  <EditableText
+    autoFocus={false}
+    name="bio"
+    placeholder="Hi, I\'m Bill and I used to be the president."
+    type="text">
+    <Box
+      announce={false}
+      direction="row"
+      focusable={true}
+      pad="none"
+      responsive={true}
+      tag="div">
+      <Paragraph
+        className="undefined undefined">
+        Have done this and that.
+      </Paragraph>
+    </Box>
+  </EditableText>
+  <EditableText
+    autoFocus={false}
+    name="email"
+    placeholder="bill@clinton.com"
+    type="email">
+    <Box
+      align="between"
+      announce={false}
+      direction="row"
+      focusable={true}
+      justify="center"
+      pad="none"
+      responsive={true}
+      tag="div">
+      <Heading
+        align="center"
+        tag="h3">
+        someone@yahoo.com
+      </Heading>
+    </Box>
+  </EditableText>
+  <Section
+    align="center"
+    pad={
+      Object {
+        "vertical": "medium"
+      }
+    }>
+    <Box
+      announce={false}
+      direction="column"
+      focusable={true}
+      pad="none"
+      responsive={true}
+      size="medium"
+      tag="div">
+      <FormField
+        size="medium"
+        strong={false}>
+        <CheckBox
+          disabled={true}
+          label="Public Profile"
+          toggle={true} />
+      </FormField>
+    </Box>
+  </Section>
+  <Section
+    align="center"
+    pad={
+      Object {
+        "vertical": "medium"
+      }
+    }>
+    <Box
+      announce={false}
+      direction="column"
+      focusable={true}
+      pad="none"
+      responsive={true}
+      size="medium"
+      tag="div">
+      <Button
+        icon={
+          <Edit
+            a11yTitleId="edit-title"
+            responsive={true} />
+        }
+        label="Edit Profile"
+        primary={true}
+        type="button" />
+    </Box>
+  </Section>
+</Article>
+`;

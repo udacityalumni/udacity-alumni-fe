@@ -1,0 +1,31 @@
+exports[`<LinkList /> should render with default props 1`] = `
+<Box
+  announce={false}
+  direction="row"
+  focusable={true}
+  pad="none"
+  responsive={false}
+  tag="div"
+  wrap={true}>
+  <span>
+    <Anchor
+      href="/archive?tag=undefined"
+      label="undefined"
+      tag="a" />
+    , 
+  </span>
+  <span>
+    <Anchor
+      href="/archive?tag=undefined"
+      label="undefined"
+      tag="a" />
+    , 
+  </span>
+  <span>
+    <Anchor
+      href="/archive?tag=undefined"
+      label="undefined"
+      tag="a" />
+  </span>
+</Box>
+`;
