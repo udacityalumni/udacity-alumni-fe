@@ -21,13 +21,8 @@ export const InnerWrapper = styled(Box)`
 
 export const ListWrapper = styled(Box)`
   min-height: 600px;
-  min-width: 600px;
-  border: 1px solid #e2e2e2;
   max-width: 100vw !important;
   box-sizing: border-box;
-  @media screen and (max-width: 768px) {
-    border: none;
-  }
 `;
 
 export const GrowBox = styled(Box)`
