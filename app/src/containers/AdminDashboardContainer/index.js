@@ -23,6 +23,7 @@ import {
   ToastMessage,
   AvatarFormModal,
   ConfirmationModal,
+  Divider,
 } from 'components';
 
 export const formFields = [
@@ -198,13 +199,13 @@ class AdminDashboard extends Component {
         :
           <FullSection direction="row">
             <MainContent
-              pad="large"
               align="center"
               justify="start"
             >
               <Heading align="center">
                 Admin Dashboard
               </Heading>
+              <Divider />
               <Box>
                 {users && users.length && articles && articles.length &&
                   <Tabs

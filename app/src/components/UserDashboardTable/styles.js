@@ -11,7 +11,14 @@ export const BoxWrapper = styled(Box)`
   justify-content: space-between;
   flex-direction: row !important;
   width: 100%;
-  margin-top: 40px;
+`;
+
+export const BoxWrapperCenter = styled(Box)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row !important;
+  width: 100%;
 `;
 
 export const InnerWrapper = styled(Box)`
@@ -23,15 +30,8 @@ export const ListWrapper = styled(Box)`
   min-height: 600px;
   max-width: 100vw !important;
   box-sizing: border-box;
-<<<<<<< HEAD
-  @media screen and (max-width: 768px) {
-    border: none;
-    min-width: 300px;
-  }
-=======
   padding-top: 40px;
   padding-bottom: 40px;
->>>>>>> 1c5491ec980c983c2df5c53e529360dc1788dd23
 `;
 
 export const GrowBox = styled(Box)`

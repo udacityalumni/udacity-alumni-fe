@@ -28,6 +28,7 @@ import {
   TextArea,
   Label,
   SelectBig,
+  BoxWrapperCenter,
 } from './styles';
 
 const UserDashboardTable = ({
@@ -141,7 +142,7 @@ const UserDashboardTable = ({
                             disabled={editingIndex !== user.id}
                           />
                         </BoxWrapper>
-                        <BoxWrapper>
+                        <BoxWrapperCenter>
                           {editingIndex && editingIndex === user.id &&
                             <Label>
                               Bio:
@@ -154,7 +155,7 @@ const UserDashboardTable = ({
                               {user.bio}
                             </Heading>
                           }
-                        </BoxWrapper>
+                        </BoxWrapperCenter>
                         <Footer justify="center" pad="medium">
                           <Menu
                             inline
@@ -212,8 +213,9 @@ const UserDashboardTable = ({
                   onEdit(user) : null
                 }
               >
-                <td style={{ minWidth: 80 }}>
+                <td>
                   <Box
+                    style={{ width: 50 }}
                     focusable={isEditing(user, editingIndex)}
                     onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
                   >
