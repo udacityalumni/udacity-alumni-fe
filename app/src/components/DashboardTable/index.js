@@ -22,6 +22,9 @@ const DashboardTable = ({
   onEdit,
   onShow,
   isMobile,
+  sortIndex,
+  sortAscending,
+  onSort,
 }) => (
   <Box
     pad="large"
@@ -92,6 +95,9 @@ const DashboardTable = ({
       :
         <Table>
           <TableHeader
+            sortIndex={sortIndex}
+            sortAscending={sortAscending}
+            onSort={onSort}
             label={['Title', 'Status', 'Author', 'Actions']}
           />
           <tbody>
@@ -150,6 +156,9 @@ DashboardTable.propTypes = {
   onDelete: PropTypes.func.isRequired,
   onEdit: PropTypes.func.isRequired,
   onShow: PropTypes.func.isRequired,
+  sortIndex: PropTypes.number.isRequired,
+  sortAscending: PropTypes.bool.isRequired,
+  onSort: PropTypes.func.isRequired,
 };
 
 export default cssModules(DashboardTable, styles);

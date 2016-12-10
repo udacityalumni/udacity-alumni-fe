@@ -55,6 +55,12 @@ export const setSortOptions = (index, ascending) => ({
   ascending,
 });
 
+export const setSortOptionsArticles = (index, ascending) => ({
+  type: types.ADMIN_DASHBOARD_SET_SORT_OPTIONS_ARTICLES,
+  index,
+  ascending,
+});
+
 export const openAvatarModal = (user) => ({
   type: types.ADMIN_DASHBOARD_OPEN_MODAL,
   user,

@@ -5,22 +5,22 @@ export const initialState = {
   users: {
     editing: null,
     items: [],
-    perPage: 10,
+    perPage: 8,
     currentPage: 1,
+    sortIndex: 1,
+    sortAscending: true,
   },
   articles: {
     items: [],
-    perPage: 10,
+    perPage: 8,
     currentPage: 1,
+    sortIndex: 1,
+    sortAscending: true,
   },
   aside: {
     isVisible: false,
   },
   error: null,
-  userTable: {
-    sortIndex: 1,
-    sortAscending: true,
-  },
   modal: {
     user: null,
     avatarInput: null,
@@ -109,8 +109,17 @@ const adminDashboardReducer =
       case types.ADMIN_DASHBOARD_SET_SORT_OPTIONS:
         return {
           ...state,
-          userTable: {
-            ...state.userTable,
+          users: {
+            ...state.users,
+            sortIndex: action.index,
+            sortAscending: action.ascending,
+          },
+        };
+      case types.ADMIN_DASHBOARD_SET_SORT_OPTIONS_ARTICLES:
+        return {
+          ...state,
+          articles: {
+            ...state.articles,
             sortIndex: action.index,
             sortAscending: action.ascending,
           },

@@ -27,9 +27,6 @@ import {
   initialState as singleArticleContainer,
 } from './containers/SingleArticleContainer/reducer';
 import {
-  initialState as contentDashboardContainer,
-} from './containers/ContentDashboardContainer/reducer';
-import {
   initialState as carouselWidgetContainer,
 } from './containers/CarouselWidgetContainer/reducer';
 

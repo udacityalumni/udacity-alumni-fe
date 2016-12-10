@@ -8,8 +8,11 @@ const getUsers = () => (state) => state.users.items;
 const getUsersCurrentPage = () => (state) => state.users.currentPage;
 const getUsersPerPage = () => (state) => state.users.perPage;
 
-const getSortIndex = () => (state) => state.userTable.sortIndex;
-const getSortAscending = () => (state) => state.userTable.sortAscending;
+const getUsersSortIndex = () => (state) => state.users.sortIndex;
+const getUsersSortAscending = () => (state) => state.users.sortAscending;
+
+const getArticlesSortIndex = () => (state) => state.articles.sortIndex;
+const getArticlesSortAscending = () => (state) => state.articles.sortAscending;
 
 export const getPagedArticles = createSelector(
   getArticles(),
@@ -23,6 +26,22 @@ export const getPagedArticles = createSelector(
       return articles.filter((_, i) =>
         i >= from && i < to
       );
+    }
+  }
+);
+
+export const getSortedArticles = createSelector(
+  getPagedArticles,
+  getArticlesSortIndex(),
+  getArticlesSortAscending(),
+  (articles, index, isAscending) => { // eslint-disable-line
+    if (articles && articles.length > 0) {
+      if (articles === 1) {
+        return articles.sort((a, b) =>
+          isAscending ? a.name > b.name : b.name > a.name
+        );
+      }
+      return articles;
     }
   }
 );
@@ -45,8 +64,8 @@ export const getPagedUsers = createSelector(
 
 export const getSortedUsers = createSelector(
   getPagedUsers,
-  getSortIndex(),
-  getSortAscending(),
+  getUsersSortIndex(),
+  getUsersSortAscending(),
   (users, index, isAscending) => { // eslint-disable-line
     if (users && users.length > 0) {
       if (index === 1) {

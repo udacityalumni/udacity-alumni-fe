@@ -176,8 +176,6 @@ class AdminDashboard extends Component {
       userRoles,
       fields,
       showAside,
-      sortAscending,
-      sortIndex,
       dashboardError,
       modal,
       confirmationModal,
@@ -189,7 +187,7 @@ class AdminDashboard extends Component {
         fill="horizontal"
         align="center"
       >
-       {isLoading ?
+       {isLoading || !users.length || !articles.length ?
          <Section
            align="center"
            justify="center"
@@ -231,8 +229,8 @@ class AdminDashboard extends Component {
                             onClear={this.handleClearing}
                             onSave={this.handleSave}
                             onSort={this.handleSorting}
-                            sortIndex={sortIndex}
-                            sortAscending={sortAscending}
+                            sortIndex={usersConfig.sortIndex}
+                            sortAscending={usersConfig.sortAscending}
                             onAvatarClick={this.handleAvatarClick}
                           />
                         </Box>
@@ -248,6 +246,9 @@ class AdminDashboard extends Component {
                             currentPage={articlesConfig.currentPage}
                             onChangePage={actions.setArticlesPage}
                             allItems={articles}
+                            onSort={actions.setSortOptionsArticles}
+                            sortIndex={articlesConfig.sortIndex}
+                            sortAscending={articlesConfig.sortAscending}
                             onDelete={({ id }) => actions.openConfirmationModal(id)}
                             onEdit={({ id }) => actions.editArticle(id)}
                             onShow={({ slug }) => actions.viewArticle(slug)}
@@ -327,9 +328,7 @@ AdminDashboard.propTypes = {
   showAside: PropTypes.bool.isRequired,
   refetch: PropTypes.func.isRequired,
   dashboardError: PropTypes.object,
-  sortIndex: PropTypes.number.isRequired,
   modal: PropTypes.object.isRequired,
-  sortAscending: PropTypes.bool.isRequired,
   confirmationModal: PropTypes.object.isRequired,
   deleteArticleMutation: PropTypes.func.isRequired,
   message: PropTypes.string,
@@ -344,8 +343,6 @@ const mapStateToProps = (state) => ({
   isMobile: state.app.isMobile,
   user: state.app.user,
   authToken: state.app.authToken,
-  sortIndex: state.adminDashboardContainer.userTable.sortIndex,
-  sortAscending: state.adminDashboardContainer.userTable.sortAscending,
   activeTab: state.adminDashboardContainer.activeTab,
   usersConfig: state.adminDashboardContainer.users,
   articlesConfig: state.adminDashboardContainer.articles,
