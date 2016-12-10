@@ -19,7 +19,7 @@ const ConfirmationModal = ({
     onClose={onCancel}
     align="center"
   >
-    <Box align="center" pad={{ horizontal: 'medium', vertical: 'medium' }}>
+    <Box align="center" pad="large">
       <Heading align="center">
         {title}
       </Heading>
@@ -32,12 +32,14 @@ const ConfirmationModal = ({
           primary
           onClick={onConfirm}
           type="submit"
+          style={{ marginTop: 10, marginRight: 5 }}
           label="Confirm"
           icon={<CheckmarkIcon />}
         />
         <Button
           onClick={onCancel}
           type="reset"
+          style={{ marginTop: 10, marginLeft: 5 }}
           label="Cancel"
           icon={<CloseIcon />}
         />

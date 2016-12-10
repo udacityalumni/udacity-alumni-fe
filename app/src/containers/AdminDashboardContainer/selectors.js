@@ -8,11 +8,14 @@ const getUsers = () => (state) => state.users.items;
 const getUsersCurrentPage = () => (state) => state.users.currentPage;
 const getUsersPerPage = () => (state) => state.users.perPage;
 
+const getSortIndex = () => (state) => state.userTable.sortIndex;
+const getSortAscending = () => (state) => state.userTable.sortAscending;
+
 export const getPagedArticles = createSelector(
   getArticles(),
   getArticlesCurrentPage(),
   getArticlesPerPage(),
-  (articles, currentPage, perPage) => {
+  (articles, currentPage, perPage) => { // eslint-disable-line
     if (articles && articles.length > 0) {
       const current = currentPage - 1;
       const from = current * perPage;
@@ -28,7 +31,7 @@ export const getPagedUsers = createSelector(
   getUsers(),
   getUsersCurrentPage(),
   getUsersPerPage(),
-  (users, currentPage, perPage) => {
+  (users, currentPage, perPage) => { // eslint-disable-line
     if (users && users.length > 0) {
       const current = currentPage - 1;
       const from = current * perPage;
@@ -36,6 +39,45 @@ export const getPagedUsers = createSelector(
       return users.filter((_, i) =>
         i >= from && i < to
       );
+    }
+  }
+);
+
+export const getSortedUsers = createSelector(
+  getPagedUsers,
+  getSortIndex(),
+  getSortAscending(),
+  (users, index, isAscending) => { // eslint-disable-line
+    if (users && users.length > 0) {
+      if (index === 1) {
+        return users.sort((a, b) =>
+          isAscending ? a.name > b.name : b.name > a.name
+        );
+      }
+      if (index === 2) {
+        return users.sort((a, b) =>
+          isAscending ? a.email > b.email : b.email > a.email
+        );
+      }
+      if (index === 3) {
+        return users.sort((a, b) =>
+          isAscending ? a.role > b.role : b.role > a.role
+        );
+      }
+      if (index === 4) {
+        return users.sort((a, b) =>
+          isAscending ? a.bio > b.bio : b.bio > a.bio
+        );
+      }
+      if (index === 5) {
+        return users.sort((a, b) =>
+          isAscending ? a.public > b.public : b.public > a.public
+        );
+      }
+      if (index === 6) {
+        return users.sort((a, b) => a.name > b.name);
+      }
+      return users;
     }
   }
 );

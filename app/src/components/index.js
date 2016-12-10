@@ -1,4 +1,6 @@
 /* GENERATOR: Assemble all components for export */
+export AvatarFormModal from './AvatarFormModal';
+export TableHeader from './TableHeader';
 export UserDashboardTable from './UserDashboardTable';
 export Pagination from './Pagination';
 export PasswordResetForm from './PasswordResetForm';

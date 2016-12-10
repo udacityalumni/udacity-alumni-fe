@@ -14,13 +14,15 @@ import ExpandIcon from 'grommet-udacity/components/icons/base/Expand';
 import ContractIcon from 'grommet-udacity/components/icons/base/Contract';
 import Button from 'grommet-udacity/components/Button';
 import { FullSection, MainContent, MainBox, AsideButtonContainer } from './styles';
-import { getPagedUsers, getPagedArticles } from './selectors';
+import { getSortedUsers, getPagedArticles } from './selectors';
 import {
   LoadingIndicator,
   DashboardTable,
   UserDashboardTable,
   MainAside,
   ToastMessage,
+  AvatarFormModal,
+  ConfirmationModal,
 } from 'components';
 
 export const formFields = [
@@ -37,6 +39,10 @@ class AdminDashboard extends Component {
     this.handleEditing = this.handleEditing.bind(this);
     this.handleClearing = this.handleClearing.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.handleSorting = this.handleSorting.bind(this);
+    this.handleSavingAvatar = this.handleSavingAvatar.bind(this);
+    this.handleDeletingArticle = this.handleDeletingArticle.bind(this);
+    this.handleAvatarClick = this.handleAvatarClick.bind(this);
   }
   componentWillReceiveProps({ users, articles }) {
     if (users && users !== this.props.users) {
@@ -92,6 +98,67 @@ class AdminDashboard extends Component {
         actions.setDashboardError(err);
       });
   }
+  handleSorting(index, ascending) {
+    this.props.actions.setSortOptions(index, ascending);
+  }
+  handleSavingAvatar() {
+    const {
+      authToken,
+      updateUserMutation,
+      refetch,
+      actions,
+      modal,
+    } = this.props;
+    const user = {
+      avatar: modal.avatarInput,
+    };
+    const data = {
+      variables: {
+        user,
+        authToken,
+        user_id: this.props.editingIndex,
+      },
+    };
+    updateUserMutation(data)
+      .then(() => {
+        actions.closeAvatarModal();
+        actions.clearUserEditing();
+        refetch();
+      })
+      .catch(err => {
+        actions.setDashboardError(err);
+      });
+  }
+  handleDeletingArticle() {
+    const {
+      deleteArticleMutation,
+      confirmationModal,
+      authToken,
+      actions,
+      refetch,
+    } = this.props;
+    const data = {
+      variables: {
+        id: confirmationModal.articleId,
+        authToken,
+      },
+    };
+    actions.dashboardDeleteArticleInitiation();
+    deleteArticleMutation(data)
+      .then(() => {
+        refetch();
+        actions.dashboardDeleteArticleSuccess(
+          'The article was successfully deleted'
+        );
+      })
+      .catch(err => {
+        actions.dashboardDeleteArticleFailure(err);
+      });
+  }
+  handleAvatarClick(user) {
+    this.props.actions.editAvatarInput(user.avatar);
+    this.props.actions.openAvatarModal(user);
+  }
   render() {
     const {
       isMobile,
@@ -109,7 +176,12 @@ class AdminDashboard extends Component {
       userRoles,
       fields,
       showAside,
+      sortAscending,
+      sortIndex,
       dashboardError,
+      modal,
+      confirmationModal,
+      message,
     } = this.props;
     return (
       <MainBox
@@ -135,7 +207,7 @@ class AdminDashboard extends Component {
               <Heading align="center">
                 Admin Dashboard
               </Heading>
-              <Box pad="large">
+              <Box>
                 {users && users.length && articles && articles.length &&
                   <Tabs
                     responsive={false}
@@ -158,6 +230,10 @@ class AdminDashboard extends Component {
                             onEdit={this.handleEditing}
                             onClear={this.handleClearing}
                             onSave={this.handleSave}
+                            onSort={this.handleSorting}
+                            sortIndex={sortIndex}
+                            sortAscending={sortAscending}
+                            onAvatarClick={this.handleAvatarClick}
                           />
                         </Box>
                       </Tab>
@@ -172,9 +248,9 @@ class AdminDashboard extends Component {
                             currentPage={articlesConfig.currentPage}
                             onChangePage={actions.setArticlesPage}
                             allItems={articles}
-                            onDelete={e => e}
-                            onEdit={e => e}
-                            onShow={e => e}
+                            onDelete={({ id }) => actions.openConfirmationModal(id)}
+                            onEdit={({ id }) => actions.editArticle(id)}
+                            onShow={({ slug }) => actions.viewArticle(slug)}
                           />
                         </Box>
                       </Tab>
@@ -203,6 +279,29 @@ class AdminDashboard extends Component {
             status="critical"
           />
         }
+        {message &&
+          <ToastMessage
+            message={message}
+            onClose={actions.clearDashboardMessage}
+            status="ok"
+          />
+        }
+        <AvatarFormModal
+          isVisible={modal.isVisible}
+          onChange={actions.editAvatarInput}
+          onSave={this.handleSavingAvatar}
+          onClose={actions.closeAvatarModal}
+          onCancel={actions.closeAvatarModal}
+          onChange={({ target }) => actions.editAvatarInput(target.value)}
+          avatarString={modal.avatarInput}
+          user={modal.user}
+        />
+        <ConfirmationModal
+          isVisible={confirmationModal.isVisible}
+          onConfirm={() => this.handleDeletingArticle()}
+          onCancel={() => actions.cancelDeletingArticle()}
+          title="Confirm Deletion"
+        />
       </MainBox>
     );
   }
@@ -228,6 +327,12 @@ AdminDashboard.propTypes = {
   showAside: PropTypes.bool.isRequired,
   refetch: PropTypes.func.isRequired,
   dashboardError: PropTypes.object,
+  sortIndex: PropTypes.number.isRequired,
+  modal: PropTypes.object.isRequired,
+  sortAscending: PropTypes.bool.isRequired,
+  confirmationModal: PropTypes.object.isRequired,
+  deleteArticleMutation: PropTypes.func.isRequired,
+  message: PropTypes.string,
 };
 
 AdminDashboard.contextTypes = {
@@ -239,14 +344,19 @@ const mapStateToProps = (state) => ({
   isMobile: state.app.isMobile,
   user: state.app.user,
   authToken: state.app.authToken,
+  sortIndex: state.adminDashboardContainer.userTable.sortIndex,
+  sortAscending: state.adminDashboardContainer.userTable.sortAscending,
   activeTab: state.adminDashboardContainer.activeTab,
   usersConfig: state.adminDashboardContainer.users,
   articlesConfig: state.adminDashboardContainer.articles,
   editingIndex: state.adminDashboardContainer.users.editing,
   showAside: state.adminDashboardContainer.aside.isVisible,
-  pagedUsers: getPagedUsers(state.adminDashboardContainer),
+  modal: state.adminDashboardContainer.modal,
+  pagedUsers: getSortedUsers(state.adminDashboardContainer),
   pagedArticles: getPagedArticles(state.adminDashboardContainer),
   dashboardError: state.adminDashboardContainer.error,
+  message: state.adminDashboardContainer.message,
+  confirmationModal: state.adminDashboardContainer.confirmationModal,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -328,7 +438,21 @@ const ContainerWithMutations = graphql(updateUserMutation, {
   }),
 })(ContainerWithUsers);
 
+const deleteArticleMutation = gql`
+  mutation deleteArticle($authToken: String!, $id: ID!) {
+    DeleteArticle(input: { id: $id, auth_token: $authToken }) {
+      id: deleted_id
+    }
+  }
+`;
+
+const ContainerWithMoreMutations = graphql(deleteArticleMutation, {
+  props: ({ mutate }) => ({
+    deleteArticleMutation: mutate,
+  }),
+})(ContainerWithMutations);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ContainerWithMutations);
+)(ContainerWithMoreMutations);

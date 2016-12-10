@@ -1,4 +1,5 @@
 import * as types from './constants';
+import { push } from 'react-router-redux';
 
 // adminDashboarddefaultAction :: Int -> {Action}
 export const setActiveTab = (tab) => ({
@@ -47,3 +48,62 @@ export const setDashboardError = (error) => ({
 export const clearDashboardError = () => ({
   type: types.ADMIN_DASHBOARD_CLEAR_ERROR,
 });
+
+export const setSortOptions = (index, ascending) => ({
+  type: types.ADMIN_DASHBOARD_SET_SORT_OPTIONS,
+  index,
+  ascending,
+});
+
+export const openAvatarModal = (user) => ({
+  type: types.ADMIN_DASHBOARD_OPEN_MODAL,
+  user,
+});
+
+export const closeAvatarModal = () => ({
+  type: types.ADMIN_DASHBOARD_CLOSE_MODAL,
+});
+
+export const editAvatarInput = (input) => ({
+  type: types.ADMIN_DASHBOARD_EDIT_AVATAR_INPUT,
+  input,
+});
+
+export const openConfirmationModal = (id) => ({
+  type: types.ADMIN_DASHBOARD_OPEN_CONFIRMATION_MODAL,
+  id,
+});
+
+export const cancelDeletingArticle = () => ({
+  type: types.ADMIN_DASHBOARD_CANCEL_ARTICLE_DELETION,
+});
+
+export const dashboardDeleteArticleInitiation = () => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_INITIATION,
+});
+
+export const dashboardDeleteArticleSuccess = (message) => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_SUCCESS,
+  message,
+});
+
+export const dashboardDeleteArticleFailure = (error) => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_FAILURE,
+  error,
+});
+
+export const clearDashboardMessage = () => ({
+  type: types.ADMIN_DASHBOARD_CLEAR_MESSAGE,
+});
+
+export const editArticle = (id) => (dispatch) => {
+  dispatch(
+    push(`/admin/cms?action=edit&articleId=${id}`)
+  );
+};
+
+export const viewArticle = (slug) => (dispatch) => {
+  dispatch(
+    push(`/articles/${slug}`)
+  );
+};

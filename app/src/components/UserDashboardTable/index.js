@@ -1,21 +1,34 @@
 import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
 import Table from 'grommet-udacity/components/Table';
-import TableRow from 'grommet-udacity/components/TableRow';
 import Heading from 'grommet-udacity/components/Heading';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
-import Label from 'grommet-udacity/components/Label';
 import Select from 'grommet-udacity/components/Select';
 import ListItem from 'grommet-udacity/components/ListItem';
 import Menu from 'grommet-udacity/components/Menu';
 import CheckBox from 'grommet-udacity/components/CheckBox';
+import Footer from 'grommet-udacity/components/Footer';
 import Button from 'grommet-udacity/components/Button';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
 import CloseIcon from 'grommet-udacity/components/icons/base/Close';
-import { Pagination, Avatar } from 'components';
-import { BoxWrapper, ListWrapper, InnerWrapper, GrowBox, UserName, TD } from './styles';
+import Pulse from 'grommet-udacity/components/icons/Pulse';
+import { Pagination, Avatar, TableHeader } from 'components';
+import isEditing from './utils';
+import {
+  BoxWrapper,
+  ListWrapper,
+  InnerWrapper,
+  GrowBox,
+  UserName,
+  TD,
+  TRow,
+  Input,
+  TextArea,
+  Label,
+  SelectBig,
+} from './styles';
 
 const UserDashboardTable = ({
   users,
@@ -30,9 +43,12 @@ const UserDashboardTable = ({
   editingIndex,
   fields,
   userRoles,
+  onSort,
+  sortIndex,
+  sortAscending,
+  onAvatarClick,
 }) => (
   <ListWrapper
-    pad="large"
     color="light-2"
   >
     <GrowBox>
@@ -58,7 +74,13 @@ const UserDashboardTable = ({
                         align="center"
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
-                        <Avatar src={user.avatar} />
+                        <Box
+                          onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
+                        >
+                          <Avatar
+                            src={user.avatar}
+                          />
+                        </Box>
                         <BoxWrapper>
                           {editingIndex && editingIndex === user.id &&
                             <Label>
@@ -66,7 +88,7 @@ const UserDashboardTable = ({
                             </Label>
                           }
                           {editingIndex && editingIndex === user.id ?
-                            <input {...fields.nameInput} type="text" />
+                            <Input {...fields.nameInput} type="text" />
                           :
                             <UserName align="center" tag="h3">
                               {user.name}
@@ -78,7 +100,7 @@ const UserDashboardTable = ({
                             Email:
                           </Label>
                           {editingIndex && editingIndex === user.id ?
-                            <input {...fields.emailInput} type="text" name="email" />
+                            <Input {...fields.emailInput} type="text" name="email" />
                           :
                             <Heading align="center" tag="h4">
                               {user.email}
@@ -86,11 +108,11 @@ const UserDashboardTable = ({
                           }
                         </BoxWrapper>
                         <BoxWrapper>
-                          <Label style={{ flex: 1 }}>
+                          <Label>
                             Role:
                           </Label>
                           {editingIndex && editingIndex === user.id ?
-                            <Select
+                            <SelectBig
                               value={fields.roleInput.value}
                               onChange={({ option }) => fields.roleInput.onChange(option.label)}
                               options={userRoles && userRoles.map((item) =>
@@ -107,8 +129,8 @@ const UserDashboardTable = ({
                           }
                         </BoxWrapper>
                         <BoxWrapper>
-                          <Label style={{ flex: 1 }}>
-                            Public
+                          <Label>
+                            Public:
                           </Label>
                           <CheckBox
                             onChange={(e) => fields.publicInput.onChange(e.target.checked)}
@@ -121,47 +143,49 @@ const UserDashboardTable = ({
                         </BoxWrapper>
                         <BoxWrapper>
                           {editingIndex && editingIndex === user.id &&
-                            <Label style={{ flex: 1 }}>
-                              Bio
+                            <Label>
+                              Bio:
                             </Label>
                           }
                           {editingIndex && editingIndex === user.id ?
-                            <textarea {...fields.bioInput} rows="4" coluns="40" type="text" />
+                            <TextArea {...fields.bioInput} rows="4" coluns="40" type="text" />
                           :
                             <Heading align="center" tag="h4">
                               {user.bio}
                             </Heading>
                           }
                         </BoxWrapper>
-                        <Menu
-                          inline
-                          responsive={false}
-                          direction="row"
-                          justify="center"
-                          align="center"
-                          style={{ width: '100%' }}
-                        >
-                          {editingIndex === user.id ?
-                            <Button
-                              plain
-                              icon={<CheckmarkIcon />}
-                              onClick={onSave}
-                            />
-                          :
-                            <Button
-                              plain
-                              icon={<EditIcon />}
-                              onClick={() => onEdit(user)}
-                            />
-                          }
-                          {editingIndex === user.id &&
-                            <Button
-                              plain
-                              icon={<CloseIcon />}
-                              onClick={onClear}
-                            />
-                          }
-                        </Menu>
+                        <Footer justify="center" pad="medium">
+                          <Menu
+                            inline
+                            responsive={false}
+                            direction="row"
+                            justify="center"
+                            align="center"
+                            style={{ width: '100%' }}
+                          >
+                            {editingIndex === user.id ?
+                              <Button
+                                plain
+                                icon={<Pulse icon={<CheckmarkIcon />} />}
+                                onClick={onSave}
+                              />
+                            :
+                              <Button
+                                plain
+                                icon={<EditIcon />}
+                                onClick={() => onEdit(user)}
+                              />
+                            }
+                            {editingIndex === user.id &&
+                              <Button
+                                plain
+                                icon={<CloseIcon />}
+                                onClick={onClear}
+                              />
+                            }
+                          </Menu>
+                        </Footer>
                       </InnerWrapper>
                     </Box>
                   </Tile>
@@ -172,22 +196,32 @@ const UserDashboardTable = ({
         </List>
       :
         <Table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Bio</th>
-              <th>Public</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
+          <TableHeader
+            sortIndex={sortIndex}
+            sortAscending={sortAscending}
+            onSort={onSort}
+            labels={['', 'Name', 'Email', 'Role', 'Bio', 'Public', 'Actions']}
+          />
           <tbody>
             {users && users.length > 0 && users.map((user, i) =>
-              <TableRow key={i}>
+              <TRow
+                isEditing={editingIndex === user.id}
+                key={i}
+                onClick={() => editingIndex !== user.id ?
+                  onEdit(user) : null
+                }
+              >
                 <td style={{ minWidth: 80 }}>
-                  <Avatar src={user.avatar} size="xsmall" />
+                  <Box
+                    focusable={isEditing(user, editingIndex)}
+                    onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
+                  >
+                    <Avatar
+                      onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
+                      src={user.avatar}
+                      size="xsmall"
+                    />
+                  </Box>
                 </td>
                 <TD>
                   {editingIndex && editingIndex === user.id ?
@@ -254,7 +288,7 @@ const UserDashboardTable = ({
                     {editingIndex === user.id ?
                       <Button
                         plain
-                        icon={<CheckmarkIcon />}
+                        icon={<Pulse icon={<CheckmarkIcon />} />}
                         onClick={onSave}
                       />
                     :
@@ -273,7 +307,7 @@ const UserDashboardTable = ({
                     }
                   </Menu>
                 </td>
-              </TableRow>
+              </TRow>
             )}
           </tbody>
         </Table>
@@ -301,6 +335,10 @@ UserDashboardTable.propTypes = {
   isMobile: PropTypes.bool.isRequired,
   editingIndex: PropTypes.number,
   userRoles: PropTypes.array,
+  onSort: PropTypes.func.isRequired,
+  sortIndex: PropTypes.number.isRequired,
+  sortAscending: PropTypes.bool.isRequired,
+  onAvatarClick: PropTypes.func.isRequired,
 };
 
 export default UserDashboardTable;

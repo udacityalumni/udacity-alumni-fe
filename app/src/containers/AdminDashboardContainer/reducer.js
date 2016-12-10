@@ -17,11 +17,104 @@ export const initialState = {
     isVisible: false,
   },
   error: null,
+  userTable: {
+    sortIndex: 1,
+    sortAscending: true,
+  },
+  modal: {
+    user: null,
+    avatarInput: null,
+    isVisible: false,
+  },
+  confirmationModal: {
+    isVisible: false,
+    articleId: null,
+  },
+  isSubmitting: false,
+  message: null,
 };
 
 const adminDashboardReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.ADMIN_DASHBOARD_CLEAR_MESSAGE:
+        return {
+          ...state,
+          message: null,
+        };
+      case types.DASHBOARD_DELETE_ARTICLE_INITIATION:
+        return {
+          ...state,
+          isSubmitting: true,
+        };
+      case types.DASHBOARD_DELETE_ARTICLE_SUCCESS:
+        return {
+          ...state,
+          isSubmitting: false,
+          message: action.message,
+          confirmationModal: {
+            isVisible: false,
+            articleId: null,
+          },
+        };
+      case types.DASHBOARD_DELETE_ARTICLE_FAILURE:
+        return {
+          ...state,
+          isSubmitting: false,
+          error: action.error,
+        };
+      case types.ADMIN_DASHBOARD_OPEN_CONFIRMATION_MODAL:
+        return {
+          ...state,
+          confirmationModal: {
+            isVisible: true,
+            articleId: action.id,
+          },
+        };
+      case types.ADMIN_DASHBOARD_CANCEL_ARTICLE_DELETION:
+        return {
+          ...state,
+          confirmationModal: {
+            isVisible: false,
+            articleId: null,
+          },
+        };
+      case types.ADMIN_DASHBOARD_OPEN_MODAL:
+        return {
+          ...state,
+          modal: {
+            ...state.modal,
+            isVisible: true,
+            user: action.user,
+          },
+        };
+      case types.ADMIN_DASHBOARD_CLOSE_MODAL:
+        return {
+          ...state,
+          modal: {
+            ...state.modal,
+            isVisible: false,
+            avatarInput: null,
+            user: null,
+          },
+        };
+      case types.ADMIN_DASHBOARD_EDIT_AVATAR_INPUT:
+        return {
+          ...state,
+          modal: {
+            ...state.modal,
+            avatarInput: action.input,
+          },
+        };
+      case types.ADMIN_DASHBOARD_SET_SORT_OPTIONS:
+        return {
+          ...state,
+          userTable: {
+            ...state.userTable,
+            sortIndex: action.index,
+            sortAscending: action.ascending,
+          },
+        };
       case types.ADMIN_DASHBOARD_SET_ERROR:
         return {
           ...state,

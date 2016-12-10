@@ -1,11 +1,8 @@
 ## AdminDashboardContainer
-A container that does ...
+A coupled container for the admin dashboard.
 
 ### Example Usage
 
 ```js
 <AdminDashboardContainer  />
 ```
-
-
-### Other Information
