@@ -5,6 +5,13 @@
   flex-direction: row !important;
 }
 
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row !important;
+}
+
 .innerWrapper {
   width: 80vw;
   justify-content: center;

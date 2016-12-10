@@ -10,7 +10,7 @@ import Label from 'grommet-udacity/components/Label';
 import ListItem from 'grommet-udacity/components/ListItem';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import { DashboardTableButtonMenu, Pagination } from 'components';
+import { DashboardTableButtonMenu, Pagination, TableHeader } from 'components';
 
 const DashboardTable = ({
   items,
@@ -51,21 +51,15 @@ const DashboardTable = ({
                         className={styles.innerWrapper}
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
-                        <Box
-                          className={styles.boxWrapper}
-                        >
+                        <Box className={styles.imageWrapper}>
                           <Image size="medium" src={item.image} />
                         </Box>
-                        <Box
-                          className={styles.boxWrapper}
-                        >
+                        <Box className={styles.boxWrapper}>
                           <Heading align="center" tag="h3">
                             {item.title}
                           </Heading>
                         </Box>
-                        <Box
-                          className={styles.boxWrapper}
-                        >
+                        <Box className={styles.boxWrapper}>
                           <Label>
                             Posted By:
                           </Label>
@@ -73,9 +67,7 @@ const DashboardTable = ({
                             {item.user.name}
                           </Heading>
                         </Box>
-                        <Box
-                          className={styles.boxWrapper}
-                        >
+                        <Box className={styles.boxWrapper}>
                           <Label style={{ flex: 1 }}>
                             Status:
                           </Label>
@@ -99,14 +91,9 @@ const DashboardTable = ({
         </List>
       :
         <Table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Status</th>
-              <th>Author</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
+          <TableHeader
+            label={['Title', 'Status', 'Author', 'Actions']}
+          />
           <tbody>
             {items && items.length > 0 && items.map((item, i) =>
               <TableRow key={i}>
