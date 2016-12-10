@@ -9,13 +9,26 @@
       "react",
       "stage-0"
     ],
-    "plugins": [
-      "babel-plugin-webpack-alias"
-    ],
     "env": {
       "development": {
         "plugins": [
           "react-hot-loader/babel"
+        ]
+      },
+      "production": {
+        "plugins": [
+          [
+            "babel-plugin-webpack-alias", {
+              "config": "./webpack.config.prod.js"
+            }
+          ]
+        ]
+      },
+      "test": {
+        "plugins": [
+          [
+            "transform-es2015-modules-commonjs"
+          ]
         ]
       }
     }
@@ -34,28 +47,25 @@
     ]
   },
   "jest-webpack-alias": {
-    "configFile": "./config/webpack/webpack.test.config.js"
+    "configFile": "./webpack.config.babel.js"
   },
   "scripts": {
     "t": "npm run test",
     "test:watch": "npm test -- --watch",
-    "test": "BABEL_DISABLE_CACHE=1 cross-env NODE_ENV='test' node --harmony_proxies node_modules/.bin/jest",
+    "test": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV='test' node --harmony_proxies node_modules/.bin/jest",
     "build": "npm run ./node_modules/.bin/webpack",
-    "dev": "./node_modules/.bin/webpack-dev-server",
     "generate": "all-contributors generate",
     "generate:component": "plop --plopfile config/generators/index.js component",
     "generate:container": "plop --plopfile config/generators/index.js container",
     "generate:page": "plop --plopfile config/generators/index.js page",
     "lint": "eslint . --ext .js --ext .jsx; exit 0",
     "predeploy": "rimraf server/public/*.*",
-    "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
+    "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --config ./webpack.config.prod.js",
     "start:staging": "cross-env NODE_ENV='staging' node devServer",
     "start:development": "cross-env NODE_ENV='development' node devServer",
     "start:production": "cross-env NODE_ENV='production' node devServer",
     "start": "npm run start:staging",
-    "clean": "rm -rf app/dist app/build",
-    "clean:server": "rm -rf server/public/*",
-    "dist": "npm run clean:server && npm run deploy",
+    "clean": "rimraf app/dist app/build",
     "setup": "./node_modules/.bin/yarn",
     "serve:bundle": "cross-env BASE_URL=http://0.0.0.0:1337/ NODE_ENV=production PORT=1337 node server.js",
     "add": "all-contributors add",
