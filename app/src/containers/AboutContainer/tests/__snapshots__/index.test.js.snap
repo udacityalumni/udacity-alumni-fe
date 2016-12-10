@@ -1,0 +1,51 @@
+exports[`<About /> should render with default props 1`] = `
+<Box
+  align="center"
+  announce={false}
+  direction="column"
+  focusable={true}
+  pad="large"
+  responsive={true}
+  tag="div">
+  <Split
+    fixed="false"
+    flex="both"
+    priority="left"
+    showOnResponsive="priority">
+    <Article
+      align="center"
+      direction="column"
+      pad="large" />
+    <Sidebar
+      direction="column"
+      full={true}>
+      <Box
+        align="center"
+        announce={false}
+        direction="column"
+        focusable={true}
+        pad="large"
+        responsive={true}
+        tag="div">
+        <Heading
+          strong={true}
+          tag="h2">
+          Contributor Voices
+        </Heading>
+        <CardComponent
+          description="hi"
+          githubUrl="https://git/here"
+          heading="h2"
+          image="https://here"
+          label="this" />
+        <CardComponent
+          description="ho"
+          githubUrl="https://git/there"
+          heading="h2"
+          image="https://there"
+          label="that" />
+      </Box>
+    </Sidebar>
+  </Split>
+</Box>
+`;

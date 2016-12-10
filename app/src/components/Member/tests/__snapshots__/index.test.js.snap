@@ -1,0 +1,16 @@
+exports[`<Member /> should render with default props 1`] = `
+<Heading
+  align="center"
+  justify="center"
+  size="large"
+  tag="h1">
+  <Avatar
+    src="http://overhere" />
+  <Heading
+    align="center"
+    tag="h3" />
+  <Paragraph>
+    I have done this and that....
+  </Paragraph>
+</Heading>
+`;
