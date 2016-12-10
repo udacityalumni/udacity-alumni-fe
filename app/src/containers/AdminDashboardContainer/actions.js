@@ -55,9 +55,9 @@ export const setSortOptions = (index, ascending) => ({
   ascending,
 });
 
-export const openAvatarModal = (userId) => ({
+export const openAvatarModal = (user) => ({
   type: types.ADMIN_DASHBOARD_OPEN_MODAL,
-  userId,
+  user,
 });
 
 export const closeAvatarModal = () => ({
@@ -76,6 +76,24 @@ export const openConfirmationModal = (id) => ({
 
 export const cancelDeletingArticle = () => ({
   type: types.ADMIN_DASHBOARD_CANCEL_ARTICLE_DELETION,
+});
+
+export const dashboardDeleteArticleInitiation = () => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_INITIATION,
+});
+
+export const dashboardDeleteArticleSuccess = (message) => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_SUCCESS,
+  message,
+});
+
+export const dashboardDeleteArticleFailure = (error) => ({
+  type: types.DASHBOARD_DELETE_ARTICLE_FAILURE,
+  error,
+});
+
+export const clearDashboardMessage = () => ({
+  type: types.ADMIN_DASHBOARD_CLEAR_MESSAGE,
 });
 
 export const editArticle = (id) => (dispatch) => {

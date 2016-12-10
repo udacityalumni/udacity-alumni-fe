@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Box from 'grommet-udacity/components/Box';
 import Heading from 'grommet-udacity/components/Heading';
 import TableRow from 'grommet-udacity/components/TableRow';
+import GrommetLabel from 'grommet-udacity/components/Label';
+import GrommetSelect from 'grommet-udacity/components/Select';
 
 export const BoxWrapper = styled(Box)`
   display: flex;
@@ -9,6 +11,7 @@ export const BoxWrapper = styled(Box)`
   justify-content: space-between;
   flex-direction: row !important;
   width: 100%;
+  margin-top: 40px;
 `;
 
 export const InnerWrapper = styled(Box)`
@@ -29,6 +32,11 @@ export const ListWrapper = styled(Box)`
 
 export const GrowBox = styled(Box)`
   flex-grow: 1;
+  @media screen and (max-width: 1200px) {
+    flex-grow: 0;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
 `;
 
 export const UserName = styled(Heading)`
@@ -48,4 +56,31 @@ export const TRow = styled(TableRow)`
     background-color: ${props => props.isEditing ? '#fff' : '#eee'};
   }
   border-bottom: 1px solid #eee;
+`;
+
+export const Input = styled.input`
+  display: flex;
+  flex: 1;
+  margin-left: 20px !important;
+`;
+
+export const TextArea = styled.textarea`
+  display: flex;
+  flex: 1;
+  margin-left: 20px !important;
+`;
+
+export const Label = styled(GrommetLabel)`
+  width: 50px;
+  margin: 5px;
+`;
+
+export const SelectBig = styled(GrommetSelect)`
+  display: flex;
+  flex: 1;
+  margin-left: 20px;
+  input {
+    display: flex;
+    flex: 1;
+  }
 `;

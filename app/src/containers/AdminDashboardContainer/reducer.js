@@ -22,7 +22,7 @@ export const initialState = {
     sortAscending: true,
   },
   modal: {
-    userId: null,
+    user: null,
     avatarInput: null,
     isVisible: false,
   },
@@ -30,11 +30,39 @@ export const initialState = {
     isVisible: false,
     articleId: null,
   },
+  isSubmitting: false,
+  message: null,
 };
 
 const adminDashboardReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.ADMIN_DASHBOARD_CLEAR_MESSAGE:
+        return {
+          ...state,
+          message: null,
+        };
+      case types.DASHBOARD_DELETE_ARTICLE_INITIATION:
+        return {
+          ...state,
+          isSubmitting: true,
+        };
+      case types.DASHBOARD_DELETE_ARTICLE_SUCCESS:
+        return {
+          ...state,
+          isSubmitting: false,
+          message: action.message,
+          confirmationModal: {
+            isVisible: false,
+            articleId: null,
+          },
+        };
+      case types.DASHBOARD_DELETE_ARTICLE_FAILURE:
+        return {
+          ...state,
+          isSubmitting: false,
+          error: action.error,
+        };
       case types.ADMIN_DASHBOARD_OPEN_CONFIRMATION_MODAL:
         return {
           ...state,
@@ -57,7 +85,7 @@ const adminDashboardReducer =
           modal: {
             ...state.modal,
             isVisible: true,
-            userId: action.userId,
+            user: action.user,
           },
         };
       case types.ADMIN_DASHBOARD_CLOSE_MODAL:
@@ -66,6 +94,8 @@ const adminDashboardReducer =
           modal: {
             ...state.modal,
             isVisible: false,
+            avatarInput: null,
+            user: null,
           },
         };
       case types.ADMIN_DASHBOARD_EDIT_AVATAR_INPUT:

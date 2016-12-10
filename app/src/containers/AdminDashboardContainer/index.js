@@ -42,6 +42,7 @@ class AdminDashboard extends Component {
     this.handleSorting = this.handleSorting.bind(this);
     this.handleSavingAvatar = this.handleSavingAvatar.bind(this);
     this.handleDeletingArticle = this.handleDeletingArticle.bind(this);
+    this.handleAvatarClick = this.handleAvatarClick.bind(this);
   }
   componentWillReceiveProps({ users, articles }) {
     if (users && users !== this.props.users) {
@@ -101,10 +102,62 @@ class AdminDashboard extends Component {
     this.props.actions.setSortOptions(index, ascending);
   }
   handleSavingAvatar() {
-
+    const {
+      authToken,
+      updateUserMutation,
+      refetch,
+      actions,
+      modal,
+    } = this.props;
+    const user = {
+      avatar: modal.avatarInput,
+    };
+    const data = {
+      variables: {
+        user,
+        authToken,
+        user_id: this.props.editingIndex,
+      },
+    };
+    updateUserMutation(data)
+      .then(() => {
+        actions.closeAvatarModal();
+        actions.clearUserEditing();
+        refetch();
+      })
+      .catch(err => {
+        actions.setDashboardError(err);
+      });
   }
   handleDeletingArticle() {
-
+    const {
+      deleteArticleMutation,
+      confirmationModal,
+      authToken,
+      actions,
+      refetch,
+    } = this.props;
+    const data = {
+      variables: {
+        id: confirmationModal.articleId,
+        authToken,
+      },
+    };
+    actions.dashboardDeleteArticleInitiation();
+    deleteArticleMutation(data)
+      .then(() => {
+        refetch();
+        actions.dashboardDeleteArticleSuccess(
+          'The article was successfully deleted'
+        );
+      })
+      .catch(err => {
+        actions.dashboardDeleteArticleFailure(err);
+      });
+  }
+  handleAvatarClick(user) {
+    this.props.actions.editAvatarInput(user.avatar);
+    this.props.actions.openAvatarModal(user);
   }
   render() {
     const {
@@ -128,6 +181,7 @@ class AdminDashboard extends Component {
       dashboardError,
       modal,
       confirmationModal,
+      message,
     } = this.props;
     return (
       <MainBox
@@ -153,7 +207,7 @@ class AdminDashboard extends Component {
               <Heading align="center">
                 Admin Dashboard
               </Heading>
-              <Box pad="large">
+              <Box>
                 {users && users.length && articles && articles.length &&
                   <Tabs
                     responsive={false}
@@ -179,7 +233,7 @@ class AdminDashboard extends Component {
                             onSort={this.handleSorting}
                             sortIndex={sortIndex}
                             sortAscending={sortAscending}
-                            onAvatarClick={actions.openAvatarModal}
+                            onAvatarClick={this.handleAvatarClick}
                           />
                         </Box>
                       </Tab>
@@ -225,15 +279,22 @@ class AdminDashboard extends Component {
             status="critical"
           />
         }
+        {message &&
+          <ToastMessage
+            message={message}
+            onClose={actions.clearDashboardMessage}
+            status="ok"
+          />
+        }
         <AvatarFormModal
           isVisible={modal.isVisible}
           onChange={actions.editAvatarInput}
           onSave={this.handleSavingAvatar}
           onClose={actions.closeAvatarModal}
           onCancel={actions.closeAvatarModal}
-          onChange={actions.editAvatarInput}
+          onChange={({ target }) => actions.editAvatarInput(target.value)}
           avatarString={modal.avatarInput}
-          user={users ? users[`${modal.userId}`] : null}
+          user={modal.user}
         />
         <ConfirmationModal
           isVisible={confirmationModal.isVisible}
@@ -270,6 +331,8 @@ AdminDashboard.propTypes = {
   modal: PropTypes.object.isRequired,
   sortAscending: PropTypes.bool.isRequired,
   confirmationModal: PropTypes.object.isRequired,
+  deleteArticleMutation: PropTypes.func.isRequired,
+  message: PropTypes.string,
 };
 
 AdminDashboard.contextTypes = {
@@ -292,6 +355,7 @@ const mapStateToProps = (state) => ({
   pagedUsers: getSortedUsers(state.adminDashboardContainer),
   pagedArticles: getPagedArticles(state.adminDashboardContainer),
   dashboardError: state.adminDashboardContainer.error,
+  message: state.adminDashboardContainer.message,
   confirmationModal: state.adminDashboardContainer.confirmationModal,
 });
 
@@ -374,7 +438,21 @@ const ContainerWithMutations = graphql(updateUserMutation, {
   }),
 })(ContainerWithUsers);
 
+const deleteArticleMutation = gql`
+  mutation deleteArticle($authToken: String!, $id: ID!) {
+    DeleteArticle(input: { id: $id, auth_token: $authToken }) {
+      id: deleted_id
+    }
+  }
+`;
+
+const ContainerWithMoreMutations = graphql(deleteArticleMutation, {
+  props: ({ mutate }) => ({
+    deleteArticleMutation: mutate,
+  }),
+})(ContainerWithMutations);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ContainerWithMutations);
+)(ContainerWithMoreMutations);

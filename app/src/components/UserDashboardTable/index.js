@@ -4,11 +4,11 @@ import Table from 'grommet-udacity/components/Table';
 import Heading from 'grommet-udacity/components/Heading';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
-import Label from 'grommet-udacity/components/Label';
 import Select from 'grommet-udacity/components/Select';
 import ListItem from 'grommet-udacity/components/ListItem';
 import Menu from 'grommet-udacity/components/Menu';
 import CheckBox from 'grommet-udacity/components/CheckBox';
+import Footer from 'grommet-udacity/components/Footer';
 import Button from 'grommet-udacity/components/Button';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import CheckmarkIcon from 'grommet-udacity/components/icons/base/Checkmark';
@@ -16,7 +16,19 @@ import CloseIcon from 'grommet-udacity/components/icons/base/Close';
 import Pulse from 'grommet-udacity/components/icons/Pulse';
 import { Pagination, Avatar, TableHeader } from 'components';
 import isEditing from './utils';
-import { BoxWrapper, ListWrapper, InnerWrapper, GrowBox, UserName, TD, TRow } from './styles';
+import {
+  BoxWrapper,
+  ListWrapper,
+  InnerWrapper,
+  GrowBox,
+  UserName,
+  TD,
+  TRow,
+  Input,
+  TextArea,
+  Label,
+  SelectBig,
+} from './styles';
 
 const UserDashboardTable = ({
   users,
@@ -37,7 +49,6 @@ const UserDashboardTable = ({
   onAvatarClick,
 }) => (
   <ListWrapper
-    pad="large"
     color="light-2"
   >
     <GrowBox>
@@ -63,7 +74,9 @@ const UserDashboardTable = ({
                         align="center"
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
-                        <Box onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}>
+                        <Box
+                          onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
+                        >
                           <Avatar
                             src={user.avatar}
                           />
@@ -75,7 +88,7 @@ const UserDashboardTable = ({
                             </Label>
                           }
                           {editingIndex && editingIndex === user.id ?
-                            <input {...fields.nameInput} type="text" />
+                            <Input {...fields.nameInput} type="text" />
                           :
                             <UserName align="center" tag="h3">
                               {user.name}
@@ -87,7 +100,7 @@ const UserDashboardTable = ({
                             Email:
                           </Label>
                           {editingIndex && editingIndex === user.id ?
-                            <input {...fields.emailInput} type="text" name="email" />
+                            <Input {...fields.emailInput} type="text" name="email" />
                           :
                             <Heading align="center" tag="h4">
                               {user.email}
@@ -95,11 +108,11 @@ const UserDashboardTable = ({
                           }
                         </BoxWrapper>
                         <BoxWrapper>
-                          <Label style={{ flex: 1 }}>
+                          <Label>
                             Role:
                           </Label>
                           {editingIndex && editingIndex === user.id ?
-                            <Select
+                            <SelectBig
                               value={fields.roleInput.value}
                               onChange={({ option }) => fields.roleInput.onChange(option.label)}
                               options={userRoles && userRoles.map((item) =>
@@ -116,8 +129,8 @@ const UserDashboardTable = ({
                           }
                         </BoxWrapper>
                         <BoxWrapper>
-                          <Label style={{ flex: 1 }}>
-                            Public
+                          <Label>
+                            Public:
                           </Label>
                           <CheckBox
                             onChange={(e) => fields.publicInput.onChange(e.target.checked)}
@@ -130,47 +143,49 @@ const UserDashboardTable = ({
                         </BoxWrapper>
                         <BoxWrapper>
                           {editingIndex && editingIndex === user.id &&
-                            <Label style={{ flex: 1 }}>
-                              Bio
+                            <Label>
+                              Bio:
                             </Label>
                           }
                           {editingIndex && editingIndex === user.id ?
-                            <textarea {...fields.bioInput} rows="4" coluns="40" type="text" />
+                            <TextArea {...fields.bioInput} rows="4" coluns="40" type="text" />
                           :
                             <Heading align="center" tag="h4">
                               {user.bio}
                             </Heading>
                           }
                         </BoxWrapper>
-                        <Menu
-                          inline
-                          responsive={false}
-                          direction="row"
-                          justify="center"
-                          align="center"
-                          style={{ width: '100%' }}
-                        >
-                          {editingIndex === user.id ?
-                            <Button
-                              plain
-                              icon={<CheckmarkIcon />}
-                              onClick={onSave}
-                            />
-                          :
-                            <Button
-                              plain
-                              icon={<EditIcon />}
-                              onClick={() => onEdit(user)}
-                            />
-                          }
-                          {editingIndex === user.id &&
-                            <Button
-                              plain
-                              icon={<CloseIcon />}
-                              onClick={onClear}
-                            />
-                          }
-                        </Menu>
+                        <Footer justify="center" pad="medium">
+                          <Menu
+                            inline
+                            responsive={false}
+                            direction="row"
+                            justify="center"
+                            align="center"
+                            style={{ width: '100%' }}
+                          >
+                            {editingIndex === user.id ?
+                              <Button
+                                plain
+                                icon={<Pulse icon={<CheckmarkIcon />} />}
+                                onClick={onSave}
+                              />
+                            :
+                              <Button
+                                plain
+                                icon={<EditIcon />}
+                                onClick={() => onEdit(user)}
+                              />
+                            }
+                            {editingIndex === user.id &&
+                              <Button
+                                plain
+                                icon={<CloseIcon />}
+                                onClick={onClear}
+                              />
+                            }
+                          </Menu>
+                        </Footer>
                       </InnerWrapper>
                     </Box>
                   </Tile>
@@ -197,7 +212,10 @@ const UserDashboardTable = ({
                 }
               >
                 <td style={{ minWidth: 80 }}>
-                  <Box onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}>
+                  <Box
+                    focusable={isEditing(user, editingIndex)}
+                    onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
+                  >
                     <Avatar
                       onClick={() => isEditing(user, editingIndex) ? onAvatarClick(user) : null}
                       src={user.avatar}

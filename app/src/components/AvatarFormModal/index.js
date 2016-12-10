@@ -28,18 +28,16 @@ const AvatarFormModal = ({
     align="center"
   >
     <Box pad="large">
-      <Box pad="medium">
-        <Heading align="center" tag="h2">
-          {`Edit Avatar for ${user ? user.name : ''}`}
-        </Heading>
-      </Box>
       <Box align="center" justify="center" pad="medium">
         <Avatar src={user ? user.avatar : null} />
+        <Heading align="center" tag="h2">
+          {user ? user.name : ''}
+        </Heading>
       </Box>
       <Form>
         <FormField
           label="Avatar"
-          help="Enter a URL to set this User's Avatar"
+          help={user ? `Enter an URL for ${user.name}'s avatar'` : ''}
         >
           <input
             value={avatarString}

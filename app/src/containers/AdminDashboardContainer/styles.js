@@ -31,4 +31,7 @@ export const AsideButtonContainer = styled(Box)`
   position: absolute;
   top: 10px;
   right: 10px;
+  @media screen and (max-width: 1450px) {
+    display: none !important;
+  }
 `;
