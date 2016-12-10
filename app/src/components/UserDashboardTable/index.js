@@ -49,9 +49,7 @@ const UserDashboardTable = ({
   sortAscending,
   onAvatarClick,
 }) => (
-  <ListWrapper
-    color="light-2"
-  >
+  <ListWrapper color="light-2">
     <GrowBox>
       {isMobile ?
         <List>

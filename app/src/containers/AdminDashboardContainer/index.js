@@ -201,6 +201,7 @@ class AdminDashboard extends Component {
             <MainContent
               align="center"
               justify="start"
+              pad={{ vertical: 'large' }}
             >
               <Heading align="center">
                 Admin Dashboard

@@ -48,10 +48,18 @@ export const getSortedArticles = createSelector(
       }
       if (index === 3) {
         return articles.sort((a, b) =>
-          isAscending ? a.user.name > b.user.name : b.user.name > a.user.name
+          isAscending ?
+            new Date(a.updated_at.split('T')) - new Date(b.updated_at.split('T'))
+          :
+            new Date(b.updated_at.split('T')) - new Date(a.updated_at.split('T'))
         );
       }
       if (index === 4) {
+        return articles.sort((a, b) =>
+          isAscending ? a.user.name > b.user.name : b.user.name > a.user.name
+        );
+      }
+      if (index === 5) {
         return articles.sort((a, b) =>
           a.title > b.title
         );

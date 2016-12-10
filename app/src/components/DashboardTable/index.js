@@ -1,16 +1,17 @@
 import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
 import Table from 'grommet-udacity/components/Table';
-import TableRow from 'grommet-udacity/components/TableRow';
 import Heading from 'grommet-udacity/components/Heading';
 import Image from 'grommet-udacity/components/Image';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
 import Label from 'grommet-udacity/components/Label';
 import ListItem from 'grommet-udacity/components/ListItem';
+import Timestamp from 'grommet-udacity/components/Timestamp';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import { DashboardTableButtonMenu, Pagination, TableHeader } from 'components';
+import { TableRow } from './styles';
 
 const DashboardTable = ({
   items,
@@ -98,22 +99,25 @@ const DashboardTable = ({
             sortIndex={sortIndex}
             sortAscending={sortAscending}
             onSort={onSort}
-            labels={['', 'Title', 'Status', 'Author', 'Actions']}
+            labels={['', 'Title', 'Posted On', 'Status', 'Author', 'Actions']}
           />
           <tbody style={{ minHeight: 500 }}>
-            {items && items.length > 0 && items.map((item, i) =>
-              <TableRow key={i}>
+            {items && items.length > 0 && items.map((item) =>
+              <TableRow key={item.id}>
                 <td>
                   <Box className={styles.thumbnailWrapper}>
                     <Image className={styles.thumbnail} size="small" src={item.image} />
                   </Box>
                 </td>
-                <td style={{ width: 540 }}>
+                <td style={{ width: 400, color: '#333' }}>
                   <Box className={styles.tableItemWrapper}>
                     <Heading tag="h4">
                       {item.title}
                     </Heading>
                   </Box>
+                </td>
+                <td style={{ width: 120 }}>
+                  <Timestamp value={item.updated_at} fields={['date', 'month', 'year']} />
                 </td>
                 <td>
                   <Box className={styles.tableItemWrapper}>
