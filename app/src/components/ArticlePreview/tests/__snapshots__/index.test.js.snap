@@ -13,7 +13,11 @@ exports[`<ArticlePreview /> should render with default props 1`] = `
   tag="div">
   <Card
     contentPad="medium"
-    description="Diagnostic related group HIPAA accreditation"
+    description={
+      <div>
+        Diagnostic related group HIPAA accreditation
+      </div>
+    }
     heading="Current procedu"
     headingStrong={true}
     label="By Andreas Daimainger"
@@ -26,8 +30,7 @@ exports[`<ArticlePreview /> should render with default props 1`] = `
     }
     textSize="small"
     thumbnail={
-      <ResponsiveImage
-        matchHeight={true}
+      <undefined
         src="https://robohash.org/sapienteeaoptio.png?size=300x300" />
     } />
 </Box>

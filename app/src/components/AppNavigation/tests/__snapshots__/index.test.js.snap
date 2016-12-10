@@ -1,5 +1,5 @@
 exports[`<AppNavigation /> should render with default props 1`] = `
 <div>
-  <Navbar />
+  <undefined />
 </div>
 `;

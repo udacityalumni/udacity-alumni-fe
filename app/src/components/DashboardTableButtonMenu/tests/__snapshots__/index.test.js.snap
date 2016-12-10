@@ -1,0 +1,48 @@
+exports[`<DashboardTableButtonMenu /> should render with default props 1`] = `
+<Menu
+  align="center"
+  closeOnClick={true}
+  direction="row"
+  dropAlign={
+    Object {
+      "left": "left",
+      "top": "top"
+    }
+  }
+  inline={true}
+  justify="center"
+  pad="none"
+  responsive={false}
+  style={
+    Object {
+      "width": "100%"
+    }
+  }>
+  <Button
+    icon={
+      <Edit
+        a11yTitleId="edit-title"
+        responsive={true} />
+    }
+    plain={true}
+    style={
+      Object {
+        "padding": 5
+      }
+    }
+    type="button" />
+  <Button
+    icon={
+      <View
+        a11yTitleId="view-title"
+        responsive={true} />
+    }
+    plain={true}
+    style={
+      Object {
+        "padding": 5
+      }
+    }
+    type="button" />
+</Menu>
+`;

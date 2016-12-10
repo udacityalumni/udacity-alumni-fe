@@ -11,7 +11,7 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
     tag="h2">
     Spotlight Articles
   </Headline>
-  <Divider />
+  <undefined />
   <Box
     announce={false}
     direction="row"
@@ -37,7 +37,7 @@ exports[`<SpotlightArticles /> should render with default props 1`] = `
         justify="center"
         pad="none"
         separator="bottom">
-        <ArticlePreview
+        <undefined
           article={
             Object {
               "content": "Hello World",

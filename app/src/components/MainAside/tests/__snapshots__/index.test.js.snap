@@ -64,13 +64,13 @@ exports[`<MainAside /> should render with default props 1`] = `
         plain={true}
         type="button" />
       <Button
-        href="/admin/content-dashboard"
+        href="/admin/dashboard"
         icon={
-          <Article
-            a11yTitleId="article-title"
+          <Dashboard
+            a11yTitleId="dashboard-title"
             responsive={true} />
         }
-        label="Manage Articles"
+        label="Admin Dashboard"
         onClick={[Function onClick]}
         plain={true}
         type="button" />

@@ -13,7 +13,7 @@ exports[`<CmsEditor /> should render with default props 1`] = `
       onChange={[Function onChange]}
       placeholder="Tell a story ..." />
   </div>
-  <CmsToolbar
+  <undefined
     canSubmit={true}
     onPreview={[Function onTapToPreview]}
     onSave={[Function onSubmit]} />
