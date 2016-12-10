@@ -246,11 +246,131 @@ describe('adminDashboardReducer', () => {
       })
     ).toEqual(stateAfter);
   });
-  it('should handle reducer for ADMIN_DASHBOARD_CLEAR_USER_EDITING', () => {});
-  it('should handle reducer for ADMIN_DASHBOARD_SET_USER_EDITING', () => {});
-  it('should handle reducer for ADMIN_DASHBOARD_SET_USERS_PAGE', () => {});
-  it('should handle reducer for ADMIN_DASHBOARD_SET_ARTICLES_PAGE', () => {});
-  it('should handle reducer for ADMIN_DASHBOARD_SET_USERS', () => {});
-  it('should handle reducer for ADMIN_DASHBOARD_SET_ARTICLES', () => {});
-  it('should handle reducer for ADMIN_DASHBOARD_SET_ACTIVE_TAB', () => {});
+  it('should handle reducer for ADMIN_DASHBOARD_CLEAR_USER_EDITING', () => {
+    const stateBefore = {
+      users: {
+        editing: { foo: 'bar' },
+      },
+    };
+    const stateAfter = {
+      users: {
+        editing: null,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_CLEAR_USER_EDITING,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_SET_USER_EDITING', () => {
+    const user = { foo: 'bar', id: 1 };
+    const stateBefore = {
+      users: {
+        editing: null,
+      },
+    };
+    const stateAfter = {
+      users: {
+        editing: user,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_SET_USER_EDITING,
+        user,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_SET_USERS_PAGE', () => {
+    const page = 2;
+    const stateBefore = {
+      users: {
+        currentPage: 0,
+      },
+    };
+    const stateAfter = {
+      users: {
+        currentPage: page,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_SET_USERS_PAGE,
+        page,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_SET_ARTICLES_PAGE', () => {
+    const page = 2;
+    const stateBefore = {
+      articles: {
+        currentPage: 0,
+      },
+    };
+    const stateAfter = {
+      articles: {
+        currentPage: page,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_SET_ARTICLES_PAGE,
+        page,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_SET_USERS', () => {
+    const users = [{ foo: 'bar', id: 1 }, { foo: 'baz', id: 2 }];
+    const stateBefore = {
+      users: {
+        items: [],
+      },
+    };
+    const stateAfter = {
+      users: {
+        items: users,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_SET_USERS,
+        users,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_SET_ARTICLES', () => {
+    const articles = [{ foo: 'bar', id: 1 }, { foo: 'baz', id: 2 }];
+    const stateBefore = {
+      articles: {
+        items: [],
+      },
+    };
+    const stateAfter = {
+      articles: {
+        items: articles,
+      },
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_SET_ARTICLES,
+        articles,
+      })
+    ).toEqual(stateAfter);
+  });
+  it('should handle reducer for ADMIN_DASHBOARD_SET_ACTIVE_TAB', () => {
+    const tab = 2;
+    const stateBefore = {
+      activeTab: 0,
+    };
+    const stateAfter = {
+      activeTab: tab,
+    };
+    expect(
+      adminDashboardReducer(stateBefore, {
+        type: types.ADMIN_DASHBOARD_SET_ACTIVE_TAB,
+        tab,
+      })
+    ).toEqual(stateAfter);
+  });
 });

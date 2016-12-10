@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { StyledWrapper } from './styles';
 import Layer from 'grommet-udacity/components/Layer';
 import Form from 'grommet-udacity/components/Form';
 import FormField from 'grommet-udacity/components/FormField';
