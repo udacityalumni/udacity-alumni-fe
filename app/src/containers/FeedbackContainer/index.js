@@ -11,7 +11,7 @@ class FeedbackContainer extends Component {
     const { actions } = this.props;
     return (
       <div className={styles.feedback}>
-        <FeedbackButton onClick={actions.feedbackModalOpen} />
+        <FeedbackButton onClick={actions.openFeedbackModal} />
       </div>
     );
   }
@@ -23,7 +23,7 @@ FeedbackContainer.propTypes = {
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
-  feedbackModalOpen: state.feedbackContainer.feedbackModalOpen,
+  openFeedbackModal: state.feedbackContainer.openFeedbackModal,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

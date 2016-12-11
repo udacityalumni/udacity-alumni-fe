@@ -1,5 +1,5 @@
 import * as types from './constants';
 
-export const feedbackModalOpen = () => ({
+export const openFeedbackModal = () => ({
   type: types.OPEN_FEEDBACK_MODAL,
 });
