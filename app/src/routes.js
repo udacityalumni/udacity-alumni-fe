@@ -161,6 +161,14 @@ export const routes = {
       },
     },
     {
+      path: 'author/cms',
+      getComponent(location, callback) {
+        System.import('./pages/CmsEditorPage') // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
+      },
+    },
+    {
       path: 'admin/cms',
       getComponent(location, callback) {
         System.import('./pages/CmsEditorPage') // eslint-disable-line block-scoped-var
@@ -212,6 +220,14 @@ export const routes = {
       path: '/admin/dashboard',
       getComponent(location, callback) {
         System.import('./pages/AdminDashboardPage')  // eslint-disable-line block-scoped-var
+          .then(loadRoute(callback))
+          .catch((err) => errorLoading(err));
+      },
+    },
+    {
+      path: '/author/dashboard',
+      getComponent(location, callback) {
+        System.import('./pages/WriterDashboardPage')  // eslint-disable-line block-scoped-var
           .then(loadRoute(callback))
           .catch((err) => errorLoading(err));
       },

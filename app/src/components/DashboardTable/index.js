@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
 import Table from 'grommet-udacity/components/Table';
 import Heading from 'grommet-udacity/components/Heading';
-import Image from 'grommet-udacity/components/Image';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
 import Label from 'grommet-udacity/components/Label';
@@ -10,7 +9,7 @@ import ListItem from 'grommet-udacity/components/ListItem';
 import Timestamp from 'grommet-udacity/components/Timestamp';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import { DashboardTableButtonMenu, Pagination, TableHeader } from 'components';
+import { DashboardTableButtonMenu, Pagination, TableHeader, Thumbnail } from 'components';
 import { TableRow } from './styles';
 
 const DashboardTable = ({
@@ -55,9 +54,7 @@ const DashboardTable = ({
                         className={styles.innerWrapper}
                         pad={{ horizontal: 'small', vertical: 'medium' }}
                       >
-                        <Box className={styles.imageWrapper}>
-                          <Image size="medium" src={item.image} />
-                        </Box>
+                        <Thumbnail size="medium" src={item.feature_image} />
                         <Box className={styles.boxWrapper}>
                           <Heading align="center" tag="h3">
                             {item.title}
@@ -105,9 +102,7 @@ const DashboardTable = ({
             {items && items.length > 0 && items.map((item) =>
               <TableRow key={item.id}>
                 <td>
-                  <Box className={styles.thumbnailWrapper}>
-                    <Image className={styles.thumbnail} size="small" src={item.image} />
-                  </Box>
+                  <Thumbnail size="xsmall" src={item.feature_image} />
                 </td>
                 <td style={{ width: 400, color: '#333' }}>
                   <Box className={styles.tableItemWrapper}>

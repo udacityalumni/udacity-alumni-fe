@@ -204,7 +204,7 @@ class AdminDashboard extends Component {
               pad={{ vertical: 'large' }}
             >
               <Heading align="center">
-                Admin Dashboard
+                Dashboard
               </Heading>
               <Divider />
               <Box>
