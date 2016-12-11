@@ -54,7 +54,7 @@ const DashboardTable = ({
                       pad={{ horizontal: 'small', vertical: 'medium' }}
                     >
                       <ArticleHeadingWrapper>
-                        <Thumbnail size="medium" src={item.feature_image} />
+                        <Thumbnail size="medium" src={item.image} />
                         <ArticleHeading align="center" tag="h2">
                           {item.title}
                         </ArticleHeading>
@@ -100,7 +100,7 @@ const DashboardTable = ({
             {items && items.length > 0 && items.map((item) =>
               <TableRow key={item.id}>
                 <td>
-                  <Thumbnail size="xsmall" src={item.feature_image} />
+                  <Thumbnail size="xsmall" src={item.image} />
                 </td>
                 <td style={{ width: 400, color: '#333' }}>
                   <Box className={styles.tableItemWrapper}>

@@ -1,4 +1,5 @@
 .cmsEditor {
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
+  background-color: #fafbfc;
   position: relative;
 }

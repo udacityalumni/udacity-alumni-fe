@@ -8,7 +8,6 @@ export const FullSection = styled(Section)`
 `;
 
 export const MainContent = styled(Box)`
-  background: #FFF;
   position: relative;
   margin-bottom: 14px;
   background: #fff;
