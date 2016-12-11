@@ -143,6 +143,14 @@ const modalReducer = (state = initialState.modal, action) => {
 const cmsEditorReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.CMS_TOGGLE_TOOLBAR_VISIBILITY_HIDDEN:
+        return update(state, {
+          toolbar: {
+            isVisible: {
+              $set: false,
+            },
+          },
+        });
       case types.CMS_TOGGLE_TOOLBAR_VISIBILITY:
         return update(state, {
           toolbar: {

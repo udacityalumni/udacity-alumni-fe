@@ -101,3 +101,7 @@ export const cmsSetStateFromArticle = (article) => ({
 export const toggleToolbarVisibility = () => ({
   type: types.CMS_TOGGLE_TOOLBAR_VISIBILITY,
 });
+
+export const hideToolbar = () => ({
+  type: types.CMS_TOGGLE_TOOLBAR_VISIBILITY_HIDDEN,
+});

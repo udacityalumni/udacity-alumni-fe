@@ -1,4 +1,5 @@
 /* GENERATOR: Assemble all components for export */
+export ToolbarToggle from './ToolbarToggle';
 export BackButton from './BackButton';
 export Thumbnail from './Thumbnail';
 export AvatarFormModal from './AvatarFormModal';

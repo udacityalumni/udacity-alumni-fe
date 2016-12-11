@@ -5,6 +5,7 @@ import Columns from 'grommet-udacity/components/Columns';
 import Box from 'grommet-udacity/components/Box';
 import Button from 'grommet-udacity/components/Button';
 import ContractIcon from 'grommet-udacity/components/icons/base/Contract';
+import { ToolbarToggle } from 'components';
 
 const CmsToolbar = ({
   onSave,
@@ -13,47 +14,52 @@ const CmsToolbar = ({
   isEditing,
   onToggleVisibility,
   isVisible,
-}) => (
-  <Box
-    align="center"
-    justify="center"
-    full="horizontal"
-    className={styles.toolbar}
-  >
-    {isVisible &&
-      <Columns justify="center" full="horizontal">
-        <Box
-          direction="row"
-          full="horizontal"
-          justify="between"
-          align="center"
-          pad="medium"
-          margin="small"
-          className={styles.toolbarWrapper}
-          colorIndex="light-2"
-        >
-          <Button
-            secondary
-            className={styles.button}
-            label="Preview"
-            onClick={onPreview}
-          />
-          <Button
-            plain
-            onClick={onToggleVisibility}
-            icon={<ContractIcon />}
-          />
-          <Button
-            primary
-            className={styles.button}
-            label={isEditing ? 'Update Article' : 'Save Article'}
-            onClick={canSubmit ? onSave : null}
-          />
-        </Box>
-      </Columns>
-    }
-  </Box>
-);
+}) => isVisible ?
+  (
+    <Box
+      align="center"
+      justify="center"
+      full="horizontal"
+      className={styles.toolbar}
+    >
+    <Columns justify="center" full="horizontal">
+      <Box
+        direction="row"
+        full="horizontal"
+        justify="between"
+        align="center"
+        pad="medium"
+        margin="small"
+        className={styles.toolbarWrapper}
+        colorIndex="light-2"
+      >
+        <Button
+          secondary
+          className={styles.button}
+          label="Preview"
+          onClick={onPreview}
+        />
+        <Button
+          plain
+          onClick={onToggleVisibility}
+          icon={<ContractIcon />}
+        />
+        <Button
+          primary
+          className={styles.button}
+          label={isEditing ? 'Update Article' : 'Save Article'}
+          onClick={canSubmit ? onSave : null}
+        />
+      </Box>
+    </Columns>
+    </Box>
+  )
+:
+  (
+    <ToolbarToggle
+      onClick={onToggleVisibility}
+    />
+  );
 
 CmsToolbar.propTypes = {
   canSubmit: PropTypes.bool.isRequired,

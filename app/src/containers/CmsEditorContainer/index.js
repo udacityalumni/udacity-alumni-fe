@@ -52,8 +52,11 @@ class CmsEditorContainer extends Component {
     if (articleId && action) {
       actions.cmsSetArticleId(articleId, action);
     }
+    if (this.props.isMobile === true) {
+      this.props.actions.hideToolbar();
+    }
   }
-  componentWillReceiveProps({ message, articleId, article }) {
+  componentWillReceiveProps({ message, articleId, article, isMobile }) {
     if (message) {
       const {
         router,
@@ -70,6 +73,9 @@ class CmsEditorContainer extends Component {
     }
     if (article && !this.props.article) {
       this.props.actions.cmsSetStateFromArticle(article);
+    }
+    if (isMobile && isMobile !== this.props.isMobile && this.props.toolbarIsVisible) {
+      this.props.actions.hideToolbar();
     }
   }
   handleLoadingArticle() {
@@ -317,6 +323,7 @@ CmsEditorContainer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   isEditing: PropTypes.bool.isRequired,
   toolbarIsVisible: PropTypes.bool.isRequired,
+  isMobile: PropTypes.bool.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -339,6 +346,7 @@ const mapStateToProps = (state) => ({
   authToken: state.app.authToken,
   isLoading: state.cmsEditorContainer.isLoading,
   isEditing: getIsEditing(state.cmsEditorContainer),
+  isMobile: state.app.isMobile,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
