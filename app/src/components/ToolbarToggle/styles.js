@@ -4,7 +4,6 @@ import ExpandIcon from 'grommet-udacity/components/icons/base/Expand';
 
 export const FabIcon = styled(ExpandIcon)`
   font-size: 1.3rem;
-  stroke: white !important;
 `;
 
 export const FabContainer = styled(Box)`
