@@ -10,6 +10,7 @@ const isClient = typeof document !== 'undefined';
 const isDeveloping = process.env.NODE_ENV !== 'production';
 
 /* GENERATOR: Import all of your initial state */
+import { initialState  as feedbackContainer } from './containers/FeedbackContainer/reducer';
 import { initialState as app } from './components/App/reducer';
 import { initialState as landing } from './containers/LandingContainer/reducer';
 import { initialState as loginContainer } from './containers/LoginContainer/reducer';
