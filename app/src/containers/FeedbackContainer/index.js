@@ -7,11 +7,18 @@ import styles from './index.module.scss';
 import { FeedbackButton } from 'components';
 
 class FeedbackContainer extends Component {
-  render() {
+  constructor() {
+    super();
+    this.handleToggleModal = this.handleToggleModal.bind(this);
+  }
+  handleToggleModal() {
     const { actions } = this.props;
+    actions.openFeedbackModal();
+  }
+  render() {
     return (
       <div className={styles.feedback}>
-        <FeedbackButton onClick={actions.openFeedbackModal} />
+        <FeedbackButton onClick={this.handleToggleModal} />
       </div>
     );
   }
