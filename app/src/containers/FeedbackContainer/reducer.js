@@ -1,7 +1,7 @@
 import * as types from './constants';
 
 export const initialState = {
-  openFeedbackModal: false,
+  isAddingFeedback: false,
 };
 
 const feedbackReducer =
@@ -10,7 +10,7 @@ const feedbackReducer =
     case types.OPEN_FEEDBACK_MODAL:
       return {
         ...state,
-        openFeedbackModal: true,
+        isAddingFeedback: !state.isAddingFeedback,
       };
     default:
       return state;
