@@ -97,3 +97,7 @@ export const cmsSetStateFromArticle = (article) => ({
   type: types.CMS_SET_STATE_FROM_ARTICLE,
   article,
 });
+
+export const toggleToolbarVisibility = () => ({
+  type: types.CMS_TOGGLE_TOOLBAR_VISIBILITY,
+});

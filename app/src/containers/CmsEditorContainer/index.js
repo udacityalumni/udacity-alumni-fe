@@ -12,12 +12,14 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import articleDataFragment from './graph/fragments';
 import inputToArticle from './model/articleSubmission';
+import { getIsEditing } from './selectors';
 import {
   CmsEditor,
   ToastMessage,
   CmsModal,
   LoadingIndicator,
   CmsEditorPreview,
+  BackButton,
 } from 'components';
 
 class CmsEditorContainer extends Component {
@@ -57,7 +59,8 @@ class CmsEditorContainer extends Component {
         router,
       } = this.context;
       setTimeout(() => {
-        const path = '/admin/content-dashboard';
+        const userType = this.props.location.pathname.split('/')[1];
+        const path = `/${userType}/dashboard`;
         this.context.router.push(path);
         router.push(path);
       }, 3000);
@@ -147,12 +150,15 @@ class CmsEditorContainer extends Component {
     handleClearingToast(type);
   }
   handleOpenModal() {
-    const {
-      cmsOpenModal,
-    } = this.props.actions;
-    cmsOpenModal();
+    if (document) {
+      document.documentElement.classList.add('no-scroll');
+    }
+    this.props.actions.cmsOpenModal();
   }
   handleCloseModal() {
+    if (document) {
+      document.documentElement.classList.remove('no-scroll');
+    }
     this.props.actions.cmsCloseModal();
     this.props.actions.cmsSetStateFromArticle(this.props.article);
   }
@@ -217,11 +223,13 @@ class CmsEditorContainer extends Component {
       preview,
       isLoading,
       actions,
-      action,
+      isEditing,
+      toolbarIsVisible,
     } = this.props;
     const loading = loadingTags || articleLoading || isLoading;
     return (
       <div className={styles.cmsEditor}>
+        {isEditing && <BackButton />}
         {submissionError &&
           <ToastMessage
             message={submissionError.message}
@@ -249,9 +257,11 @@ class CmsEditorContainer extends Component {
             onChangeContent={this.handleEditorSetContent}
             onChangeTitle={this.handleEditorSetTitle}
             editorState={editorState}
+            onToggleToolbarVisibility={actions.toggleToolbarVisibility}
+            toolbarIsVisible={toolbarIsVisible}
             editorTitle={editorTitle}
             isValid={isValid}
-            isEditing={action ? action === 'edit' : false}
+            isEditing={isEditing}
             onTapToPreview={this.handlePreviewArticle}
           />
         }
@@ -305,6 +315,8 @@ CmsEditorContainer.propTypes = {
   refetchArticle: PropTypes.func.isRequired,
   createArticleMutation: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  isEditing: PropTypes.bool.isRequired,
+  toolbarIsVisible: PropTypes.bool.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -313,6 +325,7 @@ CmsEditorContainer.contextTypes = {
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
+  toolbarIsVisible: state.cmsEditorContainer.toolbar.isVisible,
   submissionError: state.cmsEditorContainer.error,
   message: state.cmsEditorContainer.message,
   modal: state.cmsEditorContainer.modal,
@@ -325,6 +338,7 @@ const mapStateToProps = (state) => ({
   user: state.app.user,
   authToken: state.app.authToken,
   isLoading: state.cmsEditorContainer.isLoading,
+  isEditing: getIsEditing(state.cmsEditorContainer),
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

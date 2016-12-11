@@ -25,6 +25,9 @@ export const initialState = {
     selectedTags: [],
     featureImage: null,
   },
+  toolbar: {
+    isVisible: true,
+  },
 };
 
 const previewReducer = (state = initialState.preview, action) => {
@@ -71,6 +74,12 @@ const statusEnum = (status) => {
 
 const modalReducer = (state = initialState.modal, action) => {
   switch (action.type) {
+    case types.SUBMIT_ARTICLE_SUCCESS:
+      return update(state, {
+        isShowing: {
+          $set: false,
+        },
+      });
     case types.CMS_SET_FEATURE_IMAGE:
       return update(state, {
         featureImage: {
@@ -134,6 +143,14 @@ const modalReducer = (state = initialState.modal, action) => {
 const cmsEditorReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.CMS_TOGGLE_TOOLBAR_VISIBILITY:
+        return update(state, {
+          toolbar: {
+            isVisible: {
+              $set: !state.toolbar.isVisible,
+            },
+          },
+        });
       case types.SUBMIT_ARTICLE_INITIATION:
         return update(state, {
           isLoading: {
@@ -156,6 +173,9 @@ const cmsEditorReducer =
           },
           message: {
             $set: action.message,
+          },
+          modal: {
+            $set: modalReducer(state.modal, action),
           },
         });
       case types.CLEAR_CMS_ERROR:
