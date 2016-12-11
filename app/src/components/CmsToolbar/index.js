@@ -9,6 +9,7 @@ const CmsToolbar = ({
   onSave,
   canSubmit,
   onPreview,
+  isEditing,
 }) => (
   <Box
     align="center"
@@ -28,14 +29,16 @@ const CmsToolbar = ({
         colorIndex="light-2"
       >
         <Button
-          className={styles.button}
-          label="Submit"
-          onClick={canSubmit ? onSave : null}
-        />
-        <Button
+          secondary
           className={styles.button}
           label="Preview"
           onClick={onPreview}
+        />
+        <Button
+          primary
+          className={styles.button}
+          label={isEditing ? 'Update Article' : 'Save Article'}
+          onClick={canSubmit ? onSave : null}
         />
       </Box>
     </Columns>
@@ -46,6 +49,7 @@ CmsToolbar.propTypes = {
   canSubmit: PropTypes.bool.isRequired,
   onPreview: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool.isRequired,
 };
 
 export default cssModules(CmsToolbar, styles);

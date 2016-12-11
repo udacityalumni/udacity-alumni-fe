@@ -66,10 +66,7 @@ class CmsEditorContainer extends Component {
       this.handleLoadingArticle();
     }
     if (article && !this.props.article) {
-      const {
-        actions,
-      } = this.props;
-      actions.cmsSetStateFromArticle(article);
+      this.props.actions.cmsSetStateFromArticle(article);
     }
   }
   handleLoadingArticle() {
@@ -156,10 +153,8 @@ class CmsEditorContainer extends Component {
     cmsOpenModal();
   }
   handleCloseModal() {
-    const {
-      cmsCloseModal,
-    } = this.props.actions;
-    cmsCloseModal();
+    this.props.actions.cmsCloseModal();
+    this.props.actions.cmsSetStateFromArticle(this.props.article);
   }
   handleSetStatus(status) {
     const {
@@ -222,6 +217,7 @@ class CmsEditorContainer extends Component {
       preview,
       isLoading,
       actions,
+      action,
     } = this.props;
     const loading = loadingTags || articleLoading || isLoading;
     return (
@@ -255,6 +251,7 @@ class CmsEditorContainer extends Component {
             editorState={editorState}
             editorTitle={editorTitle}
             isValid={isValid}
+            isEditing={action ? action === 'edit' : false}
             onTapToPreview={this.handlePreviewArticle}
           />
         }

@@ -15,6 +15,9 @@
 .innerWrapper {
   width: 80vw;
   justify-content: center;
+  @media screen and (max-width: 1000px) {
+    width: 70vw;
+  }
 }
 
 .listWrapper {
@@ -25,23 +28,6 @@
 
 .flexGrow {
   flex-grow: 1;
-}
-
-.thumbnailWrapper {
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.thumbnail {
-  display: inline-block;
-  padding: 4px;
-  line-height: 1.42857143;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  transition: all .2s ease-in-out;
 }
 
 .small {

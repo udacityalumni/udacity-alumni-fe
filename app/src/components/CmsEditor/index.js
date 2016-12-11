@@ -14,6 +14,7 @@ class CmsEditor extends Component {
       onSubmit,
       onChangeContent,
       onTapToPreview,
+      isEditing,
     } = this.props;
     const stateForEditor = editorState ? editorState : editorStateFromRaw(null);
     return (
@@ -36,6 +37,7 @@ class CmsEditor extends Component {
           />
         </div>
         <CmsToolbar
+          isEditing={isEditing}
           canSubmit={isValid}
           onSave={onSubmit}
           onPreview={onTapToPreview}
@@ -53,6 +55,7 @@ CmsEditor.propTypes = {
   editorTitle: PropTypes.string,
   editorState: PropTypes.object,
   isValid: PropTypes.bool.isRequired,
+  isEditing: PropTypes.bool.isRequired,
 };
 
 export default cssModules(CmsEditor, styles);

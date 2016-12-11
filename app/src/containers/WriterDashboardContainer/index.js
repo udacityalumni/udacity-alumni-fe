@@ -56,7 +56,7 @@ class WriterDashboardContainer extends Component {
            <LoadingIndicator isLoading />
          </Section>
         :
-          <FullSection direction="row">
+          <FullSection primary direction="row">
             <MainContent
               align="center"
               justify="start"
