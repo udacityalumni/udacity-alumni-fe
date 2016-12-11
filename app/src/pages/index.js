@@ -1,4 +1,5 @@
 /* GENERATOR: Assemble all pages for export */
+export WriterDashboardPage from './WriterDashboardPage/index';
 export AdminDashboardPage from './AdminDashboardPage/index';
 export PublicUserProfilePage from './PublicUserProfilePage/index';
 export ResetPasswordPage from './ResetPasswordPage/index';

@@ -16,6 +16,10 @@ html {
   overflow-x: hidden;
 }
 
+.no-scroll {
+  overflow-y: hidden;
+}
+
 .loading__box {
   min-height: 100vh;
 }

@@ -197,14 +197,14 @@ class AdminDashboard extends Component {
            <LoadingIndicator isLoading />
          </Section>
         :
-          <FullSection direction="row">
+          <FullSection primary direction="row">
             <MainContent
               align="center"
               justify="start"
               pad={{ vertical: 'large' }}
             >
               <Heading align="center">
-                Admin Dashboard
+                Dashboard
               </Heading>
               <Divider />
               <Box>
