@@ -79,6 +79,7 @@ const SessionMenu = ({
             return (
               <Menu
                 icon={<SessionIcon user={user} />}
+                name="session-menu"
                 dropAlign={{ bottom: 'bottom' }}
                 a11yTitle="Session"
                 inline={false}
@@ -102,6 +103,7 @@ const SessionMenu = ({
             return (
               <Menu
                 icon={<SessionIcon user={user} />}
+                name="session-menu"
                 dropAlign={{ bottom: 'bottom' }}
                 a11yTitle="Session"
                 inline={false}
@@ -115,6 +117,9 @@ const SessionMenu = ({
                 </Anchor>
                 <Anchor href="/admin/cms?action=new">
                   New Post
+                </Anchor>
+                <Anchor href="/admin/carousel">
+                  Manage Carousel
                 </Anchor>
                 <Anchor href="/logout" onClick={onLogout}>
                   Logout
