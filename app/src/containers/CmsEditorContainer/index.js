@@ -78,6 +78,11 @@ class CmsEditorContainer extends Component {
       this.props.actions.hideToolbar();
     }
   }
+  componentWillUnmount() {
+    if (document) {
+      document.documentElement.classList.remove('no-scroll');
+    }
+  }
   handleLoadingArticle() {
     const {
       refetchArticle,
@@ -105,6 +110,9 @@ class CmsEditorContainer extends Component {
       tags: modal.selectedTags,
       feature_image: modal.featureImage || '',
     });
+    if (document) {
+      document.documentElement.classList.remove('no-scroll');
+    }
     if (action && action === 'edit') {
       this.handleUpdateArticleSubmission(article);
     } else {

@@ -43,15 +43,15 @@ export const getSortedArticles = createSelector(
       }
       if (index === 2) {
         return articles.sort((a, b) =>
-          isAscending ? a.status > b.status : b.status > a.status
+          isAscending ?
+            new Date(a.updated_at) - new Date(b.updated_at)
+          :
+            new Date(b.updated_at) - new Date(a.updated_at)
         );
       }
       if (index === 3) {
         return articles.sort((a, b) =>
-          isAscending ?
-            new Date(a.updated_at.split('T')) - new Date(b.updated_at.split('T'))
-          :
-            new Date(b.updated_at.split('T')) - new Date(a.updated_at.split('T'))
+          isAscending ? a.status > b.status : b.status > a.status
         );
       }
       if (index === 4) {
