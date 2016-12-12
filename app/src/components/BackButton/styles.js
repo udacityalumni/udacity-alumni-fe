@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from 'grommet-udacity/components/button';
+import Button from 'grommet-udacity/components/Button';
 import Box from 'grommet-udacity/components/Box';
 import LinkPrevious from 'grommet-udacity/components/icons/base/LinkPrevious';
 
