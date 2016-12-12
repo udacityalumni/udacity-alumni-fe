@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import * as FeedbackActionCreators from './actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
@@ -19,6 +21,7 @@ import Section from 'grommet/components/Section';
 
 export const addFeedbackFields = [
   'nameInput',
+  'urlInput',
   'descriptionInput',
 ];
 
@@ -44,9 +47,15 @@ class FeedbackContainer extends Component {
   }
   handleSubmitFeedback(feedback) {
     const {
+      user,
       onSubmitFeedback,
     } = this.props;
-    onSubmitFeedback(feedback);
+    if(user) {
+      onSubmitFeedback(feedback);
+    } else {
+      alert("Login!");
+      this.context.router.push('/login');
+    }
     this.handleToggleModal();
   }
   handleClear() {
@@ -57,6 +66,8 @@ class FeedbackContainer extends Component {
   }
   render() {
     const {
+      user,
+      location,
       isAddingFeedback,
       hasFab,
       fields,
@@ -75,6 +86,8 @@ class FeedbackContainer extends Component {
               <Box pad={{ vertical: 'large', horizontal: 'small' }}>
                 <AddFeedbackForm
                   {...fields}
+                  user={user}
+                  location={location}
                   onSubmitFeedback={this.handleSubmitFeedback}
                   onClear={resetForm}
                 />
@@ -104,6 +117,8 @@ class FeedbackContainer extends Component {
 
 FeedbackContainer.propTypes = {
   actions: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
   isAddingFeedback: PropTypes.bool.isRequired,
   onSubmitFeedback: PropTypes.func.isRequired,
   fields: PropTypes.object.isRequired,
@@ -114,6 +129,7 @@ FeedbackContainer.propTypes = {
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   isAddingFeedback: state.feedbackContainer.isAddingFeedback,
+  user: state.app.user,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -136,3 +152,11 @@ export default reduxForm({
   fields: addFeedbackFields,
   validate: validation,
 })(ConnectedContainer);
+
+// const createFeedbackMutation = graphql`
+//   mutation createFeedback($feedback: FeedbackInput, $auth_token: String!){
+//   CreateFeedback(input:{feedback: $feedback, auth_token: $auth_token}){
+//     __typename
+//    }
+//   }
+// `;

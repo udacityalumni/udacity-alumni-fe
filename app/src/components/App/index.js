@@ -152,6 +152,7 @@ class Main extends Component {
           &&
           <FeedbackContainer
             hasFab
+            location={location}
             onClear={this.handleClear}
             onSubmitFeedback={this.handleSubmitFeedback}
           />

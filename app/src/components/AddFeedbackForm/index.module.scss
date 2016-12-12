@@ -2,6 +2,18 @@
   margin-top: 40px;
 }
 
+.blockedInput{
+  cursor: not-allowed;
+}
+
+.longUrl {
+  cursor: not-allowed;
+  width: 10em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+	overflow: hidden;
+}
+
 .button {
   margin-right: 10px;
 }
