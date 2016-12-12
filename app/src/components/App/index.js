@@ -88,9 +88,8 @@ class Main extends Component {
     } else {
       document.body.removeEventListener('click', this.handleToggleNav);
     }
-    if (e.target.parentNode.id === 'mobile-nav' || e.target.name === 'session-menu') {
-      e.stopPropagation();
-    } else {
+    if (!(e.target.parentNode.id === 'mobile-nav' ||
+    e.target.parentNode.id === 'session-menu-toggle')) {
       appToggleNav();
     }
   }

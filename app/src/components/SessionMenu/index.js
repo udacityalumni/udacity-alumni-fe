@@ -35,6 +35,7 @@ const SessionIcon = ({
   user,
 }) => (
   <Box
+    id="session-menu-toggle"
     responsive={false}
     direction="row"
     justify="center"
@@ -79,7 +80,6 @@ const SessionMenu = ({
             return (
               <Menu
                 icon={<SessionIcon user={user} />}
-                name="session-menu"
                 dropAlign={{ bottom: 'bottom' }}
                 a11yTitle="Session"
                 inline={false}
@@ -103,7 +103,6 @@ const SessionMenu = ({
             return (
               <Menu
                 icon={<SessionIcon user={user} />}
-                name="session-menu"
                 dropAlign={{ bottom: 'bottom' }}
                 a11yTitle="Session"
                 inline={false}
