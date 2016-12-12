@@ -6,7 +6,7 @@ import App from 'grommet-udacity/components/App';
 import { AppNavigation, ToastMessage } from 'components';
 import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
 
-class Main extends Component {
+class AppContainer extends Component {
   constructor() {
     super();
     this.handleToggleNav = this.handleToggleNav.bind(this);
@@ -150,7 +150,7 @@ class Main extends Component {
   }
 }
 
-Main.propTypes = {
+AppContainer.propTypes = {
   children: PropTypes.node,
   location: PropTypes.object.isRequired,
   user: PropTypes.object,
@@ -163,12 +163,10 @@ Main.propTypes = {
   message: PropTypes.string,
 };
 
-Main.contextTypes = {
+AppContainer.contextTypes = {
   router: PropTypes.object.isRequired,
 };
 
-// Map the global state to global props here.
-// See: https://egghead.io/lessons/javascript-redux-generating-containers-with-connect-from-react-redux-visibletodolist
 // mapStateToProps :: {State} -> {Action}
 const mapStateToProps = (state) => ({
   user: state.app.user,
@@ -180,8 +178,6 @@ const mapStateToProps = (state) => ({
   message: state.app.message,
 });
 
-// Map the dispatch and bind the action creators.
-// See: http://redux.js.org/docs/api/bindActionCreators.html
 // mapDispatchToProps :: Dispatch Func -> {Actions}
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(
@@ -195,6 +191,6 @@ const mapDispatchToProps = (dispatch) => ({
 const ConnectedApp = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Main);
+)(AppContainer);
 
 export default ConnectedApp;

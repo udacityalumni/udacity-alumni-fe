@@ -9,7 +9,7 @@ import store, {
   // userIsAdmin,
 } from './store';
 import client from './apolloClient';
-import App from './components/App';
+import { AppContainer } from 'containers';
 
 export function redirect({ from, to }) {
   return {
@@ -61,7 +61,7 @@ const loadRoute = (cb) =>
   cb(null, module.default);
 
 export const routes = {
-  component: App,
+  component: AppContainer,
   path: '/',
   indexRoute: {
     getComponent(location, callback) {

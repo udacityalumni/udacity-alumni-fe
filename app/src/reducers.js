@@ -17,7 +17,7 @@ import articleFeedContainer from 'containers/ArticleFeedContainer/reducer';
 import userProfileContainer from 'containers/UserProfileContainer/reducer';
 import archiveContainer from 'containers/ArticleArchiveContainer/reducer';
 import resetPassword from 'containers/ResetPasswordContainer/reducer';
-import app from 'components/App/reducer';
+import app from 'containers/AppContainer/reducer';
 
 const rootReducer = combineReducers({
   /* GENERATOR: Compile all of your reducers */

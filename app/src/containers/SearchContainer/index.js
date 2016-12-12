@@ -13,8 +13,6 @@ import ListItem from 'grommet-udacity/components/ListItem';
 import Header from 'grommet-udacity/components/Header';
 import Title from 'grommet-udacity/components/Title';
 import Box from 'grommet-udacity/components/Box';
-// import { graphql } from 'react-apollo';
-// import gql from 'graphql-tag';
 import { ArticlePreview } from 'components';
 import { LoadingIndicator, ErrorAlert } from 'components';
 

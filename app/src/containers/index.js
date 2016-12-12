@@ -18,3 +18,4 @@ export CmsEditorContainer from './CmsEditorContainer';
 export SignupContainer from './SignupContainer';
 export LoginContainer from './LoginContainer';
 export LandingContainer from './LandingContainer';
+export AppContainer from './AppContainer';

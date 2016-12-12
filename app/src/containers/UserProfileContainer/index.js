@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as UserProfileActionCreators from './actions';
-import * as AppActions from '../../components/App/actions';
+import * as AppActions from 'containers/AppContainer/actions';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Section from 'grommet-udacity/components/Section';
@@ -194,7 +194,7 @@ const ContainerWithMutation = graphql(updateProfileMutation, {
           variables: { authToken, profile },
         })
         .then(mutationResult => {
-          console.log(`Received mutation result of ${JSON.stringify(mutationResult, null, 2)}`)
+          console.log(`Received mutation result of ${JSON.stringify(mutationResult, null, 2)}`);
           ownProps.actions.setPersistentUser(mutationResult.data.UpdateProfile.user);
           resolve(mutationResult);
         })

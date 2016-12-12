@@ -1,4 +1,6 @@
 /* GENERATOR: Assemble all components for export */
+export FeedbackPreview from './FeedbackPreview';
+export FeedbackTable from './FeedbackTable';
 export ToolbarToggle from './ToolbarToggle';
 export BackButton from './BackButton';
 export Thumbnail from './Thumbnail';
@@ -48,4 +50,3 @@ export MainCarousel from './MainCarousel';
 export LoadingIndicator from './LoadingIndicator';
 export Navbar from './Navbar';
 export LogoImage from './LogoImage';
-export App from './App';
