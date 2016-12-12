@@ -1,5 +1,5 @@
 import * as types from './constants';
 
-export const openFeedbackModal = () => ({
-  type: types.OPEN_FEEDBACK_MODAL,
+export const toggleFeedbackModal = () => ({
+  type: types.TOGGLE_ADD_FEEDBACK,
 });

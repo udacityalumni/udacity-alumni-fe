@@ -1,4 +1,5 @@
 /* GENERATOR: Assemble all components for export */
+export AddFeedbackForm from './AddFeedbackForm';
 export FeedbackButton from './FeedbackButton';
 export AvatarFormModal from './AvatarFormModal';
 export TableHeader from './TableHeader';

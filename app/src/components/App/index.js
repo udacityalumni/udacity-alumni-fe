@@ -150,7 +150,11 @@ class Main extends Component {
         {
           !location.pathname.split('/').includes('admin')
           &&
-          <FeedbackContainer />
+          <FeedbackContainer
+            hasFab
+            onClear={this.handleClear}
+            onSubmitFeedback={this.handleSubmitFeedback}
+          />
         }
       </App>
     );

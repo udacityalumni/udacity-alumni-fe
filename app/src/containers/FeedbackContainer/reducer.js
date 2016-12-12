@@ -7,7 +7,7 @@ export const initialState = {
 const feedbackReducer =
 (state = initialState, action) => {
   switch (action.type) {
-    case types.OPEN_FEEDBACK_MODAL:
+    case types.TOGGLE_ADD_FEEDBACK:
       return {
         ...state,
         isAddingFeedback: !state.isAddingFeedback,
