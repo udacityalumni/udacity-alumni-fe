@@ -134,24 +134,24 @@ class FeedbackContainer extends Component {
                 status="critcal"
               />
             }
-              <Section role="dialog">
-                <Box pad={{ vertical: 'large', horizontal: 'small' }}>
-                  <AddFeedbackForm
-                    {...fields}
-                    user={user}
-                    isSubmitting={isSubmitting}
-                    message={message}
-                    location={location}
-                    onSubmitFeedback={this.handleSubmitFeedback}
-                    onClear={resetForm}
-                  />
-                </Box>
-              </Section>
-            </Layer>
-          }
-          {hasFab &&
-            <FeedbackButton onClick={this.handleToggleModal}/>
-          }
+            <Section role="dialog">
+              <Box pad={{ vertical: 'large', horizontal: 'small' }}>
+                <AddFeedbackForm
+                  {...fields}
+                  user={user}
+                  isSubmitting={isSubmitting}
+                  message={message}
+                  location={location}
+                  onSubmitFeedback={this.handleSubmitFeedback}
+                  onClear={resetForm}
+                />
+              </Box>
+            </Section>
+          </Layer>
+        }
+        {hasFab &&
+          <FeedbackButton onClick={this.handleToggleModal}/>
+        }
       </div>
     );
   }
