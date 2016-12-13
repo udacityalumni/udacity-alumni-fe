@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import * as FeedbackActionCreators from './actions';
-import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import {
   FeedbackButton,
@@ -77,19 +76,20 @@ class FeedbackContainer extends Component {
         },
       };
       actions.feedbackSubmissionInitiation();
-      this.props.submitFeedbackMutation(data)
-        .then(() => {
-          const message = 'Thanks for submitting feedback!' +
-          '  We appreciate it greatly as it will help us to make this site better.';
-          actions.feedbackSubmissionMessage(message);
-        })
-        .catch(err => {
-          actions.feedbackSubmissionError(err);
-        });
+      setTimeout(() => {
+        this.props.submitFeedbackMutation(data)
+          .then(() => {
+            const message = 'Thank You for submitting feedback!' +
+            '  We appreciate it greatly as it will help us to make this site better.';
+            actions.feedbackSubmissionMessage(message);
+          })
+          .catch(err => {
+            actions.feedbackSubmissionError(err);
+          });
+      }, 1000);
     } else {
       this.context.router.push('/login');
     }
-    // this.handleToggleModal();
   }
   handleClear() {
     const {
@@ -128,6 +128,7 @@ class FeedbackContainer extends Component {
                 <AddFeedbackForm
                   {...fields}
                   user={user}
+                  isSubmitting={isSubmitting}
                   message={message}
                   location={location}
                   onSubmitFeedback={this.handleSubmitFeedback}
@@ -137,20 +138,19 @@ class FeedbackContainer extends Component {
             </Section>
           </Layer>
         :
-        <Footer className={styles.addFeedbackFooter}>
-          <Menu direction="row">
-            <Button
-              className={styles.button}
-              label="Add Feedback"
-              primary
-              onClick={this.handleToggleModal}
-            />
-          </Menu>
-          {
-            hasFab &&
+          <Footer className={styles.addFeedbackFooter}>
+            <Menu direction="row">
+              <Button
+                className={styles.button}
+                label="Add Feedback"
+                primary
+                onClick={this.handleToggleModal}
+              />
+            </Menu>
+            {hasFab &&
               <FeedbackButton onClick={this.handleToggleModal}/>
-          }
-        </Footer>
+            }
+          </Footer>
         }
       </div>
     );
@@ -194,8 +194,6 @@ const Container = reduxForm({
   fields: addFeedbackFields,
   validate: validation,
 })(FeedbackContainer);
-
-// const StyledContainer = cssModules(FeedbackContainer, styles);
 
 const createFeedbackMutation = gql`
   mutation createFeedback($feedback: FeedbackInput, $auth_token: String!){
