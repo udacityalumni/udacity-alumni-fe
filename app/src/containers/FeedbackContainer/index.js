@@ -38,7 +38,11 @@ class FeedbackContainer extends Component {
       fields.urlInput.onChange(`${ROOT_URL}${location.pathname}`);
     }
     if(location && !fields.nameInput.value) {
-      fields.nameInput.onChange(user.name);
+      if(user) {
+        fields.nameInput.onChange(user.name);
+      } else {
+        fields.nameInput.onChange('Guest User');
+      }
     }
   }
   handleToggleModal() {
@@ -79,7 +83,6 @@ class FeedbackContainer extends Component {
           actions.feedbackSubmissionMessage(message);
         })
         .catch(err => {
-          console.log("error", err);
           actions.feedbackSubmissionError(err);
         });
     } else {
