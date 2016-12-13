@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
-
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import Button from 'grommet-udacity/components/Button';
-import Add from 'grommet-udacity/components/icons/base/Add';
+import ContactIcon from 'grommet-udacity/components/icons/base/Contact';
 
 const FeedbackButton = ({
   onClick,
@@ -13,9 +12,7 @@ const FeedbackButton = ({
       <Button
         className={styles.addButton}
         icon={
-          <Add
-            a11yTitle="Add Review Floating"
-            a11yTitleId="add-review-floating-button-icon"
+          <ContactIcon
             className={styles.icon}
           />
         }
