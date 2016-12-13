@@ -18,13 +18,14 @@ import Box from 'grommet/components/box';
 import Button from 'grommet/components/button';
 import Menu from 'grommet/components/menu';
 import Section from 'grommet/components/Section';
+import { BASE_URL } from 'config';
 
 export const addFeedbackFields = [
   'nameInput',
   'urlInput',
   'descriptionInput',
 ];
-const ROOT_URL = 'https://udacity-client.herokuapp.com';
+
 
 class FeedbackContainer extends Component {
   constructor() {
@@ -35,7 +36,7 @@ class FeedbackContainer extends Component {
   }
   componentWillReceiveProps({ fields, user, location }) {
     if(location && !fields.urlInput.value) {
-      fields.urlInput.onChange(`${ROOT_URL}${location.pathname}`);
+      fields.urlInput.onChange(`${BASE_URL}${location.pathname}`);
     }
     if(location && !fields.nameInput.value) {
       if(user) {
