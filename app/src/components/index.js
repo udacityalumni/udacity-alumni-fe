@@ -1,4 +1,5 @@
 /* GENERATOR: Assemble all components for export */
+export NotFoundImage from './NotFoundImage';
 export FeedbackPreview from './FeedbackPreview';
 export FeedbackTable from './FeedbackTable';
 export ToolbarToggle from './ToolbarToggle';
