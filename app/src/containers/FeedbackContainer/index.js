@@ -111,12 +111,6 @@ class FeedbackContainer extends Component {
     } = this.props;
     return (
       <div className={styles.addReview}>
-        {isSubmitting &&
-          <LoadingIndicator
-            message="Submitting..."
-            isLoading={isSubmitting}
-          />
-        }
         {isAddingFeedback ?
           <Layer
             onClose={this.handleToggleModal}
@@ -124,6 +118,12 @@ class FeedbackContainer extends Component {
             closer
             align="right"
           >
+            {isSubmitting &&
+              <LoadingIndicator
+                message="Submitting..."
+                isLoading={isSubmitting}
+              />
+            }
             <Section role="dialog">
               <Box pad={{ vertical: 'large', horizontal: 'small' }}>
                 <AddFeedbackForm
