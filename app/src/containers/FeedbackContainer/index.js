@@ -36,7 +36,9 @@ class FeedbackContainer extends Component {
   }
   componentWillReceiveProps({ fields, user, location }) {
     if(location && !fields.urlInput.value) {
-      fields.urlInput.onChange(`${BASE_URL}${location.pathname}`);
+      const APPEND_LOCATION = location.pathname
+                                .substring(1, (location.pathname.length));
+      fields.urlInput.onChange(`${BASE_URL}${APPEND_LOCATION}`);
     }
     if(location && !fields.nameInput.value) {
       if(user) {
