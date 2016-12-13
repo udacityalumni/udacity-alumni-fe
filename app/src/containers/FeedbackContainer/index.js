@@ -12,12 +12,12 @@ import {
  } from 'components';
 import validation from './validation/index';
 import { reduxForm } from 'redux-form';
-import Footer from 'grommet/components/footer';
-import Layer from 'grommet/components/layer';
-import Box from 'grommet/components/box';
-import Button from 'grommet/components/button';
-import Menu from 'grommet/components/menu';
-import Section from 'grommet/components/Section';
+import Footer from 'grommet-udacity/components/footer';
+import Layer from 'grommet-udacity/components/layer';
+import Box from 'grommet-udacity/components/box';
+import Button from 'grommet-udacity/components/button';
+import Menu from 'grommet-udacity/components/menu';
+import Section from 'grommet-udacity/components/Section';
 import { BASE_URL } from 'config';
 
 export const addFeedbackFields = [
