@@ -6,7 +6,8 @@ import Footer from 'grommet/components/footer';
 import Button from 'grommet/components/button';
 import Headline from 'grommet/components/Headline';
 import Heading from 'grommet/components/Heading';
-import LinkNextIcon from 'grommet/components/icons/base/LinkNext';
+import Paragraph from 'grommet/components/Paragraph';
+// import LinkNextIcon from 'grommet/components/icons/base/LinkNext';
 import Menu from 'grommet/components/menu';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
@@ -14,13 +15,10 @@ import styles from './index.module.scss';
 const itemInvalid = (item) =>
   item.touched && item.error;
 
-const ROOT_URL = 'https://udacity-client.herokuapp.com';
-
 class AddFeedbackForm extends Component {
   constructor() {
     super();
     this.formIsInvalid = this.formIsInvalid.bind(this);
-    this.handleSubmitFeedback = this.handleSubmitFeedback.bind(this);
   }
   formIsInvalid() {
     const {
@@ -32,19 +30,6 @@ class AddFeedbackForm extends Component {
       itemInvalid(descriptionInput) ||
       itemInvalid(urlInput);
   }
-  handleSubmitFeedback() {
-    const {
-      nameInput,
-      urlInput,
-      descriptionInput,
-    } = this.props;
-    const feedback = {
-      name: nameInput.value,
-      url: urlInput.value,
-      description: descriptionInput.value,
-    };
-    onSubmitFeedback(feedback);
-  }
   render() {
     const {
       nameInput,
@@ -53,10 +38,20 @@ class AddFeedbackForm extends Component {
       onSubmitFeedback,
       onClear,
       user,
-      location,
+      message,
     } = this.props;
     return (
       <div>
+        {message &&
+          <Heading
+            tag="h4"
+            align="center"
+          >
+            <Paragraph>
+              {message}
+            </Paragraph>
+          </Heading>
+        }
       <Headline
         size="small"
         strong
@@ -69,7 +64,7 @@ class AddFeedbackForm extends Component {
       >
         Please Fill Out The Form Below...
       </Heading>
-      <Form onSubmit={onSubmitFeedback}>
+      <Form>
         <FormFields>
           <FormField
             label="Name *"
@@ -83,8 +78,8 @@ class AddFeedbackForm extends Component {
               className={styles.blockedInput}
               id="feedbackNameInput"
               type="text"
-              value={user ? user.name : 'Guest User'}
               name="name"
+              className={styles.blockedInput}
               disabled
               required
             />
@@ -99,9 +94,8 @@ class AddFeedbackForm extends Component {
               {...urlInput}
               ref="urlInput"
               className={styles.longUrl}
-              id="feedbackUrlnput"
+              id="urlInput"
               type="text"
-              value={`${ROOT_URL}${location.pathname}`}
               name="url"
               disabled
               required
@@ -133,8 +127,7 @@ class AddFeedbackForm extends Component {
               className={styles.button}
               label="Submit"
               primary
-              disabled={this.formIsInvalid()}
-              onClick={this.formIsInvalid() ? null : this.handleSubmitFeedback}
+              onClick={onSubmitFeedback}
             />
             <Button
               label="Clear"
@@ -162,7 +155,7 @@ AddFeedbackForm.propTypes = {
   onSubmitFeedback: PropTypes.func.isRequired,
   onClear: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
+  message: PropTypes.string,
 };
 
 export default cssModules(AddFeedbackForm, styles);

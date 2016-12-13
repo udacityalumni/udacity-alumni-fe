@@ -24,6 +24,7 @@ export const addFeedbackFields = [
   'urlInput',
   'descriptionInput',
 ];
+const ROOT_URL = 'https://udacity-client.herokuapp.com';
 
 class FeedbackContainer extends Component {
   constructor() {
@@ -31,6 +32,14 @@ class FeedbackContainer extends Component {
     this.handleToggleModal = this.handleToggleModal.bind(this);
     this.handleSubmitFeedback = this.handleSubmitFeedback.bind(this);
     this.handleClear = this.handleClear.bind(this);
+  }
+  componentWillReceiveProps({ fields, user, location }) {
+    if(location && !fields.urlInput.value) {
+      fields.urlInput.onChange(`${ROOT_URL}${location.pathname}`);
+    }
+    if(location && !fields.nameInput.value) {
+      fields.nameInput.onChange(user.name);
+    }
   }
   handleToggleModal() {
     const {
@@ -45,18 +54,38 @@ class FeedbackContainer extends Component {
     }
     actions.toggleFeedbackModal();
   }
-  handleSubmitFeedback(feedback) {
+  handleSubmitFeedback() {
     const {
       user,
-      onSubmitFeedback,
+      actions,
+      fields,
+      authToken,
     } = this.props;
     if(user) {
-      onSubmitFeedback(feedback);
+      const data = {
+        variables: {
+          auth_token: authToken,
+          feedback: {
+            description: fields.descriptionInput.value,
+            url: fields.urlInput.value,
+          },
+        },
+      };
+      actions.feedbackSubmissionInitiation();
+      this.props.submitFeedbackMutation(data)
+        .then(() => {
+          const message = 'Thanks for submitting feedback!' +
+          '  We appreciate it greatly as it will help us to make this site better.';
+          actions.feedbackSubmissionMessage(message);
+        })
+        .catch(err => {
+          console.log("error", err);
+          actions.feedbackSubmissionError(err);
+        });
     } else {
-      alert("Login!");
       this.context.router.push('/login');
     }
-    this.handleToggleModal();
+    // this.handleToggleModal();
   }
   handleClear() {
     const {
@@ -72,6 +101,7 @@ class FeedbackContainer extends Component {
       hasFab,
       fields,
       resetForm,
+      message,
     } = this.props;
     return (
       <div className={styles.addReview}>
@@ -87,6 +117,7 @@ class FeedbackContainer extends Component {
                 <AddFeedbackForm
                   {...fields}
                   user={user}
+                  message={message}
                   location={location}
                   onSubmitFeedback={this.handleSubmitFeedback}
                   onClear={resetForm}
@@ -124,12 +155,19 @@ FeedbackContainer.propTypes = {
   fields: PropTypes.object.isRequired,
   resetForm: PropTypes.func.isRequired,
   hasFab: PropTypes.bool.isRequired,
+  submitFeedbackMutation: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool,
+  message: PropTypes.string,
+  authToken: PropTypes.string,
 };
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
   isAddingFeedback: state.feedbackContainer.isAddingFeedback,
+  isSubmitting: state.feedbackContainer.isSubmitting,
+  message: state.feedbackContainer.message,
   user: state.app.user,
+  authToken: state.app.authToken,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -140,23 +178,29 @@ const mapDispatchToProps = (dispatch) => ({
   ),
 });
 
-const Container = cssModules(FeedbackContainer, styles);
-
-const ConnectedContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Container);
-
-export default reduxForm({
+const Container = reduxForm({
   form: 'addFeedback',
   fields: addFeedbackFields,
   validate: validation,
-})(ConnectedContainer);
+})(FeedbackContainer);
 
-// const createFeedbackMutation = graphql`
-//   mutation createFeedback($feedback: FeedbackInput, $auth_token: String!){
-//   CreateFeedback(input:{feedback: $feedback, auth_token: $auth_token}){
-//     __typename
-//    }
-//   }
-// `;
+// const StyledContainer = cssModules(FeedbackContainer, styles);
+
+const createFeedbackMutation = gql`
+  mutation createFeedback($feedback: FeedbackInput, $auth_token: String!){
+  CreateFeedback(input:{feedback: $feedback, auth_token: $auth_token}){
+    __typename
+   }
+  }
+`;
+
+const ContainerWithMutation = graphql(createFeedbackMutation, {
+  props: ({ mutate }) => ({
+    submitFeedbackMutation: mutate,
+  }),
+})(Container);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContainerWithMutation);
