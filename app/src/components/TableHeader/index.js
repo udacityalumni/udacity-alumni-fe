@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Button from 'grommet-udacity/components/Button';
 import Box from 'grommet-udacity/components/Box';
 import AscIcon from 'grommet-udacity/components/icons/base/LinkDown';
-import DescIcon from 'grommet/components/icons/base/LinkUp';
+import DescIcon from 'grommet-udacity/components/icons/base/LinkUp';
 
 export default class TableHeader extends Component {
 
