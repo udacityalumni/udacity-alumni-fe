@@ -165,7 +165,7 @@ const FeedbackTable = ({
         </Table>
       }
     </FlexGrow>
-    {allItems > perPage &&
+    {allItems && allItems.length > perPage &&
       <Pagination
         onChange={onChangePage}
         pageSize={perPage}
