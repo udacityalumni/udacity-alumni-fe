@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import Button from 'grommet-udacity/components/button';
+import Button from 'grommet-udacity/components/Button';
 import Add from 'grommet-udacity/components/icons/base/Add';
 
 const FeedbackButton = ({
