@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-// importing the gromment components used in this page
 import Box from 'grommet-udacity/components/Box';
+import Section from 'grommet-udacity/components/Section';
 import Heading from 'grommet-udacity/components/Heading';
+import Headline from 'grommet-udacity/components/Headline';
 import Paragraph from 'grommet-udacity/components/Paragraph';
+import Article from 'grommet-udacity/components/Article';
+import Footer from 'grommet-udacity/components/Footer';
 import Anchor from 'grommet-udacity/components/Anchor';
-// importing the Udacity loading messages and their adapted versions
+import NavigateIcon from 'grommet-udacity/components/icons/base/Navigate';
 import messageData from './messageData';
-// importing the Image component
-import { NotFoundImage } from 'components';
+import { NotFoundImage, Divider } from 'components';
 
 class NotFound extends Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -29,33 +31,47 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
 
     return (
       <Box
-        pad="large"
-        textAlign="center"
-        className={styles.fillHeight}
+        align="center"
+        className={styles.mainWrapper}
       >
-        <Box align="center">
-          <Heading tag="h3">
-            Hello curious adventurer! : )
-          </Heading>
-          <NotFoundImage />
-          <Paragraph textAlign="center">
-            You've wandered into uncharted territory. 404-Land.
-            <br />If that is right where you belong, then get ready to map!
-          </Paragraph>
-        </Box>
-        <Box align="center">
-          <Heading tag="h1" className="problem" alignContent="center">
-            { messageData[randomArticle].title }
-          </Heading>
-          <Paragraph className="solution">
-            { messageData[randomArticle].body }
-          </Paragraph>
-          <Anchor className="solution-link" href={ messageData[randomArticle].link }>
-            { messageData[randomArticle].description }
-          </Anchor>
+        <Box direction="row" pad="large">
+          <Article
+            align="center"
+            justify="center"
+            className={styles.mainContent}
+          >
+            <Section primary align="center" pad="medium">
+              <Headline align="center">
+                Hello curious adventurer! : )
+              </Headline>
+              <Divider />
+              <NotFoundImage />
+              <Paragraph textAlign="center">
+                You've wandered into uncharted territory. 404-Land.
+                <br />If that is right where you belong, then get ready to map!
+              </Paragraph>
+            </Section>
+            <Footer align="center" pad="large" direction="column">
+              <Heading tag="h1" align="center">
+                { messageData[randomArticle].title }
+              </Heading>
+              <Box pad="medium" align="center">
+                <Heading align="center" tag="h3">
+                  { messageData[randomArticle].body }
+                </Heading>
+                <Anchor
+                  primary
+                  icon={<NavigateIcon />}
+                  label={ messageData[randomArticle].description }
+                  animateIcon
+                  href={ messageData[randomArticle].link }
+                />
+              </Box>
+            </Footer>
+          </Article>
         </Box>
       </Box>
-      );
+    );
   }
 
   render() {
