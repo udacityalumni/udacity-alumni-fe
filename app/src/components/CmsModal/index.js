@@ -99,7 +99,11 @@ const CmsModal = ({
         }
         </FormFields>
       <Footer align="center" justify="center" pad="medium">
-        <Button label="Publish" onClick={canSubmit ? onSave : null} />
+        <Button
+          primary
+          label="Save and Publish"
+          onClick={canSubmit ? onSave : null}
+        />
       </Footer>
     </Form>
   </Layer>

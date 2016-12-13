@@ -17,6 +17,17 @@ export const initialState = {
     sortIndex: 1,
     sortAscending: true,
   },
+  feedback: {
+    items: [],
+    perPage: 8,
+    currentPage: 1,
+    sortIndex: 1,
+    sortAscending: true,
+    preview: {
+      isVisible: false,
+      selectedItem: null,
+    },
+  },
   aside: {
     isVisible: false,
   },
@@ -37,6 +48,53 @@ export const initialState = {
 const adminDashboardReducer =
   (state = initialState, action) => {
     switch (action.type) {
+      case types.ADMIN_DASHBOARD_SHOW_FEEDBACK_MODAL:
+        return {
+          ...state,
+          feedback: {
+            ...state.feedback,
+            preview: {
+              isVisible: true,
+              selectedItem: action.item,
+            },
+          },
+        };
+      case types.ADMIN_DASHBOARD_DISMISS_FEEDBACK_MODAL:
+        return {
+          ...state,
+          feedback: {
+            ...state.feedback,
+            preview: {
+              isVisible: false,
+              selectedItem: null,
+            },
+          },
+        };
+      case types.ADMIN_DASHBOARD_SET_FEEDBACK_PAGE:
+        return {
+          ...state,
+          feedback: {
+            ...state.feedback,
+            currentPage: action.page,
+          },
+        };
+      case types.ADMIN_DASHBOARD_SET_FEEDBACK:
+        return {
+          ...state,
+          feedback: {
+            ...state.feedback,
+            items: action.feedback,
+          },
+        };
+      case types.ADMIN_DASHBOARD_SET_SORT_OPTIONS_FEEDBACK:
+        return {
+          ...state,
+          feedback: {
+            ...state.feedback,
+            sortIndex: action.index,
+            sortAscending: action.ascending,
+          },
+        };
       case types.ADMIN_DASHBOARD_CLEAR_MESSAGE:
         return {
           ...state,

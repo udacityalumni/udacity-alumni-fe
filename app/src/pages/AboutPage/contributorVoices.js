@@ -2,21 +2,21 @@ const contributorVoices = [
   {
     label: 'Anything you want',
     image: 'https://upload.wikimedia.org/wikipedia/commons/3/33/White_square_with_question_mark.png',
-    heading: 'Hei You!',
+    heading: 'Your Name Here',
     githubUrl: 'https://github.com/udacityalumni',
     description: 'There surely is something you can do to make this better! : )',
   },
   {
     label: 'FE Coder',
     image: 'https://avatars0.githubusercontent.com/u/10746052?v=3&s=400',
-    heading: 'zhangs',
+    heading: 'Treefish Zhang',
     githubUrl: 'https://github.com/zhangtreefish',
     description: 'The project is about learning React and practice collaborative development with friendly fellow Udacians.',
   },
   {
     label: 'Manager and FS Coder',
     image: 'https://avatars2.githubusercontent.com/u/13810084?v=3&s=400',
-    heading: 'Ryan Collins',
+    heading: 'Ryan C. Collins',
     githubUrl: 'https://github.com/udacityalumni',
     description: 'Above all else, this project has connected me with an outstanding group of people, all of whom share my passion for education.',
   },
@@ -29,7 +29,7 @@ const contributorVoices = [
   },
   {
     label: 'Premium Poster',
-    image: 'http://oi64.tinypic.com/2w6rsxc.jpg',
+    image: 'https://s-media-cache-ak0.pinimg.com/236x/75/93/83/759383c1c4e98c15c06c9af43fc84552.jpg',
     heading: 'SadlyFake Demo-User',
     githubUrl: 'https://github.com/udacityalumni',
     description: 'I love blogging! I also break hearts.',
@@ -51,7 +51,7 @@ const contributorVoices = [
   {
     label: 'Anything you want',
     image: 'https://upload.wikimedia.org/wikipedia/commons/3/33/White_square_with_question_mark.png',
-    heading: 'Hei You!',
+    heading: 'Your Name Here',
     githubUrl: 'https://github.com/udacityalumni',
     description: 'Excited to build something? Click the link!',
   },

@@ -147,7 +147,12 @@ const UserDashboardTable = ({
                             </Label>
                           }
                           {editingIndex && editingIndex === user.id ?
-                            <TextArea {...fields.bioInput} rows="4" coluns="40" type="text" />
+                            <TextArea
+                              {...fields.bioInput}
+                              rows={isMobile ? 4 : 2}
+                              coluns="40"
+                              type="text"
+                            />
                           :
                             <Heading align="center" tag="h4">
                               {user.bio}
@@ -314,12 +319,14 @@ const UserDashboardTable = ({
         </Table>
       }
     </GrowBox>
-    <Pagination
-      onChange={onChangePage}
-      pageSize={perPage}
-      currentPage={currentPage}
-      total={allUsers.length}
-    />
+    {allUsers && allUsers.length > perPage &&
+      <Pagination
+        onChange={onChangePage}
+        pageSize={perPage}
+        currentPage={currentPage}
+        total={allUsers.length}
+      />
+    }
   </ListWrapper>
 );
 

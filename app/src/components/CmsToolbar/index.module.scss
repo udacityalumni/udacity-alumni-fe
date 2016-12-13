@@ -4,11 +4,12 @@
   left: 0;
   bottom: -10px;
   width: 100%;
-  z-index: 100;
+  z-index: 5;
   margin: 0 !important;
 }
 
 .toolbarWrapper {
+  margin: 0 !important;
   @media screen and (max-width: 768px) {
     justify-content: center;
     align-items: center !important;

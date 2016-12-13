@@ -1,5 +1,6 @@
 /* GENERATOR: Assemble all containers for export */
 export FeedbackContainer from './FeedbackContainer';
+export WriterDashboardContainer from './WriterDashboardContainer';
 export AdminDashboardContainer from './AdminDashboardContainer';
 export AboutContainer from './AboutContainer';
 export PublicUserProfileContainer from './PublicUserProfileContainer';
@@ -18,3 +19,4 @@ export CmsEditorContainer from './CmsEditorContainer';
 export SignupContainer from './SignupContainer';
 export LoginContainer from './LoginContainer';
 export LandingContainer from './LandingContainer';
+export AppContainer from './AppContainer';

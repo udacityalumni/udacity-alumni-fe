@@ -8,6 +8,8 @@ import Paragraph from 'grommet-udacity/components/Paragraph';
 import Anchor from 'grommet-udacity/components/Anchor';
 // importing the Udacity loading messages and their adapted versions
 import messageData from './messageData';
+// importing the Image component
+import { NotFoundImage } from 'components';
 
 class NotFound extends Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -35,8 +37,8 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
           <Heading tag="h3">
             Hello curious adventurer! : )
           </Heading>
+          <NotFoundImage />
           <Paragraph textAlign="center">
-            { /* maybe could be smaller font. better would be no linebreak in here */ }
             You've wandered into uncharted territory. 404-Land.
             <br />If that is right where you belong, then get ready to map!
           </Paragraph>

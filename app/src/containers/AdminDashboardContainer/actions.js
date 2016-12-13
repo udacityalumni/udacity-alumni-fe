@@ -17,6 +17,12 @@ export const setArticles = (articles) => ({
   articles,
 });
 
+export const setFeedback = (feedback) => ({
+  type: types.ADMIN_DASHBOARD_SET_FEEDBACK,
+  feedback,
+});
+
+
 export const setUsersPage = (page) => ({
   type: types.ADMIN_DASHBOARD_SET_USERS_PAGE,
   page,
@@ -24,6 +30,11 @@ export const setUsersPage = (page) => ({
 
 export const setArticlesPage = (page) => ({
   type: types.ADMIN_DASHBOARD_SET_ARTICLES_PAGE,
+  page,
+});
+
+export const setFeedbackPage = (page) => ({
+  type: types.ADMIN_DASHBOARD_SET_FEEDBACK_PAGE,
   page,
 });
 
@@ -57,6 +68,12 @@ export const setSortOptions = (index, ascending) => ({
 
 export const setSortOptionsArticles = (index, ascending) => ({
   type: types.ADMIN_DASHBOARD_SET_SORT_OPTIONS_ARTICLES,
+  index,
+  ascending,
+});
+
+export const setSortOptionsFeedback = (index, ascending) => ({
+  type: types.ADMIN_DASHBOARD_SET_SORT_OPTIONS_FEEDBACK,
   index,
   ascending,
 });
@@ -113,3 +130,12 @@ export const viewArticle = (slug) => (dispatch) => {
     push(`/articles/${slug}`)
   );
 };
+
+export const showFeedbackModal = (item) => ({
+  type: types.ADMIN_DASHBOARD_SHOW_FEEDBACK_MODAL,
+  item,
+});
+
+export const dismissFeedbackModal = () => ({
+  type: types.ADMIN_DASHBOARD_DISMISS_FEEDBACK_MODAL,
+});

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
-import * as AppActions from 'components/App/actions';
+import * as AppActions from 'containers/AppContainer/actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {

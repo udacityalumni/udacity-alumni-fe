@@ -4,18 +4,24 @@ import cssModules from 'react-css-modules';
 import Columns from 'grommet-udacity/components/Columns';
 import Box from 'grommet-udacity/components/Box';
 import Button from 'grommet-udacity/components/Button';
+import ContractIcon from 'grommet-udacity/components/icons/base/Contract';
+import { ToolbarToggle } from 'components';
 
 const CmsToolbar = ({
   onSave,
   canSubmit,
   onPreview,
-}) => (
-  <Box
-    align="center"
-    justify="center"
-    full="horizontal"
-    className={styles.toolbar}
-  >
+  isEditing,
+  onToggleVisibility,
+  isVisible,
+}) => isVisible ?
+  (
+    <Box
+      align="center"
+      justify="center"
+      full="horizontal"
+      className={styles.toolbar}
+    >
     <Columns justify="center" full="horizontal">
       <Box
         direction="row"
@@ -28,24 +34,40 @@ const CmsToolbar = ({
         colorIndex="light-2"
       >
         <Button
-          className={styles.button}
-          label="Submit"
-          onClick={canSubmit ? onSave : null}
-        />
-        <Button
+          secondary
           className={styles.button}
           label="Preview"
           onClick={onPreview}
         />
+        <Button
+          plain
+          onClick={onToggleVisibility}
+          icon={<ContractIcon />}
+        />
+        <Button
+          primary
+          className={styles.button}
+          label={isEditing ? 'Update Article' : 'Save Article'}
+          onClick={canSubmit ? onSave : null}
+        />
       </Box>
     </Columns>
-  </Box>
-);
+    </Box>
+  )
+:
+  (
+    <ToolbarToggle
+      onClick={onToggleVisibility}
+    />
+  );
 
 CmsToolbar.propTypes = {
   canSubmit: PropTypes.bool.isRequired,
   onPreview: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool.isRequired,
+  onToggleVisibility: PropTypes.func.isRequired,
+  isVisible: PropTypes.bool.isRequired,
 };
 
 export default cssModules(CmsToolbar, styles);

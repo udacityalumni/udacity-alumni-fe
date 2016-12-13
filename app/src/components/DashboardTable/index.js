@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Box from 'grommet-udacity/components/Box';
 import Table from 'grommet-udacity/components/Table';
 import Heading from 'grommet-udacity/components/Heading';
-import Image from 'grommet-udacity/components/Image';
 import Tile from 'grommet-udacity/components/Tile';
 import List from 'grommet-udacity/components/List';
 import Label from 'grommet-udacity/components/Label';
@@ -10,8 +9,8 @@ import ListItem from 'grommet-udacity/components/ListItem';
 import Timestamp from 'grommet-udacity/components/Timestamp';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
-import { DashboardTableButtonMenu, Pagination, TableHeader } from 'components';
-import { TableRow } from './styles';
+import { DashboardTableButtonMenu, Pagination, TableHeader, Thumbnail } from 'components';
+import { TableRow, ArticleHeadingWrapper, ArticleHeading } from './styles';
 
 const DashboardTable = ({
   items,
@@ -36,61 +35,57 @@ const DashboardTable = ({
       {isMobile ?
         <List>
           <Box justify="center" align="start" pad="small">
-            <tbody>
-              {items && items.length > 0 && items.map((item, i) =>
-                <ListItem>
-                  <Tile
-                    key={i}
-                    align="start"
-                    direction="row" pad={{ horizontal: 'small', vertical: 'small' }}
+            {items && items.length > 0 && items.map((item, i) =>
+              <ListItem>
+                <Tile
+                  key={i}
+                  align="start"
+                  direction="row" pad={{ horizontal: 'small', vertical: 'small' }}
+                >
+                  <Box
+                    align="center"
+                    justify="center"
+                    direction="row"
                   >
                     <Box
-                      align="center"
+                      direction="column"
                       justify="center"
-                      direction="row"
+                      className={styles.innerWrapper}
+                      pad={{ horizontal: 'small', vertical: 'medium' }}
                     >
-                      <Box
-                        direction="column"
-                        justify="center"
-                        className={styles.innerWrapper}
-                        pad={{ horizontal: 'small', vertical: 'medium' }}
-                      >
-                        <Box className={styles.imageWrapper}>
-                          <Image size="medium" src={item.image} />
-                        </Box>
-                        <Box className={styles.boxWrapper}>
-                          <Heading align="center" tag="h3">
-                            {item.title}
-                          </Heading>
-                        </Box>
-                        <Box className={styles.boxWrapper}>
-                          <Label>
-                            Posted By:
-                          </Label>
-                          <Heading align="center" tag="h4">
-                            {item.user.name}
-                          </Heading>
-                        </Box>
-                        <Box className={styles.boxWrapper}>
-                          <Label style={{ flex: 1 }}>
-                            Status:
-                          </Label>
-                          <Heading align="center" tag="h4">
-                            {`${item.status.charAt(0).toUpperCase()}${item.status.slice(1)}`}
-                          </Heading>
-                        </Box>
-                        <DashboardTableButtonMenu
-                          item={item}
-                          onDelete={() => onDelete(item)}
-                          onEdit={() => onEdit(item)}
-                          onShow={() => onShow(item)}
-                        />
+                      <ArticleHeadingWrapper>
+                        <Thumbnail size="medium" src={item.image} />
+                        <ArticleHeading align="center" tag="h2">
+                          {item.title}
+                        </ArticleHeading>
+                      </ArticleHeadingWrapper>
+                      <Box className={styles.boxWrapper}>
+                        <Label>
+                          Posted By:
+                        </Label>
+                        <Heading align="center" tag="h4">
+                          {item.user.name}
+                        </Heading>
                       </Box>
+                      <Box className={styles.boxWrapper}>
+                        <Label style={{ flex: 1 }}>
+                          Status:
+                        </Label>
+                        <Heading align="center" tag="h4">
+                          {`${item.status.charAt(0).toUpperCase()}${item.status.slice(1)}`}
+                        </Heading>
+                      </Box>
+                      <DashboardTableButtonMenu
+                        item={item}
+                        onDelete={() => onDelete(item)}
+                        onEdit={() => onEdit(item)}
+                        onShow={() => onShow(item)}
+                      />
                     </Box>
-                  </Tile>
-                </ListItem>
-              )}
-            </tbody>
+                  </Box>
+                </Tile>
+              </ListItem>
+            )}
           </Box>
         </List>
       :
@@ -105,9 +100,7 @@ const DashboardTable = ({
             {items && items.length > 0 && items.map((item) =>
               <TableRow key={item.id}>
                 <td>
-                  <Box className={styles.thumbnailWrapper}>
-                    <Image className={styles.thumbnail} size="small" src={item.image} />
-                  </Box>
+                  <Thumbnail size="xsmall" src={item.image} />
                 </td>
                 <td style={{ width: 400, color: '#333' }}>
                   <Box className={styles.tableItemWrapper}>
@@ -146,12 +139,14 @@ const DashboardTable = ({
         </Table>
       }
     </Box>
-    <Pagination
-      onChange={onChangePage}
-      pageSize={perPage}
-      currentPage={currentPage}
-      total={allItems.length}
-    />
+    {allItems && allItems.length > perPage &&
+      <Pagination
+        onChange={onChangePage}
+        pageSize={perPage}
+        currentPage={currentPage}
+        total={allItems.length}
+      />
+    }
   </Box>
 );
 

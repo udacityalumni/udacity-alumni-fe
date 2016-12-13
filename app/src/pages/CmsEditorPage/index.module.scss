@@ -1,7 +1,4 @@
 .container {
-  min-height: 100vh;
+  min-height: calc(100vh - 75px);
   width: 100%;
-}
-.cmsEditor {
-
 }

@@ -5,6 +5,7 @@ import client from './apolloClient';
 
 /* GENERATOR: Import all of your reducers */
 import feedbackContainer from 'containers/FeedbackContainer/reducer';
+import writerDashboard from './containers/WriterDashboardContainer/reducer';
 import adminDashboardContainer from 'containers/AdminDashboardContainer/reducer';
 import landing from 'containers/LandingContainer/reducer';
 import loginContainer from 'containers/LoginContainer/reducer';
@@ -17,11 +18,12 @@ import articleFeedContainer from 'containers/ArticleFeedContainer/reducer';
 import userProfileContainer from 'containers/UserProfileContainer/reducer';
 import archiveContainer from 'containers/ArticleArchiveContainer/reducer';
 import resetPassword from 'containers/ResetPasswordContainer/reducer';
-import app from 'components/App/reducer';
+import app from 'containers/AppContainer/reducer';
 
 const rootReducer = combineReducers({
   /* GENERATOR: Compile all of your reducers */
   feedbackContainer,
+  writerDashboard,
   adminDashboardContainer,
   loginContainer,
   signupContainer,

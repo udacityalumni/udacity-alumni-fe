@@ -8,14 +8,12 @@ export const FullSection = styled(Section)`
 `;
 
 export const MainContent = styled(Box)`
-  background: #FFF;
   position: relative;
   margin-bottom: 14px;
   background: #fff;
   box-shadow: 0 2px 4px 0 rgba(46,61,73,.2);
   border: 1px solid #dbe2e8;
   @media screen and (max-width: 768px) {
-    padding-top: 0 !important;
     max-width: 100vw;
     box-sizing: border-box;
   }

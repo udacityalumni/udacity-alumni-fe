@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
 import { MobileNav, LogoImage, Navbar } from 'components';
-import Header from 'grommet-udacity/components/Header';
 import Title from 'grommet-udacity/components/Title';
 import Anchor from 'grommet-udacity/components/Anchor';
 import MenuIcon from 'grommet-udacity/components/icons/base/Menu';
-
+import { StyledHeader } from './styles';
 
 const AppNavigation = ({
   isMobile,
@@ -33,7 +32,7 @@ const AppNavigation = ({
         onToggleNav={onToggleNav}
         navLinks={navLinks}
       >
-        <Header
+        <StyledHeader
           direction="row"
           justify="between"
           large
@@ -46,14 +45,18 @@ const AppNavigation = ({
               </Anchor>
             </Title>
           }
-          <Title style={navIsActive &&{ display: 'none' }} onClick={onToggleNav} a11yTitle="Open Menu Right">
+          <Title s
+            tyle={navIsActive && { display: 'none' }}
+            onClick={onToggleNav}
+            a11yTitle="Open Menu Right"
+          >
             <MenuIcon
               colorIndex="brand"
               size="medium"
               type="control"
             />
           </Title>
-        </Header>
+        </StyledHeader>
         {children}
       </MobileNav>
     }

@@ -1087,6 +1087,24 @@
           "description": "Feedback submitted by a user",
           "fields": [
             {
+              "name": "created_at",
+              "description": "When the feedback was created",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "description",
               "description": "Description of the feedback",
               "args": [
@@ -1123,6 +1141,24 @@
               "deprecationReason": null
             },
             {
+              "name": "updated_at",
+              "description": "When the feedback was updated",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "url",
               "description": "The url where the feedback came from",
               "args": [
@@ -1144,7 +1180,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "AuthUser",
                 "ofType": null
               },
               "isDeprecated": false,

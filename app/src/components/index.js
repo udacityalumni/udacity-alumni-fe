@@ -1,6 +1,12 @@
 /* GENERATOR: Assemble all components for export */
 export AddFeedbackForm from './AddFeedbackForm';
 export FeedbackButton from './FeedbackButton';
+export NotFoundImage from './NotFoundImage';
+export FeedbackPreview from './FeedbackPreview';
+export FeedbackTable from './FeedbackTable';
+export ToolbarToggle from './ToolbarToggle';
+export BackButton from './BackButton';
+export Thumbnail from './Thumbnail';
 export AvatarFormModal from './AvatarFormModal';
 export TableHeader from './TableHeader';
 export UserDashboardTable from './UserDashboardTable';
@@ -47,4 +53,3 @@ export MainCarousel from './MainCarousel';
 export LoadingIndicator from './LoadingIndicator';
 export Navbar from './Navbar';
 export LogoImage from './LogoImage';
-export App from './App';

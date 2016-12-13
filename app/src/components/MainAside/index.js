@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import Heading from 'grommet-udacity/components/Heading';
-import Image from 'grommet-udacity/components/Image';
 import Box from 'grommet-udacity/components/Box';
 import Button from 'grommet-udacity/components/Button';
 import Menu from 'grommet-udacity/components/Menu';
 import EditIcon from 'grommet-udacity/components/icons/base/Edit';
 import DashboardIcon from 'grommet-udacity/components/icons/base/Dashboard';
 import ImageIcon from 'grommet-udacity/components/icons/base/Image';
+import { Thumbnail } from 'components';
 
 const MainAside = ({
   user,
@@ -22,8 +22,7 @@ const MainAside = ({
    {user &&
      <div>
        <div className={styles.avatarWrapper}>
-         <Image
-           className={styles.avatarImage}
+         <Thumbnail
            size="medium"
            src={user.avatar}
          />
@@ -44,36 +43,44 @@ const MainAside = ({
          pad={{ horizontal: 'small', vertical: 'small' }}
        >
          <Button
+           className={styles.button}
            label="Post an Article"
            onClick={e => e}
            plain
-           href="/admin/cms?action=new"
+           href={user.role === 'admin' ? '/admin/cms?action=new' : 'author/cms?action=new'}
            icon={<EditIcon />}
          />
          <Button
-           label="Admin Dashboard"
+           className={styles.button}
+           label="Dashboard"
            onClick={e => e}
            plain
-           href="/admin/dashboard"
+           href={user.role === 'admin' ? '/admin/dashboard' : '/author/dashboard'}
            icon={<DashboardIcon />}
          />
        </Box>
-       <Box className={styles.widgetBox}>
-         <Heading align="center" tag="h3">
-           Widgets
-         </Heading>
-         <Box className={styles.innerWidgetBox}>
-           <Menu inline>
-             <Button
-               label="Carousel"
-               onClick={e => e}
-               plain
-               href="/admin/carousel"
-               icon={<ImageIcon />}
-             />
-           </Menu>
+       {user.role === 'admin' &&
+         <Box className={styles.widgetBox}>
+           <Heading align="center" tag="h3">
+             Widgets
+           </Heading>
+           <Box
+             pad={{ horizontal: 'small' }}
+             className={styles.innerWidgetBox}
+           >
+             <Menu inline>
+               <Button
+                 className={styles.button}
+                 label="Carousel"
+                 onClick={e => e}
+                 plain
+                 href="/admin/carousel"
+                 icon={<ImageIcon />}
+               />
+             </Menu>
+           </Box>
          </Box>
-       </Box>
+       }
      </div>
    }
   </Box>

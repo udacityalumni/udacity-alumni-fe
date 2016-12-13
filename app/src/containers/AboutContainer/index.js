@@ -27,9 +27,12 @@ const CardComponent = ({
         <Anchor
           href={githubUrl}
           primary
-          label="Link"
+          label="GitHub profile"
         />
       }
+      contentPad="small"
+      textSize="small"
+      headingStrong={false}
     />
   </Paragraph>
 );

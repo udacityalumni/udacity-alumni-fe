@@ -35,6 +35,7 @@ const SessionIcon = ({
   user,
 }) => (
   <Box
+    id="session-menu-toggle"
     responsive={false}
     direction="row"
     justify="center"
@@ -75,6 +76,29 @@ const SessionMenu = ({
                 </Anchor>
               </Menu>
             );
+          case 'author':
+            return (
+              <Menu
+                icon={<SessionIcon user={user} />}
+                dropAlign={{ bottom: 'bottom' }}
+                a11yTitle="Session"
+                inline={false}
+                className={styles.rightMenu}
+              >
+                <Anchor href="/me/profile">
+                  My Profile
+                </Anchor>
+                <Anchor href="/author/dashboard">
+                  Dashboard
+                </Anchor>
+                <Anchor href="/author/cms?action=new">
+                  New Post
+                </Anchor>
+                <Anchor href="/logout" onClick={onLogout}>
+                  Logout
+                </Anchor>
+              </Menu>
+            );
           case 'admin':
             return (
               <Menu
@@ -92,6 +116,9 @@ const SessionMenu = ({
                 </Anchor>
                 <Anchor href="/admin/cms?action=new">
                   New Post
+                </Anchor>
+                <Anchor href="/admin/carousel">
+                  Manage Carousel
                 </Anchor>
                 <Anchor href="/logout" onClick={onLogout}>
                   Logout

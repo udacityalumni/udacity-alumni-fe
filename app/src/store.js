@@ -10,8 +10,9 @@ const isClient = typeof document !== 'undefined';
 const isDeveloping = process.env.NODE_ENV !== 'production';
 
 /* GENERATOR: Import all of your initial state */
-import { initialState  as feedbackContainer } from './containers/FeedbackContainer/reducer';
-import { initialState as app } from './components/App/reducer';
+import { initialState as feedbackContainer } from './containers/FeedbackContainer/reducer';
+import { initialState as writerDashboard } from './containers/WriterDashboardContainer/reducer';
+import { initialState as app } from './containers/AppContainer/reducer';
 import { initialState as landing } from './containers/LandingContainer/reducer';
 import { initialState as loginContainer } from './containers/LoginContainer/reducer';
 import { initialState as signupContainer } from './containers/SignupContainer/reducer';
@@ -33,7 +34,9 @@ import {
 
 const initialState = {
   /* GENERATOR: Compile all of your initial state */
+  writerDashboard,
   adminDashboardContainer,
+  feedbackContainer,
   app,
   landing,
   loginContainer,

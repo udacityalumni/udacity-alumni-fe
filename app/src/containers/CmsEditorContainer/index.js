@@ -12,12 +12,14 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import articleDataFragment from './graph/fragments';
 import inputToArticle from './model/articleSubmission';
+import { getIsEditing } from './selectors';
 import {
   CmsEditor,
   ToastMessage,
   CmsModal,
   LoadingIndicator,
   CmsEditorPreview,
+  BackButton,
 } from 'components';
 
 class CmsEditorContainer extends Component {
@@ -50,14 +52,18 @@ class CmsEditorContainer extends Component {
     if (articleId && action) {
       actions.cmsSetArticleId(articleId, action);
     }
+    if (this.props.isMobile === true) {
+      this.props.actions.hideToolbar();
+    }
   }
-  componentWillReceiveProps({ message, articleId, article }) {
+  componentWillReceiveProps({ message, articleId, article, isMobile }) {
     if (message) {
       const {
         router,
       } = this.context;
       setTimeout(() => {
-        const path = '/admin/content-dashboard';
+        const userType = this.props.location.pathname.split('/')[1];
+        const path = `/${userType}/dashboard`;
         this.context.router.push(path);
         router.push(path);
       }, 3000);
@@ -66,10 +72,15 @@ class CmsEditorContainer extends Component {
       this.handleLoadingArticle();
     }
     if (article && !this.props.article) {
-      const {
-        actions,
-      } = this.props;
-      actions.cmsSetStateFromArticle(article);
+      this.props.actions.cmsSetStateFromArticle(article);
+    }
+    if (isMobile && isMobile !== this.props.isMobile && this.props.toolbarIsVisible) {
+      this.props.actions.hideToolbar();
+    }
+  }
+  componentWillUnmount() {
+    if (document) {
+      document.documentElement.classList.remove('no-scroll');
     }
   }
   handleLoadingArticle() {
@@ -99,6 +110,9 @@ class CmsEditorContainer extends Component {
       tags: modal.selectedTags,
       feature_image: modal.featureImage || '',
     });
+    if (document) {
+      document.documentElement.classList.remove('no-scroll');
+    }
     if (action && action === 'edit') {
       this.handleUpdateArticleSubmission(article);
     } else {
@@ -150,16 +164,17 @@ class CmsEditorContainer extends Component {
     handleClearingToast(type);
   }
   handleOpenModal() {
-    const {
-      cmsOpenModal,
-    } = this.props.actions;
-    cmsOpenModal();
+    if (document) {
+      document.documentElement.classList.add('no-scroll');
+    }
+    this.props.actions.cmsOpenModal();
   }
   handleCloseModal() {
-    const {
-      cmsCloseModal,
-    } = this.props.actions;
-    cmsCloseModal();
+    if (document) {
+      document.documentElement.classList.remove('no-scroll');
+    }
+    this.props.actions.cmsCloseModal();
+    this.props.actions.cmsSetStateFromArticle(this.props.article);
   }
   handleSetStatus(status) {
     const {
@@ -222,10 +237,13 @@ class CmsEditorContainer extends Component {
       preview,
       isLoading,
       actions,
+      isEditing,
+      toolbarIsVisible,
     } = this.props;
     const loading = loadingTags || articleLoading || isLoading;
     return (
       <div className={styles.cmsEditor}>
+        {isEditing && <BackButton />}
         {submissionError &&
           <ToastMessage
             message={submissionError.message}
@@ -253,8 +271,11 @@ class CmsEditorContainer extends Component {
             onChangeContent={this.handleEditorSetContent}
             onChangeTitle={this.handleEditorSetTitle}
             editorState={editorState}
+            onToggleToolbarVisibility={actions.toggleToolbarVisibility}
+            toolbarIsVisible={toolbarIsVisible}
             editorTitle={editorTitle}
             isValid={isValid}
+            isEditing={isEditing}
             onTapToPreview={this.handlePreviewArticle}
           />
         }
@@ -308,6 +329,9 @@ CmsEditorContainer.propTypes = {
   refetchArticle: PropTypes.func.isRequired,
   createArticleMutation: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  isEditing: PropTypes.bool.isRequired,
+  toolbarIsVisible: PropTypes.bool.isRequired,
+  isMobile: PropTypes.bool.isRequired,
 };
 
 CmsEditorContainer.contextTypes = {
@@ -316,6 +340,7 @@ CmsEditorContainer.contextTypes = {
 
 // mapStateToProps :: {State} -> {Props}
 const mapStateToProps = (state) => ({
+  toolbarIsVisible: state.cmsEditorContainer.toolbar.isVisible,
   submissionError: state.cmsEditorContainer.error,
   message: state.cmsEditorContainer.message,
   modal: state.cmsEditorContainer.modal,
@@ -328,6 +353,8 @@ const mapStateToProps = (state) => ({
   user: state.app.user,
   authToken: state.app.authToken,
   isLoading: state.cmsEditorContainer.isLoading,
+  isEditing: getIsEditing(state.cmsEditorContainer),
+  isMobile: state.app.isMobile,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}

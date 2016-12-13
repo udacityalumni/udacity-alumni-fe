@@ -14,7 +14,7 @@ import ExpandIcon from 'grommet-udacity/components/icons/base/Expand';
 import ContractIcon from 'grommet-udacity/components/icons/base/Contract';
 import Button from 'grommet-udacity/components/Button';
 import { FullSection, MainContent, MainBox, AsideButtonContainer } from './styles';
-import { getSortedUsers, getSortedArticles } from './selectors';
+import { getSortedUsers, getSortedArticles, getSortedFeedback } from './selectors';
 import {
   LoadingIndicator,
   DashboardTable,
@@ -24,6 +24,8 @@ import {
   AvatarFormModal,
   ConfirmationModal,
   Divider,
+  FeedbackPreview,
+  FeedbackTable,
 } from 'components';
 
 export const formFields = [
@@ -45,12 +47,15 @@ class AdminDashboard extends Component {
     this.handleDeletingArticle = this.handleDeletingArticle.bind(this);
     this.handleAvatarClick = this.handleAvatarClick.bind(this);
   }
-  componentWillReceiveProps({ users, articles }) {
+  componentWillReceiveProps({ users, articles, feedback }) {
     if (users && users !== this.props.users) {
       this.props.actions.setUsers(users);
     }
     if (articles && articles !== this.props.articles) {
       this.props.actions.setArticles(articles);
+    }
+    if (feedback && feedback !== this.props.feedback) {
+      this.props.actions.setFeedback(feedback);
     }
   }
   handleEditing(user) {
@@ -181,6 +186,10 @@ class AdminDashboard extends Component {
       modal,
       confirmationModal,
       message,
+      feedback,
+      pagedFeedback,
+      feedbackConfig,
+      feedbackModal,
     } = this.props;
     return (
       <MainBox
@@ -197,14 +206,14 @@ class AdminDashboard extends Component {
            <LoadingIndicator isLoading />
          </Section>
         :
-          <FullSection direction="row">
+          <FullSection primary direction="row">
             <MainContent
               align="center"
               justify="start"
               pad={{ vertical: 'large' }}
             >
               <Heading align="center">
-                Admin Dashboard
+                Dashboard
               </Heading>
               <Divider />
               <Box>
@@ -258,6 +267,24 @@ class AdminDashboard extends Component {
                         </Box>
                       </Tab>
                     }
+                    {feedback &&
+                      <Tab title="Feedback" onRequestForActive={() => actions.setActiveTab(3)}>
+                        <Box>
+                          <FeedbackTable
+                            items={pagedFeedback}
+                            isMobile={isMobile}
+                            perPage={feedbackConfig.perPage}
+                            currentPage={feedbackConfig.currentPage}
+                            onChangePage={actions.setFeedbackPage}
+                            allItems={feedback}
+                            onSort={actions.setSortOptionsFeedback}
+                            sortIndex={feedbackConfig.sortIndex}
+                            sortAscending={feedbackConfig.sortAscending}
+                            onItemClick={actions.showFeedbackModal}
+                          />
+                        </Box>
+                      </Tab>
+                    }
                   </Tabs>
                 }
               </Box>
@@ -299,6 +326,11 @@ class AdminDashboard extends Component {
           avatarString={modal.avatarInput}
           user={modal.user}
         />
+        <FeedbackPreview
+          isVisible={feedbackModal.isVisible}
+          onClose={actions.dismissFeedbackModal}
+          feedbackItem={feedbackModal.selectedItem}
+        />
         <ConfirmationModal
           isVisible={confirmationModal.isVisible}
           onConfirm={() => this.handleDeletingArticle()}
@@ -334,6 +366,10 @@ AdminDashboard.propTypes = {
   confirmationModal: PropTypes.object.isRequired,
   deleteArticleMutation: PropTypes.func.isRequired,
   message: PropTypes.string,
+  feedback: PropTypes.array,
+  feedbackConfig: PropTypes.object.isRequired,
+  pagedFeedback: PropTypes.array,
+  feedbackModal: PropTypes.object.isRequired,
 };
 
 AdminDashboard.contextTypes = {
@@ -348,14 +384,17 @@ const mapStateToProps = (state) => ({
   activeTab: state.adminDashboardContainer.activeTab,
   usersConfig: state.adminDashboardContainer.users,
   articlesConfig: state.adminDashboardContainer.articles,
+  feedbackConfig: state.adminDashboardContainer.feedback,
   editingIndex: state.adminDashboardContainer.users.editing,
   showAside: state.adminDashboardContainer.aside.isVisible,
   modal: state.adminDashboardContainer.modal,
   pagedUsers: getSortedUsers(state.adminDashboardContainer),
   pagedArticles: getSortedArticles(state.adminDashboardContainer),
+  pagedFeedback: getSortedFeedback(state.adminDashboardContainer),
   dashboardError: state.adminDashboardContainer.error,
   message: state.adminDashboardContainer.message,
   confirmationModal: state.adminDashboardContainer.confirmationModal,
+  feedbackModal: state.adminDashboardContainer.feedback.preview,
 });
 
 // mapDispatchToProps :: Dispatch -> {Action}
@@ -401,6 +440,18 @@ const getDashboardData = gql`
         tag
       }
     }
+    feedback(auth_token: $authToken) {
+      id
+      description
+      url
+      created_at
+      updated_at
+      user {
+        name
+        email
+        avatar
+      }
+    }
   }
 `;
 
@@ -411,13 +462,14 @@ const ContainerWithUsers = graphql(getDashboardData, {
       authToken: ownProps.authToken,
     },
   }),
-  props: ({ data: { loading, error, allUsers, allArticles, userRoles, refetch } }) => ({
+  props: ({ data: { loading, error, allUsers, allArticles, feedback, userRoles, refetch } }) => ({
     users: allUsers,
     isLoading: loading,
     error,
     articles: allArticles,
     userRoles,
     refetch,
+    feedback,
   }),
 })(FormContainer);
 

@@ -38,39 +38,45 @@ class ArticleFeed extends Component {
         articles;
     }
     return (
-      <Section align="center" justify="center">
+      <Section
+        className={styles.mainSection}
+        alignContent="center"
+        align="center"
+      >
         {loadingArticles || !articles ?
           <LoadingIndicator isLoading />
         :
-          <Box className={styles.articleFeed}>
-            <Headline
-              align="center"
-              className={styles.feedHeading}
-            >
-              Article Feed
-            </Headline>
-            <Divider />
-            <Section pad={{ horizontal: 'large' }} align="center" justify="center">
-              <Box>
-                <Table
-                  onMore={current <= articles.length - 1 ?
-                    this.handleLoadingMoreArticles : null
-                  }
-                >
-                  <List>
-                    <Box align="center" justify="center" className={styles.listItem}>
-                      {pagedArticles && pagedArticles.map((article, i) =>
-                        <Section key={i} pad={{ vertical: 'large' }}>
-                          <ListItem>
-                            <ArticleFeedItem article={article} />
-                          </ListItem>
-                        </Section>
-                      )}
-                    </Box>
-                  </List>
-                </Table>
-              </Box>
-            </Section>
+          <Box direction="row">
+            <Box className={styles.articleFeed}>
+              <Headline
+                align="center"
+                className={styles.feedHeading}
+              >
+                Article Feed
+              </Headline>
+              <Divider />
+              <Section pad={{ horizontal: 'large' }} align="center" justify="center">
+                <Box>
+                  <Table
+                    onMore={current <= articles.length - 1 ?
+                      this.handleLoadingMoreArticles : null
+                    }
+                  >
+                    <List>
+                      <Box align="center" justify="center" className={styles.listItem}>
+                        {pagedArticles && pagedArticles.map((article, i) =>
+                          <Section key={i} pad={{ vertical: 'large' }}>
+                            <ListItem>
+                              <ArticleFeedItem article={article} />
+                            </ListItem>
+                          </Section>
+                        )}
+                      </Box>
+                    </List>
+                  </Table>
+                </Box>
+              </Section>
+            </Box>
           </Box>
         }
       </Section>
