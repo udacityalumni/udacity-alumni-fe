@@ -12,3 +12,8 @@ export const feedbackSubmissionMessage = (message) => ({
   type: types.FEEDBACK_SUBMISSION_MESSAGE,
   message,
 });
+
+export const feedbackSubmissionError = (error) => ({
+  type: types.FEEDBACK_SUBMISSION_MESSAGE,
+  error,
+});

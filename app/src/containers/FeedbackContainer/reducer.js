@@ -4,6 +4,7 @@ export const initialState = {
   isAddingFeedback: false,
   isSubmitting: false,
   message: null,
+  error: null,
 };
 
 const feedbackReducer =
@@ -14,6 +15,7 @@ const feedbackReducer =
         ...state,
         isAddingFeedback: !state.isAddingFeedback,
         message: null,
+        error: null,
       };
     case types.FEEDBACK_SUBMISSION_INITIATION:
       return {
@@ -25,6 +27,12 @@ const feedbackReducer =
         ...state,
         isSubmitting: false,
         message: action.message,
+      };
+    case types.FEEDBACK_SUBMISSION_ERROR:
+      return {
+        ...state,
+        message: null,
+        error: action.error,
       };
     default:
       return state;

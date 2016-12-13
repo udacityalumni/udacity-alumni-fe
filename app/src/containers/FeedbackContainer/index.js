@@ -12,12 +12,11 @@ import {
  } from 'components';
 import validation from './validation/index';
 import { reduxForm } from 'redux-form';
-import Footer from 'grommet-udacity/components/Footer';
+import Notification from 'grommet-udacity/components/Notification';
 import Layer from 'grommet-udacity/components/Layer';
 import Box from 'grommet-udacity/components/Box';
-import Button from 'grommet-udacity/components/Button';
-import Menu from 'grommet-udacity/components/Menu';
 import Section from 'grommet-udacity/components/Section';
+import Paragraph from 'grommet-udacity/components/Paragraph';
 import { BASE_URL } from 'config';
 
 export const addFeedbackFields = [
@@ -86,8 +85,10 @@ class FeedbackContainer extends Component {
             '  We appreciate it greatly as it will help us to make this site better.';
             actions.feedbackSubmissionMessage(message);
           })
-          .catch(err => {
-            actions.feedbackSubmissionError(err);
+          .catch(error => {
+            console.warn("error", error.message);
+            // const error = 'Failed to submit feedback! Please try again...';
+            actions.feedbackSubmissionError(error);
           });
       }, 1000);
     } else {
@@ -110,6 +111,7 @@ class FeedbackContainer extends Component {
       fields,
       resetForm,
       message,
+      error,
     } = this.props;
     return (
       <div className={styles.addReview}>
@@ -126,24 +128,30 @@ class FeedbackContainer extends Component {
                 isLoading={isSubmitting}
               />
             }
-            <Section role="dialog">
-              <Box pad={{ vertical: 'large', horizontal: 'small' }}>
-                <AddFeedbackForm
-                  {...fields}
-                  user={user}
-                  isSubmitting={isSubmitting}
-                  message={message}
-                  location={location}
-                  onSubmitFeedback={this.handleSubmitFeedback}
-                  onClear={resetForm}
-                />
-              </Box>
-            </Section>
-          </Layer>
-        }
-        {hasFab &&
-          <FeedbackButton onClick={this.handleToggleModal}/>
-        }
+            {error &&
+              <Notification
+                message={error.message}
+                status="critcal"
+              />
+            }
+              <Section role="dialog">
+                <Box pad={{ vertical: 'large', horizontal: 'small' }}>
+                  <AddFeedbackForm
+                    {...fields}
+                    user={user}
+                    isSubmitting={isSubmitting}
+                    message={message}
+                    location={location}
+                    onSubmitFeedback={this.handleSubmitFeedback}
+                    onClear={resetForm}
+                  />
+                </Box>
+              </Section>
+            </Layer>
+          }
+          {hasFab &&
+            <FeedbackButton onClick={this.handleToggleModal}/>
+          }
       </div>
     );
   }
@@ -162,6 +170,7 @@ FeedbackContainer.propTypes = {
   isSubmitting: PropTypes.bool,
   message: PropTypes.string,
   authToken: PropTypes.string,
+  error: PropTypes.object,
 };
 
 // mapStateToProps :: {State} -> {Props}
