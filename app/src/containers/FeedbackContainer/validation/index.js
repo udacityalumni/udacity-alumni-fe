@@ -6,13 +6,13 @@ const nameInput = [
 ];
 
 
-const feedbackInput = [
+const urlInput = [
   validation.valueRequired,
 ];
 
 const formValidation = validation.createValidator({
   nameInput,
-  feedbackInput,
+  urlInput,
 });
 
 const validator = memoize(10)(formValidation);
