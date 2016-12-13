@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import Form from 'grommet-udacity/components/form';
-import FormField from 'grommet-udacity/components/formfield';
-import FormFields from 'grommet-udacity/components/formfields';
-import Footer from 'grommet-udacity/components/footer';
-import Button from 'grommet-udacity/components/button';
+import Form from 'grommet-udacity/components/Form';
+import FormField from 'grommet-udacity/components/FormField';
+import FormFields from 'grommet-udacity/components/FormFields';
+import Footer from 'grommet-udacity/components/Footer';
+import Button from 'grommet-udacity/components/Button';
 import Headline from 'grommet-udacity/components/Headline';
 import Heading from 'grommet-udacity/components/Heading';
 import Paragraph from 'grommet-udacity/components/Paragraph';
-import Menu from 'grommet-udacity/components/menu';
+import Menu from 'grommet-udacity/components/Menu';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 
