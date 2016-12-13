@@ -113,7 +113,7 @@ class FeedbackContainer extends Component {
     } = this.props;
     return (
       <div className={styles.addReview}>
-        {isAddingFeedback ?
+        {isAddingFeedback &&
           <Layer
             onClose={this.handleToggleModal}
             a11yTitle={'Add Feedback'}
@@ -140,20 +140,9 @@ class FeedbackContainer extends Component {
               </Box>
             </Section>
           </Layer>
-        :
-          <Footer className={styles.addFeedbackFooter}>
-            <Menu direction="row">
-              <Button
-                className={styles.button}
-                label="Add Feedback"
-                primary
-                onClick={this.handleToggleModal}
-              />
-            </Menu>
-            {hasFab &&
-              <FeedbackButton onClick={this.handleToggleModal}/>
-            }
-          </Footer>
+        }
+        {hasFab &&
+          <FeedbackButton onClick={this.handleToggleModal}/>
         }
       </div>
     );
