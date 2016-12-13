@@ -6,6 +6,7 @@ import Footer from 'grommet/components/footer';
 import Button from 'grommet/components/button';
 import Headline from 'grommet/components/Headline';
 import Heading from 'grommet/components/Heading';
+import LinkNextIcon from 'grommet/components/icons/base/LinkNext';
 import Menu from 'grommet/components/menu';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
@@ -82,7 +83,7 @@ class AddFeedbackForm extends Component {
               className={styles.blockedInput}
               id="feedbackNameInput"
               type="text"
-              value={user ? user.name : 'Please Login To Submit a Feedback!'}
+              value={user ? user.name : 'Guest User'}
               name="name"
               disabled
               required
@@ -126,6 +127,7 @@ class AddFeedbackForm extends Component {
           </FormField>
         </FormFields>
         <Footer className={styles.footer}>
+          {user ?
           <Menu direction="row">
             <Button
               className={styles.button}
@@ -139,6 +141,13 @@ class AddFeedbackForm extends Component {
               onClick={onClear}
             />
           </Menu>
+          :
+          <Heading
+            tag="h3"
+          >
+            Please Login to contiue giving us your feedback :)
+          </Heading>
+          }
         </Footer>
       </Form>
       </div>
