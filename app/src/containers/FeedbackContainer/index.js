@@ -9,6 +9,7 @@ import styles from './index.module.scss';
 import {
   FeedbackButton,
   AddFeedbackForm,
+  LoadingIndicator,
  } from 'components';
 import validation from './validation/index';
 import { reduxForm } from 'redux-form';
@@ -101,6 +102,7 @@ class FeedbackContainer extends Component {
       user,
       location,
       isAddingFeedback,
+      isSubmitting,
       hasFab,
       fields,
       resetForm,
@@ -108,6 +110,12 @@ class FeedbackContainer extends Component {
     } = this.props;
     return (
       <div className={styles.addReview}>
+        {isSubmitting &&
+          <LoadingIndicator
+            message="Submitting..."
+            isLoading={isSubmitting}
+          />
+        }
         {isAddingFeedback ?
           <Layer
             onClose={this.handleToggleModal}

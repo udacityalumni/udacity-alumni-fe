@@ -13,6 +13,7 @@ const feedbackReducer =
       return {
         ...state,
         isAddingFeedback: !state.isAddingFeedback,
+        message: null,
       };
     case types.FEEDBACK_SUBMISSION_INITIATION:
       return {
