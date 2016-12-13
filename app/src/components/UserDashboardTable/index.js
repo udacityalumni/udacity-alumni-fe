@@ -319,12 +319,14 @@ const UserDashboardTable = ({
         </Table>
       }
     </GrowBox>
-    <Pagination
-      onChange={onChangePage}
-      pageSize={perPage}
-      currentPage={currentPage}
-      total={allUsers.length}
-    />
+    {allUsers && allUsers.length > perPage &&
+      <Pagination
+        onChange={onChangePage}
+        pageSize={perPage}
+        currentPage={currentPage}
+        total={allUsers.length}
+      />
+    }
   </ListWrapper>
 );
 

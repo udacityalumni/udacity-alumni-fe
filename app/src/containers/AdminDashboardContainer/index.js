@@ -275,7 +275,7 @@ class AdminDashboard extends Component {
                             isMobile={isMobile}
                             perPage={feedbackConfig.perPage}
                             currentPage={feedbackConfig.currentPage}
-                            onChangePage={actions.setArticlesPage}
+                            onChangePage={actions.setFeedbackPage}
                             allItems={feedback}
                             onSort={actions.setSortOptionsFeedback}
                             sortIndex={feedbackConfig.sortIndex}

@@ -139,7 +139,7 @@ const DashboardTable = ({
         </Table>
       }
     </Box>
-    {allItems > perPage &&
+    {allItems && allItems.length > perPage &&
       <Pagination
         onChange={onChangePage}
         pageSize={perPage}
