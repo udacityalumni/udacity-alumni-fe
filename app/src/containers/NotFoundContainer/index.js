@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
 import Box from 'grommet-udacity/components/Box';
@@ -12,6 +12,7 @@ import Anchor from 'grommet-udacity/components/Anchor';
 import NavigateIcon from 'grommet-udacity/components/icons/base/Navigate';
 import messageData from './messageData';
 import { NotFoundImage, Divider } from 'components';
+import { connect } from 'react-redux';
 
 class NotFound extends Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -28,7 +29,7 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
 
     // choosing a random entry for the 404 page from messageData
     const randomArticle = getRandomInt(0, messageData.length);
-
+    const { isMobile } = this.props;
     return (
       <Box
         align="center"
@@ -41,9 +42,9 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
             className={styles.mainContent}
           >
             <Section primary align="center" pad="medium">
-              <Headline align="center">
+              <Heading tag={isMobile ? 'h2' : 'h1'} align="center">
                 Hello curious adventurer! : )
-              </Headline>
+              </Heading>
               <Divider />
               <NotFoundImage />
               <Paragraph textAlign="center">
@@ -52,7 +53,7 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
               </Paragraph>
             </Section>
             <Footer align="center" pad="large" direction="column">
-              <Heading tag="h1" align="center">
+              <Heading tag={isMobile ? 'h3' : 'h2'} align="center">
                 { messageData[randomArticle].title }
               </Heading>
               <Box pad="medium" align="center">
@@ -83,7 +84,14 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
   }
 }
 
+NotFound.propTypes = {
+  isMobile: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  isMobile: state.app.isMobile,
+});
 
 const Container = cssModules(NotFound, styles);
 
-export default Container;
+export default connect(mapStateToProps)(Container);
