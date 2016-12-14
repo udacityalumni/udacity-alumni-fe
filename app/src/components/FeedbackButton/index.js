@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styles from './index.module.scss';
 import cssModules from 'react-css-modules';
 import Button from 'grommet-udacity/components/Button';
-import SupportIcon from 'grommet-udacity/components/icons/base/Support';
+import AddIcon from 'grommet-udacity/components/icons/base/Add';
 
 const FeedbackButton = ({
   onClick,
@@ -12,13 +12,11 @@ const FeedbackButton = ({
       <Button
         className={styles.addButton}
         icon={
-          <SupportIcon
+          <AddIcon
             className={styles.icon}
           />
         }
         onClick={onClick}
-        a11yTitle="Add Review Floating"
-        a11yTitleId="add-review-floating-button"
       />
     </div>
   </div>

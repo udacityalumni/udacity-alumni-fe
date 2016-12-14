@@ -104,7 +104,6 @@ class FeedbackContainer extends Component {
       isSubmitting,
       hasFab,
       fields,
-      resetForm,
       message,
     } = this.props;
     return (
@@ -131,7 +130,7 @@ class FeedbackContainer extends Component {
                   message={message}
                   location={location}
                   onSubmitFeedback={this.handleSubmitFeedback}
-                  onClear={resetForm}
+                  onClear={this.handleClear}
                 />
               </Box>
             </Section>
