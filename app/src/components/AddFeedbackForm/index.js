@@ -6,7 +6,6 @@ import Footer from 'grommet-udacity/components/Footer';
 import Button from 'grommet-udacity/components/Button';
 import Headline from 'grommet-udacity/components/Headline';
 import Heading from 'grommet-udacity/components/Heading';
-import Paragraph from 'grommet-udacity/components/Paragraph';
 import Menu from 'grommet-udacity/components/Menu';
 import cssModules from 'react-css-modules';
 import styles from './index.module.scss';
@@ -47,9 +46,7 @@ class AddFeedbackForm extends Component {
             tag="h4"
             align="center"
           >
-            <Paragraph>
-              {message}
-            </Paragraph>
+            {message}
           </Heading>
         }
         <Headline
@@ -105,12 +102,11 @@ class AddFeedbackForm extends Component {
               label="Description"
               htmlFor="feedbackDescriptionInput"
               help="Describe your problem/feedback"
-              error={descriptionInput.touched && descriptionInput.error
-                    ?
-                      descriptionInput.error
-                    :
-                      null
-                    }
+              error={descriptionInput.touched && descriptionInput.error ?
+                descriptionInput.error
+              :
+                null
+              }
             >
               <textarea
                 {...descriptionInput}

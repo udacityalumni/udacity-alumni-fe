@@ -150,10 +150,7 @@ class AppContainer extends Component {
           !location.pathname.split('/').includes('admin')
           &&
           <FeedbackContainer
-            hasFab
             location={location}
-            onClear={this.handleClear}
-            onSubmitFeedback={this.handleSubmitFeedback}
           />
         }
       </App>
