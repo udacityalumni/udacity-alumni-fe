@@ -31,13 +31,13 @@ class FeedbackContainer extends Component {
     this.handleClear = this.handleClear.bind(this);
   }
   componentWillReceiveProps({ fields, user, location }) {
-    if(location && !fields.urlInput.value) {
+    if (location && !fields.urlInput.value) {
       const APPEND_LOCATION = location.pathname
                                 .substring(1, (location.pathname.length));
       fields.urlInput.onChange(`${BASE_URL}${APPEND_LOCATION}`);
     }
-    if(location && !fields.nameInput.value) {
-      if(user) {
+    if (location && !fields.nameInput.value) {
+      if (user) {
         fields.nameInput.onChange(user.name);
       } else {
         fields.nameInput.onChange('Guest User');

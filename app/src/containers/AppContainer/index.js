@@ -5,7 +5,7 @@ import * as actionCreators from './actions';
 import App from 'grommet-udacity/components/App';
 import { AppNavigation, ToastMessage } from 'components';
 import { updatePageTitle, getTitleFromRoute } from 'utils/a11y';
-// import { FeedbackContainer } from 'containers';
+import { FeedbackContainer } from 'containers';
 
 class AppContainer extends Component {
   constructor() {
@@ -146,7 +146,7 @@ class AppContainer extends Component {
         >
           {React.cloneElement(this.props.children, this.props)}
         </AppNavigation>
-        {/* {
+        {
           !location.pathname.split('/').includes('admin')
           &&
           <FeedbackContainer
@@ -155,7 +155,7 @@ class AppContainer extends Component {
             onClear={this.handleClear}
             onSubmitFeedback={this.handleSubmitFeedback}
           />
-        } */}
+        }
       </App>
     );
   }
