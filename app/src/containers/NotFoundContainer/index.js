@@ -4,15 +4,15 @@ import styles from './index.module.scss';
 import Box from 'grommet-udacity/components/Box';
 import Section from 'grommet-udacity/components/Section';
 import Heading from 'grommet-udacity/components/Heading';
-import Headline from 'grommet-udacity/components/Headline';
 import Paragraph from 'grommet-udacity/components/Paragraph';
 import Article from 'grommet-udacity/components/Article';
 import Footer from 'grommet-udacity/components/Footer';
 import Anchor from 'grommet-udacity/components/Anchor';
 import NavigateIcon from 'grommet-udacity/components/icons/base/Navigate';
 import messageData from './messageData';
-import { NotFoundImage, Divider } from 'components';
+import { Divider } from 'components';
 import { connect } from 'react-redux';
+import NotFoundImage from './404_1024.jpg';
 
 class NotFound extends Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -46,7 +46,7 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
                 Hello curious adventurer! : )
               </Heading>
               <Divider />
-              <NotFoundImage />
+              <img src={NotFoundImage} className="img-responsive" />
               <Paragraph textAlign="center">
                 You've wandered into uncharted territory. 404-Land.
                 <br />If that is right where you belong, then get ready to map!
