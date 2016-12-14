@@ -29,7 +29,10 @@ const allUsers = users;
 describe('<UserDashboardTable />', () => {
   it('should render with default props', () => {
   	const wrapper = shallow(
-  		<UserDashboardTable users={users} allUsers={allUsers} />
+  		<UserDashboardTable 
+  			users={users} 
+  			allUsers={allUsers}  			
+  		/>
   	);
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
