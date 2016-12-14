@@ -149,7 +149,6 @@ FeedbackContainer.propTypes = {
   user: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   isAddingFeedback: PropTypes.bool.isRequired,
-  onSubmitFeedback: PropTypes.func.isRequired,
   fields: PropTypes.object.isRequired,
   resetForm: PropTypes.func.isRequired,
   hasFab: PropTypes.bool.isRequired,
