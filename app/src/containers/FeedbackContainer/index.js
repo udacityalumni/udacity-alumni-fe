@@ -23,7 +23,6 @@ export const addFeedbackFields = [
   'descriptionInput',
 ];
 
-
 class FeedbackContainer extends Component {
   constructor() {
     super();

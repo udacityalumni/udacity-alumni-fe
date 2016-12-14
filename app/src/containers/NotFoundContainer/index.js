@@ -10,9 +10,8 @@ import Footer from 'grommet-udacity/components/Footer';
 import Anchor from 'grommet-udacity/components/Anchor';
 import NavigateIcon from 'grommet-udacity/components/icons/base/Navigate';
 import messageData from './messageData';
-import { Divider } from 'components';
+import { Divider, NotFoundImage } from 'components';
 import { connect } from 'react-redux';
-const NotFoundImage = 'https://github.com/RyanCCollins/cdn/blob/master/misc/404_720.jpg?raw=true';
 
 class NotFound extends Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -46,7 +45,7 @@ class NotFound extends Component { // eslint-disable-line react/prefer-stateless
                 Hello curious adventurer! : )
               </Heading>
               <Divider />
-              <img src={NotFoundImage} className="img-responsive" />
+              <NotFoundImage />
               <Paragraph textAlign="center">
                 You've wandered into uncharted territory. 404-Land.
                 <br />If that is right where you belong, then get ready to map!

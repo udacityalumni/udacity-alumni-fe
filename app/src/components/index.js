@@ -1,4 +1,5 @@
 /* GENERATOR: Assemble all components for export */
+export NotFoundImage from './NotFoundImage';
 export AddFeedbackForm from './AddFeedbackForm';
 export FeedbackButton from './FeedbackButton';
 export FeedbackPreview from './FeedbackPreview';
