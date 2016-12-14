@@ -1,7 +1,6 @@
 /* GENERATOR: Assemble all components for export */
 export AddFeedbackForm from './AddFeedbackForm';
 export FeedbackButton from './FeedbackButton';
-export NotFoundImage from './NotFoundImage';
 export FeedbackPreview from './FeedbackPreview';
 export FeedbackTable from './FeedbackTable';
 export ToolbarToggle from './ToolbarToggle';
