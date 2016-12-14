@@ -12,7 +12,7 @@ import NavigateIcon from 'grommet-udacity/components/icons/base/Navigate';
 import messageData from './messageData';
 import { Divider } from 'components';
 import { connect } from 'react-redux';
-import NotFoundImage from './404_1024.jpg';
+const NotFoundImage = 'https://github.com/RyanCCollins/cdn/blob/master/misc/404_720.jpg?raw=true';
 
 class NotFound extends Component { // eslint-disable-line react/prefer-stateless-function
 
