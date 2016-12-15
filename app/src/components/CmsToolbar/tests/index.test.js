@@ -8,8 +8,11 @@ describe('<CmsToolbar />', () => {
     const wrapper = shallow(
       <CmsToolbar
         onSave={e => e}
-        canSubmit
-        onPreview={e => e}
+        canSubmit={true}
+        onPreview={e => e}    
+        isEditing={true}
+        onToggleVisibility={e => e}  
+        isVisible={true}
       />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();

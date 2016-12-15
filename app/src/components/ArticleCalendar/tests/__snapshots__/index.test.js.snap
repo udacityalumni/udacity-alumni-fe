@@ -1,14 +1,14 @@
 exports[`<ArticleCalendar /> should render with default props 1`] = `
 <div>
   <div>
-    Invalid date
+    Nov
   </div>
   <div>
     <div>
-      Invalid date
+      15
     </div>
     <div>
-      Invalid date
+      2016
     </div>
   </div>
 </div>

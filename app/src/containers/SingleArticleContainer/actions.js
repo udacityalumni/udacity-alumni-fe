@@ -1,6 +1,6 @@
 import * as types from './constants';
 import 'whatwg-fetch';
-import { BASE_URL } from 'config';
+import { BASE_URL } from '../../config/index';
 const articleUrl = (id) => `${BASE_URL}api/v1/articles/${id}`;
 
 // loadArticleInitiation :: None -> {Action}

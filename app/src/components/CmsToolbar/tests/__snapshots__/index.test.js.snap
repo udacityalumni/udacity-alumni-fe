@@ -27,12 +27,23 @@ exports[`<CmsToolbar /> should render with default props 1`] = `
       responsive={true}
       tag="div">
       <Button
-        label="Submit"
-        onClick={[Function onSave]}
-        type="button" />
-      <Button
         label="Preview"
         onClick={[Function onPreview]}
+        secondary={true}
+        type="button" />
+      <Button
+        icon={
+          <Contract
+            a11yTitleId="contract-title"
+            responsive={true} />
+        }
+        onClick={[Function onToggleVisibility]}
+        plain={true}
+        type="button" />
+      <Button
+        label="Update Article"
+        onClick={[Function onSave]}
+        primary={true}
         type="button" />
     </Box>
   </Columns>

@@ -4,11 +4,12 @@ exports[`<Member /> should render with default props 1`] = `
   justify="center"
   size="large"
   tag="h1">
-  <Avatar
-    src="http://overhere" />
+  <undefined />
   <Heading
     align="center"
-    tag="h3" />
+    tag="h3">
+    Jane Doe
+  </Heading>
   <Paragraph>
     I have done this and that....
   </Paragraph>

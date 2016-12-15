@@ -15,7 +15,7 @@ exports[`<MainAside /> should render with default props 1`] = `
   tag="div">
   <div>
     <div>
-      <Image
+      <undefined
         size="medium"
         src="http://github.com/image.png" />
     </div>
@@ -53,7 +53,7 @@ exports[`<MainAside /> should render with default props 1`] = `
       responsive={true}
       tag="div">
       <Button
-        href="/admin/cms?action=new"
+        href="author/cms?action=new"
         icon={
           <Edit
             a11yTitleId="edit-title"
@@ -64,60 +64,16 @@ exports[`<MainAside /> should render with default props 1`] = `
         plain={true}
         type="button" />
       <Button
-        href="/admin/dashboard"
+        href="/author/dashboard"
         icon={
           <Dashboard
             a11yTitleId="dashboard-title"
             responsive={true} />
         }
-        label="Admin Dashboard"
+        label="Dashboard"
         onClick={[Function onClick]}
         plain={true}
         type="button" />
-    </Box>
-    <Box
-      announce={false}
-      direction="column"
-      focusable={true}
-      pad="none"
-      responsive={true}
-      tag="div">
-      <Heading
-        align="center"
-        tag="h3">
-        Widgets
-      </Heading>
-      <Box
-        announce={false}
-        direction="column"
-        focusable={true}
-        pad="none"
-        responsive={true}
-        tag="div">
-        <Menu
-          closeOnClick={true}
-          direction="column"
-          dropAlign={
-            Object {
-              "left": "left",
-              "top": "top"
-            }
-          }
-          inline={true}
-          pad="none">
-          <Button
-            href="/admin/carousel"
-            icon={
-              <Image
-                a11yTitleId="image-title"
-                responsive={true} />
-            }
-            label="Carousel"
-            onClick={[Function onClick]}
-            plain={true}
-            type="button" />
-        </Menu>
-      </Box>
     </Box>
   </div>
 </Box>

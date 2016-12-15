@@ -5,7 +5,10 @@ import React from 'react';
 
 describe('<Member />', () => {
   it('should render with default props', () => {
-  	const user = {bio:'I have done this and that.', avatar:'http://overhere'}
+  	const user = {
+  		bio: 'I have done this and that.', 
+  		name: 'Jane Doe',
+  	};
     const wrapper = shallow(
       <Member user={user} />
     );

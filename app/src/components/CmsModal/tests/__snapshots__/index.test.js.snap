@@ -151,8 +151,9 @@ exports[`<CmsModal /> should render with default props 1`] = `
       pad="medium"
       responsive={false}>
       <Button
-        label="Publish"
+        label="Save and Publish"
         onClick={[Function onSave]}
+        primary={true}
         type="button" />
     </Footer>
   </Form>
