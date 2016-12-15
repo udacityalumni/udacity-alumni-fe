@@ -3,10 +3,12 @@ import * as actions from '../actions';
 import * as types from '../constants';
 
 describe('WriterDashboard actions', () => {
-  it('has a type of WRITERDASHBOARD_DEFAULT_ACTION', () => {
+  it('has a type of WRITER_DASHBOARD_SET_ARTICLES', () => {
+  	const articles = [];
     const expected = {
-      type: types.WRITERDASHBOARD_DEFAULT_ACTION,
+      type: types.WRITER_DASHBOARD_SET_ARTICLES,
+      articles,
     };
-    expect(actions.writerDashboardDefaultAction()).toEqual(expected);
+    expect(actions.setArticles(articles)).toEqual(expected);
   });
 });
