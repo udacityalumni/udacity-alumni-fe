@@ -1,0 +1,25 @@
+exports[`<ResetPassword /> should render with default props 1`] = `
+<ConnectedForm
+  actions={
+    Object {
+      "resetPasswordClearError": [Function anonymous],
+      "resetPasswordClearMessage": [Function anonymous],
+      "resetPasswordRequestFailure": [Function anonymous],
+      "resetPasswordRequestInitiation": [Function anonymous],
+      "resetPasswordRequestSuccess": [Function anonymous]
+    }
+  }
+  errorLoading={null}
+  isLoading={false}
+  message={null}
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  } />
+`;
