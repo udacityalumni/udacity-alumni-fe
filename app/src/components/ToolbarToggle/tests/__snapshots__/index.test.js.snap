@@ -1,0 +1,10 @@
+exports[`<ToolbarToggle /> should render with default props 1`] = `
+<Styled(Box)>
+  <Styled(Box)>
+    <Button
+      icon={<Styled(Expand) />}
+      plain={true}
+      type="button" />
+  </Styled(Box)>
+</Styled(Box)>
+`;

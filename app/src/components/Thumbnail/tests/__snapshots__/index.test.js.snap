@@ -1,0 +1,7 @@
+exports[`<Thumbnail /> should render with default props 1`] = `
+<Styled(Box)
+  imageSize="small">
+  <Styled(Image)
+    src="https://github.com/RyanCCollins/cdn/blob/master/misc/placeholder3.png?raw=true" />
+</Styled(Box)>
+`;

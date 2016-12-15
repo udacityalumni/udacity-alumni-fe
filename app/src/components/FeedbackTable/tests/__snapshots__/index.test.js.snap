@@ -1,0 +1,27 @@
+exports[`<FeedbackTable /> should render with default props 1`] = `
+<Styled(Box)
+  color="light-2"
+  pad="large">
+  <Styled(Box)>
+    <Table>
+      <undefined
+        labels={
+          Array [
+            "",
+            "Name",
+            "Email",
+            "Date",
+            "Description",
+            "Url"
+          ]
+        } />
+      <tbody
+        style={
+          Object {
+            "minHeight": 500
+          }
+        } />
+    </Table>
+  </Styled(Box)>
+</Styled(Box)>
+`;

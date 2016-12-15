@@ -1,0 +1,157 @@
+exports[`<TableHeader /> should render with default props 1`] = `
+<thead>
+  <tr>
+    <th>
+      <Button
+        fill={true}
+        onClick={[Function bound _onSort]}
+        plain={true}
+        type="button">
+        <Box
+          align="center"
+          announce={false}
+          direction="row"
+          focusable={true}
+          justify="start"
+          pad={
+            Object {
+              "between": "small"
+            }
+          }
+          responsive={true}
+          tag="div">
+          <span />
+        </Box>
+      </Button>
+    </th>
+    <th>
+      <Button
+        fill={true}
+        onClick={[Function bound _onSort]}
+        plain={true}
+        type="button">
+        <Box
+          align="center"
+          announce={false}
+          direction="row"
+          focusable={true}
+          justify="start"
+          pad={
+            Object {
+              "between": "small"
+            }
+          }
+          responsive={true}
+          tag="div">
+          <span>
+            Title
+          </span>
+        </Box>
+      </Button>
+    </th>
+    <th>
+      <Button
+        fill={true}
+        onClick={[Function bound _onSort]}
+        plain={true}
+        type="button">
+        <Box
+          align="center"
+          announce={false}
+          direction="row"
+          focusable={true}
+          justify="start"
+          pad={
+            Object {
+              "between": "small"
+            }
+          }
+          responsive={true}
+          tag="div">
+          <span>
+            Posted On
+          </span>
+          <LinkDown
+            a11yTitleId="link-down-title"
+            responsive={true} />
+        </Box>
+      </Button>
+    </th>
+    <th>
+      <Button
+        fill={true}
+        onClick={[Function bound _onSort]}
+        plain={true}
+        type="button">
+        <Box
+          align="center"
+          announce={false}
+          direction="row"
+          focusable={true}
+          justify="start"
+          pad={
+            Object {
+              "between": "small"
+            }
+          }
+          responsive={true}
+          tag="div">
+          <span>
+            Status
+          </span>
+        </Box>
+      </Button>
+    </th>
+    <th>
+      <Button
+        fill={true}
+        onClick={[Function bound _onSort]}
+        plain={true}
+        type="button">
+        <Box
+          align="center"
+          announce={false}
+          direction="row"
+          focusable={true}
+          justify="start"
+          pad={
+            Object {
+              "between": "small"
+            }
+          }
+          responsive={true}
+          tag="div">
+          <span>
+            Author
+          </span>
+        </Box>
+      </Button>
+    </th>
+    <th>
+      <Button
+        fill={true}
+        onClick={[Function bound _onSort]}
+        plain={true}
+        type="button">
+        <Box
+          align="center"
+          announce={false}
+          direction="row"
+          focusable={true}
+          justify="start"
+          pad={
+            Object {
+              "between": "small"
+            }
+          }
+          responsive={true}
+          tag="div">
+          <span>
+            Actions
+          </span>
+        </Box>
+      </Button>
+    </th>
+  </tr>
+</thead>
+`;

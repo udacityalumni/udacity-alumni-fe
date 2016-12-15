@@ -1,0 +1,93 @@
+exports[`<AvatarFormModal /> should render with default props 1`] = `
+<Layer
+  align="center"
+  closer={true}
+  hidden={true}>
+  <Box
+    announce={false}
+    direction="column"
+    focusable={true}
+    pad="large"
+    responsive={true}
+    tag="div">
+    <Box
+      align="center"
+      announce={false}
+      direction="column"
+      focusable={true}
+      justify="center"
+      pad="medium"
+      responsive={true}
+      tag="div">
+      <undefined
+        src={null} />
+      <Heading
+        align="center"
+        tag="h2" />
+    </Box>
+    <Form
+      compact={false}
+      fill={false}
+      pad="none">
+      <FormField
+        help=""
+        label="Avatar"
+        size="medium"
+        strong={false}>
+        <input
+          placeholder="https://c2.staticflickr.com/8/7127/7552248154_978bcb1773.jpg"
+          type="text" />
+      </FormField>
+    </Form>
+    <Footer
+      align="center"
+      direction="row"
+      justify="center"
+      responsive={false}>
+      <Menu
+        closeOnClick={true}
+        direction="row"
+        dropAlign={
+          Object {
+            "left": "left",
+            "top": "top"
+          }
+        }
+        inline={true}
+        pad="none"
+        responsive={false}>
+        <Button
+          icon={
+            <Close
+              a11yTitleId="close-title"
+              responsive={true} />
+          }
+          label="Cancel"
+          secondary={true}
+          style={
+            Object {
+              "marginRight": 5,
+              "marginTop": 10
+            }
+          }
+          type="button" />
+        <Button
+          icon={
+            <Checkmark
+              a11yTitleId="checkmark-title"
+              responsive={true} />
+          }
+          label="Save"
+          primary={true}
+          style={
+            Object {
+              "marginLeft": 5,
+              "marginTop": 10
+            }
+          }
+          type="button" />
+      </Menu>
+    </Footer>
+  </Box>
+</Layer>
+`;

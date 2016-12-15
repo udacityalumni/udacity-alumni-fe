@@ -1,0 +1,6 @@
+exports[`<FeedbackPreview /> should render with default props 1`] = `
+<Layer
+  align="center"
+  closer={true}
+  hidden={true} />
+`;
