@@ -47,6 +47,13 @@ describe('cmsEditorReducer', () => {
     const stateAfter = {
       isLoading: false,
       message,
+      modal: {
+        isShowing: false,
+        status: 0,
+        spotlighted: false,
+        selectedTags: [],
+        featureImage: null,
+      },
     };
     expect(
       cmsEditorReducer(stateBefore, {

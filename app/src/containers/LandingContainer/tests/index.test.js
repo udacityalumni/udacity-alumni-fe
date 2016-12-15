@@ -13,8 +13,10 @@ describe('<Landing />', () => {
   it('should render with default props', () => {
     const app = {
       user: {
-        name: 'Ryan Collins',
-      },
+          name: 'David Harris',
+          avatar: 'http://github.com/image.png',
+          role: 'admin',
+        },
     };
     const store = mockStore({ app, landing });
     const wrapper = shallow(

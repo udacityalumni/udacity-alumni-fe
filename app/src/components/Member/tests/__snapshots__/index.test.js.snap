@@ -4,7 +4,8 @@ exports[`<Member /> should render with default props 1`] = `
   justify="center"
   size="large"
   tag="h1">
-  <undefined />
+  <undefined
+    src="https://github.com/RyanCCollins/cdn/blob/master/alumni-webapp/no-user.png?raw=true" />
   <Heading
     align="center"
     tag="h3">
