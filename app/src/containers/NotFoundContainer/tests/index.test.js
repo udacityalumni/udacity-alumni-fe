@@ -6,8 +6,10 @@ import React from 'react';
 describe('<NotFound />', () => {
   it('should render with default props', () => {
     const wrapper = shallow(
-      <NotFound />
+    	<NotFound />
     );
-    expect(shallowToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.length).toBe(1);
+    expect(wrapper.find('Anchor').length).toBe(1);
+    expect(wrapper.find('Paragraph').length).toBe(2);
   });
 });
