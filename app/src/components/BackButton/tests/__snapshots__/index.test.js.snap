@@ -1,0 +1,15 @@
+exports[`<BackButton /> should render with default props 1`] = `
+<Styled(Box)>
+  <Styled(Box)>
+    <Styled(Button)
+      a11yTitle="Add Review Floating"
+      a11yTitleId="add-review-floating-button"
+      icon={
+        <Styled(LinkPrevious)
+          a11yTitle="Back button"
+          a11yTitleId="back-button-floating-button-icon" />
+      }
+      onClick={[Function onClick]} />
+  </Styled(Box)>
+</Styled(Box)>
+`;

@@ -1,0 +1,104 @@
+exports[`<AdminDashboard /> should render with default props 1`] = `
+<Apollo(Apollo(Apollo(ConnectedForm)))
+  actions={
+    Object {
+      "cancelDeletingArticle": [Function anonymous],
+      "clearDashboardError": [Function anonymous],
+      "clearDashboardMessage": [Function anonymous],
+      "clearUserEditing": [Function anonymous],
+      "closeAvatarModal": [Function anonymous],
+      "dashboardDeleteArticleFailure": [Function anonymous],
+      "dashboardDeleteArticleInitiation": [Function anonymous],
+      "dashboardDeleteArticleSuccess": [Function anonymous],
+      "dismissFeedbackModal": [Function anonymous],
+      "editArticle": [Function anonymous],
+      "editAvatarInput": [Function anonymous],
+      "openAvatarModal": [Function anonymous],
+      "openConfirmationModal": [Function anonymous],
+      "setActiveTab": [Function anonymous],
+      "setArticles": [Function anonymous],
+      "setArticlesPage": [Function anonymous],
+      "setDashboardError": [Function anonymous],
+      "setFeedback": [Function anonymous],
+      "setFeedbackPage": [Function anonymous],
+      "setSortOptions": [Function anonymous],
+      "setSortOptionsArticles": [Function anonymous],
+      "setSortOptionsFeedback": [Function anonymous],
+      "setUserEditing": [Function anonymous],
+      "setUsers": [Function anonymous],
+      "setUsersPage": [Function anonymous],
+      "showFeedbackModal": [Function anonymous],
+      "toggleAside": [Function anonymous],
+      "viewArticle": [Function anonymous]
+    }
+  }
+  activeTab={0}
+  articlesConfig={
+    Object {
+      "currentPage": 1,
+      "items": Array [],
+      "perPage": 8,
+      "sortAscending": true,
+      "sortIndex": 1
+    }
+  }
+  authToken={null}
+  confirmationModal={
+    Object {
+      "articleId": null,
+      "isVisible": false
+    }
+  }
+  dashboardError={null}
+  editingIndex={null}
+  feedbackConfig={
+    Object {
+      "currentPage": 1,
+      "items": Array [],
+      "perPage": 8,
+      "preview": Object {
+        "isVisible": false,
+        "selectedItem": null
+      },
+      "sortAscending": true,
+      "sortIndex": 1
+    }
+  }
+  feedbackModal={
+    Object {
+      "isVisible": false,
+      "selectedItem": null
+    }
+  }
+  isMobile={false}
+  message={null}
+  modal={
+    Object {
+      "avatarInput": null,
+      "isVisible": false,
+      "user": null
+    }
+  }
+  showAside={false}
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  }
+  user={null}
+  usersConfig={
+    Object {
+      "currentPage": 1,
+      "editing": null,
+      "items": Array [],
+      "perPage": 8,
+      "sortAscending": true,
+      "sortIndex": 1
+    }
+  } />
+`;

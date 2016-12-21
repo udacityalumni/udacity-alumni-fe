@@ -33,17 +33,11 @@ exports[`<About /> should render with default props 1`] = `
           Contributor Voices
         </Heading>
         <CardComponent
-          description="hi"
-          githubUrl="https://git/here"
-          heading="h2"
-          image="https://here"
-          label="this" />
-        <CardComponent
-          description="ho"
-          githubUrl="https://git/there"
-          heading="h2"
-          image="https://there"
-          label="that" />
+          description="There surely is something you can do to make this better! : )"
+          githubUrl="https://github.com/udacityalumni"
+          heading="Hei You!"
+          image="https://upload.wikimedia.org/wikipedia/commons/3/33/White_square_with_question_mark.png"
+          label="Anything you want" />
       </Box>
     </Sidebar>
   </Split>

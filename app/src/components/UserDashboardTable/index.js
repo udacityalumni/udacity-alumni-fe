@@ -336,7 +336,7 @@ UserDashboardTable.propTypes = {
   currentPage: PropTypes.number.isRequired,
   allUsers: PropTypes.array.isRequired,
   onChangePage: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  fields: PropTypes.array.isRequired,
   onEdit: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
   onClear: PropTypes.func.isRequired,

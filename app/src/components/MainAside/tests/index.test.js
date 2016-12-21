@@ -10,6 +10,7 @@ describe('<MainAside />', () => {
         user={{
           name: 'David Harris',
           avatar: 'http://github.com/image.png',
+          role: 'admin',
         }}
       />
     );

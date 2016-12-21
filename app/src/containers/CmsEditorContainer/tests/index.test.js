@@ -5,7 +5,7 @@ import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { initialState as cmsEditorContainer } from '../reducer';
-import { initialState as app } from '../../../components/App/reducer';
+import { initialState as app } from '../../AppContainer/reducer';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

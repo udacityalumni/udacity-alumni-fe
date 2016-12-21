@@ -11,7 +11,7 @@ exports[`<UserProfile /> should render with default props 1`] = `
     align="center"
     justify="center"
     pad="none">
-    <EditableText
+    <undefined
       altName="avatar"
       autoFocus={true}
       name="photo"
@@ -19,13 +19,11 @@ exports[`<UserProfile /> should render with default props 1`] = `
       type="url">
       <img
         src="https://here" />
-    </EditableText>
+    </undefined>
   </Section>
-  <EditableText
-    autoFocus={false}
+  <undefined
     name="bio"
-    placeholder="Hi, I\'m Bill and I used to be the president."
-    type="text">
+    placeholder="Hi, I\'m Bill and I used to be the president.">
     <Box
       announce={false}
       direction="row"
@@ -38,9 +36,8 @@ exports[`<UserProfile /> should render with default props 1`] = `
         Have done this and that.
       </Paragraph>
     </Box>
-  </EditableText>
-  <EditableText
-    autoFocus={false}
+  </undefined>
+  <undefined
     name="email"
     placeholder="bill@clinton.com"
     type="email">
@@ -59,7 +56,7 @@ exports[`<UserProfile /> should render with default props 1`] = `
         someone@yahoo.com
       </Heading>
     </Box>
-  </EditableText>
+  </undefined>
   <Section
     align="center"
     pad={

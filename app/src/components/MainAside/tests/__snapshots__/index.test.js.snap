@@ -15,7 +15,7 @@ exports[`<MainAside /> should render with default props 1`] = `
   tag="div">
   <div>
     <div>
-      <Image
+      <undefined
         size="medium"
         src="http://github.com/image.png" />
     </div>
@@ -70,7 +70,7 @@ exports[`<MainAside /> should render with default props 1`] = `
             a11yTitleId="dashboard-title"
             responsive={true} />
         }
-        label="Admin Dashboard"
+        label="Dashboard"
         onClick={[Function onClick]}
         plain={true}
         type="button" />
@@ -91,7 +91,11 @@ exports[`<MainAside /> should render with default props 1`] = `
         announce={false}
         direction="column"
         focusable={true}
-        pad="none"
+        pad={
+          Object {
+            "horizontal": "small"
+          }
+        }
         responsive={true}
         tag="div">
         <Menu

@@ -1,0 +1,83 @@
+exports[`<WriterDashboard /> should render with default props 1`] = `
+<Apollo(Apollo(WriterDashboardContainer))
+  actions={
+    Object {
+      "cancelDeletingArticle": [Function anonymous],
+      "clearDashboardError": [Function anonymous],
+      "clearDashboardMessage": [Function anonymous],
+      "dashboardDeleteArticleFailure": [Function anonymous],
+      "dashboardDeleteArticleInitiation": [Function anonymous],
+      "dashboardDeleteArticleSuccess": [Function anonymous],
+      "editArticle": [Function anonymous],
+      "openConfirmationModal": [Function anonymous],
+      "setArticles": [Function anonymous],
+      "setArticlesPage": [Function anonymous],
+      "setDashboardError": [Function anonymous],
+      "setSortOptions": [Function anonymous],
+      "toggleAside": [Function anonymous],
+      "viewArticle": [Function anonymous]
+    }
+  }
+  articles={
+    Array [
+      Object {
+        "content": "Diagnostic related group HIPAA accreditation",
+        "created_at": "2016-09-30T02:39:57.352Z",
+        "feature_image": "https://robohash.org/sapienteeaoptio.png?size=300x300",
+        "featured": false,
+        "id": 4,
+        "slug": "current-procedural-terminology-benefit-impaired-risk",
+        "spotlighted": false,
+        "status": "published",
+        "title": "Current procedural terminology Benefit Impaired risk",
+        "updated_at": "2016-09-30T02:39:57.352Z",
+        "user": Object {
+          "avatar": "https://avatars3.githubusercontent.com/u/13679375?v=3&s=466",
+          "bio": "Hello world",
+          "created_at": "2016-09-30T02:39:57.297Z",
+          "email": "andreas@gmail.com",
+          "id": 3,
+          "name": "Andreas Daimainger",
+          "role": "user",
+          "updated_at": "2016-10-03T18:49:42.965Z"
+        }
+      }
+    ]
+  }
+  articlesConfig={
+    Object {
+      "currentPage": 1,
+      "items": Array [],
+      "perPage": 8,
+      "sortAscending": true,
+      "sortIndex": 1
+    }
+  }
+  authToken={null}
+  confirmationModal={
+    Object {
+      "articleId": null,
+      "isVisible": false
+    }
+  }
+  errorLoading={
+    Object {
+      "message": "error in loading, go get a drink of water for a break"
+    }
+  }
+  isLoading={false}
+  isMobile={false}
+  message={null}
+  showAside={false}
+  store={
+    Object {
+      "clearActions": [Function clearActions],
+      "dispatch": [Function anonymous],
+      "getActions": [Function getActions],
+      "getState": [Function getState],
+      "replaceReducer": [Function replaceReducer],
+      "subscribe": [Function subscribe]
+    }
+  }
+  user={null} />
+`;

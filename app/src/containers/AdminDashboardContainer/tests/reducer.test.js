@@ -45,7 +45,7 @@ describe('adminDashboardReducer', () => {
       },
     };
     const stateAfter = {
-      isSubmitting: true,
+      isSubmitting: false,
       message,
       confirmationModal: {
         isVisible: false,
@@ -181,13 +181,13 @@ describe('adminDashboardReducer', () => {
     const index = 3;
     const ascending = false;
     const stateBefore = {
-      userTable: {
+      users: {
         sortIndex: 0,
         sortAscending: true,
       },
     };
     const stateAfter = {
-      userTable: {
+      users: {
         sortIndex: index,
         sortAscending: ascending,
       },
@@ -264,7 +264,7 @@ describe('adminDashboardReducer', () => {
     ).toEqual(stateAfter);
   });
   it('should handle reducer for ADMIN_DASHBOARD_SET_USER_EDITING', () => {
-    const user = { foo: 'bar', id: 1 };
+    const index = 12;
     const stateBefore = {
       users: {
         editing: null,
@@ -272,13 +272,13 @@ describe('adminDashboardReducer', () => {
     };
     const stateAfter = {
       users: {
-        editing: user,
+        editing: 12,
       },
     };
     expect(
       adminDashboardReducer(stateBefore, {
         type: types.ADMIN_DASHBOARD_SET_USER_EDITING,
-        user,
+        index,
       })
     ).toEqual(stateAfter);
   });

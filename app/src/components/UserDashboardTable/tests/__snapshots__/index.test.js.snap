@@ -1,0 +1,193 @@
+exports[`<UserDashboardTable /> should render with default props 1`] = `
+<Styled(Box)
+  color="light-2">
+  <Styled(Box)>
+    <Table>
+      <undefined
+        labels={
+          Array [
+            "",
+            "Name",
+            "Email",
+            "Role",
+            "Bio",
+            "Public",
+            "Actions"
+          ]
+        } />
+      <tbody>
+        <Styled(TableRow)
+          isEditing={false}
+          onClick={[Function onClick]}>
+          <td>
+            <Box
+              announce={false}
+              direction="column"
+              focusable={true}
+              onClick={[Function onClick]}
+              pad="none"
+              responsive={true}
+              style={
+                Object {
+                  "width": 50
+                }
+              }
+              tag="div">
+              <undefined
+                onClick={[Function onClick]}
+                size="xsmall"
+                src="https://avatars3.githubusercontent.com/u/13679375?v=3&s=466" />
+            </Box>
+          </td>
+          <styled.td>
+            <Heading
+              tag="h4">
+              Andreas Daimainger
+            </Heading>
+          </styled.td>
+          <styled.td>
+            <Heading
+              tag="h5">
+              andreas@gmail.com
+            </Heading>
+          </styled.td>
+          <styled.td>
+            <Heading
+              tag="h5">
+              User
+            </Heading>
+          </styled.td>
+          <styled.td>
+            <p>
+              N/A
+            </p>
+          </styled.td>
+          <td>
+            <CheckBox
+              disabled={true}
+              onChange={[Function onChange]}
+              toggle={false} />
+          </td>
+          <td>
+            <Menu
+              align="center"
+              closeOnClick={true}
+              direction="row"
+              dropAlign={
+                Object {
+                  "left": "left",
+                  "top": "top"
+                }
+              }
+              inline={true}
+              justify="center"
+              pad="none"
+              responsive={false}
+              style={
+                Object {
+                  "width": "100%"
+                }
+              }>
+              <Button
+                icon={
+                  <Edit
+                    a11yTitleId="edit-title"
+                    responsive={true} />
+                }
+                onClick={[Function onClick]}
+                plain={true}
+                type="button" />
+            </Menu>
+          </td>
+        </Styled(TableRow)>
+        <Styled(TableRow)
+          isEditing={false}
+          onClick={[Function onClick]}>
+          <td>
+            <Box
+              announce={false}
+              direction="column"
+              focusable={true}
+              onClick={[Function onClick]}
+              pad="none"
+              responsive={true}
+              style={
+                Object {
+                  "width": 50
+                }
+              }
+              tag="div">
+              <undefined
+                onClick={[Function onClick]}
+                size="xsmall"
+                src="https://avatars3" />
+            </Box>
+          </td>
+          <styled.td>
+            <Heading
+              tag="h4">
+              John Doe
+            </Heading>
+          </styled.td>
+          <styled.td>
+            <Heading
+              tag="h5">
+              thing_two@yahoo.com
+            </Heading>
+          </styled.td>
+          <styled.td>
+            <Heading
+              tag="h5">
+              User
+            </Heading>
+          </styled.td>
+          <styled.td>
+            <p>
+              N/A
+            </p>
+          </styled.td>
+          <td>
+            <CheckBox
+              disabled={true}
+              onChange={[Function onChange]}
+              toggle={false} />
+          </td>
+          <td>
+            <Menu
+              align="center"
+              closeOnClick={true}
+              direction="row"
+              dropAlign={
+                Object {
+                  "left": "left",
+                  "top": "top"
+                }
+              }
+              inline={true}
+              justify="center"
+              pad="none"
+              responsive={false}
+              style={
+                Object {
+                  "width": "100%"
+                }
+              }>
+              <Button
+                icon={
+                  <Edit
+                    a11yTitleId="edit-title"
+                    responsive={true} />
+                }
+                onClick={[Function onClick]}
+                plain={true}
+                type="button" />
+            </Menu>
+          </td>
+        </Styled(TableRow)>
+      </tbody>
+    </Table>
+  </Styled(Box)>
+  <undefined
+    total={2} />
+</Styled(Box)>
+`;

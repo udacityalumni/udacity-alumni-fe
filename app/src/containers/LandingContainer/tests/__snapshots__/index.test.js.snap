@@ -29,7 +29,9 @@ exports[`<Landing /> should render with default props 1`] = `
   }
   user={
     Object {
-      "name": "Ryan Collins"
+      "avatar": "http://github.com/image.png",
+      "name": "David Harris",
+      "role": "admin"
     }
   } />
 `;

@@ -15,62 +15,24 @@ exports[`<DashboardTable /> should render with default props 1`] = `
     responsive={true}
     tag="div">
     <Table>
-      <thead>
-        <tr>
-          <th>
-            Title
-          </th>
-          <th>
-            Status
-          </th>
-          <th>
-            Author
-          </th>
-          <th>
-            Actions
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <TableRow>
-          <td>
-            <Heading
-              tag="h4">
-              Hello World
-            </Heading>
-          </td>
-          <td>
-            <Heading
-              tag="h5">
-              Published
-            </Heading>
-          </td>
-          <td>
-            <Heading
-              tag="h5">
-              Ryan Collins
-            </Heading>
-          </td>
-          <td>
-            <DashboardTableButtonMenu
-              article={
-                Object {
-                  "id": 0,
-                  "status": "published",
-                  "title": "Hello World",
-                  "user": Object {
-                    "name": "Ryan Collins"
-                  }
-                }
-              }
-              onDeleteArticle={[Function onDeleteArticle]} />
-          </td>
-        </TableRow>
-      </tbody>
+      <undefined
+        labels={
+          Array [
+            "",
+            "Title",
+            "Posted On",
+            "Status",
+            "Author",
+            "Actions"
+          ]
+        } />
+      <tbody
+        style={
+          Object {
+            "minHeight": 500
+          }
+        } />
     </Table>
   </Box>
-  <Pagination
-    pageSize={10}
-    total={1} />
 </Box>
 `;

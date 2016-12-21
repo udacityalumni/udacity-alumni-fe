@@ -8,12 +8,7 @@ exports[`<ConfirmationModal /> should render with default props 1`] = `
     announce={false}
     direction="column"
     focusable={true}
-    pad={
-      Object {
-        "horizontal": "medium",
-        "vertical": "medium"
-      }
-    }
+    pad="large"
     responsive={true}
     tag="div">
     <Heading
@@ -40,6 +35,12 @@ exports[`<ConfirmationModal /> should render with default props 1`] = `
         }
         label="Confirm"
         primary={true}
+        style={
+          Object {
+            "marginRight": 5,
+            "marginTop": 10
+          }
+        }
         type="submit" />
       <Button
         icon={
@@ -48,6 +49,12 @@ exports[`<ConfirmationModal /> should render with default props 1`] = `
             responsive={true} />
         }
         label="Cancel"
+        style={
+          Object {
+            "marginLeft": 5,
+            "marginTop": 10
+          }
+        }
         type="reset" />
     </Footer>
   </Box>

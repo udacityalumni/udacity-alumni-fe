@@ -1,6 +1,6 @@
 import * as types from './constants';
 import 'whatwg-fetch';
-import { BASE_URL } from 'config';
+import { BASE_URL } from '../../config/index';
 const articlesUrl = `${BASE_URL}api/v1/articles`;
 const spotlightedImagesUrl = `${BASE_URL}api/v1/spotlight_images`;
 

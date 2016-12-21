@@ -17,10 +17,12 @@ exports[`<CmsEditor /> should render with default props 1`] = `
       "cmsSetStatus": [Function anonymous],
       "cmsToggleSpotlight": [Function anonymous],
       "handleClearingToast": [Function anonymous],
+      "hideToolbar": [Function anonymous],
       "setFeatureImage": [Function anonymous],
       "submitArticleFailure": [Function anonymous],
       "submitArticleInitiation": [Function anonymous],
-      "submitArticleSucces": [Function anonymous]
+      "submitArticleSucces": [Function anonymous],
+      "toggleToolbarVisibility": [Function anonymous]
     }
   }
   articleId={null}
@@ -31,27 +33,27 @@ exports[`<CmsEditor /> should render with default props 1`] = `
         "allowUndo": true,
         "currentContent": Object {
           "blockMap": Object {
-            "a7gq9": Object {
+            "53l9s": Object {
               "characterList": Array [],
               "data": Object {},
               "depth": 0,
-              "key": "a7gq9",
+              "key": "53l9s",
               "text": "",
               "type": "unstyled"
             }
           },
           "selectionAfter": Object {
-            "anchorKey": "a7gq9",
+            "anchorKey": "53l9s",
             "anchorOffset": 0,
-            "focusKey": "a7gq9",
+            "focusKey": "53l9s",
             "focusOffset": 0,
             "hasFocus": false,
             "isBackward": false
           },
           "selectionBefore": Object {
-            "anchorKey": "a7gq9",
+            "anchorKey": "53l9s",
             "anchorOffset": 0,
-            "focusKey": "a7gq9",
+            "focusKey": "53l9s",
             "focusOffset": 0,
             "hasFocus": false,
             "isBackward": false
@@ -66,7 +68,7 @@ exports[`<CmsEditor /> should render with default props 1`] = `
           ]
         },
         "directionMap": Object {
-          "a7gq9": "LTR"
+          "53l9s": "LTR"
         },
         "forceSelection": false,
         "inCompositionMode": false,
@@ -75,15 +77,15 @@ exports[`<CmsEditor /> should render with default props 1`] = `
         "nativelyRenderedContent": null,
         "redoStack": Array [],
         "selection": Object {
-          "anchorKey": "a7gq9",
+          "anchorKey": "53l9s",
           "anchorOffset": 0,
-          "focusKey": "a7gq9",
+          "focusKey": "53l9s",
           "focusOffset": 0,
           "hasFocus": false,
           "isBackward": false
         },
         "treeMap": Object {
-          "a7gq9": Array [
+          "53l9s": Array [
             Object {
               "decoratorKey": null,
               "end": 0,
@@ -102,7 +104,9 @@ exports[`<CmsEditor /> should render with default props 1`] = `
     }
   }
   editorTitle={null}
+  isEditing={false}
   isLoading={false}
+  isMobile={false}
   isValid={false}
   message={null}
   modal={
@@ -132,5 +136,6 @@ exports[`<CmsEditor /> should render with default props 1`] = `
     }
   }
   submissionError={null}
+  toolbarIsVisible={true}
   user={null} />
 `;
