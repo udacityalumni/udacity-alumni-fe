@@ -55,6 +55,20 @@ const contributorVoices = [
     githubUrl: 'https://github.com/udacityalumni',
     description: 'Excited to build something? Click the link!',
   },
+  {
+    label: '',
+    image: 'https://avatars2.githubusercontent.com/u/10888441?v=3&s=400',
+    heading: 'James Ives',
+    githubUrl: 'https://github.com/JamesIves',
+    description: 'Excited to build something? Click the link!',
+  },
+  {
+    label: '',
+    image: 'https://avatars1.githubusercontent.com/u/15236109?v=3&s=400',
+    heading: 'James Gallagher',
+    githubUrl: 'https://github.com/James-Gallagher',
+    description: 'The Udacity Alumni Web App project was a key opportunity to collaborate with experienced programmers on a project which would benefit the whole Alumni Community. Implementing features, delegating tasks, collaborating on ideas - all parts of the project in which turned the project, into a true community of developers. The project expresses the work, thoughts and opinions of Udacity Alumni and was a very time consuming, yet well executed project - with development never ending considering there is always a new idea which is pending to be implemented.',
+  },
 ];
 
 export default contributorVoices;
