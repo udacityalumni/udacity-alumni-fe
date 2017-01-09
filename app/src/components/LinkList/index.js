@@ -8,7 +8,7 @@ const LinkList = ({
   links,
   seperator,
 }) => (
-  <Box direction="row" responsive={false} wrap>
+  <Box direction="row" responsive={false} wrap className={styles.tags}>
     {links.map((link, i) => {
       const s = i < links.length - 1 ? `${seperator} ` : '';
       return (
