@@ -1,17 +1,18 @@
 ## Avatar Component
-A component that ...
+A component that that displays a user avatar.
 
 ### Example
 
 ```js
-<Avatar />
+<Avatar src={user.avatar} />
 ```
 
 ### Props
 
 | Prop          | Type     | Default     | Possible Values
 | ------------- | -------- | ----------- | ---------------------------------------------
-| **myProp**    | String   |             | Any string value
+| **src**    | String   | defaultAvatarUrl            | Any string value
 
 
 ### Other Information
+Presentational component that can be reused if needed.
