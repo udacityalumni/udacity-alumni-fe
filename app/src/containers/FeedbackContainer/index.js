@@ -16,7 +16,6 @@ import Notification from 'grommet-udacity/components/Notification';
 import Layer from 'grommet-udacity/components/Layer';
 import Box from 'grommet-udacity/components/Box';
 import Section from 'grommet-udacity/components/Section';
-import Paragraph from 'grommet-udacity/components/Paragraph';
 import { BASE_URL } from 'config';
 
 export const addFeedbackFields = [
@@ -86,7 +85,7 @@ class FeedbackContainer extends Component {
             actions.feedbackSubmissionMessage(message);
           })
           .catch(error => {
-            console.warn("error", error.message);
+            console.warn("ERROR: ", error.message);
             // const error = 'Failed to submit feedback! Please try again...';
             actions.feedbackSubmissionError(error);
           });
